@@ -4,19 +4,15 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>序 | &lt;define&gt;Hello, Arccode&lt;/define&gt;</title>
+    <title>Mac下使用IE | &lt;define&gt;Hello, Arccode&lt;/define&gt;</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="arccode">
     
-    <meta name="description" content="个人博客
-问：为什么要搭建博客？
-答：记录自己在IT这个行业中的点滴，同时把自己的一些东西分享给各位朋友。
-问：为什么不选择已有的博客平台，而要自己搭建？
-答：想让事情变得简单点，有想法或解决了一些问题的时候，用Markdown记录一下。
-问：……？
-答：…………。
-问： 你的声音太小，我没听清楚呀">
+    <meta name="description" content="如何在Mac上使用IE？
+
+点击modern.IE，选择要下载的版本，点击Grab them all with cURL获取下载的URL，例如1
+curl -O -L &quot;https://www.modern.ie/vmdownload?platform=mac&amp;virtPlatform=virtua">
     
     
     
@@ -76,38 +72,51 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/07/01/序/" title="序" itemprop="url">序</a>
+      <a href="/2014/07/08/Mac下使用IE/" title="Mac下使用IE" itemprop="url">Mac下使用IE</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://arccode.github.io/about" title="arccode" target="_blank" itemprop="author">arccode</a>
 		
   <p class="article-time">
-    <time datetime="2014-07-01T14:57:07.000Z" itemprop="datePublished">发表于 2014-07-01</time>
+    <time datetime="2014-07-08T09:33:42.000Z" itemprop="datePublished">发表于 2014-07-08</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		
-		<h2 id="个人博客">个人博客</h2>
-<p>问：为什么要搭建博客？</p>
-<p>答：记录自己在IT这个行业中的点滴，同时把自己的一些东西分享给各位朋友。</p>
-<p>问：为什么不选择已有的博客平台，而要自己搭建？</p>
-<p>答：想让事情变得简单点，有想法或解决了一些问题的时候，用<a href="http://wowubuntu.com/markdown/#philosophy" target="_blank" rel="external">Markdown</a>记录一下。</p>
-<p>问：……？</p>
-<p>答：…………。</p>
-<p>问： 你的声音太小，我没听清楚呀。</p>
-<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#97;&#x72;&#x63;&#x63;&#111;&#100;&#101;&#64;&#49;&#x36;&#x33;&#x2e;&#99;&#x6f;&#x6d;">&#97;&#x72;&#x63;&#x63;&#111;&#100;&#101;&#64;&#49;&#x36;&#x33;&#x2e;&#99;&#x6f;&#x6d;</a>。</p>
+		<p>如何在Mac上使用IE？</p>
+<ol>
+<li>点击<a href="https://www.modern.ie/en-us/virtualization-tools#downloads" target="_blank" rel="external">modern.IE</a>，选择要下载的版本，点击<code>Grab them all with cURL</code>获取下载的URL，例如<br><img src="/images/modern_IE_page.png" alt=""><figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>curl <span class="attribute">-O</span> <span class="attribute">-L</span> <span class="string">"https://www.modern.ie/vmdownload?platform=mac&virtPlatform=virtualbox&browserOS=IE10-Win8.1&parts=5&filename=VMBuild_20131127/VirtualBox/IE10_Win8/Mac/IE10.Win8.For.MacVirtualBox.part{1.sfx,2.rar,3.rar,4.rar,5.rar}"</span>
+</pre></td></tr></table></figure></li>
+<li><code>$ cd ~/Downloads/VisualBox_IE</code>，切换到保存文件的目录；</li>
+<li>执行获取的URL<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>curl <span class="attribute">-O</span> <span class="attribute">-L</span> <span class="string">"https://www.modern.ie/vmdownload?platform=mac&virtPlatform=virtualbox&browserOS=IE10-Win8.1&parts=5&filename=VMBuild_20131127/VirtualBox/IE10_Win8/Mac/IE10.Win8.For.MacVirtualBox.part{1.sfx,2.rar,3.rar,4.rar,5.rar}"</span>
+</pre></td></tr></table></figure></li>
+<li><code>$ chmod +x ./IE11.Win7.For.MacVirtualBox.part1.sfx</code></li>
+<li><code>$ ./chmod +x ./IE11.Win7.For.MacVirtualBox.part1.sfx</code><br><img src="/images/modern_IE_page_uncompress.png" alt=""></li>
+<li>双击<code>IE11 - Win7.ova</code>，并配置内存<br><img src="/images/modern_IE_page_config_1.png" alt=""></li>
+<li>完成<br><img src="/images/modern_IE_page_welcome.png" alt=""></li>
+</ol>
+<p>另一种方式：<a href="http://osxdaily.com/2011/09/04/internet-explorer-for-mac-ie7-ie8-ie-9-free/" target="_blank" rel="external">Mac安装IE 方法二</a>,使用到googlecode需要使用代理。</p>
+<h2 id="参考资料">参考资料</h2>
+<p><a href="http://webees.me/installing-virtualbox-for-mac-and-set-up-modern-ie/" target="_blank" rel="external">Mac安装IE 方法一</a><br><a href="http://osxdaily.com/2011/09/04/internet-explorer-for-mac-ie7-ie8-ie-9-free/" target="_blank" rel="external">Mac安装IE 方法二</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/随笔/">随笔</a>
+  <a class="article-category-link" href="/categories/工具/">工具</a>
 </div>
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Mac/">Mac</a><a href="/tags/VitualBox/">VitualBox</a>
+  </div>
 
 
 
@@ -144,14 +153,14 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2014/07/06/进程和线程/" title="进程和线程">
-  <strong>上一篇：</strong><br/>
-  <span>
-  进程和线程</span>
+
+<div class="next">
+<a href="/2014/07/08/浅谈W3C标准/"  title="浅谈W3C标准">
+ <strong>下一篇：</strong><br/> 
+ <span>浅谈W3C标准
+</span>
 </a>
 </div>
-
 
 </nav>
 

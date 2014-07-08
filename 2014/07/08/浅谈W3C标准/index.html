@@ -4,19 +4,15 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>序 | &lt;define&gt;Hello, Arccode&lt;/define&gt;</title>
+    <title>浅谈W3C标准 | &lt;define&gt;Hello, Arccode&lt;/define&gt;</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="arccode">
     
-    <meta name="description" content="个人博客
-问：为什么要搭建博客？
-答：记录自己在IT这个行业中的点滴，同时把自己的一些东西分享给各位朋友。
-问：为什么不选择已有的博客平台，而要自己搭建？
-答：想让事情变得简单点，有想法或解决了一些问题的时候，用Markdown记录一下。
-问：……？
-答：…………。
-问： 你的声音太小，我没听清楚呀">
+    <meta name="description" content="W3C标准涉及多个方面，官方标准点击这里。从WEB技术应用角度看，可分为三个方面的标准：结构、表现、行为。
+
+结构主要指HTML/XHTML标准，包括页面渲染、标签大小写、属性大小写、标签嵌套、闭合标签等等；
+表现主要指CSS标准，包括页面布局、CSS选择器、盒子模型、盒子样式、盒子内容样式、媒体查">
     
     
     
@@ -76,38 +72,43 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/07/01/序/" title="序" itemprop="url">序</a>
+      <a href="/2014/07/08/浅谈W3C标准/" title="浅谈W3C标准" itemprop="url">浅谈W3C标准</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://arccode.github.io/about" title="arccode" target="_blank" itemprop="author">arccode</a>
 		
   <p class="article-time">
-    <time datetime="2014-07-01T14:57:07.000Z" itemprop="datePublished">发表于 2014-07-01</time>
+    <time datetime="2014-07-08T07:46:29.000Z" itemprop="datePublished">发表于 2014-07-08</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		
-		<h2 id="个人博客">个人博客</h2>
-<p>问：为什么要搭建博客？</p>
-<p>答：记录自己在IT这个行业中的点滴，同时把自己的一些东西分享给各位朋友。</p>
-<p>问：为什么不选择已有的博客平台，而要自己搭建？</p>
-<p>答：想让事情变得简单点，有想法或解决了一些问题的时候，用<a href="http://wowubuntu.com/markdown/#philosophy" target="_blank" rel="external">Markdown</a>记录一下。</p>
-<p>问：……？</p>
-<p>答：…………。</p>
-<p>问： 你的声音太小，我没听清楚呀。</p>
-<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#97;&#x72;&#x63;&#x63;&#111;&#100;&#101;&#64;&#49;&#x36;&#x33;&#x2e;&#99;&#x6f;&#x6d;">&#97;&#x72;&#x63;&#x63;&#111;&#100;&#101;&#64;&#49;&#x36;&#x33;&#x2e;&#99;&#x6f;&#x6d;</a>。</p>
+		<p>W3C标准涉及多个方面，官方标准点击<a href="http://www.w3.org/standards/" target="_blank" rel="external">这里</a>。从WEB技术应用角度看，可分为三个方面的标准：<strong>结构</strong>、<strong>表现</strong>、<strong>行为</strong>。</p>
+<ul>
+<li><code>结构</code>主要指HTML/XHTML标准，包括页面渲染、标签大小写、属性大小写、标签嵌套、闭合标签等等；</li>
+<li><code>表现</code>主要指CSS标准，包括页面布局、CSS选择器、盒子模型、盒子样式、盒子内容样式、媒体查询（CSS3）；</li>
+<li><code>行为</code>主要指Javascript标准，包括对DOM及BOM的操作；</li>
+</ul>
+<h2 id="兼容性">兼容性</h2>
+<p>由于IE6、IE7、IE8未完全按照W3C标准去实现其浏览器的功能，而是自定义了一套IE的标准，所以在开发的过程中需要特意针对IE6~IE8开发相对应的CSS及Javascript。</p>
+<ul>
+<li><code>CSS兼容：</code>使用hack；</li>
+<li><code>Javascript兼容：</code>IE事件绑定采用attachEvent，现代浏览器采用addEventListener；</li>
+</ul>
+<h2 id="参考资料">参考资料</h2>
+<p><a href="http://www.cnblogs.com/p2227/p/3583601.html" target="_blank" rel="external">浅谈W3C标准</a><br><a href="http://www.w3.org/standards/" target="_blank" rel="external">W3C STANDARDS</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/随笔/">随笔</a>
-</div>
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/HTML/">HTML</a><a href="/tags/CSS/">CSS</a><a href="/tags/Javascript/">Javascript</a>
+  </div>
 
 
 
@@ -145,13 +146,21 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2014/07/06/进程和线程/" title="进程和线程">
+ <a href="/2014/07/08/Mac下使用IE/" title="Mac下使用IE">
   <strong>上一篇：</strong><br/>
   <span>
-  进程和线程</span>
+  Mac下使用IE</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2014/07/06/进程和线程/"  title="进程和线程">
+ <strong>下一篇：</strong><br/> 
+ <span>进程和线程
+</span>
+</a>
+</div>
 
 </nav>
 
