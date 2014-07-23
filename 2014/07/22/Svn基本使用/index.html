@@ -1,0 +1,489 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Svn基本使用 | &lt;define&gt;Hello, Arccode&lt;/define&gt;</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="arccode">
+    
+    <meta name="description" content="基本使用
+图标说明
+
+灰色向右箭头:本地修改过 
+蓝色向左箭头:SVN上修改过 
+灰色向右且中间有个加号的箭头:本地比SVN上多出的文件 
+蓝色向左且中间有个加号的箭头:SVN上比本地多出的文件 
+灰色向右且中间有个减号的箭头:本地删除了,而SVN上未删除的文件 
+蓝色向左且中间有个减号的箭头:SV">
+    
+    
+    
+    
+    <link rel="alternative" href="/atom.xml" title="&lt;define&gt;Hello, Arccode&lt;/define&gt;" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="&lt;define&gt;Hello, Arccode&lt;/define&gt;" title="&lt;define&gt;Hello, Arccode&lt;/define&gt;"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="&lt;define&gt;Hello, Arccode&lt;/define&gt;">&lt;define&gt;Hello, Arccode&lt;/define&gt;</a></h1>
+				<h2 class="blog-motto">狂奔中的全栈工程师</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2014/07/22/Svn基本使用/" title="Svn基本使用" itemprop="url">Svn基本使用</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://arccode.github.io/about" title="arccode" target="_blank" itemprop="author">arccode</a>
+		
+  <p class="article-time">
+    <time datetime="2014-07-22T03:24:19.000Z" itemprop="datePublished">发表于 2014-07-22</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本使用"><span class="toc-number">1.</span> <span class="toc-text">基本使用</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图标说明"><span class="toc-number">1.1.</span> <span class="toc-text">图标说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#与代码库断开连接"><span class="toc-number">1.2.</span> <span class="toc-text">与代码库断开连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导入项目"><span class="toc-number">1.3.</span> <span class="toc-text">导入项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加文件或目录"><span class="toc-number">1.4.</span> <span class="toc-text">添加文件或目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#忽略文件"><span class="toc-number">1.5.</span> <span class="toc-text">忽略文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#排除class文件"><span class="toc-number">1.6.</span> <span class="toc-text">排除class文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#svn：need-lock"><span class="toc-number">1.7.</span> <span class="toc-text">svn：need-lock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tag和Branch"><span class="toc-number">1.8.</span> <span class="toc-text">Tag和Branch</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#协同开发中的规范"><span class="toc-number">2.</span> <span class="toc-text">协同开发中的规范</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#先更新，再提交"><span class="toc-number">2.1.</span> <span class="toc-text">先更新，再提交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多提交"><span class="toc-number">2.2.</span> <span class="toc-text">多提交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不要提交不能通过编译的代码"><span class="toc-number">2.3.</span> <span class="toc-text">不要提交不能通过编译的代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#每次提交必须书写明晰的注释"><span class="toc-number">2.4.</span> <span class="toc-text">每次提交必须书写明晰的注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提交时注意不要提交本地生成的文件"><span class="toc-number">2.5.</span> <span class="toc-text">提交时注意不要提交本地生成的文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不要提交自己不明白的代码"><span class="toc-number">2.6.</span> <span class="toc-text">不要提交自己不明白的代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#慎用锁定功能"><span class="toc-number">2.7.</span> <span class="toc-text">慎用锁定功能</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#声明"><span class="toc-number">3.</span> <span class="toc-text">声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="基本使用">基本使用</h2>
+<h3 id="图标说明">图标说明</h3>
+<ul>
+<li>灰色向右箭头:本地修改过 </li>
+<li>蓝色向左箭头:SVN上修改过 </li>
+<li>灰色向右且中间有个加号的箭头:本地比SVN上多出的文件 </li>
+<li>蓝色向左且中间有个加号的箭头:SVN上比本地多出的文件 </li>
+<li>灰色向右且中间有个减号的箭头:本地删除了,而SVN上未删除的文件 </li>
+<li>蓝色向左且中间有个减号的箭头:SVN上删除了,而本地未删除的文件 </li>
+<li>红色双向箭头:SVN上修改过,本地也修改过的文件 </li>
+</ul>
+<h3 id="与代码库断开连接">与代码库断开连接</h3>
+<p>可以与代码库断开，具体操作 右击|小组|断开连接…，在操作过程中可以删除svn相关管理文件，也可保留。</p>
+<h3 id="导入项目">导入项目</h3>
+<p>可以从代码库上把工程导到本地，个体操作 文件|导入…|SVN|从 SVN 检出项目。注：在此操作过程中有一个“选择检出的方式”选项，有两种，第一种是“做为新项目检出，并使用新建项目向导进行配置（仅当资源库中不存在.project工程文件时才可用，意思是如果代码库中有了这个工程文件，那么它就认为这是一个信息完整的工程，在导入的过程中就不需要再创建工程——选这选那的，因为.project工程文件中已包含了这一些列的信息，所以只有在代码库中不存在.project工程文件时才可选择）”；第二种是“做为工作空间中的项目检出”，这一选项不管代码库中是否有.project文件都是可以选择的，如果代码库中没有.project文件时，选择此种方式，会创建一个简单的工程，那不是Java工程，或其他代码工程，这种工程无不进行相应手工设置是不能进行相应开发的，所以在代码库上无.project工程文件导入时，最好选择前一选项，根据新建项目向导来进行相应设置并自动生成.project工程文件。 </p>
+<h3 id="添加文件或目录">添加文件或目录</h3>
+<p>如果将文件添加到项目中，它不会自动成为版本控制的一部分 —— 您需要明确将其添加到特定的存储库中。右击新文件，然后选择 Team &gt; Add to Version Control。就是这样！下一次将此项目中的变更提交给存储库时，新文件也会检入。 </p>
+<h3 id="忽略文件">忽略文件</h3>
+<p>如果项目生成文件，或者包括您不想检入的 Subversion 存储库文件，则可以通知 Subclipse 忽略它们。右击您要在版本控制中排除的文件或目录，然后选择 Team &gt; Add to svn:ignore 即可显示Add to svn:ignore 对话框。 </p>
+<h3 id="排除class文件">排除class文件</h3>
+<p>不要把class目录上传到服务器上，起初我没有删掉它，更改提交没有问题，但在更新时总是报错：……Working copy not locked; this is probably a bug, please report svn:……，提示就是class目录下的.svn有毛病。原因可能是在Eclipse编译时，将src目录下的svn配置一起编译到了class文件中，并且在编译时先会删除class中的内容，再编译，这就导致了本地配置与配置库上不一致。需要注意的是，请不要将动态生成的目录添加到SVN，否则其他人Check out的之后，再Update容易出错，例如class目录，不需要提交上去 </p>
+<h3 id="svn：need-lock">svn：need-lock</h3>
+<p>可以用来在文件（例如，对二进制文件非常有用）上强加排斥锁。一个定义了svn:need-lock属性的文件一次只能被一个人修改。当该文件被检出时，它是只读的。如果你想修改该文件，你需要首先使用”Team&gt;Lock”菜单选项。之后，使用”Team&gt; Unlock”释放该文件，或仅提交你的变化，也会释放锁，但别人的文件还是只读的，只有别人在获取了锁之后，再能修改该文件。其实该属性以一种强迫的属形势让用户在修改前一定要选获取锁，再能修改该文件，这样就不需要等到提交时再发现早已被别人锁住了。 </p>
+<h3 id="Tag和Branch">Tag和Branch</h3>
+<p>在Subversion中，很容易创建新的tag和branch。你可以使用tag来标识一个特定的版本（使用一种可读的名字，例如”Release 1.0”）；而一个branch用于新的开发工作而不影响主源码基(称作trunk)。在一个branch上的开发仍会继续进行，直到开发者已经为把变化集成回主trunk作好准备。<br>在Subversion中，branch和tag都是通过制作给定修订的一个虚拟副本（以另一个名字和/或另一个目录）创建的。在常规情况下，branch存储在branches目录下，tag位于tags目录下，尽管在实践中为了满足你的工程你可以使用自己的任何定制。<br>从Eclipse中，”Team&gt;Branch/Tag”菜单能够使你创建branch和tag。其中，Browse按钮提供了一种方便的方法来查看有哪些branch和tag存在于仓库中。<br>当你使用”Team&gt;Switch”创建成功一个新的branch或tag时，你可以非常容易地在branches之间进行切换。无论何时你切换到一个不同的branch(或返回到trunk)，Subversion将仅更新文件（它需要保持你的当前工作的副本与目的branch之间的同步）。 </p>
+<h2 id="协同开发中的规范">协同开发中的规范</h2>
+<h3 id="先更新，再提交">先更新，再提交</h3>
+<p>如果别人和自己更改的是同一个文件，那么update时会自动进行合并，但如果修改的是同一行，那么合并时会产生冲突。<br>更新时注意所更新文件的列表，如果提交过程中产生了更新，则也是需要重新编译并且完成自己的一些必要测试，再进行提交。 </p>
+<h3 id="多提交">多提交</h3>
+<p>每次提交以几小时为单位。在开发功能模块的时候，可以每完成一个小细节功能的测试，就提交一次，在修改bug的时候，每修改掉一个bug并且确认修改了这个bug，也就提交一次。 </p>
+<h3 id="不要提交不能通过编译的代码">不要提交不能通过编译的代码</h3>
+<p>代码在提交之前，首先要确认自己能够在本地编译。如果在代码中使用了第三方类库，要考虑到项目组成员中有些成员可能没有安装相应的第三方类库。项目经理在准备项目工作区域的时候，需要考虑到这样的情况，确保开发小组成员在签出代码之后能够在统一的环境中进行编译。 </p>
+<h3 id="每次提交必须书写明晰的注释">每次提交必须书写明晰的注释</h3>
+<p>明晰的标注要能够概要的描述所提交文件的信息，让项目组其他成员在看到标注后不用详细看代码就能了解你所做的修改。 </p>
+<h3 id="提交时注意不要提交本地生成的文件">提交时注意不要提交本地生成的文件</h3>
+<p>例如eclipse中的.classpath文件，Windows生成的缩略图Thumbs.db，项目编译生成的临时文件.obj, .class等等。如果项目中没有进行这方面的配置来强行禁止提交这样的文件，请自觉不要提交这样的文件。提交了这样的文件后，别人在更新后就可能与本地的环境冲突从而影响大家的工作。 </p>
+<h3 id="不要提交自己不明白的代码">不要提交自己不明白的代码</h3>
+<p>代码在提交入SVN之后，你的代码将被项目成员所分享。如果提交了你不明白的代码，你看不懂，别人也看不懂，如果在以后出现了问题将会成为项目质量的隐患。因此在引入任何第三方代码之前，确保你对这个代码有一个很清晰的了解。 </p>
+<h3 id="慎用锁定功能">慎用锁定功能</h3>
+<p>在项目中要慎用锁定的功能，在你锁定了一个文件之后别人就无法继续修改提交该文件，虽然可以减少冲突的发生率，但是可能会影响项目组中其他人员的工作。平时只有在编辑那些无法合并的文件（例如图片文件，flash文件等）时，才适当的采用锁定操作。 </p>
+<h2 id="声明">声明</h2>
+<p>该文章转自<a href="http://meng702.iteye.com/blog/780708" target="_blank" rel="external">Iteye—svn的基本使用</a></p>
+<h2 id="参考资料">参考资料</h2>
+<p><a href="http://meng702.iteye.com/blog/780708" target="_blank" rel="external">svn的基本使用</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/工具/">工具</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Svn/">Svn</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  
+<div class="jiathis_style_24x24">
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_googleplus"></a>
+	<a class="jiathis_button_douban"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+    var jiathis_config={
+    data_track_clickback:true,
+    sm:"copy,renren,cqq",
+    pic:"",
+    summary:"",
+     ralateuid:{"tsina":"3845054729"},hideMore:false}
+    
+  </script> 
+<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=
+1396202037184488" charset="utf-8"></script>      
+
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2014/07/23/Mac安装Android开发环境/" title="Mac安装Android开发环境">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Mac安装Android开发环境</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2014/07/15/HTML5播放器/"  title="HTML5播放器">
+ <strong>下一篇：</strong><br/> 
+ <span>HTML5播放器
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本使用"><span class="toc-number">1.</span> <span class="toc-text">基本使用</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图标说明"><span class="toc-number">1.1.</span> <span class="toc-text">图标说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#与代码库断开连接"><span class="toc-number">1.2.</span> <span class="toc-text">与代码库断开连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导入项目"><span class="toc-number">1.3.</span> <span class="toc-text">导入项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加文件或目录"><span class="toc-number">1.4.</span> <span class="toc-text">添加文件或目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#忽略文件"><span class="toc-number">1.5.</span> <span class="toc-text">忽略文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#排除class文件"><span class="toc-number">1.6.</span> <span class="toc-text">排除class文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#svn：need-lock"><span class="toc-number">1.7.</span> <span class="toc-text">svn：need-lock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tag和Branch"><span class="toc-number">1.8.</span> <span class="toc-text">Tag和Branch</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#协同开发中的规范"><span class="toc-number">2.</span> <span class="toc-text">协同开发中的规范</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#先更新，再提交"><span class="toc-number">2.1.</span> <span class="toc-text">先更新，再提交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多提交"><span class="toc-number">2.2.</span> <span class="toc-text">多提交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不要提交不能通过编译的代码"><span class="toc-number">2.3.</span> <span class="toc-text">不要提交不能通过编译的代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#每次提交必须书写明晰的注释"><span class="toc-number">2.4.</span> <span class="toc-text">每次提交必须书写明晰的注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提交时注意不要提交本地生成的文件"><span class="toc-number">2.5.</span> <span class="toc-text">提交时注意不要提交本地生成的文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不要提交自己不明白的代码"><span class="toc-number">2.6.</span> <span class="toc-text">不要提交自己不明白的代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#慎用锁定功能"><span class="toc-number">2.7.</span> <span class="toc-text">慎用锁定功能</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#声明"><span class="toc-number">3.</span> <span class="toc-text">声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>1</sup></a></li>
+		
+			<li><a href="/categories/云计算/" title="云计算">云计算<sup>1</sup></a></li>
+		
+			<li><a href="/categories/工具/" title="工具">工具<sup>3</sup></a></li>
+		
+			<li><a href="/categories/操作系统/" title="操作系统">操作系统<sup>1</sup></a></li>
+		
+			<li><a href="/categories/数据挖掘/" title="数据挖掘">数据挖掘<sup>3</sup></a></li>
+		
+			<li><a href="/categories/随笔/" title="随笔">随笔<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/Hadoop/" title="Hadoop">Hadoop<sup>2</sup></a></li>
+		
+			<li><a href="/tags/线程/" title="线程">线程<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Javascript/" title="Javascript">Javascript<sup>1</sup></a></li>
+		
+			<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+		
+			<li><a href="/tags/HTML/" title="HTML">HTML<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Spark/" title="Spark">Spark<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Mac/" title="Mac">Mac<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Svn/" title="Svn">Svn<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Eclipse/" title="Eclipse">Eclipse<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
+		
+			<li><a href="/tags/进程/" title="进程">进程<sup>1</sup></a></li>
+		
+			<li><a href="/tags/VitualBox/" title="VitualBox">VitualBox<sup>1</sup></a></li>
+		
+			<li><a href="/tags/HBase/" title="HBase">HBase<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Storm/" title="Storm">Storm<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.ruanyifeng.com/blog" target="_blank" title="阮一峰的网络日志">阮一峰的网络日志</a></li>
+    </ul>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello, I&#39;m arccode. Liking architecture and coding. <br/>
+			I&#39;ll share my experience with you at this blog.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/arccode" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:arccode@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2014
+		
+		<a href="http://arccode.github.io/about" target="_blank" title="arccode">arccode</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"arccode"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+<script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F58062219380755983eecf26e0ceff2c8' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-52770645-1', 'arccode.github.io');  
+ga('send', 'pageview');
+</script>
+
+
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+
+<script type="text/x-mathjax-config"> 
+MathJax.Hub.Config({ 
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
+}); 
+</script>
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </body>
+</html>
