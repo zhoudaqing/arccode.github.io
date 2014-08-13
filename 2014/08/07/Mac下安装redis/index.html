@@ -4,19 +4,31 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>进程和线程 | &lt;define&gt;Hello, Arccode&lt;/define&gt;</title>
+    <title>Mac下安装redis | &lt;define&gt;Hello, Arccode&lt;/define&gt;</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="arccode">
     
-    <meta name="description" content="进程
-并发执行的程序在执行过程中对资源（CPU、寄存器、IO、程序数据）分配和管理的基本单位；
-进程状态
+    <meta name="description" content="下载Redis
+1
+2
+cd ~/ProgramFiles
+curl -O http://download.redis.io/releases/redis-2.8.13.tar.gz
 
-初始态
-就绪态：就绪态的进程已经获得除CPU之外的其它资源，只要由调度获得处理机，便可立即执行；该状态可细分为内存就绪和外存就绪；
-运行态：运行态可细分为用户执行状态和系统执行状态；
-阻塞态：">
+
+解压、编译
+1
+2
+3
+4
+5
+6
+7
+8
+9
+# 解压
+tar -xzf redis-2.8.13
+# 重命名">
     
     
     
@@ -75,52 +87,167 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/07/06/进程和线程/" title="进程和线程" itemprop="url">进程和线程</a>
+      <a href="/2014/08/07/Mac下安装redis/" title="Mac下安装redis" itemprop="url">Mac下安装redis</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://arccode.github.io/about" title="arccode" target="_blank" itemprop="author">arccode</a>
 		
   <p class="article-time">
-    <time datetime="2014-07-06T13:41:01.000Z" itemprop="datePublished">发表于 2014-07-06</time>
+    <time datetime="2014-08-06T16:26:37.000Z" itemprop="datePublished">发表于 2014-08-07</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		
-		<h2 id="进程">进程</h2>
-<p>并发执行的程序在执行过程中对资源（CPU、寄存器、IO、程序数据）分配和管理的基本单位；</p>
-<h3 id="进程状态">进程状态</h3>
-<ul>
-<li>初始态</li>
-<li>就绪态：就绪态的进程已经获得除CPU之外的其它资源，只要由调度获得处理机，便可立即执行；该状态可细分为内存就绪和外存就绪；</li>
-<li>运行态：运行态可细分为用户执行状态和系统执行状态；</li>
-<li>阻塞态：阻塞态可细分为内存阻塞、设备阻塞、文件阻塞、网络阻塞、数据阻塞等等；</li>
-<li>终止态</li>
-</ul>
-<p><strong> 注：</strong> 进程状态对就绪态、运行态、阻塞态进行了细分，其目的均是为了更好的控制程序，但这是以增加系统复杂性和系统开销为代价；</p>
-<h3 id="进程状态图">进程状态图</h3>
-<p><img src="/images/进程状态转换图.png" alt="" title="进程状态转换图"> </p>
-<h2 id="线程">线程</h2>
-<p>轻量级进程，创建及销毁开销小。</p>
-<h3 id="线程状态图">线程状态图</h3>
-<p><img src="/images/线程状态转换图.png" alt="" title="线程状态转换图"></p>
-<h2 id="参考资料">参考资料</h2>
-<p><a href="http://www.amazon.cn/%E6%99%AE%E9%80%9A%E9%AB%98%E7%AD%89%E6%95%99%E8%82%B2-%E5%9B%BD%E5%AE%B6%E7%BA%A7%E8%A7%84%E5%88%92%E6%95%99%E6%9D%90%E2%80%A2%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E5%88%97%E6%95%99%E6%9D%90-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B-%E5%BC%A0%E5%B0%A7%E5%AD%A6/dp/B008KWW5GC/ref=sr_1_11?ie=UTF8&amp;qid=1404714975&amp;sr=8-11&amp;keywords=%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%89%88" target="_blank" rel="external">计算机操作系统教程（第三版）</a></p>
-  
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载Redis"><span class="toc-number">1.</span> <span class="toc-text">下载Redis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解压、编译"><span class="toc-number">2.</span> <span class="toc-text">解压、编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义Redis配置"><span class="toc-number">3.</span> <span class="toc-text">自定义Redis配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#改变Redis_Server、Client脚本位置"><span class="toc-number">4.</span> <span class="toc-text">改变Redis Server、Client脚本位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动Redis"><span class="toc-number">5.</span> <span class="toc-text">启动Redis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试Redis"><span class="toc-number">6.</span> <span class="toc-text">测试Redis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#停止Redis服务"><span class="toc-number">7.</span> <span class="toc-text">停止Redis服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看日志"><span class="toc-number">8.</span> <span class="toc-text">查看日志</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="下载Redis">下载Redis</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>cd ~/ProgramFiles
+curl -O http://download<span class="preprocessor">.redis</span><span class="preprocessor">.io</span>/releases/redis-<span class="number">2.8</span><span class="number">.13</span><span class="preprocessor">.tar</span><span class="preprocessor">.gz</span>
+</pre></td></tr></table></figure>
+
+<h2 id="解压、编译">解压、编译</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="comment"># 解压</span>
+tar -xzf redis-<span class="number">2.8</span>.<span class="number">13</span>
+<span class="comment"># 重命名</span>
+mv redis-<span class="number">2.8</span>.<span class="number">13</span> redis
+<span class="built_in">cd</span> redis
+<span class="built_in">sudo</span> make
+<span class="comment"># 测试</span>
+<span class="built_in">sudo</span> make test
+<span class="built_in">sudo</span> make install
+</pre></td></tr></table></figure>
+
+<h2 id="自定义Redis配置">自定义Redis配置</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre>vim ~/ProgramFiles/redis/redis.conf
+<span class="comment"># 通过查找修改相应配置项</span>
+daemonize <span class="literal">yes</span>
+pidfile <span class="regexp">/Users/</span>用户名/ProgramFiles/redis/redis.pid
+port <span class="number">6379</span>
+timeout <span class="number">300</span>
+loglevel debug
+logfile <span class="regexp">/Users/</span>用户名/ProgramFiles/redis/log-redis.log
+databases <span class="number">8</span>
+save <span class="number">900</span> <span class="number">1</span>
+save <span class="number">300</span> <span class="number">10</span>
+save <span class="number">60</span> <span class="number">10000</span>
+rdbcompression <span class="literal">yes</span>
+dbfilename dump.rdb
+dir <span class="regexp">/opt/redis/</span>
+appendonly <span class="literal">no</span>
+appendfsync everysec
+</pre></td></tr></table></figure>
+
+<h2 id="改变Redis_Server、Client脚本位置">改变Redis Server、Client脚本位置</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="comment"># 服务器端</span>
+mv <span class="regexp">/Users/</span>用户名<span class="regexp">/ProgramFiles/redis/src/redis-server /Users/</span>用户名/ProgramFiles/redis/redis-server
+<span class="comment"># 客户端</span>
+mv <span class="regexp">/Users/</span>用户名<span class="regexp">/ProgramFiles/redis/src/redis-cli /Users/</span>用户名/ProgramFiles/redis/redis-cli
+</pre></td></tr></table></figure>
+
+<h2 id="启动Redis">启动Redis</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>sudo /Users/用户名/ProgramFiles/redis/redis-server /Users/用户名/ProgramFiles/redis/redis.conf
+
+注：提示<span class="escape">`l</span>og-redis.log<span class="escape">`、</span><span class="escape">`r</span>edis.pid<span class="escape">`没</span>有找到，在redis目录下创建该文件可解决此问题
+</pre></td></tr></table></figure>
+
+<h2 id="测试Redis">测试Redis</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="preprocessor"># 连接到Redis Server</span>
+<span class="preprocessor"># 方法一</span>
+/Users/用户名/ProgramFiles/redis/redis-cli 
+<span class="preprocessor"># 方法二</span>
+cd /Users/用户名/ProgramFiles/redis
+./redis-cli
+<span class="preprocessor"># 向Redis中添加数据</span>
+<span class="keyword">set</span> key HelloWorld
+<span class="keyword">get</span> key
+</pre></td></tr></table></figure>
+
+<h2 id="停止Redis服务">停止Redis服务</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="preprocessor"># 查找进程id</span>
+<span class="preprocessor"># 方法一</span>
+ps -ef|grep redis
+<span class="preprocessor"># 方法二</span>
+cat /Users/用户名/ProgramFiles/redis/redis.pid
+<span class="preprocessor"># 结束进程</span>
+kill 进程id
+</pre></td></tr></table></figure>
+
+<h2 id="查看日志">查看日志</h2>
+<p>可以在操作的过程中观察日志的输出</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>tail <span class="attribute">-f</span> /Users<span class="subst">/</span>用户名/ProgramFiles/redis/<span class="keyword">log</span><span class="attribute">-redis</span><span class="built_in">.</span><span class="keyword">log</span>
+</pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/操作系统/">操作系统</a>
+  <a class="article-category-link" href="/categories/缓存/">缓存</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/进程/">进程</a><a href="/tags/线程/">线程</a>
+  <span></span> <a href="/tags/Redis/">Redis</a>
   </div>
 
 
@@ -159,18 +286,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2014/07/08/浅谈W3C标准/" title="浅谈W3C标准">
+ <a href="/2014/08/10/Mac下安装phpRedisAdmin/" title="Mac下安装phpRedisAdmin">
   <strong>上一篇：</strong><br/>
   <span>
-  浅谈W3C标准</span>
+  Mac下安装phpRedisAdmin</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2014/07/01/序/"  title="序">
+<a href="/2014/07/23/Mac终端乱码/"  title="Mac终端乱码">
  <strong>下一篇：</strong><br/> 
- <span>序
+ <span>Mac终端乱码
 </span>
 </a>
 </div>
@@ -185,6 +312,13 @@
 
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载Redis"><span class="toc-number">1.</span> <span class="toc-text">下载Redis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解压、编译"><span class="toc-number">2.</span> <span class="toc-text">解压、编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义Redis配置"><span class="toc-number">3.</span> <span class="toc-text">自定义Redis配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#改变Redis_Server、Client脚本位置"><span class="toc-number">4.</span> <span class="toc-text">改变Redis Server、Client脚本位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动Redis"><span class="toc-number">5.</span> <span class="toc-text">启动Redis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试Redis"><span class="toc-number">6.</span> <span class="toc-text">测试Redis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#停止Redis服务"><span class="toc-number">7.</span> <span class="toc-text">停止Redis服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看日志"><span class="toc-number">8.</span> <span class="toc-text">查看日志</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -325,6 +459,8 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
