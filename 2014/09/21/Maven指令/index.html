@@ -4,19 +4,17 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Mac下搭建Hadoop环境 | &lt;define&gt;Hello, Arccode&lt;/define&gt;</title>
+    <title>Maven指令 | &lt;define&gt;Hello, Arccode&lt;/define&gt;</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="arccode">
     
-    <meta name="description" content="安装JDK
-安装JDK，安装成功后在终端中输入java -version，显示如下
-1
-2
-3
-java version &quot;1.7.0_51&quot;
-Java(TM) SE Runtime Environment (build 1.7.0_51-b13)
-Java HotSpot(TM) 64-Bit S">
+    <meta name="description" content="清空： mvn clean
+编译： mvn compile
+打包： mvn package
+安装jar包到maven仓库： mvn install
+跳过测试： mvn clean -Dmaven.test.skip=true
+导出依赖包： mvn dependency:copy-dependenci">
     
     
     
@@ -75,86 +73,48 @@ Java HotSpot(TM) 64-Bit S">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/07/13/Mac下搭建Hadoop环境/" title="Mac下搭建Hadoop环境" itemprop="url">Mac下搭建Hadoop环境</a>
+      <a href="/2014/09/21/Maven指令/" title="Maven指令" itemprop="url">Maven指令</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://arccode.github.io/about" title="arccode" target="_blank" itemprop="author">arccode</a>
 		
   <p class="article-time">
-    <time datetime="2014-07-13T15:47:59.000Z" itemprop="datePublished">发表于 2014-07-13</time>
+    <time datetime="2014-09-21T08:31:57.000Z" itemprop="datePublished">发表于 2014-09-21</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		
-		<h2 id="安装JDK">安装JDK</h2>
-<p>安装JDK，安装成功后在终端中输入<code>java -version</code>，显示如下</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>java version <span class="string">"1.7.0_51"</span>
-Java(TM) SE Runtime Environment (build <span class="number">1.7</span><span class="number">.0</span>_51<span class="attribute">-b13</span>)
-Java HotSpot(TM) <span class="number">64</span><span class="attribute">-Bit</span> Server VM (build <span class="number">24.51</span><span class="attribute">-b03</span>, mixed mode)
-</pre></td></tr></table></figure>
-
-<h2 id="安装Hadoop">安装Hadoop</h2>
-<p>下载<a href="http://hadoop.apache.org/releases.html#Download" target="_blank" rel="external">Hadoop</a>,将该文件解压至<code>/usr/local</code>目录下</p>
-<h2 id="配置系统环境变量">配置系统环境变量</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="code"><pre><span class="keyword">export</span> JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.<span class="number">7.0</span>_51.jdk/Contents/Home
-<span class="keyword">export</span> HADOOP_HOME=/usr/local/hadoop-<span class="number">2.4</span>.<span class="number">1</span>
-<span class="keyword">export</span> HADOOP_PREFIX=<span class="variable">${HADOOP_HOME}</span>
-<span class="keyword">export</span> HADOOP_COMMON_HOME=<span class="variable">${HADOOP_PREFIX}</span>
-<span class="keyword">export</span> HADOOP_HDFS_HOME=<span class="variable">${HADOOP_PREFIX}</span>
-<span class="keyword">export</span> HADOOP_MAPRED_HOME=<span class="variable">${HADOOP_PREFIX}</span>
-<span class="keyword">export</span> HADOOP_YARN_HOME=<span class="variable">${HADOOP_PREFIX}</span>
-<span class="keyword">export</span> HADOOP_CONF_DIR=<span class="string">"<span class="variable">$HADOOP_HOME</span>/etc/hadoop/"</span>
-<span class="keyword">export</span> YARN_CONF_DIR=<span class="variable">${HADOOP_CONF_DIR}</span>
-<span class="keyword">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$HADOOP_PREFIX</span>/bin:<span class="variable">$HADOOP_PREFIX</span>/sbin
-</pre></td></tr></table></figure>
-
-<h2 id="配置ssh">配置ssh</h2>
-<h3 id="测试ssh是否可以登录">测试ssh是否可以登录</h3>
-<p>输入<code>ssh localhost</code>显示</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="attribute">ssh</span>: <span class="string">connect to host localhost port 22: Connection refused</span>
-</pre></td></tr></table></figure><br>表示ssh未配置，需要进行配置；<br><br>“系统偏好设置”—&gt;”共享”—&gt;”远程登录”；<br><br>再次输入<code>ssh localhost</code>，输入密码后可以看到连接成功的信息<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="tag">Last</span> <span class="tag">login</span>: <span class="tag">Mon</span> <span class="tag">Jul</span> 14 23<span class="pseudo">:41</span><span class="pseudo">:32</span> 2014 <span class="tag">from</span> <span class="tag">localhost</span>
-</pre></td></tr></table></figure>
-
-<h3 id="设置ssh免登录">设置ssh免登录</h3>
-<ul>
-<li>构造秘钥<br><code>ssh-keygen -t dsa -P &#39;&#39; -f ~/.ssh/id_dsa</code><br>-t: 秘钥类型<br>-P: 提供密语<br>-f: 生成的秘钥文件<br>执行指令后，.ssh目录中将出现id_dsa私钥和id_dsa公钥</li>
-<li>将公钥追加到授权key中<br><code>cat ~/.ssh/id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys</code></li>
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			
+		
+		</div>
+		
+		<ul>
+<li>清空： <code>mvn clean</code></li>
+<li>编译： <code>mvn compile</code></li>
+<li>打包： <code>mvn package</code></li>
+<li>安装jar包到maven仓库： <code>mvn install</code></li>
+<li>跳过测试： <code>mvn clean -Dmaven.test.skip=true</code></li>
+<li>导出依赖包： <code>mvn dependency:copy-dependencies -DoutputDirectory=lib</code></li>
 </ul>
-<h2 id="配置Hadoop环境">配置Hadoop环境</h2>
-<h3 id="_"> </h3>
-<h2 id="参考资料">参考资料</h2>
-<p><a href="http://www.cnblogs.com/gamix/archive/2012/12/02/install-hadoop-on-mac-osx-lion.html" target="_blank" rel="external">在Mac上安装Hadoop</a><br><a href="http://www.micmiu.com/bigdata/hadoop/hadoop2x-single-node-setup" target="_blank" rel="external">hadoop 2.2.0 单节点安装和测试</a><br><a href="http://blog.csdn.net/xceman1997/article/details/8046039" target="_blank" rel="external">在Mac OS上配置hadoop伪分布式环境【下】</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/数据挖掘/">数据挖掘</a>
+  <a class="article-category-link" href="/categories/指令/">指令</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Hadoop/">Hadoop</a>
+  <span></span> <a href="/tags/Maven/">Maven</a>
   </div>
 
 
@@ -193,18 +153,18 @@ Java HotSpot(TM) <span class="number">64</span><span class="attribute">-Bit</spa
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2014/07/22/Svn基本使用/" title="Svn基本使用">
+ <a href="/2014/09/21/Redis指令/" title="Redis指令">
   <strong>上一篇：</strong><br/>
   <span>
-  Svn基本使用</span>
+  Redis指令</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2014/07/13/HBase技术介绍/"  title="HBase技术介绍">
+<a href="/2014/09/01/Linux类库链接/"  title="Linux类库链接">
  <strong>下一篇：</strong><br/> 
- <span>HBase技术介绍
+ <span>Linux类库链接
 </span>
 </a>
 </div>
@@ -219,6 +179,13 @@ Java HotSpot(TM) <span class="number">64</span><span class="attribute">-Bit</spa
 
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ 
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -368,6 +335,8 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });

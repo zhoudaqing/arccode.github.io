@@ -4,22 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Mac终端乱码 | &lt;define&gt;Hello, Arccode&lt;/define&gt;</title>
+    <title>&lt;define&gt;Hello, Arccode&lt;/define&gt;</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="arccode">
     
-    <meta name="description" content="Android的开发环境配置完毕后，回忆了下以前开发Android的流程
-
-新建Hello World项目
-使用Eclipse运行项目，自动启动模拟器，一切正常
-
-之后想把apk包导出到本地
-
-在终端创建keystore
-利用Android Tool导出apk
-
-使用命令keytool -genke">
+    <meta name="description" content="Java Javascript bigdata 大数据 hadoop hive storm spark">
     
     
     
@@ -73,115 +63,35 @@
 </div>
     </header>
     <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2014/07/23/Mac终端乱码/" title="Mac终端乱码" itemprop="url">Mac终端乱码</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://arccode.github.io/about" title="arccode" target="_blank" itemprop="author">arccode</a>
-		
-  <p class="article-time">
-    <time datetime="2014-07-23T14:46:48.000Z" itemprop="datePublished">发表于 2014-07-23</time>
-    
-  </p>
-</header>
-	<div class="article-content">
-		
-		
-		<p>Android的开发环境配置完毕后，回忆了下以前开发Android的流程</p>
-<ol>
-<li>新建Hello World项目</li>
-<li>使用Eclipse运行项目，自动启动模拟器，一切正常</li>
-</ol>
-<p>之后想把apk包导出到本地</p>
-<ol>
-<li>在终端创建keystore</li>
-<li>利用Android Tool导出apk</li>
-</ol>
-<p>使用命令<code>keytool -genkey -alias android.keystore -keyalg RSA -validity 100000 -keystore android.keystore</code>生成keystore时终端出现乱码</p>
-<h3 id="乱码原因">乱码原因</h3>
-<p>经过思考，应该是jdk<code>keytool</code>指令编码与系统编码不一致，点击<code>终端</code>—&gt;<code>偏好设置</code>—&gt;<code>设置</code>，可以看见“字符编码”为<code>Unicode(UTF-8)</code>,将该设置改为GB2312，重启终端，输入<code>keytool</code>中文显示正常，之后输入构建keystore的指令，按照提示便可以正常生成keystore</p>
-<p>注：该设置在某些使用UTF-8的指令会产生乱码，注意根据情况进行配置，可以配置描述文件进行快速切换</p>
+      <div id="main">
+
+  <section class="post" itemscope itemprop="blogPost">
   
-	</div>
-		<footer class="article-footer clearfix">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/工具/">工具</a>
-</div>
-
-
-  <div class="article-tags">
+    <a href="/2014/07/01/序/" title="序" itemprop="url">
   
-  <span></span> <a href="/tags/Mac/">Mac</a>
-  </div>
-
-
-
-
-<div class="article-share" id="share">
-
-  
-<div class="jiathis_style_24x24">
-	<a class="jiathis_button_tsina"></a>
-	<a class="jiathis_button_weixin"></a>
-	<a class="jiathis_button_renren"></a>
-	<a class="jiathis_button_qzone"></a>
-	<a class="jiathis_button_googleplus"></a>
-	<a class="jiathis_button_douban"></a>
-	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	<a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-    var jiathis_config={
-    data_track_clickback:true,
-    sm:"copy,renren,cqq",
-    pic:"",
-    summary:"",
-     ralateuid:{"tsina":"3845054729"},hideMore:false}
+    <h1 itemprop="name">序</h1>
     
-  </script> 
-<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=
-1396202037184488" charset="utf-8"></script>      
-
-
-</div>
-</footer>   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/2014/08/07/Mac下安装redis/" title="Mac下安装redis">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Mac下安装redis</span>
-</a>
-</div>
-
-
-<div class="next">
-<a href="/2014/07/23/Mac安装Android开发环境/"  title="Mac安装Android开发环境">
- <strong>下一篇：</strong><br/> 
- <span>Mac安装Android开发环境
-</span>
-</a>
-</div>
-
-</nav>
-
-	
-<section class="comment">
-	<div class="ds-thread"></div>
+     
+           <p itemprop="description" >个人博客
+问：为什么要搭建博客？
+答：记录自己在IT这个行业中的点滴，同时把自己的一些东西分享给各位朋友。
+问：为什么不选择已有的博客平台，而要自己搭建？
+答：想让事情变得简单点，有想法或解决了一些问题的时候，用Markdown记录一下。
+问：……？
+答：…………。
+问： 你的声</p>
+        
+    
+    <time datetime="2014-07-01T14:57:07.000Z" itemprop="datePublished">2014-07-01</time>
+  </a>
 </section>
 
 
-</div>  
+  <nav id="page-nav" class="clearfix">
+    <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
+</div>
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
@@ -351,79 +261,11 @@ $(document).ready(function(){
 });
 </script>
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      h  = $('article h2')
-      ah = $('article h2'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  if(ah.length==0){
-    t.css('display','none');
-  }else{
-    c.click(function(){
-      ta.css('display', 'block').addClass('fadeIn');
-    });
-    o.click(function(){
-      ta.css('display', 'none');
-    });
-    $(window).scroll(function(){
-      ta.css("top",Math.max(140,320-$(this).scrollTop()));
-    });
-  };
-});
-</script>
-
-
-
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"arccode"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-</script> 
 
 
 
 
 
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-}); 
-</script>
 
 
 <script type="text/javascript">
@@ -457,4 +299,4 @@ MathJax.Hub.Config({
    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
   </body>
-</html>
+ </html>
