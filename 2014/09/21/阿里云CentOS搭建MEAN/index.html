@@ -95,7 +95,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#购买主机"><span class="toc-number">1.</span> <span class="toc-text">购买主机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装相关模块"><span class="toc-number">2.</span> <span class="toc-text">安装相关模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#碰到的问题"><span class="toc-number">3.</span> <span class="toc-text">碰到的问题</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#执行_/usr/local/mongodb/bin/mongod_—dbpath=/var/local/mongodb/data_—logpath=/var/local/mongodb/logs/log-log_报错_-bash:_-/mongod:_cannot_execute_binary_file"><span class="toc-number">3.1.</span> <span class="toc-text">-bash: ./mongod: cannot execute binary file</code></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mongodb无法启动(Unclean_shutdown_detected)"><span class="toc-number">3.2.</span> <span class="toc-text">mongodb无法启动(Unclean shutdown detected)</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#购买主机"><span class="toc-number">1.</span> <span class="toc-text">购买主机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装相关模块"><span class="toc-number">2.</span> <span class="toc-text">安装相关模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#碰到的问题"><span class="toc-number">3.</span> <span class="toc-text">碰到的问题</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动时报_cannot_execute_binary_file"><span class="toc-number">3.1.</span> <span class="toc-text">启动时报 cannot execute binary file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mongodb无法启动(Unclean_shutdown_detected)"><span class="toc-number">3.2.</span> <span class="toc-text">mongodb无法启动(Unclean shutdown detected)</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
 		
 		</div>
 		
@@ -169,8 +169,10 @@
 </li>
 </ol>
 <h2 id="碰到的问题">碰到的问题</h2>
-<h3 id="执行_/usr/local/mongodb/bin/mongod_—dbpath=/var/local/mongodb/data_—logpath=/var/local/mongodb/logs/log-log_报错_-bash:_-/mongod:_cannot_execute_binary_file">执行 /usr/local/mongodb/bin/mongod —dbpath=/var/local/mongodb/data —logpath=/var/local/mongodb/logs/log.log 报错 <code>-bash: ./mongod: cannot execute binary file</code></h3>
-<p>mongodb版本不对,安装了32位的centos,但mongodb的版本为64位</p>
+<h3 id="启动时报_cannot_execute_binary_file">启动时报 cannot execute binary file</h3>
+<p>执行 /usr/local/mongodb/bin/mongod —dbpath=/var/local/mongodb/data —logpath=/var/local/mongodb/logs/log.log 报错 <code>-bash: ./mongod: cannot execute binary file</code></p>
+<p>原因: mongodb版本与centos版本不匹配,本人安装了32位的centos,但mongodb的版本为64位</p>
+<p>解决方案: 下载32位的mongodb进行安装</p>
 <h3 id="mongodb无法启动(Unclean_shutdown_detected)">mongodb无法启动(Unclean shutdown detected)</h3>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
@@ -274,7 +276,7 @@ mongod --dbpath=<span class="regexp">/usr/local</span><span class="regexp">/mong
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#购买主机"><span class="toc-number">1.</span> <span class="toc-text">购买主机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装相关模块"><span class="toc-number">2.</span> <span class="toc-text">安装相关模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#碰到的问题"><span class="toc-number">3.</span> <span class="toc-text">碰到的问题</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#执行_/usr/local/mongodb/bin/mongod_—dbpath=/var/local/mongodb/data_—logpath=/var/local/mongodb/logs/log-log_报错_-bash:_-/mongod:_cannot_execute_binary_file"><span class="toc-number">3.1.</span> <span class="toc-text">-bash: ./mongod: cannot execute binary file</code></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mongodb无法启动(Unclean_shutdown_detected)"><span class="toc-number">3.2.</span> <span class="toc-text">mongodb无法启动(Unclean shutdown detected)</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#购买主机"><span class="toc-number">1.</span> <span class="toc-text">购买主机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装相关模块"><span class="toc-number">2.</span> <span class="toc-text">安装相关模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#碰到的问题"><span class="toc-number">3.</span> <span class="toc-text">碰到的问题</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动时报_cannot_execute_binary_file"><span class="toc-number">3.1.</span> <span class="toc-text">启动时报 cannot execute binary file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mongodb无法启动(Unclean_shutdown_detected)"><span class="toc-number">3.2.</span> <span class="toc-text">mongodb无法启动(Unclean shutdown detected)</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
  
   </div>
 
