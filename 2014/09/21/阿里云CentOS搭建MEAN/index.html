@@ -95,7 +95,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#购买主机"><span class="toc-number">1.</span> <span class="toc-text">购买主机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装相关模块"><span class="toc-number">2.</span> <span class="toc-text">安装相关模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#碰到的问题"><span class="toc-number">3.</span> <span class="toc-text">碰到的问题</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动时报_cannot_execute_binary_file"><span class="toc-number">3.1.</span> <span class="toc-text">启动时报 cannot execute binary file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mongodb无法启动(Unclean_shutdown_detected)"><span class="toc-number">3.2.</span> <span class="toc-text">mongodb无法启动(Unclean shutdown detected)</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#购买主机"><span class="toc-number">1.</span> <span class="toc-text">购买主机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装相关模块"><span class="toc-number">2.</span> <span class="toc-text">安装相关模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改阿里云主机名"><span class="toc-number">3.</span> <span class="toc-text">修改阿里云主机名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#碰到的问题"><span class="toc-number">4.</span> <span class="toc-text">碰到的问题</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动时报_cannot_execute_binary_file"><span class="toc-number">4.1.</span> <span class="toc-text">启动时报 cannot execute binary file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mongodb无法启动(Unclean_shutdown_detected)"><span class="toc-number">4.2.</span> <span class="toc-text">mongodb无法启动(Unclean shutdown detected)</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">5.</span> <span class="toc-text">参考资料</span></a></li></ol>
 		
 		</div>
 		
@@ -168,6 +168,13 @@
 </ul>
 </li>
 </ol>
+<h2 id="修改阿里云主机名">修改阿里云主机名</h2>
+<ol>
+<li>vim /etc/hosts</li>
+<li>vim /etc/sysconfig/network</li>
+<li>hostname 新主机名</li>
+</ol>
+<p>重新ssh登录,生效;</p>
 <h2 id="碰到的问题">碰到的问题</h2>
 <h3 id="启动时报_cannot_execute_binary_file">启动时报 cannot execute binary file</h3>
 <p>执行 /usr/local/mongodb/bin/mongod —dbpath=/var/local/mongodb/data —logpath=/var/local/mongodb/logs/log.log 报错 <code>-bash: ./mongod: cannot execute binary file</code></p>
@@ -284,7 +291,7 @@ mongod --dbpath=<span class="regexp">/usr/local</span><span class="regexp">/mong
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#购买主机"><span class="toc-number">1.</span> <span class="toc-text">购买主机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装相关模块"><span class="toc-number">2.</span> <span class="toc-text">安装相关模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#碰到的问题"><span class="toc-number">3.</span> <span class="toc-text">碰到的问题</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动时报_cannot_execute_binary_file"><span class="toc-number">3.1.</span> <span class="toc-text">启动时报 cannot execute binary file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mongodb无法启动(Unclean_shutdown_detected)"><span class="toc-number">3.2.</span> <span class="toc-text">mongodb无法启动(Unclean shutdown detected)</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#购买主机"><span class="toc-number">1.</span> <span class="toc-text">购买主机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装相关模块"><span class="toc-number">2.</span> <span class="toc-text">安装相关模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改阿里云主机名"><span class="toc-number">3.</span> <span class="toc-text">修改阿里云主机名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#碰到的问题"><span class="toc-number">4.</span> <span class="toc-text">碰到的问题</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动时报_cannot_execute_binary_file"><span class="toc-number">4.1.</span> <span class="toc-text">启动时报 cannot execute binary file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mongodb无法启动(Unclean_shutdown_detected)"><span class="toc-number">4.2.</span> <span class="toc-text">mongodb无法启动(Unclean shutdown detected)</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">5.</span> <span class="toc-text">参考资料</span></a></li></ol>
  
   </div>
 
@@ -330,11 +337,17 @@ mongod --dbpath=<span class="regexp">/usr/local</span><span class="regexp">/mong
 		
 			<li><a href="/tags/Maven/" title="Maven">Maven<sup>2</sup></a></li>
 		
-			<li><a href="/tags/Mac/" title="Mac">Mac<sup>2</sup></a></li>
+			<li><a href="/tags/Hadoop/" title="Hadoop">Hadoop<sup>2</sup></a></li>
 		
 			<li><a href="/tags/Javascript/" title="Javascript">Javascript<sup>2</sup></a></li>
 		
-			<li><a href="/tags/Hadoop/" title="Hadoop">Hadoop<sup>2</sup></a></li>
+			<li><a href="/tags/Mac/" title="Mac">Mac<sup>2</sup></a></li>
+		
+			<li><a href="/tags/HTML/" title="HTML">HTML<sup>1</sup></a></li>
+		
+			<li><a href="/tags/线程/" title="线程">线程<sup>1</sup></a></li>
+		
+			<li><a href="/tags/进程/" title="进程">进程<sup>1</sup></a></li>
 		
 			<li><a href="/tags/Spark/" title="Spark">Spark<sup>1</sup></a></li>
 		
@@ -342,25 +355,19 @@ mongod --dbpath=<span class="regexp">/usr/local</span><span class="regexp">/mong
 		
 			<li><a href="/tags/Svn/" title="Svn">Svn<sup>1</sup></a></li>
 		
-			<li><a href="/tags/Linux类库/" title="Linux类库">Linux类库<sup>1</sup></a></li>
+			<li><a href="/tags/Memcached/" title="Memcached">Memcached<sup>1</sup></a></li>
 		
 			<li><a href="/tags/Eclipse/" title="Eclipse">Eclipse<sup>1</sup></a></li>
 		
 			<li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
 		
-			<li><a href="/tags/HTML/" title="HTML">HTML<sup>1</sup></a></li>
+			<li><a href="/tags/VitualBox/" title="VitualBox">VitualBox<sup>1</sup></a></li>
 		
 			<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
 		
-			<li><a href="/tags/VitualBox/" title="VitualBox">VitualBox<sup>1</sup></a></li>
-		
-			<li><a href="/tags/进程/" title="进程">进程<sup>1</sup></a></li>
-		
-			<li><a href="/tags/Memcached/" title="Memcached">Memcached<sup>1</sup></a></li>
-		
-			<li><a href="/tags/线程/" title="线程">线程<sup>1</sup></a></li>
-		
 			<li><a href="/tags/HBase/" title="HBase">HBase<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Linux类库/" title="Linux类库">Linux类库<sup>1</sup></a></li>
 		
 		</ul>
 </div>
