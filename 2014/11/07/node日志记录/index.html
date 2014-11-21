@@ -4,15 +4,13 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>浅谈W3C标准 | &lt;define&gt;Hello, Arccode&lt;/define&gt;</title>
+    <title>node日志记录 | &lt;define&gt;Hello, Arccode&lt;/define&gt;</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="arccode">
     
-    <meta name="description" content="W3C标准涉及多个方面，官方标准点击这里。从WEB技术应用角度看，可分为三个方面的标准：结构、表现、行为。
-
-结构主要指HTML/XHTML标准，包括页面渲染、标签大小写、属性大小写、标签嵌套、闭合标签等等；
-表现主要指CSS标准，包括页面布局、CSS选择器、盒子模型、盒子样式、盒子内容样式、媒体查">
+    <meta name="description" content="Java与Nodejs中控制台输出及日志记录对比
+                    Java        Nodejs                控制台        System.out.println(‘hello’);        console.log(‘hello’);   ">
     
     
     
@@ -71,42 +69,129 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/07/08/浅谈W3C标准/" title="浅谈W3C标准" itemprop="url">浅谈W3C标准</a>
+      <a href="/2014/11/07/node日志记录/" title="node日志记录" itemprop="url">node日志记录</a>
   </h1>
   <p class="article-author">By
        
-		<a href="http://arccode.github.io/about" title="arccode" target="_blank" itemprop="author">arccode</a>
+		<a href="http://arccode.net/about" title="arccode" target="_blank" itemprop="author">arccode</a>
 		
   <p class="article-time">
-    <time datetime="2014-07-08T07:46:29.000Z" itemprop="datePublished">发表于 2014-07-08</time>
+    <time datetime="2014-11-07T02:59:01.000Z" itemprop="datePublished">发表于 2014-11-07</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		
-		<p>W3C标准涉及多个方面，官方标准点击<a href="http://www.w3.org/standards/" target="_blank" rel="external">这里</a>。从WEB技术应用角度看，可分为三个方面的标准：<strong>结构</strong>、<strong>表现</strong>、<strong>行为</strong>。</p>
-<ul>
-<li><code>结构</code>主要指HTML/XHTML标准，包括页面渲染、标签大小写、属性大小写、标签嵌套、闭合标签等等；</li>
-<li><code>表现</code>主要指CSS标准，包括页面布局、CSS选择器、盒子模型、盒子样式、盒子内容样式、媒体查询（CSS3）；</li>
-<li><code>行为</code>主要指Javascript标准，包括对DOM及BOM的操作；</li>
-</ul>
-<h2 id="兼容性">兼容性</h2>
-<p>由于IE6、IE7、IE8未完全按照W3C标准去实现其浏览器的功能，而是自定义了一套IE的标准，所以在开发的过程中需要特意针对IE6~IE8开发相对应的CSS及Javascript。</p>
-<ul>
-<li><code>CSS兼容：</code>使用hack；</li>
-<li><code>Javascript兼容：</code>IE事件绑定采用attachEvent，现代浏览器采用addEventListener；</li>
-</ul>
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java与Nodejs中控制台输出及日志记录对比"><span class="toc-number">1.</span> <span class="toc-text">Java与Nodejs中控制台输出及日志记录对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NodeJS配置Log4JS日志"><span class="toc-number">2.</span> <span class="toc-text">NodeJS配置Log4JS日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="Java与Nodejs中控制台输出及日志记录对比">Java与Nodejs中控制台输出及日志记录对比</h2>
+<p><table><br>    <tr><br>        <td></td><br>        <td>Java</td><br>        <td>Nodejs</td><br>    </tr><br>    <tr><br>        <td>控制台</td><br>        <td>System.out.println(‘hello’);</td><br>        <td>console.log(‘hello’);</td><br>    </tr><br>    <tr><br>        <td>日志记录(自带)</td><br>        <td>java.util.logging.Logger</td><br>        <td>util.log</td><br>    </tr><br>    <tr><br>        <td>日志记录(第三方)</td><br>        <td>slf4j(定义接口), log4j(实现类)</td><br>        <td>log4js</td><br>    </tr></table></p>
+<table>
+
+<p>笔者经过测试, 选择第三方的日志库. Java Log4j配置详见我的另一篇博客<a href="http://arccode.net/2014/10/30/Log4j%E9%85%8D%E7%BD%AE/" target="_blank" rel="external">Log4j配置</a>.</p>
+<h2 id="NodeJS配置Log4JS日志">NodeJS配置Log4JS日志</h2>
+<p>在开发代码中加入如下代码, 其中’…..’表示笔者自己的业务代码</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="code"><pre><span class="code">.....
+.....
+// 引用log4js模块
+var log4js = require('log4js');
+
+.....</span>
+<span class="code">.....
+// 加载log4js配置
+log4js.configure(__dirname + '/log4j.json', {});
+
+// 获取指定分类的日志
+var loggerConsole = log4js.getLogger('console');
+var loggerInfo = log4js.getLogger('fileInfo');
+
+.....</span>
+loggerConsole.debug(<span class="emphasis">'db open normal.'</span> + message);
+
+loggerInfo.info(<span class="emphasis">'db open normal.'</span> + message);
+.....
+</pre></td></tr></table></figure>
+
+<p>log4js.json配置</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre>{
+  "<span class="attribute">appenders</span>": <span class="value">[
+    {
+    "<span class="attribute">type</span>": <span class="value"><span class="string">"console"</span></span>,
+    "<span class="attribute">category</span>": <span class="value"><span class="string">"console"</span>
+    </span>},
+    {
+      "<span class="attribute">type</span>": <span class="value"><span class="string">"file"</span></span>,
+      "<span class="attribute">absolute</span>": <span class="value"><span class="literal">true</span></span>,
+      "<span class="attribute">filename</span>": <span class="value"><span class="string">"/data/webstorm/imageHandler/log.log"</span></span>,
+      "<span class="attribute">category</span>": <span class="value"><span class="string">"fileInfo"</span>
+    </span>}
+  ]</span>,
+  "<span class="attribute">levels</span>": <span class="value">{
+    "<span class="attribute">console</span>": <span class="value"><span class="string">"debug"</span></span>,
+    "<span class="attribute">fileInfo</span>": <span class="value"><span class="string">"info"</span>
+  </span>}
+</span>}
+</pre></td></tr></table></figure>
+
+<p>更详细的配置信息详见<a href="https://github.com/nomiddlename/log4js-node" target="_blank" rel="external">Log4JS文档</a></p>
 <h2 id="参考资料">参考资料</h2>
-<p><a href="http://www.cnblogs.com/p2227/p/3583601.html" target="_blank" rel="external">浅谈W3C标准</a><br><a href="http://www.w3.org/standards/" target="_blank" rel="external">W3C STANDARDS</a></p>
-  
+<p><a href="https://github.com/nomiddlename/log4js-node" target="_blank" rel="external">Log4JS文档</a></p>
+</table>  
 	</div>
 		<footer class="article-footer clearfix">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+</div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/HTML/">HTML</a><a href="/tags/CSS/">CSS</a><a href="/tags/Javascript/">Javascript</a>
+  <span></span> <a href="/tags/NodeJS/">NodeJS</a><a href="/tags/Log/">Log</a>
   </div>
 
 
@@ -145,18 +230,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2014/07/08/Mac下使用IE/" title="Mac下使用IE">
+ <a href="/2014/11/07/mongoose入门/" title="mongoose入门">
   <strong>上一篇：</strong><br/>
   <span>
-  Mac下使用IE</span>
+  mongoose入门</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2014/07/06/进程和线程/"  title="进程和线程">
+<a href="/2014/10/30/Properties配置分离/"  title="Properties配置分离">
  <strong>下一篇：</strong><br/> 
- <span>进程和线程
+ <span>Properties配置分离
 </span>
 </a>
 </div>
@@ -172,6 +257,13 @@
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java与Nodejs中控制台输出及日志记录对比"><span class="toc-number">1.</span> <span class="toc-text">Java与Nodejs中控制台输出及日志记录对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NodeJS配置Log4JS日志"><span class="toc-number">2.</span> <span class="toc-text">NodeJS配置Log4JS日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
+ 
+  </div>
+
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
@@ -183,9 +275,15 @@
 		
 			<li><a href="/categories/Java/" title="Java">Java<sup>2</sup></a></li>
 		
+			<li><a href="/categories/Linux/Javascript/" title="Javascript">Javascript<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Javascript/" title="Javascript">Javascript<sup>1</sup></a></li>
+		
 			<li><a href="/categories/Linux/" title="Linux">Linux<sup>3</sup></a></li>
 		
-			<li><a href="/categories/中间件/" title="中间件">中间件<sup>1</sup></a></li>
+			<li><a href="/categories/NoSQL(缓存)/" title="NoSQL(缓存)">NoSQL(缓存)<sup>3</sup></a></li>
+		
+			<li><a href="/categories/中间件/" title="中间件">中间件<sup>2</sup></a></li>
 		
 			<li><a href="/categories/云计算/" title="云计算">云计算<sup>1</sup></a></li>
 		
@@ -196,8 +294,6 @@
 			<li><a href="/categories/操作系统/" title="操作系统">操作系统<sup>1</sup></a></li>
 		
 			<li><a href="/categories/数据挖掘/" title="数据挖掘">数据挖掘<sup>3</sup></a></li>
-		
-			<li><a href="/categories/缓存/" title="缓存">缓存<sup>2</sup></a></li>
 		
 			<li><a href="/categories/链接/" title="链接">链接<sup>1</sup></a></li>
 		
@@ -218,43 +314,43 @@
 		
 			<li><a href="/tags/Redis/" title="Redis">Redis<sup>3</sup></a></li>
 		
-			<li><a href="/tags/Mac/" title="Mac">Mac<sup>2</sup></a></li>
+			<li><a href="/tags/Maven/" title="Maven">Maven<sup>2</sup></a></li>
 		
-			<li><a href="/tags/Javascript/" title="Javascript">Javascript<sup>2</sup></a></li>
+			<li><a href="/tags/Mac/" title="Mac">Mac<sup>2</sup></a></li>
 		
 			<li><a href="/tags/Svn/" title="Svn">Svn<sup>2</sup></a></li>
 		
 			<li><a href="/tags/Hadoop/" title="Hadoop">Hadoop<sup>2</sup></a></li>
 		
-			<li><a href="/tags/Maven/" title="Maven">Maven<sup>2</sup></a></li>
+			<li><a href="/tags/Zookeeper/" title="Zookeeper">Zookeeper<sup>2</sup></a></li>
 		
-			<li><a href="/tags/线程/" title="线程">线程<sup>1</sup></a></li>
+			<li><a href="/tags/MongoDB/" title="MongoDB">MongoDB<sup>2</sup></a></li>
 		
-			<li><a href="/tags/Zookeeper/" title="Zookeeper">Zookeeper<sup>1</sup></a></li>
+			<li><a href="/tags/NodeJS/" title="NodeJS">NodeJS<sup>2</sup></a></li>
 		
-			<li><a href="/tags/Properties/" title="Properties">Properties<sup>1</sup></a></li>
+			<li><a href="/tags/Log/" title="Log">Log<sup>1</sup></a></li>
 		
 			<li><a href="/tags/Storm/" title="Storm">Storm<sup>1</sup></a></li>
 		
+			<li><a href="/tags/Properties/" title="Properties">Properties<sup>1</sup></a></li>
+		
 			<li><a href="/tags/Kafka/" title="Kafka">Kafka<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Eclipse/" title="Eclipse">Eclipse<sup>1</sup></a></li>
 		
 			<li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
 		
 			<li><a href="/tags/Spark/" title="Spark">Spark<sup>1</sup></a></li>
 		
-			<li><a href="/tags/HTML/" title="HTML">HTML<sup>1</sup></a></li>
+			<li><a href="/tags/进程/" title="进程">进程<sup>1</sup></a></li>
 		
 			<li><a href="/tags/Memcached/" title="Memcached">Memcached<sup>1</sup></a></li>
 		
-			<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+			<li><a href="/tags/线程/" title="线程">线程<sup>1</sup></a></li>
 		
 			<li><a href="/tags/VitualBox/" title="VitualBox">VitualBox<sup>1</sup></a></li>
 		
-			<li><a href="/tags/进程/" title="进程">进程<sup>1</sup></a></li>
-		
-			<li><a href="/tags/Log4j/" title="Log4j">Log4j<sup>1</sup></a></li>
-		
-			<li><a href="/tags/Linux类库/" title="Linux类库">Linux类库<sup>1</sup></a></li>
+			<li><a href="/tags/AngularJS/" title="AngularJS">AngularJS<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -300,7 +396,7 @@
 	</div>
 		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2014
 		
-		<a href="http://arccode.github.io/about" target="_blank" title="arccode">arccode</a>
+		<a href="http://arccode.net/about" target="_blank" title="arccode">arccode</a>
 		
 		</p>
 </div>
@@ -332,6 +428,8 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
@@ -428,7 +526,7 @@ $(document).ready(function(){
 
 <script type="text/javascript">
     var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F58062219380755983eecf26e0ceff2c8' type='text/javascript'%3E%3C/script%3E"));
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fcc881a935ecd2c2a0fe30651210e7117' type='text/javascript'%3E%3C/script%3E"));
 </script>
 
 
