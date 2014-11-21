@@ -10,7 +10,20 @@
     <meta name="author" content="arccode">
     
     <meta name="description" content="Java与Nodejs中控制台输出及日志记录对比
-                    Java        Nodejs                控制台        System.out.println(‘hello’);        console.log(‘hello’);   ">
+笔者经过测试, 选择第三方的日志库. Java Log4j配置详见我的另一篇博客Log4j配置.
+NodeJS配置Log4JS日志
+在开发代码中加入如下代码,
+1
+2
+3
+4
+5
+6
+7
+8
+9
+#引用log4js模块
+var log4js = re">
     
     
     
@@ -84,9 +97,6 @@
 		
 		
 		<h2 id="Java与Nodejs中控制台输出及日志记录对比">Java与Nodejs中控制台输出及日志记录对比</h2>
-<p><table><br>    <tr><br>        <td></td><br>        <td>Java</td><br>        <td>Nodejs</td><br>    </tr><br>    <tr><br>        <td>控制台</td><br>        <td>System.out.println(‘hello’);</td><br>        <td>console.log(‘hello’);</td><br>    </tr><br>    <tr><br>        <td>日志记录(自带)</td><br>        <td>java.util.logging.Logger</td><br>        <td>util.log</td><br>    </tr><br>    <tr><br>        <td>日志记录(第三方)</td><br>        <td>slf4j(定义接口), log4j(实现类)</td><br>        <td>log4js</td><br>    </tr></table></p>
-<table>
-
 <p>笔者经过测试, 选择第三方的日志库. Java Log4j配置详见我的另一篇博客<a href="http://arccode.net/2014/10/30/Log4j%E9%85%8D%E7%BD%AE/" target="_blank" rel="external">Log4j配置</a>.</p>
 <h2 id="NodeJS配置Log4JS日志">NodeJS配置Log4JS日志</h2>
 <p>在开发代码中加入如下代码,</p>
@@ -152,7 +162,7 @@ loggerInfo.info(<span class="string">'db open normal.'</span> + message);
 <p>更详细的配置信息详见<a href="https://github.com/nomiddlename/log4js-node" target="_blank" rel="external">Log4JS文档</a></p>
 <h2 id="参考资料">参考资料</h2>
 <p><a href="https://github.com/nomiddlename/log4js-node" target="_blank" rel="external">Log4JS文档</a></p>
-</table>  
+  
 	</div>
 		<footer class="article-footer clearfix">
 
