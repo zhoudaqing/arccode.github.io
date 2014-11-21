@@ -83,13 +83,20 @@
 	<div class="article-content">
 		
 		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java与Nodejs中控制台输出及日志记录对比"><span class="toc-number">1.</span> <span class="toc-text">Java与Nodejs中控制台输出及日志记录对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NodeJS配置Log4JS日志"><span class="toc-number">2.</span> <span class="toc-text">NodeJS配置Log4JS日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
+		
+		</div>
+		
 		<h2 id="Java与Nodejs中控制台输出及日志记录对比">Java与Nodejs中控制台输出及日志记录对比</h2>
 <p><table><br>    <tr><br>        <td></td><br>        <td>Java</td><br>        <td>Nodejs</td><br>    </tr><br>    <tr><br>        <td>控制台</td><br>        <td>System.out.println(‘hello’);</td><br>        <td>console.log(‘hello’);</td><br>    </tr><br>    <tr><br>        <td>日志记录(自带)</td><br>        <td>java.util.logging.Logger</td><br>        <td>util.log</td><br>    </tr><br>    <tr><br>        <td>日志记录(第三方)</td><br>        <td>slf4j(定义接口), log4j(实现类)</td><br>        <td>log4js</td><br>    </tr></table></p>
-<table>
+<table>    
 
 <p>笔者经过测试, 选择第三方的日志库. Java Log4j配置详见我的另一篇博客<a href="http://arccode.net/2014/10/30/Log4j%E9%85%8D%E7%BD%AE/" target="_blank" rel="external">Log4j配置</a>.</p>
 <h2 id="NodeJS配置Log4JS日志">NodeJS配置Log4JS日志</h2>
-<p>在开发代码中加入如下代码,</p>
+<p>在开发代码中加入如下代码 其中’…..’表示笔者自己的业务代码</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -99,15 +106,35 @@
 7
 8
 9
-</pre></td><td class="code"><pre><span class="preprocessor">#引用log4js模块</span>
-<span class="keyword">var</span> log4js = require(<span class="string">'log4js'</span>);
-<span class="preprocessor">#加载log4js配置</span>
-log4js.configure(__dirname + <span class="string">'/log4j.json'</span>, {});
-<span class="preprocessor">#获取指定分类的日志</span>
-<span class="keyword">var</span> loggerConsole = log4js.getLogger(<span class="string">'console'</span>);
-<span class="keyword">var</span> loggerInfo = log4js.getLogger(<span class="string">'fileInfo'</span>);
-loggerConsole.debug(<span class="string">'db open normal.'</span> + message);
-loggerInfo.info(<span class="string">'db open normal.'</span> + message);
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="code"><pre><span class="code">.....
+.....
+// #引用log4js模块
+var log4js = require('log4js')
+
+.....</span>
+<span class="code">.....
+// #加载log4js配置
+log4js.configure(__dirname + '/log4j.json', {})
+;// #获取指定分类的日志
+var loggerConsole = log4js.getLogger('console');
+var loggerInfo = log4js.getLogger('fileInfo')
+
+.....;
+loggerConsole.debug('db open normal.' + message)
+;
+loggerInfo.info('db open normal.' + message)
+.....</span>
+;
 </pre></td></tr></table></figure>
 
 <p>log4js.json配置</p>
@@ -229,6 +256,13 @@ loggerInfo.info(<span class="string">'db open normal.'</span> + message);
 
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java与Nodejs中控制台输出及日志记录对比"><span class="toc-number">1.</span> <span class="toc-text">Java与Nodejs中控制台输出及日志记录对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NodeJS配置Log4JS日志"><span class="toc-number">2.</span> <span class="toc-text">NodeJS配置Log4JS日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -394,6 +428,8 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
