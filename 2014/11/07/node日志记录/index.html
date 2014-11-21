@@ -96,7 +96,7 @@
 
 <p>笔者经过测试, 选择第三方的日志库. Java Log4j配置详见我的另一篇博客<a href="http://arccode.net/2014/10/30/Log4j%E9%85%8D%E7%BD%AE/" target="_blank" rel="external">Log4j配置</a>.</p>
 <h2 id="NodeJS配置Log4JS日志">NodeJS配置Log4JS日志</h2>
-<p>在开发代码中加入如下代码, 其中’…..’表示笔者自己的业务代码</p>
+<p>在开发代码中加入如下代码,</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -106,23 +106,15 @@
 7
 8
 9
-10
-11
-12
-13
-</pre></td><td class="code"><pre><span class="comment">// 引用log4js模块</span>
+</pre></td><td class="code"><pre><span class="preprocessor">#引用log4js模块</span>
 <span class="keyword">var</span> log4js = require(<span class="string">'log4js'</span>);
-
-<span class="comment">// 加载log4js配置</span>
-log4js.configure(__dirname + <span class="string">'/log4j.json'</span>, <span class="comment">{}</span>);
-
-<span class="comment">// 获取指定分类的日志</span>
+<span class="preprocessor">#加载log4js配置</span>
+log4js.configure(__dirname + <span class="string">'/log4j.json'</span>, {});
+<span class="preprocessor">#获取指定分类的日志</span>
 <span class="keyword">var</span> loggerConsole = log4js.getLogger(<span class="string">'console'</span>);
 <span class="keyword">var</span> loggerInfo = log4js.getLogger(<span class="string">'fileInfo'</span>);
-
-loggerConsole.debug(<span class="string">'db open normal.'</span> + <span class="keyword">message</span>);
-
-loggerInfo.info(<span class="string">'db open normal.'</span> + <span class="keyword">message</span>);
+loggerConsole.debug(<span class="string">'db open normal.'</span> + message);
+loggerInfo.info(<span class="string">'db open normal.'</span> + message);
 </pre></td></tr></table></figure>
 
 <p>log4js.json配置</p>
