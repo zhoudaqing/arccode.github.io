@@ -110,31 +110,19 @@
 11
 12
 13
-14
-15
-16
-17
-18
-19
-</pre></td><td class="code"><pre><span class="code">.....
-.....
-// 引用log4js模块
-var log4js = require('log4js');
+</pre></td><td class="code"><pre><span class="comment">// 引用log4js模块</span>
+<span class="keyword">var</span> log4js = require(<span class="string">'log4js'</span>);
 
-.....</span>
-<span class="code">.....
-// 加载log4js配置
-log4js.configure(__dirname + '/log4j.json', {});
+<span class="comment">// 加载log4js配置</span>
+log4js.configure(__dirname + <span class="string">'/log4j.json'</span>, <span class="comment">{}</span>);
 
-// 获取指定分类的日志
-var loggerConsole = log4js.getLogger('console');
-var loggerInfo = log4js.getLogger('fileInfo');
+<span class="comment">// 获取指定分类的日志</span>
+<span class="keyword">var</span> loggerConsole = log4js.getLogger(<span class="string">'console'</span>);
+<span class="keyword">var</span> loggerInfo = log4js.getLogger(<span class="string">'fileInfo'</span>);
 
-.....</span>
-loggerConsole.debug(<span class="emphasis">'db open normal.'</span> + message);
+loggerConsole.debug(<span class="string">'db open normal.'</span> + <span class="keyword">message</span>);
 
-loggerInfo.info(<span class="emphasis">'db open normal.'</span> + message);
-.....
+loggerInfo.info(<span class="string">'db open normal.'</span> + <span class="keyword">message</span>);
 </pre></td></tr></table></figure>
 
 <p>log4js.json配置</p>
