@@ -1,176 +1,325 @@
-
-  <!DOCTYPE HTML>
-<html lang="zh-CN">
+<!DOCTYPE HTML>
+<html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   
-    <title>Tag: 线程 | &lt;define&gt;Hello, Arccode&lt;/define&gt;</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="arccode">
-    
-    <meta name="description" content="Java Javascript bigdata 大数据 hadoop hive storm spark">
-    
-    
-    
-    
-    <link rel="alternative" href="/atom.xml" title="&lt;define&gt;Hello, Arccode&lt;/define&gt;" type="application/atom+xml">
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/jacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
-</head>
-
-    <body>
-      <header>
-        <div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="&lt;define&gt;Hello, Arccode&lt;/define&gt;" title="&lt;define&gt;Hello, Arccode&lt;/define&gt;"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="&lt;define&gt;Hello, Arccode&lt;/define&gt;">&lt;define&gt;Hello, Arccode&lt;/define&gt;</a></h1>
-				<h2 class="blog-motto">狂奔中的全栈工程师</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">首页</a></li>
-					
-						<li><a href="/archives">归档</a></li>
-					
-						<li><a href="/about">关于</a></li>
-					
-					<li>
- 					
-					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
-      </header>
-      <div id="container">
-        
-
-<div class="archive-title" >
-  <h2 class="tag-icon">线程</h2>
+  <title>线程 | Arccode</title>
+  <meta name="author" content="arccode">
   
-</div>
-<div id="main" class="archive-part clearfix">
-  <div id="archive-page">
-
-  <section class="post" itemscope itemprop="blogPost">
+  <meta name="description" content="Java Javascript bigdata 大数据 hadoop hive storm spark">
   
-    <a href="/2014/07/06/进程和线程/" title="进程和线程" itemprop="url">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Arccode"/>
+
+  
+    <meta property="og:image" content="undefined"/>
   
 
-    <time datetime="2014-07-06T13:41:01.000Z" itemprop="datePublished">2014-07-06</time>
-
-
-    <h1 itemprop="name">进程和线程</h1>
-
-  </a>
-</section>
-
-
-  </div>
-</div>
-
-      </div>
-      <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p> Hello, I&#39;m arccode. Liking architecture and coding. <br/>
-			I&#39;ll share my experience with you at this blog.</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		
-		<a href="https://github.com/arccode" target="_blank" class="icon-github" title="github"></a>
-		
-		
-		
-		
-		
-		
-		
-		<a href="mailto:arccode@163.com" target="_blank" class="icon-email" title="Email Me"></a>
-		
-	</div>
-		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2014
-		
-		<a href="http://arccode.net/about" target="_blank" title="arccode">arccode</a>
-		
-		</p>
-</div>
-</footer>
-      <script src="/js/jquery-2.0.3.min.js"></script>
+  <link href="/img/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Arccode" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="/js/jquery.min.js"></script>
+  
 <script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else
-    {
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-        
-    }
-  });
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-});
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52770645-1', 'arccode.net');
+  ga('send', 'pageview');
+
 </script>
 
 
+</head>
+
+
+<body>
+  <!--[if lte IE 8]> <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'> <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0027_Simplified Chinese.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." style='margin-left:auto;margin-right:auto;display: block;'/></a></div> <![endif]-->
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Arccode</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="/about">关于</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title tag">线程</h2>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2014-07-06T13:41:01.000Z"><a href="/2014/07/06/进程和线程/">2014-07-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/07/06/进程和线程/">进程和线程</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="进程">进程</h2>
+<p>并发执行的程序在执行过程中对资源（CPU、寄存器、IO、程序数据）分配和管理的基本单位；</p>
+<h3 id="进程状态">进程状态</h3>
+<ul>
+<li>初始态</li>
+<li>就绪态：就绪态的进程已经获得除CPU之外的其它资源，只要由调度获得处理机，便可立即执行；该状态可细分为内存就绪和外存就绪；</li>
+<li>运行态：运行态可细分为用户执行状态和系统执行状态；</li>
+<li>阻塞态：阻塞态可细分为内存阻塞、设备阻塞、文件阻塞、网络阻塞、数据阻塞等等；</li>
+<li>终止态</li>
+</ul>
+<p><strong> 注：</strong> 进程状态对就绪态、运行态、阻塞态进行了细分，其目的均是为了更好的控制程序，但这是以增加系统复杂性和系统开销为代价；</p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/07/06/进程和线程/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+
+  <ul class="page-direction" id="page-direction">
+    <li><a class="page-prev icon-chevron-sign-left" href="javascript:;" title="上一页"></a></li>
+    <li><a class="page-next icon-chevron-sign-right" href="javascript:;" title="下一页"></a></li>
+</ul>
+
+<nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="搜一下">
+    <i class="icon-search"></i>
+    <input type="hidden" name="q" value="site:arccode.net">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Java/">Java</a><small>2</small></li>
+  
+    <li><a href="/categories/Linux/Javascript/">Javascript</a><small>1</small></li>
+  
+    <li><a href="/categories/Javascript/">Javascript</a><small>2</small></li>
+  
+    <li><a href="/categories/Linux/">Linux</a><small>3</small></li>
+  
+    <li><a href="/categories/NoSQL(缓存)/">NoSQL(缓存)</a><small>3</small></li>
+  
+    <li><a href="/categories/中间件/">中间件</a><small>2</small></li>
+  
+    <li><a href="/categories/云计算/">云计算</a><small>1</small></li>
+  
+    <li><a href="/categories/工具/">工具</a><small>6</small></li>
+  
+    <li><a href="/categories/指令/">指令</a><small>2</small></li>
+  
+    <li><a href="/categories/操作系统/">操作系统</a><small>1</small></li>
+  
+    <li><a href="/categories/数据挖掘/">数据挖掘</a><small>3</small></li>
+  
+    <li><a href="/categories/链接/">链接</a><small>1</small></li>
+  
+    <li><a href="/categories/问题集锦/">问题集锦</a><small>1</small></li>
+  
+    <li><a href="/categories/队列/">队列</a><small>1</small></li>
+  
+    <li><a href="/categories/随笔/">随笔</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Android/">Android</a><small>1</small></li>
+  
+    <li><a href="/tags/AngularJS/">AngularJS</a><small>1</small></li>
+  
+    <li><a href="/tags/CSS/">CSS</a><small>1</small></li>
+  
+    <li><a href="/tags/Eclipse/">Eclipse</a><small>1</small></li>
+  
+    <li><a href="/tags/ExpressJS/">ExpressJS</a><small>1</small></li>
+  
+    <li><a href="/tags/HBase/">HBase</a><small>1</small></li>
+  
+    <li><a href="/tags/HTML/">HTML</a><small>1</small></li>
+  
+    <li><a href="/tags/Hadoop/">Hadoop</a><small>2</small></li>
+  
+    <li><a href="/tags/Kafka/">Kafka</a><small>1</small></li>
+  
+    <li><a href="/tags/Linux类库/">Linux类库</a><small>1</small></li>
+  
+    <li><a href="/tags/Log/">Log</a><small>1</small></li>
+  
+    <li><a href="/tags/Log4j/">Log4j</a><small>1</small></li>
+  
+    <li><a href="/tags/Mac/">Mac</a><small>2</small></li>
+  
+    <li><a href="/tags/Maven/">Maven</a><small>2</small></li>
+  
+    <li><a href="/tags/Memcached/">Memcached</a><small>1</small></li>
+  
+    <li><a href="/tags/MongoDB/">MongoDB</a><small>2</small></li>
+  
+    <li><a href="/tags/NodeJS/">NodeJS</a><small>2</small></li>
+  
+    <li><a href="/tags/Properties/">Properties</a><small>1</small></li>
+  
+    <li><a href="/tags/Redis/">Redis</a><small>3</small></li>
+  
+    <li><a href="/tags/Spark/">Spark</a><small>1</small></li>
+  
+    <li><a href="/tags/Storm/">Storm</a><small>1</small></li>
+  
+    <li><a href="/tags/Svn/">Svn</a><small>2</small></li>
+  
+    <li><a href="/tags/VitualBox/">VitualBox</a><small>1</small></li>
+  
+    <li><a href="/tags/Zookeeper/">Zookeeper</a><small>2</small></li>
+  
+    <li><a href="/tags/线程/">线程</a><small>1</small></li>
+  
+    <li><a href="/tags/进程/">进程</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2014/11/14/Zookeeper搭建集群/">Zookeeper搭建集群</a>
+      </li>
+    
+      <li>
+        <a href="/2014/11/07/mongoose入门/">mongoose入门</a>
+      </li>
+    
+      <li>
+        <a href="/2014/11/07/node日志记录/">node日志记录</a>
+      </li>
+    
+      <li>
+        <a href="/2014/10/30/Properties配置分离/">Properties配置分离</a>
+      </li>
+    
+      <li>
+        <a href="/2014/10/30/Log4j配置/">Log4j配置</a>
+      </li>
+    
+      <li>
+        <a href="/2014/10/23/Mac下安装SVN服务器/">Mac下安装SVN服务器</a>
+      </li>
+    
+      <li>
+        <a href="/2014/09/30/Zookeeper实战一/">Zookeeper实战一</a>
+      </li>
+    
+      <li>
+        <a href="/2014/09/30/Kafka实战一/">Kafka实战一</a>
+      </li>
+    
+      <li>
+        <a href="/2014/09/22/Maven常见问题/">Maven常见问题</a>
+      </li>
+    
+      <li>
+        <a href="/2014/09/21/阿里云CentOS搭建MEAN/">阿里云CentOS搭建MEAN</a>
+      </li>
+    
+      <li>
+        <a href="/2014/09/21/Linux指令/">Linux指令</a>
+      </li>
+    
+      <li>
+        <a href="/2014/09/21/Redis指令/">Redis指令</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  <div class="widget tag">
+  <h3 class="title">友情链接</h3>
+    <ul class="entry">
+      <li><a href="http://www.ruanyifeng.com/blog" target="_blank" title="阮一峰的网络日志">阮一峰的网络日志</a></li>
+      <li><a href="http://www.importnew.com/" target="_blank" title="ImportNew">ImportNew</a></li>
+    </ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <div id="go-pg-top"><i class="icon-arrow-up"></i></div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 arccode
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
 
 
 
@@ -184,28 +333,23 @@ $(document).ready(function(){
 
 
 <script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-52770645-1', 'arccode.github.io');  
-ga('send', 'pageview');
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52770645-1', 'arccode.net');
+  ga('send', 'pageview');
+
 </script>
 
 
-<div id="totop">
-<a title="返回顶部"><img src="/img/scrollup.png"/></a>
-</div>
 
-<script src="/js/totop.js"></script>
 
-<script type="text/x-mathjax-config"> 
-MathJax.Hub.Config({ 
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
-}); 
-</script>
-<script type="text/javascript"
-   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-    </body>
-   </html>
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/page.js"></script>
+
+</body>
+
+</html>
