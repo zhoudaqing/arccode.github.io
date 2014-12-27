@@ -60,110 +60,75 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="<%= item.layout %>">
+  <% if (item.photos){ %>
+    <%- partial('post/gallery') %>
+  <% } %>
   <div class="post-content">
     <header>
-      
-        <time datetime="2014-07-08T09:33:42.000Z"><a href="/2014/07/08/Mac下使用IE/">2014-07-08</a></time>
-      
-      
-  
-    <h1 class="title">Mac下使用IE</h1>
-  
-
+      <% if (item.layout != 'page'){ %>
+        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
+      <% } %>
+      <%- partial('post/title') %>
     </header>
     <div class="entry">
-      
-        <p>如何在Mac上使用IE？</p>
-<ol>
-<li>点击<a href="https://www.modern.ie/en-us/virtualization-tools#downloads" target="_blank" rel="external">modern.IE</a>，选择要下载的版本，点击<code>Grab them all with cURL</code>获取下载的URL，例如<br><img src="/images/modern_IE_page.png" alt=""><figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>curl <span class="attribute">-O</span> <span class="attribute">-L</span> <span class="string">"https://www.modern.ie/vmdownload?platform=mac&virtPlatform=virtualbox&browserOS=IE10-Win8.1&parts=5&filename=VMBuild_20131127/VirtualBox/IE10_Win8/Mac/IE10.Win8.For.MacVirtualBox.part{1.sfx,2.rar,3.rar,4.rar,5.rar}"</span>
-</pre></td></tr></table></figure></li>
-<li><code>$ cd ~/Downloads/VisualBox_IE</code>，切换到保存文件的目录；</li>
-</ol>
-<a id="more"></a>
-
-<ol>
-<li>执行获取的URL<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>curl <span class="attribute">-O</span> <span class="attribute">-L</span> <span class="string">"https://www.modern.ie/vmdownload?platform=mac&virtPlatform=virtualbox&browserOS=IE10-Win8.1&parts=5&filename=VMBuild_20131127/VirtualBox/IE10_Win8/Mac/IE10.Win8.For.MacVirtualBox.part{1.sfx,2.rar,3.rar,4.rar,5.rar}"</span>
-</pre></td></tr></table></figure></li>
-<li><code>$ chmod +x ./IE11.Win7.For.MacVirtualBox.part1.sfx</code></li>
-<li><code>$ ./chmod +x ./IE11.Win7.For.MacVirtualBox.part1.sfx</code><br><img src="/images/modern_IE_page_uncompress.png" alt=""></li>
-<li>双击<code>IE11 - Win7.ova</code>，并配置内存<br><img src="/images/modern_IE_page_config_1.png" alt=""></li>
-<li>完成<br><img src="/images/modern_IE_page_welcome.png" alt=""></li>
-</ol>
-<p>另一种方式：<a href="http://osxdaily.com/2011/09/04/internet-explorer-for-mac-ie7-ie8-ie-9-free/" target="_blank" rel="external">Mac安装IE 方法二</a>,使用到googlecode需要使用代理。</p>
-<h2 id="参考资料">参考资料</h2>
-<p><a href="http://webees.me/installing-virtualbox-for-mac-and-set-up-modern-ie/" target="_blank" rel="external">Mac安装IE 方法一</a><br><a href="http://osxdaily.com/2011/09/04/internet-explorer-for-mac-ie7-ie8-ie-9-free/" target="_blank" rel="external">Mac安装IE 方法二</a></p>
-
-      
+      <% if (item.excerpt && index){ %>
+        <%- item.excerpt %>
+      <% } else { %>
+        <%- item.content %>
+      <% } %>
     </div>
     <footer>
-      
-
-        
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="/2014/07/12/tar命令详解/">tar命令详解</a>
+      <% if (index){ %>
+        <% if (item.excerpt){ %>
+          <div class="alignleft">
+            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
           </div>
-        
-        
+        <% } %>
+        <% if (item.comment && config.disqus_shortname){ %>
+        <div class="alignright">
+          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
+        </div>
+        <% } %>
+      <% } else { %>
+
+        <% if (page.prev){ %>
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+          </div>
+        <% } %>
+        <% if (page.next){ %>
           <div class="alignright post-nav">
-            <em>下一篇: </em><a href="/2014/07/08/浅谈W3C标准/">浅谈W3C标准</a>
+            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
           </div>
           <div class="clearfix"></div>
-        
+        <% } %>
 
-        
+        <% if (theme.copyright){ %>
           <div class="copyright">
-            
-            
+            <% if (theme.copyright.claim){ %>
+              <span class="claim"><%= theme.copyright.claim %></span>
+            <% } %>
+            <% if (theme.copyright.show_link){ %>
               <span class="from-link">
                 <em>本文链接地址:</em>
-                <a href="/2014/07/08/Mac下使用IE/">
-                  http://arccode.net/2014/07/08/Mac下使用IE/
+                <a href="<%- config.root %><%- item.path %>">
+                  <%- page.permalink %>
                 </a>
               </span>
-            
+            <% } %>
           </div>
-        
-        
-  
-  <div class="categories">
-    <a href="/categories/工具/">工具</a>
-  </div>
-
-        
-  
-  <div class="tags">
-    <a href="/tags/Mac/">Mac</a>, <a href="/tags/VitualBox/">VitualBox</a>
-  </div>
-
-        
-      
+        <% } %>
+        <%- partial('post/category') %>
+        <%- partial('post/tag') %>
+        <%- partial('post/share') %>
+      <% } %>
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-
-<section class="comment">
-    <div class="ds-thread"></div>
-</section>
-
-</div></div>
+<%- partial('comment') %></div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">

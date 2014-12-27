@@ -65,134 +65,145 @@
 
 
   
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
+    <article class="<%= item.layout %>">
+  <% if (item.photos){ %>
+    <%- partial('post/gallery') %>
+  <% } %>
   <div class="post-content">
     <header>
-      
-        <time datetime="2014-10-23T09:40:32.000Z"><a href="/2014/10/23/Mac下安装SVN服务器/">2014-10-23</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/10/23/Mac下安装SVN服务器/">Mac下安装SVN服务器</a></h1>
-  
-
+      <% if (item.layout != 'page'){ %>
+        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
+      <% } %>
+      <%- partial('post/title') %>
     </header>
     <div class="entry">
-      
-        <h2 id="安装svnserver">安装svnserver</h2>
-<p>Mac自带svnserver, 输入svnserve —version</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre>svnserve, <span class="built_in">version</span> <span class="number">1.7</span><span class="number">.10</span> (r1485443)
-   compiled Jan <span class="number">15</span> <span class="number">2014</span>, <span class="number">11</span>:<span class="number">22</span>:<span class="number">16</span>
-
-Copyright (C) <span class="number">2013</span> The Apache Software Foundation.
-This software consists <span class="operator">of</span> contributions made <span class="keyword">by</span> many people; see <span class="operator">the</span> NOTICE
-<span class="built_in">file</span> <span class="keyword">for</span> more information.
-Subversion is <span class="built_in">open</span> source software, see <span class="keyword">http</span>://subversion.apache.org/
-
-The following repository back-<span class="function"><span class="keyword">end</span> (<span class="title">FS</span>) <span class="title">modules</span> <span class="title">are</span> <span class="title">available</span>:</span>
-
-* fs_fs : Module <span class="keyword">for</span> working <span class="operator">with</span> <span class="operator">a</span> plain <span class="built_in">file</span> (FSFS) repository.
-</pre></td></tr></table></figure><br>
-      
+      <% if (item.excerpt && index){ %>
+        <%- item.excerpt %>
+      <% } else { %>
+        <%- item.content %>
+      <% } %>
     </div>
     <footer>
-      
-        
+      <% if (index){ %>
+        <% if (item.excerpt){ %>
           <div class="alignleft">
-            <a href="/2014/10/23/Mac下安装SVN服务器/#more" class="more-link">Read More</a>
+            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
           </div>
-        
-        
-      
+        <% } %>
+        <% if (item.comment && config.disqus_shortname){ %>
+        <div class="alignright">
+          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
+        </div>
+        <% } %>
+      <% } else { %>
+
+        <% if (page.prev){ %>
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+          </div>
+        <% } %>
+        <% if (page.next){ %>
+          <div class="alignright post-nav">
+            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
+          </div>
+          <div class="clearfix"></div>
+        <% } %>
+
+        <% if (theme.copyright){ %>
+          <div class="copyright">
+            <% if (theme.copyright.claim){ %>
+              <span class="claim"><%= theme.copyright.claim %></span>
+            <% } %>
+            <% if (theme.copyright.show_link){ %>
+              <span class="from-link">
+                <em>本文链接地址:</em>
+                <a href="<%- config.root %><%- item.path %>">
+                  <%- page.permalink %>
+                </a>
+              </span>
+            <% } %>
+          </div>
+        <% } %>
+        <%- partial('post/category') %>
+        <%- partial('post/tag') %>
+        <%- partial('post/share') %>
+      <% } %>
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-
-
+<%- partial('comment') %>
   
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
+    <article class="<%= item.layout %>">
+  <% if (item.photos){ %>
+    <%- partial('post/gallery') %>
+  <% } %>
   <div class="post-content">
     <header>
-      
-        <time datetime="2014-07-22T03:24:19.000Z"><a href="/2014/07/22/Svn基本使用/">2014-07-22</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/07/22/Svn基本使用/">Svn基本使用</a></h1>
-  
-
+      <% if (item.layout != 'page'){ %>
+        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
+      <% } %>
+      <%- partial('post/title') %>
     </header>
     <div class="entry">
-      
-        <h2 id="基本使用">基本使用</h2>
-<h3 id="图标说明">图标说明</h3>
-<ul>
-<li>灰色向右箭头:本地修改过 </li>
-<li>蓝色向左箭头:SVN上修改过 </li>
-<li>灰色向右且中间有个加号的箭头:本地比SVN上多出的文件 </li>
-<li>蓝色向左且中间有个加号的箭头:SVN上比本地多出的文件 </li>
-<li>灰色向右且中间有个减号的箭头:本地删除了,而SVN上未删除的文件 </li>
-<li>蓝色向左且中间有个减号的箭头:SVN上删除了,而本地未删除的文件 </li>
-<li>红色双向箭头:SVN上修改过,本地也修改过的文件 </li>
-</ul>
-
-      
+      <% if (item.excerpt && index){ %>
+        <%- item.excerpt %>
+      <% } else { %>
+        <%- item.content %>
+      <% } %>
     </div>
     <footer>
-      
-        
+      <% if (index){ %>
+        <% if (item.excerpt){ %>
           <div class="alignleft">
-            <a href="/2014/07/22/Svn基本使用/#more" class="more-link">Read More</a>
+            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
           </div>
-        
-        
-      
+        <% } %>
+        <% if (item.comment && config.disqus_shortname){ %>
+        <div class="alignright">
+          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
+        </div>
+        <% } %>
+      <% } else { %>
+
+        <% if (page.prev){ %>
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+          </div>
+        <% } %>
+        <% if (page.next){ %>
+          <div class="alignright post-nav">
+            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
+          </div>
+          <div class="clearfix"></div>
+        <% } %>
+
+        <% if (theme.copyright){ %>
+          <div class="copyright">
+            <% if (theme.copyright.claim){ %>
+              <span class="claim"><%= theme.copyright.claim %></span>
+            <% } %>
+            <% if (theme.copyright.show_link){ %>
+              <span class="from-link">
+                <em>本文链接地址:</em>
+                <a href="<%- config.root %><%- item.path %>">
+                  <%- page.permalink %>
+                </a>
+              </span>
+            <% } %>
+          </div>
+        <% } %>
+        <%- partial('post/category') %>
+        <%- partial('post/tag') %>
+        <%- partial('post/share') %>
+      <% } %>
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-
-
+<%- partial('comment') %>
   
 
   <ul class="page-direction" id="page-direction">

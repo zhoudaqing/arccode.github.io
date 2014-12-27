@@ -60,121 +60,75 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="<%= item.layout %>">
+  <% if (item.photos){ %>
+    <%- partial('post/gallery') %>
+  <% } %>
   <div class="post-content">
     <header>
-      
-        <time datetime="2014-12-27T06:14:43.000Z"><a href="/2014/12/27/Mac下反编译Android安装包/">2014-12-27</a></time>
-      
-      
-  
-    <h1 class="title">Mac下反编译Android安装包</h1>
-  
-
+      <% if (item.layout != 'page'){ %>
+        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
+      <% } %>
+      <%- partial('post/title') %>
     </header>
     <div class="entry">
-      
-        <h2 id="准备工作">准备工作</h2>
-<ol>
-<li>下载<code>apkTool</code>: <code>https://android-apktool.googlecode.com/files/apktool1.5.2.tar.bz2</code>;</li>
-<li>下载<code>dex2jar</code>: <code>https://dex2jar.googlecode.com/files/dex2jar-0.0.9.15.zip</code>;</li>
-<li>下载<code>jd-gui</code>: <code>http://jd.benow.ca/jd-gui/downloads/jd-gui-0.3.5.osx.i686.dmg</code>;</li>
-</ol>
-<a id="more"></a>
-
-<h2 id="反编译">反编译</h2>
-<h3 id="解压缩下载的文件,_目录如下:">解压缩下载的文件, 目录如下:</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre>revcompile<span class="subst">/</span>
-├── apktool<span class="built_in">.</span>jar
-└── dex2jar<span class="subst">-</span><span class="number">0.0</span><span class="number">.9</span><span class="number">.15</span>
-    ├── LICENSE<span class="built_in">.</span>txt
-    ├── NOTICE<span class="built_in">.</span>txt
-    ├── d2j<span class="attribute">-apk</span><span class="attribute">-sign</span><span class="built_in">.</span>bat
-    ├── d2j<span class="attribute">-apk</span><span class="attribute">-sign</span><span class="built_in">.</span>sh
-    ├── d2j<span class="attribute">-asm</span><span class="attribute">-verify</span><span class="built_in">.</span>bat
-    ├── d2j<span class="attribute">-asm</span><span class="attribute">-verify</span><span class="built_in">.</span>sh
-</pre></td></tr></table></figure>
-
-<h3 id="执行命令">执行命令</h3>
-<ol>
-<li>java -jar apktool.jar d helloworld.apk</li>
-<li>./dex2jar-0.0.9.15/d2j-dex2jar.sh helloworld.apk</li>
-<li>使用jd-gui反编译出的jar, 可查看源码</li>
-</ol>
-
-      
+      <% if (item.excerpt && index){ %>
+        <%- item.excerpt %>
+      <% } else { %>
+        <%- item.content %>
+      <% } %>
     </div>
     <footer>
-      
+      <% if (index){ %>
+        <% if (item.excerpt){ %>
+          <div class="alignleft">
+            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
+          </div>
+        <% } %>
+        <% if (item.comment && config.disqus_shortname){ %>
+        <div class="alignright">
+          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
+        </div>
+        <% } %>
+      <% } else { %>
 
-        
-        
+        <% if (page.prev){ %>
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+          </div>
+        <% } %>
+        <% if (page.next){ %>
           <div class="alignright post-nav">
-            <em>下一篇: </em><a href="/2014/12/26/初识Gradle系列一/">初识Gradle系列一</a>
+            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
           </div>
           <div class="clearfix"></div>
-        
+        <% } %>
 
-        
+        <% if (theme.copyright){ %>
           <div class="copyright">
-            
-            
+            <% if (theme.copyright.claim){ %>
+              <span class="claim"><%= theme.copyright.claim %></span>
+            <% } %>
+            <% if (theme.copyright.show_link){ %>
               <span class="from-link">
                 <em>本文链接地址:</em>
-                <a href="/2014/12/27/Mac下反编译Android安装包/">
-                  http://arccode.net/2014/12/27/Mac下反编译Android安装包/
+                <a href="<%- config.root %><%- item.path %>">
+                  <%- page.permalink %>
                 </a>
               </span>
-            
+            <% } %>
           </div>
-        
-        
-  
-  <div class="categories">
-    <a href="/categories/Android/">Android</a>
-  </div>
-
-        
-  
-  <div class="tags">
-    <a href="/tags/反编译/">反编译</a>
-  </div>
-
-        
-      
+        <% } %>
+        <%- partial('post/category') %>
+        <%- partial('post/tag') %>
+        <%- partial('post/share') %>
+      <% } %>
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-
-<section class="comment">
-    <div class="ds-thread"></div>
-</section>
-
-</div></div>
+<%- partial('comment') %></div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">

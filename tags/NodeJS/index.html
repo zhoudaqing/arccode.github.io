@@ -65,139 +65,145 @@
 
 
   
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
+    <article class="<%= item.layout %>">
+  <% if (item.photos){ %>
+    <%- partial('post/gallery') %>
+  <% } %>
   <div class="post-content">
     <header>
-      
-        <time datetime="2014-11-07T02:59:01.000Z"><a href="/2014/11/07/node日志记录/">2014-11-07</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/11/07/node日志记录/">node日志记录</a></h1>
-  
-
+      <% if (item.layout != 'page'){ %>
+        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
+      <% } %>
+      <%- partial('post/title') %>
     </header>
     <div class="entry">
-      
-        <h2 id="Java与Nodejs中控制台输出及日志记录对比">Java与Nodejs中控制台输出及日志记录对比</h2>
-<p>该博客框架解析Markdown的table不是太好, 以下采用列举方式进行对比</p>
-<h3 id="Java">Java</h3>
-<ul>
-<li>控制台: <code>System.out.println(&#39;hello&#39;);</code></li>
-<li>日志记录(自带): <code>java.util.logging.Logger</code></li>
-<li>日志记录(第三方): <code>slf4j(定义接口), log4j(实现类)</code></li>
-</ul>
-<h3 id="Nodejs">Nodejs</h3>
-<ul>
-<li>控制台: <code>console.log(&#39;hello&#39;);</code></li>
-<li>日志记录(自带): <code>util.log</code></li>
-<li>日志记录(第三方): <code>log4js</code></li>
-</ul>
-<p>笔者经过测试, 选择第三方的日志库. Java Log4j配置详见我的另一篇博客<a href="http://arccode.net/2014/10/30/Log4j%E9%85%8D%E7%BD%AE/" target="_blank" rel="external">Log4j配置</a>.</p>
-
-      
+      <% if (item.excerpt && index){ %>
+        <%- item.excerpt %>
+      <% } else { %>
+        <%- item.content %>
+      <% } %>
     </div>
     <footer>
-      
-        
+      <% if (index){ %>
+        <% if (item.excerpt){ %>
           <div class="alignleft">
-            <a href="/2014/11/07/node日志记录/#more" class="more-link">Read More</a>
+            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
           </div>
-        
-        
-      
+        <% } %>
+        <% if (item.comment && config.disqus_shortname){ %>
+        <div class="alignright">
+          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
+        </div>
+        <% } %>
+      <% } else { %>
+
+        <% if (page.prev){ %>
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+          </div>
+        <% } %>
+        <% if (page.next){ %>
+          <div class="alignright post-nav">
+            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
+          </div>
+          <div class="clearfix"></div>
+        <% } %>
+
+        <% if (theme.copyright){ %>
+          <div class="copyright">
+            <% if (theme.copyright.claim){ %>
+              <span class="claim"><%= theme.copyright.claim %></span>
+            <% } %>
+            <% if (theme.copyright.show_link){ %>
+              <span class="from-link">
+                <em>本文链接地址:</em>
+                <a href="<%- config.root %><%- item.path %>">
+                  <%- page.permalink %>
+                </a>
+              </span>
+            <% } %>
+          </div>
+        <% } %>
+        <%- partial('post/category') %>
+        <%- partial('post/tag') %>
+        <%- partial('post/share') %>
+      <% } %>
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-
-
+<%- partial('comment') %>
   
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
+    <article class="<%= item.layout %>">
+  <% if (item.photos){ %>
+    <%- partial('post/gallery') %>
+  <% } %>
   <div class="post-content">
     <header>
-      
-        <time datetime="2014-09-21T08:51:05.000Z"><a href="/2014/09/21/阿里云CentOS搭建MEAN/">2014-09-21</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/09/21/阿里云CentOS搭建MEAN/">阿里云CentOS搭建MEAN</a></h1>
-  
-
+      <% if (item.layout != 'page'){ %>
+        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
+      <% } %>
+      <%- partial('post/title') %>
     </header>
     <div class="entry">
-      
-        <h2 id="购买主机">购买主机</h2>
-<p>看个人爱好，本人购买阿里云主机，最低配置55元/月</p>
-<h2 id="安装相关模块">安装相关模块</h2>
-<ol>
-<li>在阿里云管理控制台启动购买的云主机</li>
-<li>使用<code>zoc6</code>连接服务器</li>
-<li><p>更新软件 <code>yum -y update</code></p>
-</li>
-<li><p>安装开发工具 <code>yum -y groupinstall &quot;Development Tools&quot;</code></p>
-</li>
-<li>下载Node源码<ul>
-<li>cd /usr/src</li>
-<li>wget <a href="http://nodejs.org/dist/v0.10.32/node-v0.10.32.tar.gz" target="_blank" rel="external">http://nodejs.org/dist/v0.10.32/node-v0.10.32.tar.gz</a></li>
-</ul>
-</li>
-<li>安装Node<ul>
-<li>解压node-v0.10.32.tar.gz</li>
-<li>cd node-v0.10.32</li>
-<li>./configure</li>
-<li>make</li>
-<li>make install</li>
-<li>*注：编译后的二进制文件会放置于系统路径下<code>/usr/local/bin/node</code></li>
-</ul>
-</li>
-</ol>
-
-      
+      <% if (item.excerpt && index){ %>
+        <%- item.excerpt %>
+      <% } else { %>
+        <%- item.content %>
+      <% } %>
     </div>
     <footer>
-      
-        
+      <% if (index){ %>
+        <% if (item.excerpt){ %>
           <div class="alignleft">
-            <a href="/2014/09/21/阿里云CentOS搭建MEAN/#more" class="more-link">Read More</a>
+            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
           </div>
-        
-        
-      
+        <% } %>
+        <% if (item.comment && config.disqus_shortname){ %>
+        <div class="alignright">
+          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
+        </div>
+        <% } %>
+      <% } else { %>
+
+        <% if (page.prev){ %>
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+          </div>
+        <% } %>
+        <% if (page.next){ %>
+          <div class="alignright post-nav">
+            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
+          </div>
+          <div class="clearfix"></div>
+        <% } %>
+
+        <% if (theme.copyright){ %>
+          <div class="copyright">
+            <% if (theme.copyright.claim){ %>
+              <span class="claim"><%= theme.copyright.claim %></span>
+            <% } %>
+            <% if (theme.copyright.show_link){ %>
+              <span class="from-link">
+                <em>本文链接地址:</em>
+                <a href="<%- config.root %><%- item.path %>">
+                  <%- page.permalink %>
+                </a>
+              </span>
+            <% } %>
+          </div>
+        <% } %>
+        <%- partial('post/category') %>
+        <%- partial('post/tag') %>
+        <%- partial('post/share') %>
+      <% } %>
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-
-
+<%- partial('comment') %>
   
 
   <ul class="page-direction" id="page-direction">

@@ -65,213 +65,215 @@
 
 
   
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
+    <article class="<%= item.layout %>">
+  <% if (item.photos){ %>
+    <%- partial('post/gallery') %>
+  <% } %>
   <div class="post-content">
     <header>
-      
-        <time datetime="2014-08-10T15:51:56.000Z"><a href="/2014/08/10/Mac下安装memcached/">2014-08-10</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/08/10/Mac下安装memcached/">Mac下安装memcached</a></h1>
-  
-
+      <% if (item.layout != 'page'){ %>
+        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
+      <% } %>
+      <%- partial('post/title') %>
     </header>
     <div class="entry">
-      
-        <h2 id="安装libevent(memcached的依赖库)">安装libevent(memcached的依赖库)</h2>
-<ul>
-<li><a href="https://github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz" target="_blank" rel="external">下载</a>libevent源码</li>
-<li>解压<code>tar -xzf libevent-2.0.21-stable.tar.gz</code></li>
-<li><code>cd libevent-2.0.21-stable</code></li>
-<li><code>sudo ./configure --prefix=/usr</code></li>
-<li><code>sudo make</code></li>
-<li><code>sudo make install</code></li>
-</ul>
-<h2 id="安装memcached">安装memcached</h2>
-<ul>
-<li><a href="http://www.memcached.org/files/memcached-1.4.20.tar.gz" target="_blank" rel="external">下载</a>memcached源码</li>
-<li>解压<code>memcached-1.4.20</code></li>
-<li><code>cd memcached-1.4.20</code></li>
-<li><code>sudo ./configure --prefix=/usr</code></li>
-<li><code>sudo make</code></li>
-<li><code>sudo make install</code></li>
-</ul>
-
-      
+      <% if (item.excerpt && index){ %>
+        <%- item.excerpt %>
+      <% } else { %>
+        <%- item.content %>
+      <% } %>
     </div>
     <footer>
-      
-        
+      <% if (index){ %>
+        <% if (item.excerpt){ %>
           <div class="alignleft">
-            <a href="/2014/08/10/Mac下安装memcached/#more" class="more-link">Read More</a>
+            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
           </div>
-        
-        
-      
+        <% } %>
+        <% if (item.comment && config.disqus_shortname){ %>
+        <div class="alignright">
+          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
+        </div>
+        <% } %>
+      <% } else { %>
+
+        <% if (page.prev){ %>
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+          </div>
+        <% } %>
+        <% if (page.next){ %>
+          <div class="alignright post-nav">
+            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
+          </div>
+          <div class="clearfix"></div>
+        <% } %>
+
+        <% if (theme.copyright){ %>
+          <div class="copyright">
+            <% if (theme.copyright.claim){ %>
+              <span class="claim"><%= theme.copyright.claim %></span>
+            <% } %>
+            <% if (theme.copyright.show_link){ %>
+              <span class="from-link">
+                <em>本文链接地址:</em>
+                <a href="<%- config.root %><%- item.path %>">
+                  <%- page.permalink %>
+                </a>
+              </span>
+            <% } %>
+          </div>
+        <% } %>
+        <%- partial('post/category') %>
+        <%- partial('post/tag') %>
+        <%- partial('post/share') %>
+      <% } %>
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-
-
+<%- partial('comment') %>
   
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
+    <article class="<%= item.layout %>">
+  <% if (item.photos){ %>
+    <%- partial('post/gallery') %>
+  <% } %>
   <div class="post-content">
     <header>
-      
-        <time datetime="2014-08-10T15:32:46.000Z"><a href="/2014/08/10/Mac下安装phpRedisAdmin/">2014-08-10</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/08/10/Mac下安装phpRedisAdmin/">Mac下安装phpRedisAdmin</a></h1>
-  
-
+      <% if (item.layout != 'page'){ %>
+        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
+      <% } %>
+      <%- partial('post/title') %>
     </header>
     <div class="entry">
-      
-        <p>phpRedisAdmin是Redis的一个Web控制台，安装流程如下：</p>
-<h2 id="安装phpRedis模块">安装phpRedis模块</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre>git clone git@github.com:nicolasff/phpredis.git
-<span class="built_in">cd</span> phpredis
-phpize
-./configure
-<span class="built_in">sudo</span> make
-<span class="built_in">sudo</span> make install
-</pre></td></tr></table></figure>
-
-<h2 id="配置apache，启用php模块">配置apache，启用php模块</h2>
-<ul>
-<li><code>vim /etc/apache2/httpd.conf</code></li>
-<li>找到<code>#LoadModule php5_module libexec/apache2/libphp5.so</code>,将<code>#</code>删除</li>
-</ul>
-
-      
+      <% if (item.excerpt && index){ %>
+        <%- item.excerpt %>
+      <% } else { %>
+        <%- item.content %>
+      <% } %>
     </div>
     <footer>
-      
-        
+      <% if (index){ %>
+        <% if (item.excerpt){ %>
           <div class="alignleft">
-            <a href="/2014/08/10/Mac下安装phpRedisAdmin/#more" class="more-link">Read More</a>
+            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
           </div>
-        
-        
-      
+        <% } %>
+        <% if (item.comment && config.disqus_shortname){ %>
+        <div class="alignright">
+          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
+        </div>
+        <% } %>
+      <% } else { %>
+
+        <% if (page.prev){ %>
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+          </div>
+        <% } %>
+        <% if (page.next){ %>
+          <div class="alignright post-nav">
+            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
+          </div>
+          <div class="clearfix"></div>
+        <% } %>
+
+        <% if (theme.copyright){ %>
+          <div class="copyright">
+            <% if (theme.copyright.claim){ %>
+              <span class="claim"><%= theme.copyright.claim %></span>
+            <% } %>
+            <% if (theme.copyright.show_link){ %>
+              <span class="from-link">
+                <em>本文链接地址:</em>
+                <a href="<%- config.root %><%- item.path %>">
+                  <%- page.permalink %>
+                </a>
+              </span>
+            <% } %>
+          </div>
+        <% } %>
+        <%- partial('post/category') %>
+        <%- partial('post/tag') %>
+        <%- partial('post/share') %>
+      <% } %>
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-
-
+<%- partial('comment') %>
   
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
+    <article class="<%= item.layout %>">
+  <% if (item.photos){ %>
+    <%- partial('post/gallery') %>
+  <% } %>
   <div class="post-content">
     <header>
-      
-        <time datetime="2014-08-06T16:26:37.000Z"><a href="/2014/08/07/Mac下安装redis/">2014-08-07</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/08/07/Mac下安装redis/">Mac下安装redis</a></h1>
-  
-
+      <% if (item.layout != 'page'){ %>
+        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
+      <% } %>
+      <%- partial('post/title') %>
     </header>
     <div class="entry">
-      
-        <h2 id="下载Redis">下载Redis</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>cd ~/ProgramFiles
-curl -O http://download<span class="preprocessor">.redis</span><span class="preprocessor">.io</span>/releases/redis-<span class="number">2.8</span><span class="number">.13</span><span class="preprocessor">.tar</span><span class="preprocessor">.gz</span>
-</pre></td></tr></table></figure>
-
-<h2 id="解压、编译">解压、编译</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre><span class="comment"># 解压</span>
-tar -xzf redis-<span class="number">2.8</span>.<span class="number">13</span>
-<span class="comment"># 重命名</span>
-mv redis-<span class="number">2.8</span>.<span class="number">13</span> redis
-<span class="built_in">cd</span> redis
-<span class="built_in">sudo</span> make
-<span class="comment"># 测试</span>
-<span class="built_in">sudo</span> make test
-<span class="built_in">sudo</span> make install
-</pre></td></tr></table></figure>
-
-
-      
+      <% if (item.excerpt && index){ %>
+        <%- item.excerpt %>
+      <% } else { %>
+        <%- item.content %>
+      <% } %>
     </div>
     <footer>
-      
-        
+      <% if (index){ %>
+        <% if (item.excerpt){ %>
           <div class="alignleft">
-            <a href="/2014/08/07/Mac下安装redis/#more" class="more-link">Read More</a>
+            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
           </div>
-        
-        
-      
+        <% } %>
+        <% if (item.comment && config.disqus_shortname){ %>
+        <div class="alignright">
+          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
+        </div>
+        <% } %>
+      <% } else { %>
+
+        <% if (page.prev){ %>
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+          </div>
+        <% } %>
+        <% if (page.next){ %>
+          <div class="alignright post-nav">
+            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
+          </div>
+          <div class="clearfix"></div>
+        <% } %>
+
+        <% if (theme.copyright){ %>
+          <div class="copyright">
+            <% if (theme.copyright.claim){ %>
+              <span class="claim"><%= theme.copyright.claim %></span>
+            <% } %>
+            <% if (theme.copyright.show_link){ %>
+              <span class="from-link">
+                <em>本文链接地址:</em>
+                <a href="<%- config.root %><%- item.path %>">
+                  <%- page.permalink %>
+                </a>
+              </span>
+            <% } %>
+          </div>
+        <% } %>
+        <%- partial('post/category') %>
+        <%- partial('post/tag') %>
+        <%- partial('post/share') %>
+      <% } %>
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-
-
+<%- partial('comment') %>
   
 
   <ul class="page-direction" id="page-direction">

@@ -60,289 +60,75 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="<%= item.layout %>">
+  <% if (item.photos){ %>
+    <%- partial('post/gallery') %>
+  <% } %>
   <div class="post-content">
     <header>
-      
-        <time datetime="2014-09-30T04:43:33.000Z"><a href="/2014/09/30/Kafka实战一/">2014-09-30</a></time>
-      
-      
-  
-    <h1 class="title">Kafka实战一</h1>
-  
-
+      <% if (item.layout != 'page'){ %>
+        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
+      <% } %>
+      <%- partial('post/title') %>
     </header>
     <div class="entry">
-      
-        <h1 id="Kafka实战一">Kafka实战一</h1>
-<h2 id="搭建环境">搭建环境</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-</pre></td><td class="code"><pre><span class="preprocessor"># 下载安装包</span>
-<span class="label">http:</span>//mirror<span class="preprocessor">.nus</span><span class="preprocessor">.edu</span><span class="preprocessor">.sg</span>/apache/kafka/<span class="number">0.8</span><span class="number">.1</span><span class="number">.1</span>/kafka_2<span class="number">.10</span>-<span class="number">0.8</span><span class="number">.1</span><span class="number">.1</span><span class="preprocessor">.tgz</span>
-
-<span class="preprocessor"># 上传到Linux /home</span>
-
-<span class="preprocessor"># 解压</span>
-tar xzf kafka_2<span class="number">.10</span>-<span class="number">0.8</span><span class="number">.1</span><span class="number">.1</span><span class="preprocessor">.tgz</span> -C /usr/local
-cd /usr/local
-mv kafka_2<span class="number">.10</span>-<span class="number">0.8</span><span class="number">.1</span><span class="number">.1</span> kafka
-
-<span class="preprocessor"># 启动 Zookeeper</span>
-cd kafka
-./zookeeper-server-start<span class="preprocessor">.sh</span> config/zookeeper<span class="preprocessor">.properties</span>
-
-<span class="preprocessor"># 启动 Kafka</span>
-./kafka-server-start<span class="preprocessor">.sh</span> config/server<span class="preprocessor">.properties</span>
-</pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h2 id="测试—单个broker">测试—单个broker</h2>
-<h3 id="新建Topic">新建Topic</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="comment">#</span> <span class="comment">列出存在的Topic</span>
-<span class="string">.</span><span class="comment">/bin/kafka</span><span class="literal">-</span><span class="comment">topics</span><span class="string">.</span><span class="comment">sh</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">list</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">zookeeper</span> <span class="comment">localhost:2181</span>
-
-<span class="comment">#</span> <span class="comment">新建</span>
-<span class="string">.</span><span class="comment">/bin/kafka</span><span class="literal">-</span><span class="comment">topics</span><span class="string">.</span><span class="comment">sh</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">create</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">zookeeper</span> <span class="comment">localhost:2181</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">replication</span><span class="literal">-</span><span class="comment">factor</span> <span class="comment">1</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">partitions</span> <span class="comment">1</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">topic</span> <span class="comment">topicTest</span>
-</pre></td></tr></table></figure>
-
-<h3 id="发送消息">发送消息</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="comment"># console</span>
-./kafka-<span class="built_in">console</span>-producer.sh --broker-list <span class="attribute">localhost</span>:<span class="number">9092</span> --topic topicTest
-<span class="keyword">this</span> <span class="keyword">is</span> topicTest producer test
-hello world!
-</pre></td></tr></table></figure>
-
-<h3 id="消费消息">消费消息</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="comment">#</span> <span class="comment">console</span>
-<span class="string">.</span><span class="comment">/kafka</span><span class="literal">-</span><span class="comment">console</span><span class="literal">-</span><span class="comment">consumer</span><span class="string">.</span><span class="comment">sh</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">zookeeper</span> <span class="comment">localhost:2181</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">topic</span> <span class="comment">topicTest</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">from</span><span class="literal">-</span><span class="comment">beginning</span>
-</pre></td></tr></table></figure>
-
-<h2 id="测试—多个broker">测试—多个broker</h2>
-<h3 id="创建broker">创建broker</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-</pre></td><td class="code"><pre><span class="preprocessor"># 编辑配置文件</span>
-cp <span class="keyword">server</span>.properties <span class="keyword">server</span>-<span class="number">1.</span>properties
-cp <span class="keyword">server</span>.properties <span class="keyword">server</span>-<span class="number">2.</span>properties
-
-vim <span class="keyword">server</span>-<span class="number">1.</span>properties
-<span class="preprocessor"># 修改内容</span>
-	broker.id=<span class="number">1</span>
-	port=<span class="number">9093</span>
-	log.dirs=/tmp/kafka-logs-<span class="number">1</span>
-	
-vim <span class="keyword">server</span>-<span class="number">2.</span>properties
-<span class="preprocessor"># 修改内容</span>
-	broker.id=<span class="number">2</span>
-	port=<span class="number">9094</span>
-	log.dirs=/tmp/kafka-logs-<span class="number">2</span>
-
-<span class="preprocessor"># 启动</span>
-./kafka-<span class="keyword">server</span>-start.sh -daemon ../config/<span class="keyword">server</span>-<span class="number">1.</span>properties
-./kafka-<span class="keyword">server</span>-start.sh -daemon ../config/<span class="keyword">server</span>-<span class="number">2.</span>properties
-</pre></td></tr></table></figure>
-
-<h3 id="创建topic,_设置备份为3">创建topic, 设置备份为3</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="string">.</span><span class="comment">/kafka</span><span class="literal">-</span><span class="comment">topics</span><span class="string">.</span><span class="comment">sh</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">create</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">zookeeper</span> <span class="comment">localhost:2181</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">replication</span><span class="literal">-</span><span class="comment">factor</span> <span class="comment">3</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">partitions</span> <span class="comment">1</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">topic</span> <span class="comment">three</span><span class="literal">-</span><span class="comment">replication</span><span class="literal">-</span><span class="comment">topicTest</span>
-</pre></td></tr></table></figure>
-
-<h3 id="查看topic">查看topic</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre><span class="comment"># 查看</span>
-./kafka-topics.sh -describe --zookeeper <span class="symbol">localhost:</span><span class="number">2181</span> --topic three-replication-topicTest
-
-<span class="comment"># 结果如下</span>
-	<span class="comment"># 分区汇总信息</span>
-	<span class="constant">Topic</span><span class="symbol">:three-replication-topicTest</span>       <span class="constant">PartitionCount</span><span class="symbol">:</span><span class="number">1</span>        <span class="constant">ReplicationFactor</span><span class="symbol">:</span><span class="number">3</span>     <span class="constant">Configs</span><span class="symbol">:</span>
-	<span class="comment"># Leader: leader节点是2; Replicas: 在节点2,0,1上; Isr: 工作中的复制节点的集合,也就是活的节点的集合;</span>
-    <span class="constant">Topic</span><span class="symbol">:</span> three-replication-topicTest      <span class="constant">Partition</span><span class="symbol">:</span> <span class="number">0</span>    <span class="constant">Leader</span><span class="symbol">:</span> <span class="number">2</span>       <span class="constant">Replicas</span><span class="symbol">:</span> <span class="number">2</span>,<span class="number">0</span>,<span class="number">1</span> <span class="constant">Isr</span><span class="symbol">:</span> <span class="number">2</span>,<span class="number">0</span>,<span class="number">1</span>
-</pre></td></tr></table></figure>
-
-<h3 id="发送消息-1">发送消息</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="built_in">.</span>/kafka<span class="attribute">-console</span><span class="attribute">-producer</span><span class="built_in">.</span>sh <span class="subst">--</span>broker<span class="attribute">-list</span> localhost:<span class="number">9092</span> <span class="subst">--</span>topic three<span class="attribute">-replication</span><span class="attribute">-topicTest</span>
-</pre></td></tr></table></figure>
-
-<h3 id="消费消息-1">消费消息</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="built_in">.</span>/kafka<span class="attribute">-console</span><span class="attribute">-consumer</span><span class="built_in">.</span>sh <span class="subst">--</span>zookeeper localhost:<span class="number">2181</span> <span class="subst">--</span>topic three<span class="attribute">-replication</span><span class="attribute">-topicTest</span> <span class="subst">--</span>from<span class="attribute">-beginning</span>
-</pre></td></tr></table></figure>
-
-<h3 id="删除leader(即broker2)">删除leader(即broker2)</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="code"><pre><span class="comment"># 查看进程</span>
-ps -ef|grep server-<span class="number">2</span>.properties
-
-<span class="comment"># 终止</span>
-kil -<span class="number">9</span> <span class="number">27628</span>
-
-<span class="comment"># 查看topic</span>
-	<span class="constant">Topic</span><span class="symbol">:three-replication-topicTest</span>       <span class="constant">PartitionCount</span><span class="symbol">:</span><span class="number">1</span>        <span class="constant">ReplicationFactor</span><span class="symbol">:</span><span class="number">3</span>     <span class="constant">Configs</span><span class="symbol">:</span>
-	<span class="comment"># 2号节点被终止, leader节点由0号节点顶替(即broker0), 2号节点未被列入Isr中(因为已被终止)</span>
-    <span class="constant">Topic</span><span class="symbol">:</span> three-replication-topicTest      <span class="constant">Partition</span><span class="symbol">:</span> <span class="number">0</span>    <span class="constant">Leader</span><span class="symbol">:</span> <span class="number">0</span>       <span class="constant">Replicas</span><span class="symbol">:</span> <span class="number">2</span>,<span class="number">0</span>,<span class="number">1</span> <span class="constant">Isr</span><span class="symbol">:</span> <span class="number">0</span>,<span class="number">1</span>
- 
-<span class="comment"># 发送消息进行测试</span>
-消息正常发送及接收
-</pre></td></tr></table></figure>
-
-<h3 id="再删除新的leader(即broker0)">再删除新的leader(即broker0)</h3>
-<p>发送消息时报错, 正在查找原因中……..<br>找到原因: 生产者连接的broker被终止导致发送消息出错(连接异常)</p>
-<p>采用四个broker及四个replication-factor</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="tag">Topic</span><span class="pseudo">:topicRepl</span> <span class="tag">PartitionCount</span><span class="pseudo">:1</span>        <span class="tag">ReplicationFactor</span><span class="pseudo">:4</span>     <span class="tag">Configs</span>:
-<span class="tag">Topic</span>: <span class="tag">topicRepl</span>        <span class="tag">Partition</span>: 0    <span class="tag">Leader</span>: 0       <span class="tag">Replicas</span>: 0,2,3,1       <span class="tag">Isr</span>: 0,2,3,1
-</pre></td></tr></table></figure>
-
-<p>逐个删除leader</p>
-<h2 id="坑">坑</h2>
-<h3 id="java-net-UnknownHostException:_hadoop229:_hadoop229:_未知的名称或服务">java.net.UnknownHostException: hadoop229: hadoop229: 未知的名称或服务</h3>
-<p>解决方案: </p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>vim /etc/hosts
-
-<span class="preprocessor"># 在末尾添加 127.0.0.1 hadoop229</span>
-</pre></td></tr></table></figure>
-
-
-<h2 id="参考资料">参考资料</h2>
-<p><a href="http://www.douban.com/note/310653859/" target="_blank" rel="external">hadoop坑</a></p>
-<p><a href="http://www.code06.com/enterprise/smallnest/92824.html" target="_blank" rel="external">Kafka入门</a></p>
-
-      
+      <% if (item.excerpt && index){ %>
+        <%- item.excerpt %>
+      <% } else { %>
+        <%- item.content %>
+      <% } %>
     </div>
     <footer>
-      
-
-        
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="/2014/09/30/Zookeeper实战一/">Zookeeper实战一</a>
+      <% if (index){ %>
+        <% if (item.excerpt){ %>
+          <div class="alignleft">
+            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
           </div>
-        
-        
+        <% } %>
+        <% if (item.comment && config.disqus_shortname){ %>
+        <div class="alignright">
+          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
+        </div>
+        <% } %>
+      <% } else { %>
+
+        <% if (page.prev){ %>
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+          </div>
+        <% } %>
+        <% if (page.next){ %>
           <div class="alignright post-nav">
-            <em>下一篇: </em><a href="/2014/09/22/Maven常见问题/">Maven常见问题</a>
+            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
           </div>
           <div class="clearfix"></div>
-        
+        <% } %>
 
-        
+        <% if (theme.copyright){ %>
           <div class="copyright">
-            
-            
+            <% if (theme.copyright.claim){ %>
+              <span class="claim"><%= theme.copyright.claim %></span>
+            <% } %>
+            <% if (theme.copyright.show_link){ %>
               <span class="from-link">
                 <em>本文链接地址:</em>
-                <a href="/2014/09/30/Kafka实战一/">
-                  http://arccode.net/2014/09/30/Kafka实战一/
+                <a href="<%- config.root %><%- item.path %>">
+                  <%- page.permalink %>
                 </a>
               </span>
-            
+            <% } %>
           </div>
-        
-        
-  
-  <div class="categories">
-    <a href="/categories/队列/">队列</a>
-  </div>
-
-        
-  
-  <div class="tags">
-    <a href="/tags/Kafka/">Kafka</a>
-  </div>
-
-        
-      
+        <% } %>
+        <%- partial('post/category') %>
+        <%- partial('post/tag') %>
+        <%- partial('post/share') %>
+      <% } %>
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-
-<section class="comment">
-    <div class="ds-thread"></div>
-</section>
-
-</div></div>
+<%- partial('comment') %></div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">

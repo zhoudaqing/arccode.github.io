@@ -65,55 +65,75 @@
 
 
   
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
+    <article class="<%= item.layout %>">
+  <% if (item.photos){ %>
+    <%- partial('post/gallery') %>
+  <% } %>
   <div class="post-content">
     <header>
-      
-        <time datetime="2014-12-26T15:56:41.000Z"><a href="/2014/12/26/初识Gradle系列一/">2014-12-26</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/12/26/初识Gradle系列一/">初识Gradle系列一</a></h1>
-  
-
+      <% if (item.layout != 'page'){ %>
+        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
+      <% } %>
+      <%- partial('post/title') %>
     </header>
     <div class="entry">
-      
-        <h2 id="背景">背景</h2>
-<p>以前听说过Gradle,也查阅过相关资料,自定义生命周期等等,比Maven牛X, 但Maven在项目中已经够用, 所以一直未做构建迁移.</p>
-<p>今天业余搞点Android小应用, 经过对比, 最终选择了Android Studio(1.0.3), 该软件默认使用Gradle构建, 在此记录下使用历程及碰到的问题.</p>
-
-      
+      <% if (item.excerpt && index){ %>
+        <%- item.excerpt %>
+      <% } else { %>
+        <%- item.content %>
+      <% } %>
     </div>
     <footer>
-      
-        
+      <% if (index){ %>
+        <% if (item.excerpt){ %>
           <div class="alignleft">
-            <a href="/2014/12/26/初识Gradle系列一/#more" class="more-link">Read More</a>
+            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
           </div>
-        
-        
-      
+        <% } %>
+        <% if (item.comment && config.disqus_shortname){ %>
+        <div class="alignright">
+          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
+        </div>
+        <% } %>
+      <% } else { %>
+
+        <% if (page.prev){ %>
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+          </div>
+        <% } %>
+        <% if (page.next){ %>
+          <div class="alignright post-nav">
+            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
+          </div>
+          <div class="clearfix"></div>
+        <% } %>
+
+        <% if (theme.copyright){ %>
+          <div class="copyright">
+            <% if (theme.copyright.claim){ %>
+              <span class="claim"><%= theme.copyright.claim %></span>
+            <% } %>
+            <% if (theme.copyright.show_link){ %>
+              <span class="from-link">
+                <em>本文链接地址:</em>
+                <a href="<%- config.root %><%- item.path %>">
+                  <%- page.permalink %>
+                </a>
+              </span>
+            <% } %>
+          </div>
+        <% } %>
+        <%- partial('post/category') %>
+        <%- partial('post/tag') %>
+        <%- partial('post/share') %>
+      <% } %>
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-
-
+<%- partial('comment') %>
   
 
   <ul class="page-direction" id="page-direction">

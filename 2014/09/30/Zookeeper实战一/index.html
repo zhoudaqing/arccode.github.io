@@ -60,191 +60,75 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="<%= item.layout %>">
+  <% if (item.photos){ %>
+    <%- partial('post/gallery') %>
+  <% } %>
   <div class="post-content">
     <header>
-      
-        <time datetime="2014-09-30T09:05:26.000Z"><a href="/2014/09/30/Zookeeper实战一/">2014-09-30</a></time>
-      
-      
-  
-    <h1 class="title">Zookeeper实战一</h1>
-  
-
+      <% if (item.layout != 'page'){ %>
+        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
+      <% } %>
+      <%- partial('post/title') %>
     </header>
     <div class="entry">
-      
-        <h1 id="Zookeeper集群搭建">Zookeeper集群搭建</h1>
-<p>文中提到<code>切换用户</code>: 表明未切换的状态下是root用户</p>
-<h2 id="创建用户组_用户_Zookeeper数据目录">创建用户组 用户 Zookeeper数据目录</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-</pre></td><td class="code"><pre><span class="preprocessor"># 添加组</span>
-<span class="title">groupadd</span> zk
-
-<span class="preprocessor"># 在组zk中添加用户</span>
-<span class="title">useradd</span> -g zk zk
-
-<span class="preprocessor"># 修改密码</span>
-<span class="title">passwd</span> zk
-
-<span class="preprocessor"># 创建数据目录</span>
-<span class="title">mkdir</span> -p /<span class="typedef"><span class="keyword">data</span>/zookeeper</span>
-
-<span class="preprocessor"># 修改权限</span>
-<span class="title">chown</span> -<span class="type">R</span> zk:zk /<span class="typedef"><span class="keyword">data</span>/zookeeper</span>
-
-<span class="preprocessor"># 切换用户</span>
-<span class="title">su</span> zk
-
-<span class="preprocessor"># 创建data dir 及 log dir</span>
-<span class="title">mkdir</span> /<span class="typedef"><span class="keyword">data</span>/zookeeper/<span class="keyword">data</span></span>
-<span class="title">mkdir</span> /<span class="typedef"><span class="keyword">data</span>/zookeeper/log</span>
-</pre></td></tr></table></figure><br><a id="more"></a><br><br>## 安装Zookeeper<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-</pre></td><td class="code"><pre><span class="preprocessor"># 上传文件到/usr/local/src</span>
-
-<span class="preprocessor"># 解压文件至/usr/local</span>
-tar zxf zookeeper-<span class="number">3.4</span><span class="number">.6</span>.tar.gz -C /usr/local/
-mv zookeeper-<span class="number">3.4</span><span class="number">.6</span> zookeeper
-
-<span class="preprocessor"># 权限</span>
-chown -R zk:zk /usr/local/zookeeper/
-
-<span class="preprocessor"># 切换用户</span>
-su zk
-cd /usr/local/zookeeper/conf
-cp zoo_sample.cfg zoo.cfg
-
-<span class="preprocessor"># 编辑配置文件</span>
-<span class="preprocessor"># 修改dataDir,dataLogDir, server.1=192.168.1.10:2888:3888 server.2=192.168.1.11:2888:3888 server.3=192.168.1.13:2888:3888 </span>
-vim zoo.cfg
-
-<span class="preprocessor"># 修改log4j配置</span>
-<span class="preprocessor"># zookeeper.log.dir=/data/zookeeper/log</span>
-vim log4j.properties
-
-<span class="preprocessor"># 创建ZooKeeperServerId文件</span>
-cd /data/zookeeper/data
-<span class="preprocessor"># 1号机使用1, 2号机使用2, 3号机使用3</span>
-echo <span class="string">"1"</span> &gt; myid
-
-<span class="preprocessor"># 添加环境变量</span>
-</pre></td></tr></table></figure>
-
-      
+      <% if (item.excerpt && index){ %>
+        <%- item.excerpt %>
+      <% } else { %>
+        <%- item.content %>
+      <% } %>
     </div>
     <footer>
-      
-
-        
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="/2014/10/23/Mac下安装SVN服务器/">Mac下安装SVN服务器</a>
+      <% if (index){ %>
+        <% if (item.excerpt){ %>
+          <div class="alignleft">
+            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
           </div>
-        
-        
+        <% } %>
+        <% if (item.comment && config.disqus_shortname){ %>
+        <div class="alignright">
+          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
+        </div>
+        <% } %>
+      <% } else { %>
+
+        <% if (page.prev){ %>
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+          </div>
+        <% } %>
+        <% if (page.next){ %>
           <div class="alignright post-nav">
-            <em>下一篇: </em><a href="/2014/09/30/Kafka实战一/">Kafka实战一</a>
+            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
           </div>
           <div class="clearfix"></div>
-        
+        <% } %>
 
-        
+        <% if (theme.copyright){ %>
           <div class="copyright">
-            
-            
+            <% if (theme.copyright.claim){ %>
+              <span class="claim"><%= theme.copyright.claim %></span>
+            <% } %>
+            <% if (theme.copyright.show_link){ %>
               <span class="from-link">
                 <em>本文链接地址:</em>
-                <a href="/2014/09/30/Zookeeper实战一/">
-                  http://arccode.net/2014/09/30/Zookeeper实战一/
+                <a href="<%- config.root %><%- item.path %>">
+                  <%- page.permalink %>
                 </a>
               </span>
-            
+            <% } %>
           </div>
-        
-        
-  
-  <div class="categories">
-    <a href="/categories/中间件/">中间件</a>
-  </div>
-
-        
-  
-  <div class="tags">
-    <a href="/tags/Zookeeper/">Zookeeper</a>
-  </div>
-
-        
-      
+        <% } %>
+        <%- partial('post/category') %>
+        <%- partial('post/tag') %>
+        <%- partial('post/share') %>
+      <% } %>
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-
-<section class="comment">
-    <div class="ds-thread"></div>
-</section>
-
-</div></div>
+<%- partial('comment') %></div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">

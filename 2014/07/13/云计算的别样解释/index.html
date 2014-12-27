@@ -60,107 +60,75 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="<%= item.layout %>">
+  <% if (item.photos){ %>
+    <%- partial('post/gallery') %>
+  <% } %>
   <div class="post-content">
     <header>
-      
-        <time datetime="2014-07-13T02:11:45.000Z"><a href="/2014/07/13/云计算的别样解释/">2014-07-13</a></time>
-      
-      
-  
-    <h1 class="title">云计算的别样解释</h1>
-  
-
+      <% if (item.layout != 'page'){ %>
+        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
+      <% } %>
+      <%- partial('post/title') %>
     </header>
     <div class="entry">
-      
-        <p><img src="/images/云计算的别样解释.jpeg" alt=""></p>
-<p>技术人员怎么也讲不清楚的云计算，咱们的高级总监曾经就是这样和政府领导普及云计算和智慧城市知识的，却都听懂了：</p>
-<p>你娶了一个老婆，这叫传统IT架构。</p>
-<p>你觉得一个老婆不够，这叫传统企业CIO的困境。</p>
-<p>你又娶了一个老婆，这叫双活数据中心。</p>
-<p>你在外地又娶了一个小老婆，这叫两地三中心容灾。<br>你娶了很多风格气质各异的小老婆，以至于形成了后宫，这叫私有云。你的后宫就叫计算资源池。</p>
-<p>你从后宫里选出懂事有能的管理其他小老婆，这叫私有云管理方案。管事的那个就是HYPERV或VMWARE。</p>
-<p>你不娶小老婆，改成包养很多情人，这叫托管云。 你是穷人，没有钱包养任何人也没钱娶小老婆，你选择去洗浴中心解决问题，这叫面向中小企业的公有云服务。 你在享受公有云服务的同时还得交公粮，这叫中小企业的混合IT架构。</p>
-<p>你是富人，但也喜欢去高级夜总会，这叫面向大企业用户的公有云服务。</p>
-<p>你有钱，同时包养小老婆和情人，还去洗浴中心，这叫混合云。但是在混合云里，最关键的业务还是会谨慎地采用传统IT架构。</p>
-<a id="more"></a>
-
-<p>你有钱，包养小老婆，但有一天所有小老婆都来大姨妈，你还得去洗浴中心，这叫CLOUD BURST。</p>
-<p>洗浴中心就是云服务提供商。 本地最大的洗浴中心是AWS。 高端那个比如****是18M。 打出商务**的名头的是SALESFORCE。 在**上发帖“我们的技师服务态度超过对面家9倍”的是O记。</p>
-<p>不开洗浴中心，但是专门卖水床卖情趣床的是等灯等灯。 不开洗浴中心，但是做陌陌类应用开发运营的是C记。 本地的洗浴中心都是两个有背景的大老板开的，他们是OPENSTACK和CLOUDSTACK。</p>
-<p>场子小且只用本地或附近技师的是本土中小云服务商。 如果上头没人罩，本土中小云服务商很难开得长。 开洗浴中心的老板有政府背景，这是城市云。 开洗浴中心的老板有黑社会背景，这是电信云。 洗浴中心要VIP卡才让进，这是行业云。 洗浴中心只面向本小区业主服务，这是园区云。</p>
-<p>你的小老婆们和情人们可能因为矛盾而让你的经济问题败露，这叫私有云安全问题。 你去洗浴中心可能染上病，这是公有云安全问题。 由此可见公有云和私有云的安全问题是两种不同性质的问题。 只提供场所，需要你自己去找技师的洗浴中心叫IAAS。 提供场所和技师的洗浴中心叫PAAS。 做到东莞ISO的程度就叫SAAS。 下载AV录像自己打飞机叫VAAS。</p>
-<p>一个有很多人分享心得的洗浴中心信息网站，这是开放数据中心联盟。 洗浴中心的行业协会叫CLOUD BUILDER。 下榻一家五星级宾馆，你习惯性地用你用微信陌陌定个位，这叫CLOUD FINDER。 良家妇女下海，这叫传统IT应用的云化。</p>
-<p>你去洗浴中心的经验很多，看见门脸就知道洗浴中心提不提供服务，看见新技师就能推测出服务质量，这叫数据分析和挖掘。 你把这些信息和心得有偿分享给其他人，你是大数据服务商。 一 个地方不严打洗浴中心，这是智慧城市。</p>
-<h2 id="声明">声明</h2>
-<p>该文章转载自<a href="http://www.iteye.com/" target="_blank" rel="external">Iteye</a>-<a href="http://nlslzf.iteye.com/blog/2021465" target="_blank" rel="external">别样解释云计算，太TM天才跨界了</a></p>
-<h2 id="参考资料">参考资料</h2>
-<p><a href="http://nlslzf.iteye.com/blog/2021465" target="_blank" rel="external">别样解释云计算，太TM天才跨界了</a></p>
-
-      
+      <% if (item.excerpt && index){ %>
+        <%- item.excerpt %>
+      <% } else { %>
+        <%- item.content %>
+      <% } %>
     </div>
     <footer>
-      
-
-        
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="/2014/07/13/HBase技术介绍/">HBase技术介绍</a>
+      <% if (index){ %>
+        <% if (item.excerpt){ %>
+          <div class="alignleft">
+            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
           </div>
-        
-        
+        <% } %>
+        <% if (item.comment && config.disqus_shortname){ %>
+        <div class="alignright">
+          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
+        </div>
+        <% } %>
+      <% } else { %>
+
+        <% if (page.prev){ %>
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+          </div>
+        <% } %>
+        <% if (page.next){ %>
           <div class="alignright post-nav">
-            <em>下一篇: </em><a href="/2014/07/13/大数据/">大数据</a>
+            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
           </div>
           <div class="clearfix"></div>
-        
+        <% } %>
 
-        
+        <% if (theme.copyright){ %>
           <div class="copyright">
-            
-            
+            <% if (theme.copyright.claim){ %>
+              <span class="claim"><%= theme.copyright.claim %></span>
+            <% } %>
+            <% if (theme.copyright.show_link){ %>
               <span class="from-link">
                 <em>本文链接地址:</em>
-                <a href="/2014/07/13/云计算的别样解释/">
-                  http://arccode.net/2014/07/13/云计算的别样解释/
+                <a href="<%- config.root %><%- item.path %>">
+                  <%- page.permalink %>
                 </a>
               </span>
-            
+            <% } %>
           </div>
-        
-        
-  
-  <div class="categories">
-    <a href="/categories/云计算/">云计算</a>
-  </div>
-
-        
-        
-      
+        <% } %>
+        <%- partial('post/category') %>
+        <%- partial('post/tag') %>
+        <%- partial('post/share') %>
+      <% } %>
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-
-<section class="comment">
-    <div class="ds-thread"></div>
-</section>
-
-</div></div>
+<%- partial('comment') %></div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">

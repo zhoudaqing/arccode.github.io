@@ -60,135 +60,75 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="<%= item.layout %>">
+  <% if (item.photos){ %>
+    <%- partial('post/gallery') %>
+  <% } %>
   <div class="post-content">
     <header>
-      
-        <time datetime="2014-08-10T15:32:46.000Z"><a href="/2014/08/10/Mac下安装phpRedisAdmin/">2014-08-10</a></time>
-      
-      
-  
-    <h1 class="title">Mac下安装phpRedisAdmin</h1>
-  
-
+      <% if (item.layout != 'page'){ %>
+        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
+      <% } %>
+      <%- partial('post/title') %>
     </header>
     <div class="entry">
-      
-        <p>phpRedisAdmin是Redis的一个Web控制台，安装流程如下：</p>
-<h2 id="安装phpRedis模块">安装phpRedis模块</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre>git clone git@github.com:nicolasff/phpredis.git
-<span class="built_in">cd</span> phpredis
-phpize
-./configure
-<span class="built_in">sudo</span> make
-<span class="built_in">sudo</span> make install
-</pre></td></tr></table></figure>
-
-<h2 id="配置apache，启用php模块">配置apache，启用php模块</h2>
-<ul>
-<li><code>vim /etc/apache2/httpd.conf</code></li>
-<li>找到<code>#LoadModule php5_module libexec/apache2/libphp5.so</code>,将<code>#</code>删除</li>
-</ul>
-<a id="more"></a>
-
-
-<h2 id="配置php">配置php</h2>
-<ul>
-<li><code>vim /etc/php.ini</code></li>
-<li>找到<code>extension=</code>,在其下面一行增加<code>extension=redis.so</code></li>
-</ul>
-<h2 id="安装phpRedisAdmin">安装phpRedisAdmin</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="preprocessor"># 将phpRedisAdmin克隆到apache应用目录</span>
-git clone git@github<span class="preprocessor">.com</span>:ErikDubbelboer/phpRedisAdmin<span class="preprocessor">.git</span>
-cd phpRedisAdmin
-git clone https://github<span class="preprocessor">.com</span>/nrk/predis<span class="preprocessor">.git</span> vendor
-</pre></td></tr></table></figure>
-
-<h2 id="测试">测试</h2>
-<ul>
-<li>启动Redis server<a href="http://arccode.github.com/2014/08/07/Mac%E4%B8%8A%E5%AE%89%E8%A3%85redis/" target="_blank" rel="external">参考Mac下安装redis</a></li>
-<li><code>redis-server redis.conf</code></li>
-<li>打开phpRedisAdmin首页<br><img src="/images/phpRedisAdmin_view.png" alt=""></li>
-</ul>
-
-      
+      <% if (item.excerpt && index){ %>
+        <%- item.excerpt %>
+      <% } else { %>
+        <%- item.content %>
+      <% } %>
     </div>
     <footer>
-      
-
-        
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="/2014/08/10/Mac下安装memcached/">Mac下安装memcached</a>
+      <% if (index){ %>
+        <% if (item.excerpt){ %>
+          <div class="alignleft">
+            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
           </div>
-        
-        
+        <% } %>
+        <% if (item.comment && config.disqus_shortname){ %>
+        <div class="alignright">
+          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
+        </div>
+        <% } %>
+      <% } else { %>
+
+        <% if (page.prev){ %>
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+          </div>
+        <% } %>
+        <% if (page.next){ %>
           <div class="alignright post-nav">
-            <em>下一篇: </em><a href="/2014/08/07/Mac下安装redis/">Mac下安装redis</a>
+            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
           </div>
           <div class="clearfix"></div>
-        
+        <% } %>
 
-        
+        <% if (theme.copyright){ %>
           <div class="copyright">
-            
-            
+            <% if (theme.copyright.claim){ %>
+              <span class="claim"><%= theme.copyright.claim %></span>
+            <% } %>
+            <% if (theme.copyright.show_link){ %>
               <span class="from-link">
                 <em>本文链接地址:</em>
-                <a href="/2014/08/10/Mac下安装phpRedisAdmin/">
-                  http://arccode.net/2014/08/10/Mac下安装phpRedisAdmin/
+                <a href="<%- config.root %><%- item.path %>">
+                  <%- page.permalink %>
                 </a>
               </span>
-            
+            <% } %>
           </div>
-        
-        
-  
-  <div class="categories">
-    <a href="/categories/工具/">工具</a>
-  </div>
-
-        
-  
-  <div class="tags">
-    <a href="/tags/Redis/">Redis</a>
-  </div>
-
-        
-      
+        <% } %>
+        <%- partial('post/category') %>
+        <%- partial('post/tag') %>
+        <%- partial('post/share') %>
+      <% } %>
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-
-<section class="comment">
-    <div class="ds-thread"></div>
-</section>
-
-</div></div>
+<%- partial('comment') %></div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">

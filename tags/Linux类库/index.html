@@ -65,68 +65,75 @@
 
 
   
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
+    <article class="<%= item.layout %>">
+  <% if (item.photos){ %>
+    <%- partial('post/gallery') %>
+  <% } %>
   <div class="post-content">
     <header>
-      
-        <time datetime="2014-09-01T02:21:38.000Z"><a href="/2014/09/01/Linux类库链接/">2014-09-01</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/09/01/Linux类库链接/">Linux类库链接</a></h1>
-  
-
+      <% if (item.layout != 'page'){ %>
+        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
+      <% } %>
+      <%- partial('post/title') %>
     </header>
     <div class="entry">
-      
-        <h2 id="tcl">tcl</h2>
-<p><a href="http://downloads.sourceforge.net/tcl/tcl8.6.1-src.tar.gz" target="_blank" rel="external">http://downloads.sourceforge.net/tcl/tcl8.6.1-src.tar.gz</a></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre>wget http://downloads<span class="preprocessor">.sourceforge</span><span class="preprocessor">.net</span>/tcl/tcl8<span class="number">.6</span><span class="number">.1</span>-src<span class="preprocessor">.tar</span><span class="preprocessor">.gz</span> 
-sudo tar xzvf tcl8<span class="number">.6</span><span class="number">.1</span>-src<span class="preprocessor">.tar</span><span class="preprocessor">.gz</span>  -C /usr/local/
-cd  /usr/local/tcl8<span class="number">.6</span><span class="number">.1</span>/unix/
-sudo ./configure
-sudo make
-sudo make install
-</pre></td></tr></table></figure>
-
-
-      
+      <% if (item.excerpt && index){ %>
+        <%- item.excerpt %>
+      <% } else { %>
+        <%- item.content %>
+      <% } %>
     </div>
     <footer>
-      
-        
+      <% if (index){ %>
+        <% if (item.excerpt){ %>
           <div class="alignleft">
-            <a href="/2014/09/01/Linux类库链接/#more" class="more-link">Read More</a>
+            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
           </div>
-        
-        
-      
+        <% } %>
+        <% if (item.comment && config.disqus_shortname){ %>
+        <div class="alignright">
+          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
+        </div>
+        <% } %>
+      <% } else { %>
+
+        <% if (page.prev){ %>
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+          </div>
+        <% } %>
+        <% if (page.next){ %>
+          <div class="alignright post-nav">
+            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
+          </div>
+          <div class="clearfix"></div>
+        <% } %>
+
+        <% if (theme.copyright){ %>
+          <div class="copyright">
+            <% if (theme.copyright.claim){ %>
+              <span class="claim"><%= theme.copyright.claim %></span>
+            <% } %>
+            <% if (theme.copyright.show_link){ %>
+              <span class="from-link">
+                <em>本文链接地址:</em>
+                <a href="<%- config.root %><%- item.path %>">
+                  <%- page.permalink %>
+                </a>
+              </span>
+            <% } %>
+          </div>
+        <% } %>
+        <%- partial('post/category') %>
+        <%- partial('post/tag') %>
+        <%- partial('post/share') %>
+      <% } %>
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-
-
+<%- partial('comment') %>
   
 
   <ul class="page-direction" id="page-direction">
