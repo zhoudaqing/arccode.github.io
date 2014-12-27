@@ -78,7 +78,7 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2014-12-27T06:52:31.000Z"><a href="/2014/12/27/初识Gradle系列一/">2014-12-27</a></time>
+        <time datetime="2014-12-27T06:55:35.000Z"><a href="/2014/12/27/初识Gradle系列一/">2014-12-27</a></time>
       
       
   
@@ -91,61 +91,21 @@
         <p>title: 初识Gradle系列一<br>date: 2014-12-26 23:56:41<br>categories: </p>
 <ul>
 <li>Java<br>tags</li>
-<li>Gradle<br>tags:</li>
+<li>Gradle</li>
 </ul>
-<hr>
+<h2 id="tags:">tags:</h2>
 <h2 id="背景">背景</h2>
 <p>以前听说过Gradle,也查阅过相关资料,自定义生命周期等等,比Maven牛X, 但Maven在项目中已经够用, 所以一直未做构建迁移.</p>
 <p>今天业余搞点Android小应用, 经过对比, 最终选择了Android Studio(1.0.3), 该软件默认使用Gradle构建, 在此记录下使用历程及碰到的问题.</p>
-<h2 id="安装Gradle">安装Gradle</h2>
-<p>笔者操作系统为Mac, 以下目录采用Mac目录</p>
-<ol>
-<li>下载安装包: <a href="https://services.gradle.org/distributions/gradle-2.2.1-all.zip" target="_blank" rel="external">https://services.gradle.org/distributions/gradle-2.2.1-all.zip</a></li>
-<li>解压</li>
-<li>制作超链接</li>
-</ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="built_in">cd</span> /usr/bin
-ln <span class="operator">-s</span> /Users/arccode/ProgramFiles/gradle-<span class="number">2.2</span>.<span class="number">1</span>/bin/gradle gradle
-</pre></td></tr></table></figure><br>4. 查看版本号: gradle -v<br><br>## 新建HelloWorld<br><br>使用Android Studio按照提示完成HelloWorld App的建立.<br><br>## Gradle使用<br><br>尝试使用gradle来构建App.<br><br>## 问题<br><br>* 执行命令<code>gradle clean</code>报错,<br><br><figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="code"><pre><span class="attribute">FAILURE</span>: <span class="string">Build failed with an exception.</span>
-
-<span class="oxygene">* <span class="keyword">Where</span>:
-Build file <span class="string">'/Users/arccode/AndroidStudioProjects/HelloWorld/build.gradle'</span> line: <span class="number">5</span>
-
-* What went wrong:
-A problem occurred evaluating root project <span class="string">'HelloWorld'</span>.
-&gt; Could <span class="keyword">not</span> find <span class="function"><span class="keyword">method</span> <span class="title">jcenter</span><span class="params">()</span> <span class="title">for</span> <span class="title">arguments</span> [] <span class="title">on</span> <span class="title">repository</span> <span class="title">container</span>.
-
-* <span class="title">Try</span>:</span>
-Run <span class="keyword">with</span> --stacktrace option <span class="keyword">to</span> get the stack trace. Run <span class="keyword">with</span> --info <span class="keyword">or</span> --debug option <span class="keyword">to</span> get more log output.
-
-BUILD FAILED</span>
-</pre></td></tr></table></figure>
-
-<p>老版本bug, 使用<code>gradle-2.2.1</code>无此问题.</p>
-<ul>
-<li>没找到<code>gradle build</code>后生成的apk包(汗, 😓),</li>
-</ul>
-<p>项目的根目录下有<code>build</code>目录, 但gradle构建生成的目录默认放在<code>app/build</code>, 所有生成的apk包也在<code>app/build</code>目录下.</p>
 
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2014/12/27/初识Gradle系列一/#more" class="more-link">Read More</a>
+          </div>
         
         
       
@@ -190,39 +150,15 @@ BUILD FAILED</span>
 <li>下载<code>dex2jar</code>: <code>https://dex2jar.googlecode.com/files/dex2jar-0.0.9.15.zip</code>;</li>
 <li>下载<code>jd-gui</code>: <code>http://jd.benow.ca/jd-gui/downloads/jd-gui-0.3.5.osx.i686.dmg</code>;</li>
 </ol>
-<h2 id="反编译">反编译</h2>
-<h3 id="解压缩下载的文件,_目录如下:">解压缩下载的文件, 目录如下:</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre>revcompile<span class="subst">/</span>
-├── apktool<span class="built_in">.</span>jar
-└── dex2jar<span class="subst">-</span><span class="number">0.0</span><span class="number">.9</span><span class="number">.15</span>
-    ├── LICENSE<span class="built_in">.</span>txt
-    ├── NOTICE<span class="built_in">.</span>txt
-    ├── d2j<span class="attribute">-apk</span><span class="attribute">-sign</span><span class="built_in">.</span>bat
-    ├── d2j<span class="attribute">-apk</span><span class="attribute">-sign</span><span class="built_in">.</span>sh
-    ├── d2j<span class="attribute">-asm</span><span class="attribute">-verify</span><span class="built_in">.</span>bat
-    ├── d2j<span class="attribute">-asm</span><span class="attribute">-verify</span><span class="built_in">.</span>sh
-</pre></td></tr></table></figure>
-
-<h3 id="执行命令">执行命令</h3>
-<ol>
-<li>java -jar apktool.jar d helloworld.apk</li>
-<li>./dex2jar-0.0.9.15/d2j-dex2jar.sh helloworld.apk</li>
-<li>使用jd-gui反编译出的jar, 可查看源码</li>
-</ol>
 
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2014/12/27/Mac下反编译Android安装包/#more" class="more-link">Read More</a>
+          </div>
         
         
       
