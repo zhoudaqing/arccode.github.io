@@ -82,6 +82,179 @@
   <div class="post-content">
     <header>
       
+        <time datetime="2014-12-27T06:52:31.000Z"><a href="/2014/12/27/初识Gradle系列一/">2014-12-27</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/12/27/初识Gradle系列一/"></a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>title: 初识Gradle系列一<br>date: 2014-12-26 23:56:41<br>categories: </p>
+<ul>
+<li>Java<br>tags</li>
+<li>Gradle<br>tags:</li>
+</ul>
+<hr>
+<h2 id="背景">背景</h2>
+<p>以前听说过Gradle,也查阅过相关资料,自定义生命周期等等,比Maven牛X, 但Maven在项目中已经够用, 所以一直未做构建迁移.</p>
+<p>今天业余搞点Android小应用, 经过对比, 最终选择了Android Studio(1.0.3), 该软件默认使用Gradle构建, 在此记录下使用历程及碰到的问题.</p>
+<h2 id="安装Gradle">安装Gradle</h2>
+<p>笔者操作系统为Mac, 以下目录采用Mac目录</p>
+<ol>
+<li>下载安装包: <a href="https://services.gradle.org/distributions/gradle-2.2.1-all.zip" target="_blank" rel="external">https://services.gradle.org/distributions/gradle-2.2.1-all.zip</a></li>
+<li>解压</li>
+<li>制作超链接</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="built_in">cd</span> /usr/bin
+ln <span class="operator">-s</span> /Users/arccode/ProgramFiles/gradle-<span class="number">2.2</span>.<span class="number">1</span>/bin/gradle gradle
+</pre></td></tr></table></figure><br>4. 查看版本号: gradle -v<br><br>## 新建HelloWorld<br><br>使用Android Studio按照提示完成HelloWorld App的建立.<br><br>## Gradle使用<br><br>尝试使用gradle来构建App.<br><br>## 问题<br><br>* 执行命令<code>gradle clean</code>报错,<br><br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="attribute">FAILURE</span>: <span class="string">Build failed with an exception.</span>
+
+<span class="oxygene">* <span class="keyword">Where</span>:
+Build file <span class="string">'/Users/arccode/AndroidStudioProjects/HelloWorld/build.gradle'</span> line: <span class="number">5</span>
+
+* What went wrong:
+A problem occurred evaluating root project <span class="string">'HelloWorld'</span>.
+&gt; Could <span class="keyword">not</span> find <span class="function"><span class="keyword">method</span> <span class="title">jcenter</span><span class="params">()</span> <span class="title">for</span> <span class="title">arguments</span> [] <span class="title">on</span> <span class="title">repository</span> <span class="title">container</span>.
+
+* <span class="title">Try</span>:</span>
+Run <span class="keyword">with</span> --stacktrace option <span class="keyword">to</span> get the stack trace. Run <span class="keyword">with</span> --info <span class="keyword">or</span> --debug option <span class="keyword">to</span> get more log output.
+
+BUILD FAILED</span>
+</pre></td></tr></table></figure>
+
+<p>老版本bug, 使用<code>gradle-2.2.1</code>无此问题.</p>
+<ul>
+<li>没找到<code>gradle build</code>后生成的apk包(汗, 😓),</li>
+</ul>
+<p>项目的根目录下有<code>build</code>目录, 但gradle构建生成的目录默认放在<code>app/build</code>, 所有生成的apk包也在<code>app/build</code>目录下.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2014-12-27T06:14:43.000Z"><a href="/2014/12/27/Mac下反编译Android安装包/">2014-12-27</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/12/27/Mac下反编译Android安装包/">Mac下反编译Android安装包</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="准备工作">准备工作</h2>
+<ol>
+<li>下载<code>apkTool</code>: <code>https://android-apktool.googlecode.com/files/apktool1.5.2.tar.bz2</code>;</li>
+<li>下载<code>dex2jar</code>: <code>https://dex2jar.googlecode.com/files/dex2jar-0.0.9.15.zip</code>;</li>
+<li>下载<code>jd-gui</code>: <code>http://jd.benow.ca/jd-gui/downloads/jd-gui-0.3.5.osx.i686.dmg</code>;</li>
+</ol>
+<h2 id="反编译">反编译</h2>
+<h3 id="解压缩下载的文件,_目录如下:">解压缩下载的文件, 目录如下:</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre>revcompile<span class="subst">/</span>
+├── apktool<span class="built_in">.</span>jar
+└── dex2jar<span class="subst">-</span><span class="number">0.0</span><span class="number">.9</span><span class="number">.15</span>
+    ├── LICENSE<span class="built_in">.</span>txt
+    ├── NOTICE<span class="built_in">.</span>txt
+    ├── d2j<span class="attribute">-apk</span><span class="attribute">-sign</span><span class="built_in">.</span>bat
+    ├── d2j<span class="attribute">-apk</span><span class="attribute">-sign</span><span class="built_in">.</span>sh
+    ├── d2j<span class="attribute">-asm</span><span class="attribute">-verify</span><span class="built_in">.</span>bat
+    ├── d2j<span class="attribute">-asm</span><span class="attribute">-verify</span><span class="built_in">.</span>sh
+</pre></td></tr></table></figure>
+
+<h3 id="执行命令">执行命令</h3>
+<ol>
+<li>java -jar apktool.jar d helloworld.apk</li>
+<li>./dex2jar-0.0.9.15/d2j-dex2jar.sh helloworld.apk</li>
+<li>使用jd-gui反编译出的jar, 可查看源码</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
         <time datetime="2014-11-14T13:59:59.000Z"><a href="/2014/11/14/Zookeeper搭建集群/">2014-11-14</a></time>
       
       
@@ -685,141 +858,13 @@ cd kafka
 
 
   
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <time datetime="2014-09-22T03:28:01.000Z"><a href="/2014/09/22/Maven常见问题/">2014-09-22</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/09/22/Maven常见问题/">Maven常见问题</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <ol>
-<li><p>命令行执行<code>mvn clean package</code>—&gt; 编码 EUC_CN 的不可映射字符,在Myeclipse下执行命令无此问题</p>
-<ul>
-<li>原因: 命令行编码使用<code>GBK</code>,而代码文件使用<code>UTF-8</code>编码</li>
-<li><p>解决方案:</p>
-<ul>
-<li>方案一: 将命令行编码改为<code>UTF-8</code></li>
-<li>方案二: 在pom.xml中指定使用<code>UTF-8</code>进行文件拷贝,编译</li>
-<li><p>例如:         </p>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2014/09/22/Maven常见问题/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <time datetime="2014-09-21T08:51:05.000Z"><a href="/2014/09/21/阿里云CentOS搭建MEAN/">2014-09-21</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/09/21/阿里云CentOS搭建MEAN/">阿里云CentOS搭建MEAN</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="购买主机">购买主机</h2>
-<p>看个人爱好，本人购买阿里云主机，最低配置55元/月</p>
-<h2 id="安装相关模块">安装相关模块</h2>
-<ol>
-<li>在阿里云管理控制台启动购买的云主机</li>
-<li>使用<code>zoc6</code>连接服务器</li>
-<li><p>更新软件 <code>yum -y update</code></p>
-</li>
-<li><p>安装开发工具 <code>yum -y groupinstall &quot;Development Tools&quot;</code></p>
-</li>
-<li>下载Node源码<ul>
-<li>cd /usr/src</li>
-<li>wget <a href="http://nodejs.org/dist/v0.10.32/node-v0.10.32.tar.gz" target="_blank" rel="external">http://nodejs.org/dist/v0.10.32/node-v0.10.32.tar.gz</a></li>
-</ul>
-</li>
-<li>安装Node<ul>
-<li>解压node-v0.10.32.tar.gz</li>
-<li>cd node-v0.10.32</li>
-<li>./configure</li>
-<li>make</li>
-<li>make install</li>
-<li>*注：编译后的二进制文件会放置于系统路径下<code>/usr/local/bin/node</code></li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2014/09/21/阿里云CentOS搭建MEAN/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
 
   <ul class="page-direction" id="page-direction">
     <li><a class="page-prev icon-chevron-sign-left" href="javascript:;" title="上一页"></a></li>
     <li><a class="page-next icon-chevron-sign-right" href="javascript:;" title="下一页"></a></li>
 </ul>
 
-    <nav id="page-list" class="page-list"><span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next</a></nav>
+    <nav id="page-list" class="page-list"><span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/2/">Next</a></nav>
 
 <nav id="pagination">
   
@@ -842,6 +887,8 @@ cd kafka
 <div class="widget tag">
   <h3 class="title">分类</h3>
   <ul class="entry">
+  
+    <li><a href="/categories/Android/">Android</a><small>1</small></li>
   
     <li><a href="/categories/Java/">Java</a><small>2</small></li>
   
@@ -944,6 +991,14 @@ cd kafka
   <ul class="entry">
     
       <li>
+        <a href="/2014/12/27/初识Gradle系列一/"></a>
+      </li>
+    
+      <li>
+        <a href="/2014/12/27/Mac下反编译Android安装包/">Mac下反编译Android安装包</a>
+      </li>
+    
+      <li>
         <a href="/2014/11/14/Zookeeper搭建集群/">Zookeeper搭建集群</a>
       </li>
     
@@ -983,14 +1038,6 @@ cd kafka
         <a href="/2014/09/21/阿里云CentOS搭建MEAN/">阿里云CentOS搭建MEAN</a>
       </li>
     
-      <li>
-        <a href="/2014/09/21/Linux指令/">Linux指令</a>
-      </li>
-    
-      <li>
-        <a href="/2014/09/21/Redis指令/">Redis指令</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -999,6 +1046,7 @@ cd kafka
   <h3 class="title">友情链接</h3>
     <ul class="entry">
       <li><a href="http://www.ruanyifeng.com/blog" target="_blank" title="阮一峰的网络日志">阮一峰的网络日志</a></li>
+      <li><a href="http://stormzhang.com" target="_blank" title="stormzhang">stormzhang</a></li>
       <li><a href="http://www.importnew.com/" target="_blank" title="ImportNew">ImportNew</a></li>
     </ul>
 </div>

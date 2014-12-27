@@ -1,0 +1,473 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>归档：2014/12 | Arccode</title>
+  <meta name="author" content="arccode">
+  
+  <meta name="description" content="Java Javascript bigdata 大数据 hadoop hive storm spark">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Arccode"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/img/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Arccode" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="/js/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52770645-1', 'arccode.net');
+  ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+
+<body>
+  <!--[if lte IE 8]> <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'> <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0027_Simplified Chinese.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." style='margin-left:auto;margin-right:auto;display: block;'/></a></div> <![endif]-->
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Arccode</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="/about">关于</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title">2014/12</h2>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2014-12-27T06:52:31.000Z"><a href="/2014/12/27/初识Gradle系列一/">2014-12-27</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/12/27/初识Gradle系列一/"></a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>title: 初识Gradle系列一<br>date: 2014-12-26 23:56:41<br>categories: </p>
+<ul>
+<li>Java<br>tags</li>
+<li>Gradle<br>tags:</li>
+</ul>
+<hr>
+<h2 id="背景">背景</h2>
+<p>以前听说过Gradle,也查阅过相关资料,自定义生命周期等等,比Maven牛X, 但Maven在项目中已经够用, 所以一直未做构建迁移.</p>
+<p>今天业余搞点Android小应用, 经过对比, 最终选择了Android Studio(1.0.3), 该软件默认使用Gradle构建, 在此记录下使用历程及碰到的问题.</p>
+<h2 id="安装Gradle">安装Gradle</h2>
+<p>笔者操作系统为Mac, 以下目录采用Mac目录</p>
+<ol>
+<li>下载安装包: <a href="https://services.gradle.org/distributions/gradle-2.2.1-all.zip" target="_blank" rel="external">https://services.gradle.org/distributions/gradle-2.2.1-all.zip</a></li>
+<li>解压</li>
+<li>制作超链接</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="built_in">cd</span> /usr/bin
+ln <span class="operator">-s</span> /Users/arccode/ProgramFiles/gradle-<span class="number">2.2</span>.<span class="number">1</span>/bin/gradle gradle
+</pre></td></tr></table></figure><br>4. 查看版本号: gradle -v<br><br>## 新建HelloWorld<br><br>使用Android Studio按照提示完成HelloWorld App的建立.<br><br>## Gradle使用<br><br>尝试使用gradle来构建App.<br><br>## 问题<br><br>* 执行命令<code>gradle clean</code>报错,<br><br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="attribute">FAILURE</span>: <span class="string">Build failed with an exception.</span>
+
+<span class="oxygene">* <span class="keyword">Where</span>:
+Build file <span class="string">'/Users/arccode/AndroidStudioProjects/HelloWorld/build.gradle'</span> line: <span class="number">5</span>
+
+* What went wrong:
+A problem occurred evaluating root project <span class="string">'HelloWorld'</span>.
+&gt; Could <span class="keyword">not</span> find <span class="function"><span class="keyword">method</span> <span class="title">jcenter</span><span class="params">()</span> <span class="title">for</span> <span class="title">arguments</span> [] <span class="title">on</span> <span class="title">repository</span> <span class="title">container</span>.
+
+* <span class="title">Try</span>:</span>
+Run <span class="keyword">with</span> --stacktrace option <span class="keyword">to</span> get the stack trace. Run <span class="keyword">with</span> --info <span class="keyword">or</span> --debug option <span class="keyword">to</span> get more log output.
+
+BUILD FAILED</span>
+</pre></td></tr></table></figure>
+
+<p>老版本bug, 使用<code>gradle-2.2.1</code>无此问题.</p>
+<ul>
+<li>没找到<code>gradle build</code>后生成的apk包(汗, 😓),</li>
+</ul>
+<p>项目的根目录下有<code>build</code>目录, 但gradle构建生成的目录默认放在<code>app/build</code>, 所有生成的apk包也在<code>app/build</code>目录下.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2014-12-27T06:14:43.000Z"><a href="/2014/12/27/Mac下反编译Android安装包/">2014-12-27</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/12/27/Mac下反编译Android安装包/">Mac下反编译Android安装包</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="准备工作">准备工作</h2>
+<ol>
+<li>下载<code>apkTool</code>: <code>https://android-apktool.googlecode.com/files/apktool1.5.2.tar.bz2</code>;</li>
+<li>下载<code>dex2jar</code>: <code>https://dex2jar.googlecode.com/files/dex2jar-0.0.9.15.zip</code>;</li>
+<li>下载<code>jd-gui</code>: <code>http://jd.benow.ca/jd-gui/downloads/jd-gui-0.3.5.osx.i686.dmg</code>;</li>
+</ol>
+<h2 id="反编译">反编译</h2>
+<h3 id="解压缩下载的文件,_目录如下:">解压缩下载的文件, 目录如下:</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre>revcompile<span class="subst">/</span>
+├── apktool<span class="built_in">.</span>jar
+└── dex2jar<span class="subst">-</span><span class="number">0.0</span><span class="number">.9</span><span class="number">.15</span>
+    ├── LICENSE<span class="built_in">.</span>txt
+    ├── NOTICE<span class="built_in">.</span>txt
+    ├── d2j<span class="attribute">-apk</span><span class="attribute">-sign</span><span class="built_in">.</span>bat
+    ├── d2j<span class="attribute">-apk</span><span class="attribute">-sign</span><span class="built_in">.</span>sh
+    ├── d2j<span class="attribute">-asm</span><span class="attribute">-verify</span><span class="built_in">.</span>bat
+    ├── d2j<span class="attribute">-asm</span><span class="attribute">-verify</span><span class="built_in">.</span>sh
+</pre></td></tr></table></figure>
+
+<h3 id="执行命令">执行命令</h3>
+<ol>
+<li>java -jar apktool.jar d helloworld.apk</li>
+<li>./dex2jar-0.0.9.15/d2j-dex2jar.sh helloworld.apk</li>
+<li>使用jd-gui反编译出的jar, 可查看源码</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+
+  <ul class="page-direction" id="page-direction">
+    <li><a class="page-prev icon-chevron-sign-left" href="javascript:;" title="上一页"></a></li>
+    <li><a class="page-next icon-chevron-sign-right" href="javascript:;" title="下一页"></a></li>
+</ul>
+
+<nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="搜一下">
+    <i class="icon-search"></i>
+    <input type="hidden" name="q" value="site:arccode.net">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Android/">Android</a><small>1</small></li>
+  
+    <li><a href="/categories/Java/">Java</a><small>2</small></li>
+  
+    <li><a href="/categories/Linux/Javascript/">Javascript</a><small>1</small></li>
+  
+    <li><a href="/categories/Javascript/">Javascript</a><small>2</small></li>
+  
+    <li><a href="/categories/Linux/">Linux</a><small>3</small></li>
+  
+    <li><a href="/categories/NoSQL(缓存)/">NoSQL(缓存)</a><small>3</small></li>
+  
+    <li><a href="/categories/中间件/">中间件</a><small>2</small></li>
+  
+    <li><a href="/categories/云计算/">云计算</a><small>1</small></li>
+  
+    <li><a href="/categories/工具/">工具</a><small>6</small></li>
+  
+    <li><a href="/categories/指令/">指令</a><small>2</small></li>
+  
+    <li><a href="/categories/操作系统/">操作系统</a><small>1</small></li>
+  
+    <li><a href="/categories/数据挖掘/">数据挖掘</a><small>3</small></li>
+  
+    <li><a href="/categories/链接/">链接</a><small>1</small></li>
+  
+    <li><a href="/categories/问题集锦/">问题集锦</a><small>1</small></li>
+  
+    <li><a href="/categories/队列/">队列</a><small>1</small></li>
+  
+    <li><a href="/categories/随笔/">随笔</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Android/">Android</a><small>1</small></li>
+  
+    <li><a href="/tags/AngularJS/">AngularJS</a><small>1</small></li>
+  
+    <li><a href="/tags/CSS/">CSS</a><small>1</small></li>
+  
+    <li><a href="/tags/Eclipse/">Eclipse</a><small>1</small></li>
+  
+    <li><a href="/tags/ExpressJS/">ExpressJS</a><small>1</small></li>
+  
+    <li><a href="/tags/HBase/">HBase</a><small>1</small></li>
+  
+    <li><a href="/tags/HTML/">HTML</a><small>1</small></li>
+  
+    <li><a href="/tags/Hadoop/">Hadoop</a><small>2</small></li>
+  
+    <li><a href="/tags/Kafka/">Kafka</a><small>1</small></li>
+  
+    <li><a href="/tags/Linux类库/">Linux类库</a><small>1</small></li>
+  
+    <li><a href="/tags/Log/">Log</a><small>1</small></li>
+  
+    <li><a href="/tags/Log4j/">Log4j</a><small>1</small></li>
+  
+    <li><a href="/tags/Mac/">Mac</a><small>2</small></li>
+  
+    <li><a href="/tags/Maven/">Maven</a><small>2</small></li>
+  
+    <li><a href="/tags/Memcached/">Memcached</a><small>1</small></li>
+  
+    <li><a href="/tags/MongoDB/">MongoDB</a><small>2</small></li>
+  
+    <li><a href="/tags/NodeJS/">NodeJS</a><small>2</small></li>
+  
+    <li><a href="/tags/Properties/">Properties</a><small>1</small></li>
+  
+    <li><a href="/tags/Redis/">Redis</a><small>3</small></li>
+  
+    <li><a href="/tags/Spark/">Spark</a><small>1</small></li>
+  
+    <li><a href="/tags/Storm/">Storm</a><small>1</small></li>
+  
+    <li><a href="/tags/Svn/">Svn</a><small>2</small></li>
+  
+    <li><a href="/tags/VitualBox/">VitualBox</a><small>1</small></li>
+  
+    <li><a href="/tags/Zookeeper/">Zookeeper</a><small>2</small></li>
+  
+    <li><a href="/tags/线程/">线程</a><small>1</small></li>
+  
+    <li><a href="/tags/进程/">进程</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2014/12/27/初识Gradle系列一/"></a>
+      </li>
+    
+      <li>
+        <a href="/2014/12/27/Mac下反编译Android安装包/">Mac下反编译Android安装包</a>
+      </li>
+    
+      <li>
+        <a href="/2014/11/14/Zookeeper搭建集群/">Zookeeper搭建集群</a>
+      </li>
+    
+      <li>
+        <a href="/2014/11/07/mongoose入门/">mongoose入门</a>
+      </li>
+    
+      <li>
+        <a href="/2014/11/07/node日志记录/">node日志记录</a>
+      </li>
+    
+      <li>
+        <a href="/2014/10/30/Properties配置分离/">Properties配置分离</a>
+      </li>
+    
+      <li>
+        <a href="/2014/10/30/Log4j配置/">Log4j配置</a>
+      </li>
+    
+      <li>
+        <a href="/2014/10/23/Mac下安装SVN服务器/">Mac下安装SVN服务器</a>
+      </li>
+    
+      <li>
+        <a href="/2014/09/30/Zookeeper实战一/">Zookeeper实战一</a>
+      </li>
+    
+      <li>
+        <a href="/2014/09/30/Kafka实战一/">Kafka实战一</a>
+      </li>
+    
+      <li>
+        <a href="/2014/09/22/Maven常见问题/">Maven常见问题</a>
+      </li>
+    
+      <li>
+        <a href="/2014/09/21/阿里云CentOS搭建MEAN/">阿里云CentOS搭建MEAN</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  <div class="widget tag">
+  <h3 class="title">友情链接</h3>
+    <ul class="entry">
+      <li><a href="http://www.ruanyifeng.com/blog" target="_blank" title="阮一峰的网络日志">阮一峰的网络日志</a></li>
+      <li><a href="http://stormzhang.com" target="_blank" title="stormzhang">stormzhang</a></li>
+      <li><a href="http://www.importnew.com/" target="_blank" title="ImportNew">ImportNew</a></li>
+    </ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <div id="go-pg-top"><i class="icon-arrow-up"></i></div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 arccode
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fcc881a935ecd2c2a0fe30651210e7117' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52770645-1', 'arccode.net');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/page.js"></script>
+
+</body>
+
+</html>
