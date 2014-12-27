@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Linux | Arccode</title>
+  <title>初识Gradle系列一 | Arccode</title>
   <meta name="author" content="arccode">
   
   <meta name="description" content="Java Javascript bigdata 大数据 hadoop hive storm spark">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="初识Gradle系列一"/>
   <meta property="og:site_name" content="Arccode"/>
 
   
@@ -60,12 +60,7 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title category">Linux</h2>
-
-
-  
-    <article class="post">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
     <div class="gallery">
   <div class="photoset">
@@ -82,142 +77,33 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2014-09-21T08:51:05.000Z"><a href="/2014/09/21/阿里云CentOS搭建MEAN/">2014-09-21</a></time>
+        <time datetime="2014-12-26T15:56:41.000Z"><a href="/2014/12/26/初识Gradle系列一/">2014-12-26</a></time>
       
       
   
-    <h1 class="title"><a href="/2014/09/21/阿里云CentOS搭建MEAN/">阿里云CentOS搭建MEAN</a></h1>
+    <h1 class="title">初识Gradle系列一</h1>
   
 
     </header>
     <div class="entry">
       
-        <h2 id="购买主机">购买主机</h2>
-<p>看个人爱好，本人购买阿里云主机，最低配置55元/月</p>
-<h2 id="安装相关模块">安装相关模块</h2>
+        <h2 id="背景">背景</h2>
+<p>以前听说过Gradle,也查阅过相关资料,自定义生命周期等等,比Maven牛X, 但Maven在项目中已经够用, 所以一直未做构建迁移.</p>
+<p>今天业余搞点Android小应用, 经过对比, 最终选择了Android Studio(1.0.3), 该软件默认使用Gradle构建, 在此记录下使用历程及碰到的问题.</p>
+<a id="more"></a>
+
+<h2 id="安装Gradle">安装Gradle</h2>
+<p>笔者操作系统为Mac, 以下目录采用Mac目录</p>
 <ol>
-<li>在阿里云管理控制台启动购买的云主机</li>
-<li>使用<code>zoc6</code>连接服务器</li>
-<li><p>更新软件 <code>yum -y update</code></p>
-</li>
-<li><p>安装开发工具 <code>yum -y groupinstall &quot;Development Tools&quot;</code></p>
-</li>
-<li>下载Node源码<ul>
-<li>cd /usr/src</li>
-<li>wget <a href="http://nodejs.org/dist/v0.10.32/node-v0.10.32.tar.gz" target="_blank" rel="external">http://nodejs.org/dist/v0.10.32/node-v0.10.32.tar.gz</a></li>
-</ul>
-</li>
-<li>安装Node<ul>
-<li>解压node-v0.10.32.tar.gz</li>
-<li>cd node-v0.10.32</li>
-<li>./configure</li>
-<li>make</li>
-<li>make install</li>
-<li>*注：编译后的二进制文件会放置于系统路径下<code>/usr/local/bin/node</code></li>
-</ul>
-</li>
+<li>下载安装包: <a href="https://services.gradle.org/distributions/gradle-2.2.1-all.zip" target="_blank" rel="external">https://services.gradle.org/distributions/gradle-2.2.1-all.zip</a></li>
+<li>解压</li>
+<li>制作超链接</li>
 </ol>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2014/09/21/阿里云CentOS搭建MEAN/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <time datetime="2014-09-21T08:47:22.000Z"><a href="/2014/09/21/Linux指令/">2014-09-21</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/09/21/Linux指令/">Linux指令</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <ul>
-<li>修改日期: <code>date -s &quot;2014-01-01 00:00:00&quot;</code></li>
-<li>同步指定服务器日期: <code>ntpdate 3.cn.pool.ntp.org</code></li>
-<li>查看文件编码: <code>set fileencoding</code></li>
-</ul>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2014/09/21/Linux指令/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <time datetime="2014-07-12T14:54:11.000Z"><a href="/2014/07/12/tar命令详解/">2014-07-12</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/07/12/tar命令详解/">tar命令详解</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="语法">语法</h2>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="built_in">cd</span> /usr/bin
+ln <span class="operator">-s</span> /Users/arccode/ProgramFiles/gradle-<span class="number">2.2</span>.<span class="number">1</span>/bin/gradle gradle
+</pre></td></tr></table></figure><br>4. 查看版本号: gradle -v<br><br>## 新建HelloWorld<br><br>使用Android Studio按照提示完成HelloWorld App的建立.<br><br>## Gradle使用<br><br>尝试使用gradle来构建App.<br><br>## 问题<br><br>* 执行命令<code>gradle clean</code>报错,<br><br><figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -225,26 +111,74 @@
 6
 7
 8
-</pre></td><td class="code"><pre>tar {-c | -r | -t | -x | -f} {fileName} [fileList]
-  
-  -<span class="ruby"><span class="symbol">c:</span> 创建一个.tar文件
-</span>  -<span class="ruby"><span class="symbol">r:</span> 在.tar中添加额外的文件
-</span>  -<span class="ruby"><span class="symbol">t:</span> 显示.tar中的文件列表
-</span>  -<span class="ruby"><span class="symbol">x:</span> 提取.tar中的文件到当前目录
-</span>  -<span class="ruby"><span class="symbol">f:</span> 指定文件路径
-</span>  -<span class="ruby"><span class="symbol">z:</span> 以gzip方式解压当前文件</span>
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="attribute">FAILURE</span>: <span class="string">Build failed with an exception.</span>
+
+<span class="oxygene">* <span class="keyword">Where</span>:
+Build file <span class="string">'/Users/arccode/AndroidStudioProjects/HelloWorld/build.gradle'</span> line: <span class="number">5</span>
+
+* What went wrong:
+A problem occurred evaluating root project <span class="string">'HelloWorld'</span>.
+&gt; Could <span class="keyword">not</span> find <span class="function"><span class="keyword">method</span> <span class="title">jcenter</span><span class="params">()</span> <span class="title">for</span> <span class="title">arguments</span> [] <span class="title">on</span> <span class="title">repository</span> <span class="title">container</span>.
+
+* <span class="title">Try</span>:</span>
+Run <span class="keyword">with</span> --stacktrace option <span class="keyword">to</span> get the stack trace. Run <span class="keyword">with</span> --info <span class="keyword">or</span> --debug option <span class="keyword">to</span> get more log output.
+
+BUILD FAILED</span>
 </pre></td></tr></table></figure>
 
+<p>老版本bug, 使用<code>gradle-2.2.1</code>无此问题.</p>
+<ul>
+<li>没找到<code>gradle build</code>后生成的apk包(汗, 😓),</li>
+</ul>
+<p>项目的根目录下有<code>build</code>目录, 但gradle构建生成的目录默认放在<code>app/build</code>, 所有生成的apk包也在<code>app/build</code>目录下.</p>
 
       
     </div>
     <footer>
       
+
         
-          <div class="alignleft">
-            <a href="/2014/07/12/tar命令详解/#more" class="more-link">Read More</a>
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="/2014/12/27/Mac下反编译Android安装包/">Mac下反编译Android安装包</a>
           </div>
         
+        
+          <div class="alignright post-nav">
+            <em>下一篇: </em><a href="/2014/11/14/Zookeeper搭建集群/">Zookeeper搭建集群</a>
+          </div>
+          <div class="clearfix"></div>
+        
+
+        
+          <div class="copyright">
+            
+            
+              <span class="from-link">
+                <em>本文链接地址:</em>
+                <a href="/2014/12/26/初识Gradle系列一/">
+                  http://arccode.net/2014/12/26/初识Gradle系列一/
+                </a>
+              </span>
+            
+          </div>
+        
+        
+  
+  <div class="categories">
+    <a href="/categories/Java/">Java</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Gradle/">Gradle</a>
+  </div>
+
         
       
       <div class="clearfix"></div>
@@ -253,19 +187,10 @@
 </article>
 
 
+<section class="comment">
+    <div class="ds-thread"></div>
+</section>
 
-  
-
-  <ul class="page-direction" id="page-direction">
-    <li><a class="page-prev icon-chevron-sign-left" href="javascript:;" title="上一页"></a></li>
-    <li><a class="page-next icon-chevron-sign-right" href="javascript:;" title="下一页"></a></li>
-</ul>
-
-<nav id="pagination">
-  
-  
-  <div class="clearfix"></div>
-</nav>
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
@@ -462,6 +387,18 @@
 
 
 
+
+<script type="text/javascript">
+    var duoshuoQuery = {short_name:"arccode"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+                || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
 
 
 
