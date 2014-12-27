@@ -60,75 +60,144 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
+      
+        <time datetime="2014-07-13T15:47:59.000Z"><a href="/2014/07/13/Mac下搭建Hadoop环境/">2014-07-13</a></time>
+      
+      
+  
+    <h1 class="title">Mac下搭建Hadoop环境</h1>
+  
+
     </header>
     <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
+      
+        <h2 id="安装JDK">安装JDK</h2>
+<p>安装JDK，安装成功后在终端中输入<code>java -version</code>，显示如下</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>java version <span class="string">"1.7.0_51"</span>
+Java(TM) SE Runtime Environment (build <span class="number">1.7</span><span class="number">.0</span>_51<span class="attribute">-b13</span>)
+Java HotSpot(TM) <span class="number">64</span><span class="attribute">-Bit</span> Server VM (build <span class="number">24.51</span><span class="attribute">-b03</span>, mixed mode)
+</pre></td></tr></table></figure>
+
+<h2 id="安装Hadoop">安装Hadoop</h2>
+<p>下载<a href="http://hadoop.apache.org/releases.html#Download" target="_blank" rel="external">Hadoop</a>,将该文件解压至<code>/usr/local</code>目录下</p>
+<a id="more"></a>
+
+<h2 id="配置系统环境变量">配置系统环境变量</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="keyword">export</span> JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.<span class="number">7.0</span>_51.jdk/Contents/Home
+<span class="keyword">export</span> HADOOP_HOME=/usr/local/hadoop-<span class="number">2.4</span>.<span class="number">1</span>
+<span class="keyword">export</span> HADOOP_PREFIX=<span class="variable">${HADOOP_HOME}</span>
+<span class="keyword">export</span> HADOOP_COMMON_HOME=<span class="variable">${HADOOP_PREFIX}</span>
+<span class="keyword">export</span> HADOOP_HDFS_HOME=<span class="variable">${HADOOP_PREFIX}</span>
+<span class="keyword">export</span> HADOOP_MAPRED_HOME=<span class="variable">${HADOOP_PREFIX}</span>
+<span class="keyword">export</span> HADOOP_YARN_HOME=<span class="variable">${HADOOP_PREFIX}</span>
+<span class="keyword">export</span> HADOOP_CONF_DIR=<span class="string">"<span class="variable">$HADOOP_HOME</span>/etc/hadoop/"</span>
+<span class="keyword">export</span> YARN_CONF_DIR=<span class="variable">${HADOOP_CONF_DIR}</span>
+<span class="keyword">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$HADOOP_PREFIX</span>/bin:<span class="variable">$HADOOP_PREFIX</span>/sbin
+</pre></td></tr></table></figure>
+
+<h2 id="配置ssh">配置ssh</h2>
+<h3 id="测试ssh是否可以登录">测试ssh是否可以登录</h3>
+<p>输入<code>ssh localhost</code>显示</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="attribute">ssh</span>: <span class="string">connect to host localhost port 22: Connection refused</span>
+</pre></td></tr></table></figure><br>表示ssh未配置，需要进行配置；<br><br>“系统偏好设置”—&gt;”共享”—&gt;”远程登录”；<br><br>再次输入<code>ssh localhost</code>，输入密码后可以看到连接成功的信息<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="tag">Last</span> <span class="tag">login</span>: <span class="tag">Mon</span> <span class="tag">Jul</span> 14 23<span class="pseudo">:41</span><span class="pseudo">:32</span> 2014 <span class="tag">from</span> <span class="tag">localhost</span>
+</pre></td></tr></table></figure>
+
+<h3 id="设置ssh免登录">设置ssh免登录</h3>
+<ul>
+<li>构造秘钥<br><code>ssh-keygen -t dsa -P &#39;&#39; -f ~/.ssh/id_dsa</code><br>-t: 秘钥类型<br>-P: 提供密语<br>-f: 生成的秘钥文件<br>执行指令后，.ssh目录中将出现id_dsa私钥和id_dsa公钥</li>
+<li>将公钥追加到授权key中<br><code>cat ~/.ssh/id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys</code></li>
+</ul>
+<h2 id="配置Hadoop环境">配置Hadoop环境</h2>
+<h3 id="_"> </h3>
+<h2 id="参考资料">参考资料</h2>
+<p><a href="http://www.cnblogs.com/gamix/archive/2012/12/02/install-hadoop-on-mac-osx-lion.html" target="_blank" rel="external">在Mac上安装Hadoop</a><br><a href="http://www.micmiu.com/bigdata/hadoop/hadoop2x-single-node-setup" target="_blank" rel="external">hadoop 2.2.0 单节点安装和测试</a><br><a href="http://blog.csdn.net/xceman1997/article/details/8046039" target="_blank" rel="external">在Mac OS上配置hadoop伪分布式环境【下】</a></p>
+
+      
     </div>
     <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
-          <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
-          </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
+      
 
-        <% if (page.prev){ %>
+        
           <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+            <em>上一篇: </em><a href="/2014/07/22/Svn基本使用/">Svn基本使用</a>
           </div>
-        <% } %>
-        <% if (page.next){ %>
+        
+        
           <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
+            <em>下一篇: </em><a href="/2014/07/13/HBase技术介绍/">HBase技术介绍</a>
           </div>
           <div class="clearfix"></div>
-        <% } %>
+        
 
-        <% if (theme.copyright){ %>
+        
           <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
+            
+            
               <span class="from-link">
                 <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
+                <a href="/2014/07/13/Mac下搭建Hadoop环境/">
+                  http://arccode.net/2014/07/13/Mac下搭建Hadoop环境/
                 </a>
               </span>
-            <% } %>
+            
           </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
+        
+        
+  
+  <div class="categories">
+    <a href="/categories/数据挖掘/">数据挖掘</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Hadoop/">Hadoop</a>
+  </div>
+
+        
+      
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-<%- partial('comment') %></div></div>
+
+<section class="comment">
+    <div class="ds-thread"></div>
+</section>
+
+</div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">

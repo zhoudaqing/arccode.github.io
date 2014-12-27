@@ -60,75 +60,299 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
+      
+        <time datetime="2014-10-30T03:02:34.000Z"><a href="/2014/10/30/Properties配置分离/">2014-10-30</a></time>
+      
+      
+  
+    <h1 class="title">Properties配置分离</h1>
+  
+
     </header>
     <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
+      
+        <h2 id="背景">背景</h2>
+<p>目前公司从开发到发布一个版本的流程是本地开发环境(自测)-&gt;测试环境(测试人员)-&gt;灰度发布环境(测试人员+开发人员)-&gt;上线, 不同的环境配置的属性不同(例如: 数据库连接url, 用户名, 密码), 以下为我经历的阶段.</p>
+<h3 id="阶段一:_将所有环境的配置信息写在一个文件中,_如db-properties">阶段一: 将所有环境的配置信息写在一个文件中, 如db.properties</h3>
+<p><a id="more"></a></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+</pre></td><td class="code"><pre><span class="preprocessor">##-------------开发-------------------------</span>
+<span class="preprocessor">##=============主库========================</span>
+jdbc.writer.driverClassName=com.mysql.jdbc.Driver
+jdbc.writer.url=jdbc:mysql:<span class="comment">//192.168.1.10:3306/database?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8</span>
+jdbc.writer.username=dev
+jdbc.writer.password=dev
+
+<span class="preprocessor">##-------------测试-------------------------</span>
+<span class="preprocessor">##=============主库========================</span>
+<span class="preprocessor">#jdbc.writer.driverClassName=com.mysql.jdbc.Driver</span>
+<span class="preprocessor">#jdbc.writer.url=jdbc:mysql://192.168.0.10:3306/database?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8</span>
+<span class="preprocessor">#jdbc.writer.username=test</span>
+<span class="preprocessor">#jdbc.writer.password=test</span>
+
+<span class="preprocessor">##-------------灰度发布-------------------------</span>
+<span class="preprocessor">##=============主库========================</span>
+<span class="preprocessor">#jdbc.writer.driverClassName=com.mysql.jdbc.Driver</span>
+<span class="preprocessor">#jdbc.writer.url=jdbc:mysql://192.168.10.10:3306/database?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8</span>
+<span class="preprocessor">#jdbc.writer.username=prePub</span>
+<span class="preprocessor">#jdbc.writer.password=prePub</span>
+
+<span class="preprocessor">##-------------生产-------------------------</span>
+<span class="preprocessor">##=============主库========================</span>
+<span class="preprocessor">#jdbc.writer.driverClassName=com.mysql.jdbc.Driver</span>
+<span class="preprocessor">#jdbc.writer.url=jdbc:mysql://192.168.100.10:3306/database?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8</span>
+<span class="preprocessor">#jdbc.writer.username=pub</span>
+<span class="preprocessor">#jdbc.writer.password=pub</span>
+</pre></td></tr></table></figure>
+
+<p>以上配置在打包时根据不同的环境手动注释和反注释相关代码.</p>
+<h3 id="阶段二:_将以上配置拆分成四个配置文件">阶段二: 将以上配置拆分成四个配置文件</h3>
+<p>配置文件为db-dev.properties, db-test.properties, db-prepub.properties, db-pub.properties, 利用maven进行配置, 在打包的时候指定要打的包或把所有包打出来</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">profiles</span>&gt;</span>
+
+	<span class="tag">&lt;<span class="title">profile</span>&gt;</span>
+
+		<span class="tag">&lt;<span class="title">id</span>&gt;</span>dev<span class="tag">&lt;/<span class="title">id</span>&gt;</span>
+
+		<span class="tag">&lt;<span class="title">properties</span>&gt;</span>
+
+			<span class="tag">&lt;<span class="title">package.environment</span>&gt;</span>dev<span class="tag">&lt;/<span class="title">package.environment</span>&gt;</span>
+
+		<span class="tag">&lt;/<span class="title">properties</span>&gt;</span>
+
+	<span class="tag">&lt;/<span class="title">profile</span>&gt;</span>
+
+	<span class="tag">&lt;<span class="title">profile</span>&gt;</span>
+
+		<span class="tag">&lt;<span class="title">id</span>&gt;</span>test<span class="tag">&lt;/<span class="title">id</span>&gt;</span>
+
+		<span class="tag">&lt;<span class="title">properties</span>&gt;</span>
+
+			<span class="tag">&lt;<span class="title">package.environment</span>&gt;</span>test<span class="tag">&lt;/<span class="title">package.environment</span>&gt;</span>
+
+		<span class="tag">&lt;/<span class="title">properties</span>&gt;</span>
+
+	<span class="tag">&lt;/<span class="title">profile</span>&gt;</span>
+
+	<span class="tag">&lt;<span class="title">profile</span>&gt;</span>
+
+		<span class="tag">&lt;<span class="title">id</span>&gt;</span>prePub<span class="tag">&lt;/<span class="title">id</span>&gt;</span>
+
+		<span class="tag">&lt;<span class="title">properties</span>&gt;</span>
+
+			<span class="tag">&lt;<span class="title">package.environment</span>&gt;</span>prePub<span class="tag">&lt;/<span class="title">package.environment</span>&gt;</span>
+
+		<span class="tag">&lt;/<span class="title">properties</span>&gt;</span>
+
+	<span class="tag">&lt;/<span class="title">profile</span>&gt;</span>
+		
+	<span class="tag">&lt;<span class="title">profile</span>&gt;</span>
+
+		<span class="tag">&lt;<span class="title">id</span>&gt;</span>pub<span class="tag">&lt;/<span class="title">id</span>&gt;</span>
+
+		<span class="tag">&lt;<span class="title">properties</span>&gt;</span>
+
+			<span class="tag">&lt;<span class="title">package.environment</span>&gt;</span>pub<span class="tag">&lt;/<span class="title">package.environment</span>&gt;</span>
+
+		<span class="tag">&lt;/<span class="title">properties</span>&gt;</span>
+
+	<span class="tag">&lt;/<span class="title">profile</span>&gt;</span>	
+<span class="tag">&lt;/<span class="title">profiles</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+<p>打包与配置的繁琐事情解决了, 在需要打包的时候指定参数就可以打出自己所需环境的包, 但经过一段时间的开发, 新的问题出现了, 当需要在配置文件中添加或修改属性时, 得同时修改三个文件, 其次线上环境那些敏感的数据被暴露给开发人员了. 经过思考, 打算采用配置服务器对配置进行管理.</p>
+<h3 id="方案三:_配置分离">方案三: 配置分离</h3>
+<p>在各个环境中准备好配套的配置(例如: /data/configs/proj_name/db.properties)</p>
+<p>在spring中配置读取文件properties的位置, 如下:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre>&lt;bean <span class="property">id</span>=<span class="string">"commonProperties"</span> <span class="type">class</span>=<span class="string">"org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"</span>&gt;
+	&lt;<span class="keyword">property</span> <span class="property">name</span>=<span class="string">"ignoreResourceNotFound"</span> value=<span class="string">"true"</span>&gt;&lt;/<span class="keyword">property</span>&gt;
+	&lt;<span class="keyword">property</span> <span class="property">name</span>=<span class="string">"ignoreUnresolvablePlaceholders"</span> value=<span class="string">"true"</span>&gt;&lt;/<span class="keyword">property</span>&gt;
+	&lt;<span class="keyword">property</span> <span class="property">name</span>=<span class="string">"locations"</span>&gt;
+		&lt;<span class="type">list</span>&gt;
+			&lt;value&gt;<span class="type">file</span>:/data/configs/myProj/spring-redis.properties&lt;/value&gt;
+			&lt;value&gt;<span class="type">file</span>:/data/configs/myProj/db.properties&lt;/value&gt;
+		&lt;/<span class="type">list</span>&gt;
+	&lt;/<span class="keyword">property</span>&gt;
+&lt;/bean&gt;
+</pre></td></tr></table></figure>
+
+<p>该方案解决了敏感数据暴露给开发人员的问题, 但维护配置还是繁琐;接下来计划开发一个配置服务器,对各个项目提供配置信息.</p>
+<h3 id="方案四:_配置分离之配置服务器">方案四: 配置分离之配置服务器</h3>
+<p>待续.</p>
+<h2 id="优缺点">优缺点</h2>
+<h3 id="方案一">方案一</h3>
+<ul>
+<li>优点: 只需要维护一个文件</li>
+<li>缺点: 打包时需要注释及反注释配置, 繁琐; 配置中敏感数据暴露给开发人员;</li>
+</ul>
+<h3 id="方案二">方案二</h3>
+<ul>
+<li>优点: 一条指令可以打出不同环境的包;</li>
+<li>缺点: 需要维护三个配置文件; 配置中敏感数据暴露给开发人员;</li>
+</ul>
+<h3 id="方案三">方案三</h3>
+<ul>
+<li>优点: 配置中敏感数据不再暴露给开发人员;</li>
+<li>缺点: 需要在不同的机器上维护配置文件;</li>
+</ul>
+
+      
     </div>
     <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
-          <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
-          </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
+      
 
-        <% if (page.prev){ %>
+        
           <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+            <em>上一篇: </em><a href="/2014/11/07/node日志记录/">node日志记录</a>
           </div>
-        <% } %>
-        <% if (page.next){ %>
+        
+        
           <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
+            <em>下一篇: </em><a href="/2014/10/30/Log4j配置/">Log4j配置</a>
           </div>
           <div class="clearfix"></div>
-        <% } %>
+        
 
-        <% if (theme.copyright){ %>
+        
           <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
+            
+            
               <span class="from-link">
                 <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
+                <a href="/2014/10/30/Properties配置分离/">
+                  http://arccode.net/2014/10/30/Properties配置分离/
                 </a>
               </span>
-            <% } %>
+            
           </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
+        
+        
+  
+  <div class="categories">
+    <a href="/categories/Java/">Java</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Properties/">Properties</a>
+  </div>
+
+        
+      
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-<%- partial('comment') %></div></div>
+
+<section class="comment">
+    <div class="ds-thread"></div>
+</section>
+
+</div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">

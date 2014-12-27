@@ -60,75 +60,154 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
+      
+        <time datetime="2014-11-07T03:53:14.000Z"><a href="/2014/11/07/mongoose入门/">2014-11-07</a></time>
+      
+      
+  
+    <h1 class="title">mongoose入门</h1>
+  
+
     </header>
     <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
+      
+        <h2 id="简介">简介</h2>
+<p>Mongoose是一个针对MongoDB的ODM框架(技术名词, 类似ORM的思想).</p>
+<h2 id="名称解释">名称解释</h2>
+<p>Schema:    &nbsp;&nbsp; 一种以文件形式存储的数据库模型骨架(定义数据结构及相关算法)，不具备数据库的操作能力</p>
+<p>Model:&nbsp;&nbsp; 由Schema发布生成的模型，可对集合(collectin)进行操作</p>
+<p>Entity: &nbsp;&nbsp; 由Model创建的实体，他的操作也会影响数据库</p>
+<a id="more"></a>
+
+<h2 id="Collection复数转换">Collection复数转换</h2>
+<p>指定的Collection名是<code>Person</code>, 经过查询实际存储的Collection名是<code>People</code>, Why??</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="comment">// 创建Schema</span>
+<span class="keyword">var</span> PersonSchema = mongoose.Schema({
+	name: <span class="built_in">String</span>
+});
+
+<span class="comment">// 创建Model</span>
+<span class="keyword">var</span> PersonModel = db.model(<span class="string">'Person'</span>, PersonSchema);
+
+<span class="comment">// 创建Entity</span>
+<span class="keyword">var</span> personEntity = <span class="keyword">new</span> PersonModel({name: <span class="string">'zhangsan'</span>});
+
+<span class="comment">// 保存Entity</span>
+personEntity.save();
+</pre></td></tr></table></figure>
+
+<p>注: 请将上面代码中的<code>Person</code>改为<code>Anything</code>, 对于初次接触MongoDB且没看<code>参考资料2</code>的工程师更容易理解, 因为MongoDB复数化<code>Person</code>时会将其变成<code>people</code>.</p>
+<p>查看mongoose文档, 发现可以设置Collection的名称,如下</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="comment">// 创建Schema</span>
+<span class="keyword">var</span> PersonSchema = mongoose.Schema({
+	name: <span class="built_in">String</span>
+}, {collection: <span class="string">'persons'</span>});
+</pre></td></tr></table></figure>
+
+<p>看了<code>参考资料2</code>你将恍然大悟, 并且学会如何将获得的单词变为复数.</p>
+<h3 id="MongoDB存储数据流程">MongoDB存储数据流程</h3>
+<ol>
+<li>将Model的名称进行复数变幻(eg: Anything —&gt; Anythings)</li>
+<li>将复数化的名称转换为小写anythings</li>
+<li>查找MongoDB中是否有名为anythings的Collection, 有的话将该数据插入, 无的话新建Collection再进行插入</li>
+</ol>
+<h2 id="参考资料">参考资料</h2>
+<ol>
+<li><p><a href="https://cnodejs.org/topic/504b4924e2b84515770103dd" target="_blank" rel="external">Mongoose学习参考文档</a></p>
+</li>
+<li><p><a href="http://aiilive.blog.51cto.com/1925756/1405203" target="_blank" rel="external">Mongoose在创建Model时对Collection的命名策略</a></p>
+</li>
+<li><a href="http://mongoosejs.com/docs" target="_blank" rel="external">Mongoose官方文档</a></li>
+</ol>
+
+      
     </div>
     <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
-          <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
-          </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
+      
 
-        <% if (page.prev){ %>
+        
           <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+            <em>上一篇: </em><a href="/2014/11/14/Zookeeper搭建集群/">Zookeeper搭建集群</a>
           </div>
-        <% } %>
-        <% if (page.next){ %>
+        
+        
           <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
+            <em>下一篇: </em><a href="/2014/11/07/node日志记录/">node日志记录</a>
           </div>
           <div class="clearfix"></div>
-        <% } %>
+        
 
-        <% if (theme.copyright){ %>
+        
           <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
+            
+            
               <span class="from-link">
                 <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
+                <a href="/2014/11/07/mongoose入门/">
+                  http://arccode.net/2014/11/07/mongoose入门/
                 </a>
               </span>
-            <% } %>
+            
           </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
+        
+        
+  
+  <div class="categories">
+    <a href="/categories/NoSQL(缓存)/">NoSQL(缓存)</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/MongoDB/">MongoDB</a>
+  </div>
+
+        
+      
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-<%- partial('comment') %></div></div>
+
+<section class="comment">
+    <div class="ds-thread"></div>
+</section>
+
+</div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">

@@ -61,75 +61,61 @@
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
-  <article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
+      
+        <time datetime="2014-07-01T14:57:07.000Z"><a href="/2014/07/01/序/">2014-07-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/07/01/序/">序</a></h1>
+  
+
     </header>
     <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
+      
+        <h2 id="个人博客">个人博客</h2>
+<p>问：为什么要搭建博客？</p>
+<p>答：记录自己在IT这个行业中的点滴，同时把自己的一些东西分享给各位朋友。</p>
+<p>问：为什么不选择已有的博客平台，而要自己搭建？</p>
+<p>答：想让事情变得简单点，有想法或解决了一些问题的时候，用<a href="http://wowubuntu.com/markdown/#philosophy" target="_blank" rel="external">Markdown</a>记录一下。</p>
+<p>问：……？</p>
+<p>答：…………。</p>
+<p>问： 你的声音太小，我没听清楚呀。</p>
+<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#x61;&#114;&#x63;&#99;&#111;&#100;&#x65;&#64;&#49;&#54;&#x33;&#46;&#99;&#x6f;&#x6d;">&#x61;&#114;&#x63;&#99;&#111;&#100;&#x65;&#64;&#49;&#54;&#x33;&#46;&#99;&#x6f;&#x6d;</a>。</p>
+
+      
     </div>
     <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
+      
+        
           <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
+            <a href="/2014/07/01/序/" class="more-link">Read More</a>
           </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
-
-        <% if (page.prev){ %>
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
-          </div>
-        <% } %>
-        <% if (page.next){ %>
-          <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
-          </div>
-          <div class="clearfix"></div>
-        <% } %>
-
-        <% if (theme.copyright){ %>
-          <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
-              <span class="from-link">
-                <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
-                </a>
-              </span>
-            <% } %>
-          </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
+        
+        
+      
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-<%- partial('comment') %>
+
+
 
 
 <ul class="page-direction" id="page-direction">

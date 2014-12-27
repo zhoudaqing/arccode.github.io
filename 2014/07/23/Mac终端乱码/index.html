@@ -60,75 +60,106 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
+      
+        <time datetime="2014-07-23T14:46:48.000Z"><a href="/2014/07/23/Mac终端乱码/">2014-07-23</a></time>
+      
+      
+  
+    <h1 class="title">Mac终端乱码</h1>
+  
+
     </header>
     <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
+      
+        <p>Android的开发环境配置完毕后，回忆了下以前开发Android的流程</p>
+<ol>
+<li>新建Hello World项目</li>
+<li>使用Eclipse运行项目，自动启动模拟器，一切正常</li>
+</ol>
+<p>之后想把apk包导出到本地</p>
+<ol>
+<li>在终端创建keystore</li>
+<li>利用Android Tool导出apk</li>
+</ol>
+<a id="more"></a>
+
+
+<p>使用命令<code>keytool -genkey -alias android.keystore -keyalg RSA -validity 100000 -keystore android.keystore</code>生成keystore时终端出现乱码</p>
+<h3 id="乱码原因">乱码原因</h3>
+<p>经过思考，应该是jdk<code>keytool</code>指令编码与系统编码不一致，点击<code>终端</code>—&gt;<code>偏好设置</code>—&gt;<code>设置</code>，可以看见“字符编码”为<code>Unicode(UTF-8)</code>,将该设置改为GB2312，重启终端，输入<code>keytool</code>中文显示正常，之后输入构建keystore的指令，按照提示便可以正常生成keystore</p>
+<p>注：该设置在某些使用UTF-8的指令会产生乱码，注意根据情况进行配置，可以配置描述文件进行快速切换</p>
+
+      
     </div>
     <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
-          <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
-          </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
+      
 
-        <% if (page.prev){ %>
+        
           <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+            <em>上一篇: </em><a href="/2014/08/07/Mac下安装redis/">Mac下安装redis</a>
           </div>
-        <% } %>
-        <% if (page.next){ %>
+        
+        
           <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
+            <em>下一篇: </em><a href="/2014/07/23/Mac安装Android开发环境/">Mac安装Android开发环境</a>
           </div>
           <div class="clearfix"></div>
-        <% } %>
+        
 
-        <% if (theme.copyright){ %>
+        
           <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
+            
+            
               <span class="from-link">
                 <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
+                <a href="/2014/07/23/Mac终端乱码/">
+                  http://arccode.net/2014/07/23/Mac终端乱码/
                 </a>
               </span>
-            <% } %>
+            
           </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
+        
+        
+  
+  <div class="categories">
+    <a href="/categories/工具/">工具</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Mac/">Mac</a>
+  </div>
+
+        
+      
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-<%- partial('comment') %></div></div>
+
+<section class="comment">
+    <div class="ds-thread"></div>
+</section>
+
+</div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">

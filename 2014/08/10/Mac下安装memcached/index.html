@@ -60,75 +60,193 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
+      
+        <time datetime="2014-08-10T15:51:56.000Z"><a href="/2014/08/10/Mac下安装memcached/">2014-08-10</a></time>
+      
+      
+  
+    <h1 class="title">Mac下安装memcached</h1>
+  
+
     </header>
     <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
+      
+        <h2 id="安装libevent(memcached的依赖库)">安装libevent(memcached的依赖库)</h2>
+<ul>
+<li><a href="https://github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz" target="_blank" rel="external">下载</a>libevent源码</li>
+<li>解压<code>tar -xzf libevent-2.0.21-stable.tar.gz</code></li>
+<li><code>cd libevent-2.0.21-stable</code></li>
+<li><code>sudo ./configure --prefix=/usr</code></li>
+<li><code>sudo make</code></li>
+<li><code>sudo make install</code></li>
+</ul>
+<h2 id="安装memcached">安装memcached</h2>
+<ul>
+<li><a href="http://www.memcached.org/files/memcached-1.4.20.tar.gz" target="_blank" rel="external">下载</a>memcached源码</li>
+<li>解压<code>memcached-1.4.20</code></li>
+<li><code>cd memcached-1.4.20</code></li>
+<li><code>sudo ./configure --prefix=/usr</code></li>
+<li><code>sudo make</code></li>
+<li><code>sudo make install</code></li>
+</ul>
+<a id="more"></a>
+
+
+<h2 id="启动memcached">启动memcached</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="comment"># 以调试模式启动</span>
+<span class="built_in">sudo</span> memcached -p <span class="number">11211</span> -m <span class="number">128</span> -u root -vv
+<span class="comment"># 以后台进程模式启动</span>
+<span class="built_in">sudo</span> memcached -p <span class="number">11211</span> -m <span class="number">128</span> -u root <span class="operator">-d</span>
+</pre></td></tr></table></figure><br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre>启动时相关参数如下：
+-<span class="ruby">h 查看帮助
+</span>-<span class="ruby">p 指定端口
+</span>-<span class="ruby">m 指定内存数量，单位：<span class="constant">MB</span>
+</span>-<span class="ruby">u 运行memcached的用户
+</span>-<span class="ruby">vv 调试模式启动
+</span>-<span class="ruby">d 后台进程模式启动
+</span>-<span class="ruby">c 最大并发连接数
+</span>-<span class="ruby"><span class="constant">P</span> 在后台进程模式下，保存pid到指定文件，eg：/path/to/memcached.pid</span>
+</pre></td></tr></table></figure><br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre>后台进程启动的一些指令
+-<span class="ruby">d install 安装memcached
+</span>-<span class="ruby">d uninstall 卸载memcached
+</span>-<span class="ruby">d start 启动memcached服务
+</span>-<span class="ruby">d stop 停止memcached服务
+</span>-<span class="ruby">d restart 重启memcached服务
+</span>-<span class="ruby">d shutdown 停止memcached服务</span>
+</pre></td></tr></table></figure>
+
+<h2 id="测试memcached">测试memcached</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="preprocessor"># 在终端中使用`telnet`进行测试</span>
+telnet localhost <span class="number">11211</span>
+<span class="preprocessor"># set操作</span>
+<span class="keyword">set</span> uid <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>
+<span class="number">20101111</span>
+<span class="preprocessor"># get操作</span>
+<span class="keyword">get</span> uid
+</pre></td></tr></table></figure><br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="comment"># cli语法,输入value时必须换行</span>
+<span class="command"><span class="keyword">command</span> &lt;<span class="title">key</span>&gt; &lt;<span class="title">flags</span>&gt; &lt;<span class="title">expiration</span> <span class="title">time</span>&gt; &lt;<span class="title">bytes</span>&gt;</span>
+&lt;<span class="built_in">value</span>&gt;
+key: 类似于map中的key
+flags: 保存键值对的额外信息
+expiration <span class="built_in">time</span>: 键值对保存的过期时间，单位：秒，<span class="number">0</span>表示永不过期
+<span class="keyword">bytes</span>: 在缓存中存储的子节点
+<span class="built_in">value</span>: 类似于map中得<span class="built_in">value</span>
+</pre></td></tr></table></figure>
+
+<h2 id="安装phpMemcachedAdmin">安装phpMemcachedAdmin</h2>
+<ul>
+<li><a href="http://phpmemcacheadmin.googlecode.com/files/phpMemcachedAdmin-1.2.2-r262.tar.gz" target="_blank" rel="external">下载</a>phpMemcachedAdmin项目</li>
+<li>将phpMemcachedAdmin解压到Apache的应用目录</li>
+<li>打开phpMemcachedAdmin首页<br><img src="/images/phpMemcachedAdmin_view.png" alt=""></li>
+</ul>
+<p>关于memcached的详细用法请关注下篇博文。</p>
+
+      
     </div>
     <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
-          <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
-          </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
+      
 
-        <% if (page.prev){ %>
+        
           <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+            <em>上一篇: </em><a href="/2014/09/01/Linux类库链接/">Linux类库链接</a>
           </div>
-        <% } %>
-        <% if (page.next){ %>
+        
+        
           <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
+            <em>下一篇: </em><a href="/2014/08/10/Mac下安装phpRedisAdmin/">Mac下安装phpRedisAdmin</a>
           </div>
           <div class="clearfix"></div>
-        <% } %>
+        
 
-        <% if (theme.copyright){ %>
+        
           <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
+            
+            
               <span class="from-link">
                 <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
+                <a href="/2014/08/10/Mac下安装memcached/">
+                  http://arccode.net/2014/08/10/Mac下安装memcached/
                 </a>
               </span>
-            <% } %>
+            
           </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
+        
+        
+  
+  <div class="categories">
+    <a href="/categories/NoSQL(缓存)/">NoSQL(缓存)</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Memcached/">Memcached</a>
+  </div>
+
+        
+      
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-<%- partial('comment') %></div></div>
+
+<section class="comment">
+    <div class="ds-thread"></div>
+</section>
+
+</div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">

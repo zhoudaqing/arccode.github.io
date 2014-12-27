@@ -65,75 +65,164 @@
 
 
   
-    <article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
+      
+        <time datetime="2014-10-30T02:37:35.000Z"><a href="/2014/10/30/Log4j配置/">2014-10-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/10/30/Log4j配置/">Log4j配置</a></h1>
+  
+
     </header>
     <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
+      
+        <h2 id="在Java_Web项目中配置Log4j">在Java Web项目中配置Log4j</h2>
+<h3 id="示例文件">示例文件</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+</pre></td><td class="code"><pre><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="doctype">&lt;!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" &gt;</span>
+<span class="tag">&lt;<span class="title">log4j:configuration</span> <span class="attribute">xmlns:log4j</span>=<span class="value">"http://jakarta.apache.org/log4j/"</span>&gt;</span>
+
+	<span class="comment">&lt;!-- Appenders --&gt;</span>
+	<span class="tag">&lt;<span class="title">appender</span> <span class="attribute">name</span>=<span class="value">"console"</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.ConsoleAppender"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"Target"</span> <span class="attribute">value</span>=<span class="value">"System.out"</span> /&gt;</span>
+		<span class="tag">&lt;<span class="title">layout</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.PatternLayout"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ConversionPattern"</span> <span class="attribute">value</span>=<span class="value">"[%p] %d{yyyy-MM-dd HH:mm:ss:SSS} [%l] %m%n"</span> /&gt;</span>
+		<span class="tag">&lt;/<span class="title">layout</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">appender</span>&gt;</span>
+
+	<span class="tag">&lt;<span class="title">appender</span> <span class="attribute">name</span>=<span class="value">"FILE-INFO"</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.DailyRollingFileAppender"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"File"</span> <span class="attribute">value</span>=<span class="value">"/home/ad/logs/ad-quartz-info-db.log"</span> /&gt;</span>
+		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"Append"</span> <span class="attribute">value</span>=<span class="value">"true"</span> /&gt;</span>
+		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ImmediateFlush"</span> <span class="attribute">value</span>=<span class="value">"true"</span> /&gt;</span>
+		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"DatePattern"</span> <span class="attribute">value</span>=<span class="value">".yyyy-MM-dd"</span> /&gt;</span>
+		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"BufferSize"</span> <span class="attribute">value</span>=<span class="value">"500"</span> /&gt;</span>
+		<span class="tag">&lt;<span class="title">layout</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.PatternLayout"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ConversionPattern"</span> <span class="attribute">value</span>=<span class="value">"[%p] %d{yyyy-MM-dd HH:mm:ss:SSS} [%l] %m%n"</span> /&gt;</span>
+		<span class="tag">&lt;/<span class="title">layout</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">filter</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.varia.LevelRangeFilter"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"LevelMin"</span> <span class="attribute">value</span>=<span class="value">"DEBUG"</span> /&gt;</span>
+			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"LevelMax"</span> <span class="attribute">value</span>=<span class="value">"INFO"</span> /&gt;</span>
+			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"acceptOnMatch"</span> <span class="attribute">value</span>=<span class="value">"false"</span> /&gt;</span>
+		<span class="tag">&lt;/<span class="title">filter</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">appender</span>&gt;</span>
+
+	<span class="tag">&lt;<span class="title">appender</span> <span class="attribute">name</span>=<span class="value">"FILE-WARN"</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.DailyRollingFileAppender"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"File"</span> <span class="attribute">value</span>=<span class="value">"/home/ad/logs/ad-quartz-warn-db.log"</span> /&gt;</span>
+		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"Append"</span> <span class="attribute">value</span>=<span class="value">"true"</span> /&gt;</span>
+		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ImmediateFlush"</span> <span class="attribute">value</span>=<span class="value">"true"</span> /&gt;</span>
+		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"DatePattern"</span> <span class="attribute">value</span>=<span class="value">".yyyy-MM-dd"</span> /&gt;</span>
+		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"BufferSize"</span> <span class="attribute">value</span>=<span class="value">"500"</span> /&gt;</span>
+		<span class="tag">&lt;<span class="title">layout</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.PatternLayout"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ConversionPattern"</span> <span class="attribute">value</span>=<span class="value">"[%p] %d{yyyy-MM-dd HH:mm:ss:SSS} [%l] %m%n"</span> /&gt;</span>
+		<span class="tag">&lt;/<span class="title">layout</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">filter</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.varia.LevelRangeFilter"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"LevelMin"</span> <span class="attribute">value</span>=<span class="value">"WARN"</span> /&gt;</span>
+			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"LevelMax"</span> <span class="attribute">value</span>=<span class="value">"FATAL"</span> /&gt;</span>
+			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"acceptOnMatch"</span> <span class="attribute">value</span>=<span class="value">"false"</span> /&gt;</span>
+		<span class="tag">&lt;/<span class="title">filter</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">appender</span>&gt;</span>
+
+
+	<span class="comment">&lt;!-- Root Logger --&gt;</span>
+	<span class="tag">&lt;<span class="title">root</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">priority</span> <span class="attribute">value</span>=<span class="value">"debug"</span> /&gt;</span>
+		<span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"console"</span> /&gt;</span>
+		<span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"FILE-INFO"</span> /&gt;</span>
+		<span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"FILE-WARN"</span> /&gt;</span>
+	<span class="tag">&lt;/<span class="title">root</span>&gt;</span>
+
+<span class="tag">&lt;/<span class="title">log4j:configuration</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+
+      
     </div>
     <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
+      
+        
           <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
+            <a href="/2014/10/30/Log4j配置/" class="more-link">Read More</a>
           </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
-
-        <% if (page.prev){ %>
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
-          </div>
-        <% } %>
-        <% if (page.next){ %>
-          <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
-          </div>
-          <div class="clearfix"></div>
-        <% } %>
-
-        <% if (theme.copyright){ %>
-          <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
-              <span class="from-link">
-                <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
-                </a>
-              </span>
-            <% } %>
-          </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
+        
+        
+      
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-<%- partial('comment') %>
+
+
   
 
   <ul class="page-direction" id="page-direction">

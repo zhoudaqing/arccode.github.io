@@ -60,75 +60,64 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="page">
+  
   <div class="post-content">
     <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
+      
+      
+  
+    <h1 class="title"></h1>
+  
+
     </header>
     <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
+      
+        <h2 id="简介">简介</h2>
+<p>Name：arccode<br>Email：arccode@163.com<br>Description： 追求互联网新兴技术的爱好者，热衷于与相关人士讨论软件架构</p>
+<h2 id="技能">技能</h2>
+<p>Language： Java、Javascript<br>Java家族： Spring、Struts2、Hibernate、SpringSecurity、Shiro、Mybatis、Mina、Netty、Spring RMI<br>Javascript家族：AngularJS、Express、Backbone、NodeJS、MongoDB<br>Architecture： SOAP、REST</p>
+<h2 id="目前状态">目前状态</h2>
+<p>目前正在深入研究分布式系统、海量数据处理、实时系统</p>
+<h2 id="Find_Me">Find Me</h2>
+<p><a href="http://arccode.net/" target="_blank" rel="external">博客</a>、<a href="https://github.com/arccode" target="_blank" rel="external">github</a>、<a href="http://weibo.com/tianzhisoftware" target="_blank" rel="external">新浪微博</a></p>
+
+      
     </div>
     <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
-          <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
-          </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
+      
 
-        <% if (page.prev){ %>
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
-          </div>
-        <% } %>
-        <% if (page.next){ %>
-          <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
-          </div>
-          <div class="clearfix"></div>
-        <% } %>
+        
+        
 
-        <% if (theme.copyright){ %>
+        
           <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
+            
+            
               <span class="from-link">
                 <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
+                <a href="/about/index.html">
+                  http://arccode.net/about/index.html
                 </a>
               </span>
-            <% } %>
+            
           </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
+        
+        
+        
+        
+      
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-<%- partial('comment') %></div></div>
+
+<section class="comment">
+    <div class="ds-thread"></div>
+</section>
+
+</div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">

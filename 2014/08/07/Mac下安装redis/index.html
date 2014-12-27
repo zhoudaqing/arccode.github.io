@@ -60,75 +60,218 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
+      
+        <time datetime="2014-08-06T16:26:37.000Z"><a href="/2014/08/07/Mac下安装redis/">2014-08-07</a></time>
+      
+      
+  
+    <h1 class="title">Mac下安装redis</h1>
+  
+
     </header>
     <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
+      
+        <h2 id="下载Redis">下载Redis</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>cd ~/ProgramFiles
+curl -O http://download<span class="preprocessor">.redis</span><span class="preprocessor">.io</span>/releases/redis-<span class="number">2.8</span><span class="number">.13</span><span class="preprocessor">.tar</span><span class="preprocessor">.gz</span>
+</pre></td></tr></table></figure>
+
+<h2 id="解压、编译">解压、编译</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="comment"># 解压</span>
+tar -xzf redis-<span class="number">2.8</span>.<span class="number">13</span>
+<span class="comment"># 重命名</span>
+mv redis-<span class="number">2.8</span>.<span class="number">13</span> redis
+<span class="built_in">cd</span> redis
+<span class="built_in">sudo</span> make
+<span class="comment"># 测试</span>
+<span class="built_in">sudo</span> make test
+<span class="built_in">sudo</span> make install
+</pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="自定义Redis配置">自定义Redis配置</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre>vim ~/ProgramFiles/redis/redis.conf
+<span class="comment"># 通过查找修改相应配置项</span>
+daemonize <span class="literal">yes</span>
+pidfile <span class="regexp">/Users/</span>用户名/ProgramFiles/redis/redis.pid
+port <span class="number">6379</span>
+timeout <span class="number">300</span>
+loglevel debug
+logfile <span class="regexp">/Users/</span>用户名/ProgramFiles/redis/log-redis.log
+databases <span class="number">8</span>
+save <span class="number">900</span> <span class="number">1</span>
+save <span class="number">300</span> <span class="number">10</span>
+save <span class="number">60</span> <span class="number">10000</span>
+rdbcompression <span class="literal">yes</span>
+dbfilename dump.rdb
+dir <span class="regexp">/opt/redis/</span>
+appendonly <span class="literal">no</span>
+appendfsync everysec
+</pre></td></tr></table></figure>
+
+<h2 id="改变Redis_Server、Client脚本位置">改变Redis Server、Client脚本位置</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="comment"># 服务器端</span>
+mv <span class="regexp">/Users/</span>用户名<span class="regexp">/ProgramFiles/redis/src/redis-server /Users/</span>用户名/ProgramFiles/redis/redis-server
+<span class="comment"># 客户端</span>
+mv <span class="regexp">/Users/</span>用户名<span class="regexp">/ProgramFiles/redis/src/redis-cli /Users/</span>用户名/ProgramFiles/redis/redis-cli
+</pre></td></tr></table></figure>
+
+<h2 id="启动Redis">启动Redis</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>sudo /Users/用户名/ProgramFiles/redis/redis-server /Users/用户名/ProgramFiles/redis/redis.conf
+
+注：提示<span class="escape">`l</span>og-redis.log<span class="escape">`、</span><span class="escape">`r</span>edis.pid<span class="escape">`没</span>有找到，在redis目录下创建该文件可解决此问题
+</pre></td></tr></table></figure>
+
+<h2 id="测试Redis">测试Redis</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="preprocessor"># 连接到Redis Server</span>
+<span class="preprocessor"># 方法一</span>
+/Users/用户名/ProgramFiles/redis/redis-cli 
+<span class="preprocessor"># 方法二</span>
+cd /Users/用户名/ProgramFiles/redis
+./redis-cli
+<span class="preprocessor"># 向Redis中添加数据</span>
+<span class="keyword">set</span> key HelloWorld
+<span class="keyword">get</span> key
+</pre></td></tr></table></figure>
+
+<h2 id="停止Redis服务">停止Redis服务</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="preprocessor"># 查找进程id</span>
+<span class="preprocessor"># 方法一</span>
+ps -ef|grep redis
+<span class="preprocessor"># 方法二</span>
+cat /Users/用户名/ProgramFiles/redis/redis.pid
+<span class="preprocessor"># 结束进程</span>
+kill 进程id
+</pre></td></tr></table></figure>
+
+<h2 id="查看日志">查看日志</h2>
+<p>可以在操作的过程中观察日志的输出</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>tail <span class="attribute">-f</span> /Users<span class="subst">/</span>用户名/ProgramFiles/redis/<span class="keyword">log</span><span class="attribute">-redis</span><span class="built_in">.</span><span class="keyword">log</span>
+</pre></td></tr></table></figure>
+      
     </div>
     <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
-          <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
-          </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
+      
 
-        <% if (page.prev){ %>
+        
           <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+            <em>上一篇: </em><a href="/2014/08/10/Mac下安装phpRedisAdmin/">Mac下安装phpRedisAdmin</a>
           </div>
-        <% } %>
-        <% if (page.next){ %>
+        
+        
           <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
+            <em>下一篇: </em><a href="/2014/07/23/Mac终端乱码/">Mac终端乱码</a>
           </div>
           <div class="clearfix"></div>
-        <% } %>
+        
 
-        <% if (theme.copyright){ %>
+        
           <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
+            
+            
               <span class="from-link">
                 <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
+                <a href="/2014/08/07/Mac下安装redis/">
+                  http://arccode.net/2014/08/07/Mac下安装redis/
                 </a>
               </span>
-            <% } %>
+            
           </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
+        
+        
+  
+  <div class="categories">
+    <a href="/categories/NoSQL(缓存)/">NoSQL(缓存)</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Redis/">Redis</a>
+  </div>
+
+        
+      
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-<%- partial('comment') %></div></div>
+
+<section class="comment">
+    <div class="ds-thread"></div>
+</section>
+
+</div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">

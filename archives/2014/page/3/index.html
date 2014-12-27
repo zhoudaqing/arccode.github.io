@@ -65,705 +65,567 @@
 
 
   
-    <article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
-  <div class="post-content">
-    <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
-    </header>
-    <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
-    </div>
-    <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
-          <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
-          </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
-
-        <% if (page.prev){ %>
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
-          </div>
-        <% } %>
-        <% if (page.next){ %>
-          <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
-          </div>
-          <div class="clearfix"></div>
-        <% } %>
-
-        <% if (theme.copyright){ %>
-          <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
-              <span class="from-link">
-                <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
-                </a>
-              </span>
-            <% } %>
-          </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-<%- partial('comment') %>
+    <article class="post">
   
-    <article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
-  <div class="post-content">
-    <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
-    </header>
-    <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
-    </div>
-    <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
-          <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
-          </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
-
-        <% if (page.prev){ %>
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
-          </div>
-        <% } %>
-        <% if (page.next){ %>
-          <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
-          </div>
-          <div class="clearfix"></div>
-        <% } %>
-
-        <% if (theme.copyright){ %>
-          <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
-              <span class="from-link">
-                <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
-                </a>
-              </span>
-            <% } %>
-          </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
-      <div class="clearfix"></div>
-    </footer>
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
   </div>
-</article>
-
-<%- partial('comment') %>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
-    <article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
   <div class="post-content">
     <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
-    </header>
-    <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
-    </div>
-    <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
-          <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
-          </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
-
-        <% if (page.prev){ %>
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
-          </div>
-        <% } %>
-        <% if (page.next){ %>
-          <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
-          </div>
-          <div class="clearfix"></div>
-        <% } %>
-
-        <% if (theme.copyright){ %>
-          <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
-              <span class="from-link">
-                <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
-                </a>
-              </span>
-            <% } %>
-          </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-<%- partial('comment') %>
+      
+        <time datetime="2014-07-23T13:24:10.000Z"><a href="/2014/07/23/Mac安装Android开发环境/">2014-07-23</a></time>
+      
+      
   
-    <article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
-  <div class="post-content">
-    <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
-    </header>
-    <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
-    </div>
-    <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
-          <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
-          </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
-
-        <% if (page.prev){ %>
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
-          </div>
-        <% } %>
-        <% if (page.next){ %>
-          <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
-          </div>
-          <div class="clearfix"></div>
-        <% } %>
-
-        <% if (theme.copyright){ %>
-          <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
-              <span class="from-link">
-                <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
-                </a>
-              </span>
-            <% } %>
-          </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-<%- partial('comment') %>
+    <h1 class="title"><a href="/2014/07/23/Mac安装Android开发环境/">Mac安装Android开发环境</a></h1>
   
-    <article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
-  <div class="post-content">
-    <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
+
     </header>
     <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
+      
+        <h2 id="准备">准备</h2>
+<ol>
+<li>安装JDK</li>
+<li>下载<a href="http://www.eclipse.org/downloads/" target="_blank" rel="external">Eclipse Standard 4.4</a>(<a href="http://mirrors.hustunique.com/eclipse/technology/epp/downloads/release/luna/R/eclipse-java-luna-R-macosx-cocoa-x86_64.tar.gz" target="_blank" rel="external">直接下载</a>),将压缩包解压到文件目录<code>path/to/eclipse</code></li>
+<li>下载<a href="https://developer.android.com/sdk/index.html" target="_blank" rel="external">Android SDK Tools</a>(<a href="http://dl.google.com/android/android-sdk_r23.0.2-macosx.zip" target="_blank" rel="external">直接下载</a>),将压缩包解压到文件目录<code>path/to/android-sdk-macosx</code></li>
+</ol>
+
+      
     </div>
     <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
+      
+        
           <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
+            <a href="/2014/07/23/Mac安装Android开发环境/" class="more-link">Read More</a>
           </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
-
-        <% if (page.prev){ %>
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
-          </div>
-        <% } %>
-        <% if (page.next){ %>
-          <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
-          </div>
-          <div class="clearfix"></div>
-        <% } %>
-
-        <% if (theme.copyright){ %>
-          <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
-              <span class="from-link">
-                <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
-                </a>
-              </span>
-            <% } %>
-          </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
+        
+        
+      
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-<%- partial('comment') %>
+
+
   
-    <article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
-  <div class="post-content">
-    <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
-    </header>
-    <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
-    </div>
-    <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
-          <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
-          </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
-
-        <% if (page.prev){ %>
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
-          </div>
-        <% } %>
-        <% if (page.next){ %>
-          <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
-          </div>
-          <div class="clearfix"></div>
-        <% } %>
-
-        <% if (theme.copyright){ %>
-          <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
-              <span class="from-link">
-                <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
-                </a>
-              </span>
-            <% } %>
-          </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-<%- partial('comment') %>
+    <article class="post">
   
-    <article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
-  <div class="post-content">
-    <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
-    </header>
-    <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
-    </div>
-    <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
-          <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
-          </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
-
-        <% if (page.prev){ %>
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
-          </div>
-        <% } %>
-        <% if (page.next){ %>
-          <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
-          </div>
-          <div class="clearfix"></div>
-        <% } %>
-
-        <% if (theme.copyright){ %>
-          <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
-              <span class="from-link">
-                <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
-                </a>
-              </span>
-            <% } %>
-          </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
-      <div class="clearfix"></div>
-    </footer>
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
   </div>
-</article>
-
-<%- partial('comment') %>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
-    <article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
   <div class="post-content">
     <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
-    </header>
-    <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
-    </div>
-    <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
-          <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
-          </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
-
-        <% if (page.prev){ %>
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
-          </div>
-        <% } %>
-        <% if (page.next){ %>
-          <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
-          </div>
-          <div class="clearfix"></div>
-        <% } %>
-
-        <% if (theme.copyright){ %>
-          <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
-              <span class="from-link">
-                <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
-                </a>
-              </span>
-            <% } %>
-          </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-<%- partial('comment') %>
+      
+        <time datetime="2014-07-22T03:24:19.000Z"><a href="/2014/07/22/Svn基本使用/">2014-07-22</a></time>
+      
+      
   
-    <article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
-  <div class="post-content">
-    <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
-    </header>
-    <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
-    </div>
-    <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
-          <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
-          </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
-
-        <% if (page.prev){ %>
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
-          </div>
-        <% } %>
-        <% if (page.next){ %>
-          <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
-          </div>
-          <div class="clearfix"></div>
-        <% } %>
-
-        <% if (theme.copyright){ %>
-          <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
-              <span class="from-link">
-                <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
-                </a>
-              </span>
-            <% } %>
-          </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-<%- partial('comment') %>
+    <h1 class="title"><a href="/2014/07/22/Svn基本使用/">Svn基本使用</a></h1>
   
-    <article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
-  <div class="post-content">
-    <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
+
     </header>
     <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
+      
+        <h2 id="基本使用">基本使用</h2>
+<h3 id="图标说明">图标说明</h3>
+<ul>
+<li>灰色向右箭头:本地修改过 </li>
+<li>蓝色向左箭头:SVN上修改过 </li>
+<li>灰色向右且中间有个加号的箭头:本地比SVN上多出的文件 </li>
+<li>蓝色向左且中间有个加号的箭头:SVN上比本地多出的文件 </li>
+<li>灰色向右且中间有个减号的箭头:本地删除了,而SVN上未删除的文件 </li>
+<li>蓝色向左且中间有个减号的箭头:SVN上删除了,而本地未删除的文件 </li>
+<li>红色双向箭头:SVN上修改过,本地也修改过的文件 </li>
+</ul>
+
+      
     </div>
     <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
+      
+        
           <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
+            <a href="/2014/07/22/Svn基本使用/" class="more-link">Read More</a>
           </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
-
-        <% if (page.prev){ %>
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
-          </div>
-        <% } %>
-        <% if (page.next){ %>
-          <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
-          </div>
-          <div class="clearfix"></div>
-        <% } %>
-
-        <% if (theme.copyright){ %>
-          <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
-              <span class="from-link">
-                <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
-                </a>
-              </span>
-            <% } %>
-          </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
+        
+        
+      
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-<%- partial('comment') %>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2014-07-13T15:47:59.000Z"><a href="/2014/07/13/Mac下搭建Hadoop环境/">2014-07-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/07/13/Mac下搭建Hadoop环境/">Mac下搭建Hadoop环境</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="安装JDK">安装JDK</h2>
+<p>安装JDK，安装成功后在终端中输入<code>java -version</code>，显示如下</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>java version <span class="string">"1.7.0_51"</span>
+Java(TM) SE Runtime Environment (build <span class="number">1.7</span><span class="number">.0</span>_51<span class="attribute">-b13</span>)
+Java HotSpot(TM) <span class="number">64</span><span class="attribute">-Bit</span> Server VM (build <span class="number">24.51</span><span class="attribute">-b03</span>, mixed mode)
+</pre></td></tr></table></figure>
+
+<h2 id="安装Hadoop">安装Hadoop</h2>
+<p>下载<a href="http://hadoop.apache.org/releases.html#Download" target="_blank" rel="external">Hadoop</a>,将该文件解压至<code>/usr/local</code>目录下</p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/07/13/Mac下搭建Hadoop环境/" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2014-07-13T02:53:05.000Z"><a href="/2014/07/13/HBase技术介绍/">2014-07-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/07/13/HBase技术介绍/">HBase技术介绍</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="HBase简介">HBase简介</h2>
+<p>HBase – Hadoop Database，是一个高可靠性、高性能、面向列、可伸缩的分布式存储系统，利用HBase技术可在廉价PC Server上搭建起大规模结构化存储集群。</p>
+<p>HBase是Google Bigtable的开源实现，类似Google Bigtable利用GFS作为其文件存储系统，HBase利用Hadoop HDFS作为其文件存储系统；Google运行MapReduce来处理Bigtable中的海量数据，HBase同样利用Hadoop MapReduce来处理HBase中的海量数据；Google Bigtable利用 Chubby作为<br>协同服务，HBase利用Zookeeper作为对应。</p>
+<p><img src="/images/hadoop_ecosystem.jpg" alt=""></p>
+<p>上图描述了Hadoop EcoSystem中的各层系统，其中HBase位于结构化存储层，Hadoop HDFS为HBase提供了高可靠性的底层存储支持，Hadoop MapReduce为HBase提供了高性能的计算能力，Zookeeper为HBase提供了稳定服务和failover机制。</p>
+<p>此外，Pig和Hive还为HBase提供了高层语言支持，使得在HBase上进行数据统计处理变的非常简单。 Sqoop则为HBase提供了方便的RDBMS数据导入功能，使得传统数据库数据向HBase中迁移变的非常方便。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/07/13/HBase技术介绍/" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2014-07-13T02:11:45.000Z"><a href="/2014/07/13/云计算的别样解释/">2014-07-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/07/13/云计算的别样解释/">云计算的别样解释</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><img src="/images/云计算的别样解释.jpeg" alt=""></p>
+<p>技术人员怎么也讲不清楚的云计算，咱们的高级总监曾经就是这样和政府领导普及云计算和智慧城市知识的，却都听懂了：</p>
+<p>你娶了一个老婆，这叫传统IT架构。</p>
+<p>你觉得一个老婆不够，这叫传统企业CIO的困境。</p>
+<p>你又娶了一个老婆，这叫双活数据中心。</p>
+<p>你在外地又娶了一个小老婆，这叫两地三中心容灾。<br>你娶了很多风格气质各异的小老婆，以至于形成了后宫，这叫私有云。你的后宫就叫计算资源池。</p>
+<p>你从后宫里选出懂事有能的管理其他小老婆，这叫私有云管理方案。管事的那个就是HYPERV或VMWARE。</p>
+<p>你不娶小老婆，改成包养很多情人，这叫托管云。 你是穷人，没有钱包养任何人也没钱娶小老婆，你选择去洗浴中心解决问题，这叫面向中小企业的公有云服务。 你在享受公有云服务的同时还得交公粮，这叫中小企业的混合IT架构。</p>
+<p>你是富人，但也喜欢去高级夜总会，这叫面向大企业用户的公有云服务。</p>
+<p>你有钱，同时包养小老婆和情人，还去洗浴中心，这叫混合云。但是在混合云里，最关键的业务还是会谨慎地采用传统IT架构。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/07/13/云计算的别样解释/" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2014-07-13T01:36:36.000Z"><a href="/2014/07/13/大数据/">2014-07-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/07/13/大数据/">大数据</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><img src="/images/bigdata.jpg" alt=""></p>
+<h2 id="大数据（Big_Data）">大数据（Big Data）</h2>
+<p>大数据，官方定义是指那些数据量特别大、数据类别特别复杂的数据集，这种数据集无法用传统的数据库进行存储，管理和处理。大数据的主要特点为数据量大（Volume），数据类别复杂（Variety），数据处理速度快（Velocity）和数据真实性高（Veracity），合起来被称为4V。</p>
+<p>大数据中的数据量非常巨大，达到了PB级别。而且这庞大的数据之中，不仅仅包括结构化数据（如数字、符号等数据），还包括非结构化数据（如文本、图像、声音、视频等数据）。这使得大数据的存储，管理和处理很难利用传统的关系型数据库去完成。在大数据之中，有价值的信息往往深藏其中。这就需要对大数据的处理速度要非常快，才能短时间之内就能从大量的复杂数据之中获取到有价值的信息。在大数据的大量复杂的数据之中，通常不仅仅包含真实的数据，一些虚假的数据也混杂其中。这就需要在大数据的处理中将虚假的数据剔除，利用真实的数据来分析得出真实的结果。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/07/13/大数据/" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2014-07-12T14:54:11.000Z"><a href="/2014/07/12/tar命令详解/">2014-07-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/07/12/tar命令详解/">tar命令详解</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="语法">语法</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre>tar {-c | -r | -t | -x | -f} {fileName} [fileList]
+  
+  -<span class="ruby"><span class="symbol">c:</span> 创建一个.tar文件
+</span>  -<span class="ruby"><span class="symbol">r:</span> 在.tar中添加额外的文件
+</span>  -<span class="ruby"><span class="symbol">t:</span> 显示.tar中的文件列表
+</span>  -<span class="ruby"><span class="symbol">x:</span> 提取.tar中的文件到当前目录
+</span>  -<span class="ruby"><span class="symbol">f:</span> 指定文件路径
+</span>  -<span class="ruby"><span class="symbol">z:</span> 以gzip方式解压当前文件</span>
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/07/12/tar命令详解/" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2014-07-08T09:33:42.000Z"><a href="/2014/07/08/Mac下使用IE/">2014-07-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/07/08/Mac下使用IE/">Mac下使用IE</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>如何在Mac上使用IE？</p>
+<ol>
+<li>点击<a href="https://www.modern.ie/en-us/virtualization-tools#downloads" target="_blank" rel="external">modern.IE</a>，选择要下载的版本，点击<code>Grab them all with cURL</code>获取下载的URL，例如<br><img src="/images/modern_IE_page.png" alt=""><figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>curl <span class="attribute">-O</span> <span class="attribute">-L</span> <span class="string">"https://www.modern.ie/vmdownload?platform=mac&virtPlatform=virtualbox&browserOS=IE10-Win8.1&parts=5&filename=VMBuild_20131127/VirtualBox/IE10_Win8/Mac/IE10.Win8.For.MacVirtualBox.part{1.sfx,2.rar,3.rar,4.rar,5.rar}"</span>
+</pre></td></tr></table></figure></li>
+<li><code>$ cd ~/Downloads/VisualBox_IE</code>，切换到保存文件的目录；</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/07/08/Mac下使用IE/" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2014-07-08T07:46:29.000Z"><a href="/2014/07/08/浅谈W3C标准/">2014-07-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/07/08/浅谈W3C标准/">浅谈W3C标准</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>W3C标准涉及多个方面，官方标准点击<a href="http://www.w3.org/standards/" target="_blank" rel="external">这里</a>。从WEB技术应用角度看，可分为三个方面的标准：<strong>结构</strong>、<strong>表现</strong>、<strong>行为</strong>。</p>
+<ul>
+<li><code>结构</code>主要指HTML/XHTML标准，包括页面渲染、标签大小写、属性大小写、标签嵌套、闭合标签等等；</li>
+<li><code>表现</code>主要指CSS标准，包括页面布局、CSS选择器、盒子模型、盒子样式、盒子内容样式、媒体查询（CSS3）；</li>
+<li><code>行为</code>主要指Javascript标准，包括对DOM及BOM的操作；</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/07/08/浅谈W3C标准/" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2014-07-06T13:41:01.000Z"><a href="/2014/07/06/进程和线程/">2014-07-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/07/06/进程和线程/">进程和线程</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="进程">进程</h2>
+<p>并发执行的程序在执行过程中对资源（CPU、寄存器、IO、程序数据）分配和管理的基本单位；</p>
+<h3 id="进程状态">进程状态</h3>
+<ul>
+<li>初始态</li>
+<li>就绪态：就绪态的进程已经获得除CPU之外的其它资源，只要由调度获得处理机，便可立即执行；该状态可细分为内存就绪和外存就绪；</li>
+<li>运行态：运行态可细分为用户执行状态和系统执行状态；</li>
+<li>阻塞态：阻塞态可细分为内存阻塞、设备阻塞、文件阻塞、网络阻塞、数据阻塞等等；</li>
+<li>终止态</li>
+</ul>
+<p><strong> 注：</strong> 进程状态对就绪态、运行态、阻塞态进行了细分，其目的均是为了更好的控制程序，但这是以增加系统复杂性和系统开销为代价；</p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/07/06/进程和线程/" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
   
 
   <ul class="page-direction" id="page-direction">

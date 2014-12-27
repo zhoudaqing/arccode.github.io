@@ -65,145 +65,116 @@
 
 
   
-    <article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
-  <div class="post-content">
-    <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
-    </header>
-    <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
-    </div>
-    <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
-          <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
-          </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
-
-        <% if (page.prev){ %>
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
-          </div>
-        <% } %>
-        <% if (page.next){ %>
-          <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
-          </div>
-          <div class="clearfix"></div>
-        <% } %>
-
-        <% if (theme.copyright){ %>
-          <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
-              <span class="from-link">
-                <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
-                </a>
-              </span>
-            <% } %>
-          </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-<%- partial('comment') %>
+    <article class="post">
   
-    <article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
+      
+        <time datetime="2014-07-23T14:46:48.000Z"><a href="/2014/07/23/Mac终端乱码/">2014-07-23</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/07/23/Mac终端乱码/">Mac终端乱码</a></h1>
+  
+
     </header>
     <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
+      
+        <p>Android的开发环境配置完毕后，回忆了下以前开发Android的流程</p>
+<ol>
+<li>新建Hello World项目</li>
+<li>使用Eclipse运行项目，自动启动模拟器，一切正常</li>
+</ol>
+<p>之后想把apk包导出到本地</p>
+<ol>
+<li>在终端创建keystore</li>
+<li>利用Android Tool导出apk</li>
+</ol>
+
+      
     </div>
     <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
+      
+        
           <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
+            <a href="/2014/07/23/Mac终端乱码/" class="more-link">Read More</a>
           </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
-
-        <% if (page.prev){ %>
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
-          </div>
-        <% } %>
-        <% if (page.next){ %>
-          <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
-          </div>
-          <div class="clearfix"></div>
-        <% } %>
-
-        <% if (theme.copyright){ %>
-          <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
-              <span class="from-link">
-                <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
-                </a>
-              </span>
-            <% } %>
-          </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
+        
+        
+      
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-<%- partial('comment') %>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2014-07-08T09:33:42.000Z"><a href="/2014/07/08/Mac下使用IE/">2014-07-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/07/08/Mac下使用IE/">Mac下使用IE</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>如何在Mac上使用IE？</p>
+<ol>
+<li>点击<a href="https://www.modern.ie/en-us/virtualization-tools#downloads" target="_blank" rel="external">modern.IE</a>，选择要下载的版本，点击<code>Grab them all with cURL</code>获取下载的URL，例如<br><img src="/images/modern_IE_page.png" alt=""><figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>curl <span class="attribute">-O</span> <span class="attribute">-L</span> <span class="string">"https://www.modern.ie/vmdownload?platform=mac&virtPlatform=virtualbox&browserOS=IE10-Win8.1&parts=5&filename=VMBuild_20131127/VirtualBox/IE10_Win8/Mac/IE10.Win8.For.MacVirtualBox.part{1.sfx,2.rar,3.rar,4.rar,5.rar}"</span>
+</pre></td></tr></table></figure></li>
+<li><code>$ cd ~/Downloads/VisualBox_IE</code>，切换到保存文件的目录；</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/07/08/Mac下使用IE/" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
   
 
   <ul class="page-direction" id="page-direction">

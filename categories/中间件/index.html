@@ -65,145 +65,147 @@
 
 
   
-    <article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
-  <div class="post-content">
-    <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
-    </header>
-    <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
-    </div>
-    <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
-          <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
-          </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
-
-        <% if (page.prev){ %>
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
-          </div>
-        <% } %>
-        <% if (page.next){ %>
-          <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
-          </div>
-          <div class="clearfix"></div>
-        <% } %>
-
-        <% if (theme.copyright){ %>
-          <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
-              <span class="from-link">
-                <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
-                </a>
-              </span>
-            <% } %>
-          </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-<%- partial('comment') %>
+    <article class="post">
   
-    <article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
+      
+        <time datetime="2014-11-14T13:59:59.000Z"><a href="/2014/11/14/Zookeeper搭建集群/">2014-11-14</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/11/14/Zookeeper搭建集群/">Zookeeper搭建集群</a></h1>
+  
+
     </header>
     <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
+      
+        <h2 id="简介">简介</h2>
+<p>ZooKeeper是一个为分布式应用所设计的分布的、开源的协调服务，它主要是用来解决分布式应用中经常遇到的一些数据管理问题，简化分布式应用协调及其管理的难度，提供高性能的分布式服务。ZooKeeper本身可以以Standalone模式安装运行，不过它的长处在于通过分布式ZooKeeper集群（一个Leader，多个Follower），基于一定的策略来保证ZooKeeper集群的稳定性和可用性，从而实现分布式应用的可靠性。</p>
+<p>ZooKeeper是作为分布式协调服务，是不需要依赖于Hadoop的环境，也可以为其他的分布式环境提供服务。</p>
+
+      
     </div>
     <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
+      
+        
           <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
+            <a href="/2014/11/14/Zookeeper搭建集群/" class="more-link">Read More</a>
           </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
-
-        <% if (page.prev){ %>
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
-          </div>
-        <% } %>
-        <% if (page.next){ %>
-          <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
-          </div>
-          <div class="clearfix"></div>
-        <% } %>
-
-        <% if (theme.copyright){ %>
-          <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
-              <span class="from-link">
-                <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
-                </a>
-              </span>
-            <% } %>
-          </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
+        
+        
+      
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-<%- partial('comment') %>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2014-09-30T09:05:26.000Z"><a href="/2014/09/30/Zookeeper实战一/">2014-09-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/09/30/Zookeeper实战一/">Zookeeper实战一</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="Zookeeper集群搭建">Zookeeper集群搭建</h1>
+<p>文中提到<code>切换用户</code>: 表明未切换的状态下是root用户</p>
+<h2 id="创建用户组_用户_Zookeeper数据目录">创建用户组 用户 Zookeeper数据目录</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="code"><pre><span class="preprocessor"># 添加组</span>
+<span class="title">groupadd</span> zk
+
+<span class="preprocessor"># 在组zk中添加用户</span>
+<span class="title">useradd</span> -g zk zk
+
+<span class="preprocessor"># 修改密码</span>
+<span class="title">passwd</span> zk
+
+<span class="preprocessor"># 创建数据目录</span>
+<span class="title">mkdir</span> -p /<span class="typedef"><span class="keyword">data</span>/zookeeper</span>
+
+<span class="preprocessor"># 修改权限</span>
+<span class="title">chown</span> -<span class="type">R</span> zk:zk /<span class="typedef"><span class="keyword">data</span>/zookeeper</span>
+
+<span class="preprocessor"># 切换用户</span>
+<span class="title">su</span> zk
+
+<span class="preprocessor"># 创建data dir 及 log dir</span>
+<span class="title">mkdir</span> /<span class="typedef"><span class="keyword">data</span>/zookeeper/<span class="keyword">data</span></span>
+<span class="title">mkdir</span> /<span class="typedef"><span class="keyword">data</span>/zookeeper/log</span>
+</pre></td></tr></table></figure><br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/09/30/Zookeeper实战一/" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
   
 
   <ul class="page-direction" id="page-direction">

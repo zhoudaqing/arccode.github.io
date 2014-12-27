@@ -60,75 +60,110 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
+      
+        <time datetime="2014-07-23T13:24:10.000Z"><a href="/2014/07/23/Mac安装Android开发环境/">2014-07-23</a></time>
+      
+      
+  
+    <h1 class="title">Mac安装Android开发环境</h1>
+  
+
     </header>
     <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
+      
+        <h2 id="准备">准备</h2>
+<ol>
+<li>安装JDK</li>
+<li>下载<a href="http://www.eclipse.org/downloads/" target="_blank" rel="external">Eclipse Standard 4.4</a>(<a href="http://mirrors.hustunique.com/eclipse/technology/epp/downloads/release/luna/R/eclipse-java-luna-R-macosx-cocoa-x86_64.tar.gz" target="_blank" rel="external">直接下载</a>),将压缩包解压到文件目录<code>path/to/eclipse</code></li>
+<li>下载<a href="https://developer.android.com/sdk/index.html" target="_blank" rel="external">Android SDK Tools</a>(<a href="http://dl.google.com/android/android-sdk_r23.0.2-macosx.zip" target="_blank" rel="external">直接下载</a>),将压缩包解压到文件目录<code>path/to/android-sdk-macosx</code></li>
+</ol>
+<a id="more"></a>
+
+
+<h2 id="使用SDK_Tools安装Android_SDK">使用SDK Tools安装Android SDK</h2>
+<ol>
+<li>将<code>android-sdk-macosx</code>目录下的<code>tools</code>目录添加到环境变量中，方便命令行调用Android指令</li>
+<li>在命令行中输入命令<code>android</code>，显示    Android SDK Manager图形管理工具，根据需要选择要下载的tool和sdk<br><img src="/images/android_sdk_manager.png" alt=""></li>
+</ol>
+<h2 id="在Eclipse中安装ADT插件">在Eclipse中安装ADT插件</h2>
+<ol>
+<li>点击<code>Help</code>—&gt;    <code>Install New Software...</code>—&gt;<code>add</code>，根据提示安装完毕<br><img src="/images/adt.png" alt=""></li>
+<li>在Eclipse中配置Android<br><img src="/images/eclipse_adt_deploy.png" alt=""></li>
+</ol>
+<h2 id="测试">测试</h2>
+<p><img src="/images/eclipse_adt_icon.png" alt=""></p>
+
+      
     </div>
     <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
-          <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
-          </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
+      
 
-        <% if (page.prev){ %>
+        
           <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+            <em>上一篇: </em><a href="/2014/07/23/Mac终端乱码/">Mac终端乱码</a>
           </div>
-        <% } %>
-        <% if (page.next){ %>
+        
+        
           <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
+            <em>下一篇: </em><a href="/2014/07/22/Svn基本使用/">Svn基本使用</a>
           </div>
           <div class="clearfix"></div>
-        <% } %>
+        
 
-        <% if (theme.copyright){ %>
+        
           <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
+            
+            
               <span class="from-link">
                 <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
+                <a href="/2014/07/23/Mac安装Android开发环境/">
+                  http://arccode.net/2014/07/23/Mac安装Android开发环境/
                 </a>
               </span>
-            <% } %>
+            
           </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
+        
+        
+  
+  <div class="categories">
+    <a href="/categories/工具/">工具</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Android/">Android</a>, <a href="/tags/Eclipse/">Eclipse</a>
+  </div>
+
+        
+      
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-<%- partial('comment') %></div></div>
+
+<section class="comment">
+    <div class="ds-thread"></div>
+</section>
+
+</div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">

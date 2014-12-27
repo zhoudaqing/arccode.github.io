@@ -60,75 +60,138 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="<%= item.layout %>">
-  <% if (item.photos){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
-      <% if (item.layout != 'page'){ %>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
-      <%- partial('post/title') %>
+      
+        <time datetime="2014-12-26T15:56:41.000Z"><a href="/2014/12/26/初识Gradle系列一/">2014-12-26</a></time>
+      
+      
+  
+    <h1 class="title">初识Gradle系列一</h1>
+  
+
     </header>
     <div class="entry">
-      <% if (item.excerpt && index){ %>
-        <%- item.excerpt %>
-      <% } else { %>
-        <%- item.content %>
-      <% } %>
+      
+        <h2 id="背景">背景</h2>
+<p>以前听说过Gradle,也查阅过相关资料,自定义生命周期等等,比Maven牛X, 但Maven在项目中已经够用, 所以一直未做构建迁移.</p>
+<p>今天业余搞点Android小应用, 经过对比, 最终选择了Android Studio(1.0.3), 该软件默认使用Gradle构建, 在此记录下使用历程及碰到的问题.</p>
+<a id="more"></a>
+
+<h2 id="安装Gradle">安装Gradle</h2>
+<p>笔者操作系统为Mac, 以下目录采用Mac目录</p>
+<ol>
+<li>下载安装包: <a href="https://services.gradle.org/distributions/gradle-2.2.1-all.zip" target="_blank" rel="external">https://services.gradle.org/distributions/gradle-2.2.1-all.zip</a></li>
+<li>解压</li>
+<li>制作超链接</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="built_in">cd</span> /usr/bin
+ln <span class="operator">-s</span> /Users/arccode/ProgramFiles/gradle-<span class="number">2.2</span>.<span class="number">1</span>/bin/gradle gradle
+</pre></td></tr></table></figure><br>4. 查看版本号: gradle -v<br><br>## 新建HelloWorld<br><br>使用Android Studio按照提示完成HelloWorld App的建立.<br><br>## Gradle使用<br><br>尝试使用gradle来构建App.<br><br>## 问题<br><br>* 执行命令<code>gradle clean</code>报错,<br><br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="attribute">FAILURE</span>: <span class="string">Build failed with an exception.</span>
+
+<span class="oxygene">* <span class="keyword">Where</span>:
+Build file <span class="string">'/Users/arccode/AndroidStudioProjects/HelloWorld/build.gradle'</span> line: <span class="number">5</span>
+
+* What went wrong:
+A problem occurred evaluating root project <span class="string">'HelloWorld'</span>.
+&gt; Could <span class="keyword">not</span> find <span class="function"><span class="keyword">method</span> <span class="title">jcenter</span><span class="params">()</span> <span class="title">for</span> <span class="title">arguments</span> [] <span class="title">on</span> <span class="title">repository</span> <span class="title">container</span>.
+
+* <span class="title">Try</span>:</span>
+Run <span class="keyword">with</span> --stacktrace option <span class="keyword">to</span> get the stack trace. Run <span class="keyword">with</span> --info <span class="keyword">or</span> --debug option <span class="keyword">to</span> get more log output.
+
+BUILD FAILED</span>
+</pre></td></tr></table></figure>
+
+<p>老版本bug, 使用<code>gradle-2.2.1</code>无此问题.</p>
+<ul>
+<li>没找到<code>gradle build</code>后生成的apk包(汗, 😓),</li>
+</ul>
+<p>项目的根目录下有<code>build</code>目录, 但gradle构建生成的目录默认放在<code>app/build</code>, 所有生成的apk包也在<code>app/build</code>目录下.</p>
+
+      
     </div>
     <footer>
-      <% if (index){ %>
-        <% if (item.excerpt){ %>
-          <div class="alignleft">
-            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
-          </div>
-        <% } %>
-        <% if (item.comment && config.disqus_shortname){ %>
-        <div class="alignright">
-          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
-        </div>
-        <% } %>
-      <% } else { %>
+      
 
-        <% if (page.prev){ %>
+        
           <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="<%- config.root %><%- page.prev.path %>"><%- page.prev.title %></a>
+            <em>上一篇: </em><a href="/2014/12/27/Mac下反编译Android安装包/">Mac下反编译Android安装包</a>
           </div>
-        <% } %>
-        <% if (page.next){ %>
+        
+        
           <div class="alignright post-nav">
-            <em>下一篇: </em><a href="<%- config.root %><%- page.next.path %>"><%- page.next.title %></a>
+            <em>下一篇: </em><a href="/2014/11/14/Zookeeper搭建集群/">Zookeeper搭建集群</a>
           </div>
           <div class="clearfix"></div>
-        <% } %>
+        
 
-        <% if (theme.copyright){ %>
+        
           <div class="copyright">
-            <% if (theme.copyright.claim){ %>
-              <span class="claim"><%= theme.copyright.claim %></span>
-            <% } %>
-            <% if (theme.copyright.show_link){ %>
+            
+            
               <span class="from-link">
                 <em>本文链接地址:</em>
-                <a href="<%- config.root %><%- item.path %>">
-                  <%- page.permalink %>
+                <a href="/2014/12/26/初识Gradle系列一/">
+                  http://arccode.net/2014/12/26/初识Gradle系列一/
                 </a>
               </span>
-            <% } %>
+            
           </div>
-        <% } %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
-        <%- partial('post/share') %>
-      <% } %>
+        
+        
+  
+  <div class="categories">
+    <a href="/categories/Java/">Java</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Gradle/">Gradle</a>
+  </div>
+
+        
+      
       <div class="clearfix"></div>
     </footer>
   </div>
 </article>
 
-<%- partial('comment') %></div></div>
+
+<section class="comment">
+    <div class="ds-thread"></div>
+</section>
+
+</div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
