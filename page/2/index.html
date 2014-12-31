@@ -78,6 +78,181 @@
   <div class="post-content">
     <header>
       
+        <time datetime="2014-09-30T09:05:26.000Z"><a href="/2014/09/30/Zookeeper实战一/">2014-09-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/09/30/Zookeeper实战一/">Zookeeper实战一</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="Zookeeper集群搭建">Zookeeper集群搭建</h1>
+<p>文中提到<code>切换用户</code>: 表明未切换的状态下是root用户</p>
+<h2 id="创建用户组_用户_Zookeeper数据目录">创建用户组 用户 Zookeeper数据目录</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="code"><pre><span class="preprocessor"># 添加组</span>
+<span class="title">groupadd</span> zk
+
+<span class="preprocessor"># 在组zk中添加用户</span>
+<span class="title">useradd</span> -g zk zk
+
+<span class="preprocessor"># 修改密码</span>
+<span class="title">passwd</span> zk
+
+<span class="preprocessor"># 创建数据目录</span>
+<span class="title">mkdir</span> -p /<span class="typedef"><span class="keyword">data</span>/zookeeper</span>
+
+<span class="preprocessor"># 修改权限</span>
+<span class="title">chown</span> -<span class="type">R</span> zk:zk /<span class="typedef"><span class="keyword">data</span>/zookeeper</span>
+
+<span class="preprocessor"># 切换用户</span>
+<span class="title">su</span> zk
+
+<span class="preprocessor"># 创建data dir 及 log dir</span>
+<span class="title">mkdir</span> /<span class="typedef"><span class="keyword">data</span>/zookeeper/<span class="keyword">data</span></span>
+<span class="title">mkdir</span> /<span class="typedef"><span class="keyword">data</span>/zookeeper/log</span>
+</pre></td></tr></table></figure><br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/09/30/Zookeeper实战一/" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2014-09-30T04:43:33.000Z"><a href="/2014/09/30/Kafka实战一/">2014-09-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/09/30/Kafka实战一/">Kafka实战一</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="Kafka实战一">Kafka实战一</h1>
+<h2 id="搭建环境">搭建环境</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre><span class="preprocessor"># 下载安装包</span>
+<span class="label">http:</span>//mirror<span class="preprocessor">.nus</span><span class="preprocessor">.edu</span><span class="preprocessor">.sg</span>/apache/kafka/<span class="number">0.8</span><span class="number">.1</span><span class="number">.1</span>/kafka_2<span class="number">.10</span>-<span class="number">0.8</span><span class="number">.1</span><span class="number">.1</span><span class="preprocessor">.tgz</span>
+
+<span class="preprocessor"># 上传到Linux /home</span>
+
+<span class="preprocessor"># 解压</span>
+tar xzf kafka_2<span class="number">.10</span>-<span class="number">0.8</span><span class="number">.1</span><span class="number">.1</span><span class="preprocessor">.tgz</span> -C /usr/local
+cd /usr/local
+mv kafka_2<span class="number">.10</span>-<span class="number">0.8</span><span class="number">.1</span><span class="number">.1</span> kafka
+
+<span class="preprocessor"># 启动 Zookeeper</span>
+cd kafka
+./zookeeper-server-start<span class="preprocessor">.sh</span> config/zookeeper<span class="preprocessor">.properties</span>
+
+<span class="preprocessor"># 启动 Kafka</span>
+./kafka-server-start<span class="preprocessor">.sh</span> config/server<span class="preprocessor">.properties</span>
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/09/30/Kafka实战一/" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
         <time datetime="2014-09-22T03:28:01.000Z"><a href="/2014/09/22/Maven常见问题/">2014-09-22</a></time>
       
       
@@ -544,138 +719,6 @@ phpize
 
 
 
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <time datetime="2014-08-06T16:26:37.000Z"><a href="/2014/08/07/Mac下安装redis/">2014-08-07</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/08/07/Mac下安装redis/">Mac下安装redis</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="下载Redis">下载Redis</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>cd ~/ProgramFiles
-curl -O http://download<span class="preprocessor">.redis</span><span class="preprocessor">.io</span>/releases/redis-<span class="number">2.8</span><span class="number">.13</span><span class="preprocessor">.tar</span><span class="preprocessor">.gz</span>
-</pre></td></tr></table></figure>
-
-<h2 id="解压、编译">解压、编译</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre><span class="comment"># 解压</span>
-tar -xzf redis-<span class="number">2.8</span>.<span class="number">13</span>
-<span class="comment"># 重命名</span>
-mv redis-<span class="number">2.8</span>.<span class="number">13</span> redis
-<span class="built_in">cd</span> redis
-<span class="built_in">sudo</span> make
-<span class="comment"># 测试</span>
-<span class="built_in">sudo</span> make test
-<span class="built_in">sudo</span> make install
-</pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2014/08/07/Mac下安装redis/" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <time datetime="2014-07-23T14:46:48.000Z"><a href="/2014/07/23/Mac终端乱码/">2014-07-23</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/07/23/Mac终端乱码/">Mac终端乱码</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>Android的开发环境配置完毕后，回忆了下以前开发Android的流程</p>
-<ol>
-<li>新建Hello World项目</li>
-<li>使用Eclipse运行项目，自动启动模拟器，一切正常</li>
-</ol>
-<p>之后想把apk包导出到本地</p>
-<ol>
-<li>在终端创建keystore</li>
-<li>利用Android Tool导出apk</li>
-</ol>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2014/07/23/Mac终端乱码/" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <ul class="page-direction" id="page-direction">
     <li><a class="page-prev icon-chevron-sign-left" href="javascript:;" title="上一页"></a></li>
@@ -707,13 +750,13 @@ mv redis-<span class="number">2.8</span>.<span class="number">13</span> redis
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Android/">Android</a><small>1</small></li>
+    <li><a href="/categories/Android/">Android</a><small>3</small></li>
   
     <li><a href="/categories/Java/">Java</a><small>3</small></li>
   
-    <li><a href="/categories/Linux/Javascript/">Javascript</a><small>1</small></li>
-  
     <li><a href="/categories/Javascript/">Javascript</a><small>2</small></li>
+  
+    <li><a href="/categories/Linux/Javascript/">Javascript</a><small>1</small></li>
   
     <li><a href="/categories/Linux/">Linux</a><small>3</small></li>
   
@@ -800,6 +843,8 @@ mv redis-<span class="number">2.8</span>.<span class="number">13</span> redis
   
     <li><a href="/tags/反编译/">反编译</a><small>1</small></li>
   
+    <li><a href="/tags/名词解释/">名词解释</a><small>1</small></li>
+  
     <li><a href="/tags/线程/">线程</a><small>1</small></li>
   
     <li><a href="/tags/进程/">进程</a><small>1</small></li>
@@ -812,6 +857,14 @@ mv redis-<span class="number">2.8</span>.<span class="number">13</span> redis
 <div class="widget tag">
   <h3 class="title">最新文章</h3>
   <ul class="entry">
+    
+      <li>
+        <a href="/2014/12/31/Android学习-序/">Android学习-序</a>
+      </li>
+    
+      <li>
+        <a href="/2014/12/30/Android名词解释/">Android名词解释</a>
+      </li>
     
       <li>
         <a href="/2014/12/27/Mac下反编译Android安装包/">Mac下反编译Android安装包</a>
@@ -853,14 +906,6 @@ mv redis-<span class="number">2.8</span>.<span class="number">13</span> redis
         <a href="/2014/09/30/Kafka实战一/">Kafka实战一</a>
       </li>
     
-      <li>
-        <a href="/2014/09/22/Maven常见问题/">Maven常见问题</a>
-      </li>
-    
-      <li>
-        <a href="/2014/09/21/阿里云CentOS搭建MEAN/">阿里云CentOS搭建MEAN</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -870,6 +915,7 @@ mv redis-<span class="number">2.8</span>.<span class="number">13</span> redis
     <ul class="entry">
       <li><a href="http://www.ruanyifeng.com/blog" target="_blank" title="阮一峰的网络日志">阮一峰的网络日志</a></li>
       <li><a href="http://stormzhang.com" target="_blank" title="stormzhang">stormzhang</a></li>
+      <li><a href="http://www.trinea.cn/" target="_blank" title="stormzhang">Trinea</a></li>
       <li><a href="http://www.importnew.com/" target="_blank" title="ImportNew">ImportNew</a></li>
     </ul>
 </div>

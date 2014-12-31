@@ -82,6 +82,138 @@
   <div class="post-content">
     <header>
       
+        <time datetime="2014-08-06T16:26:37.000Z"><a href="/2014/08/07/Mac下安装redis/">2014-08-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/08/07/Mac下安装redis/">Mac下安装redis</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="下载Redis">下载Redis</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>cd ~/ProgramFiles
+curl -O http://download<span class="preprocessor">.redis</span><span class="preprocessor">.io</span>/releases/redis-<span class="number">2.8</span><span class="number">.13</span><span class="preprocessor">.tar</span><span class="preprocessor">.gz</span>
+</pre></td></tr></table></figure>
+
+<h2 id="解压、编译">解压、编译</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="comment"># 解压</span>
+tar -xzf redis-<span class="number">2.8</span>.<span class="number">13</span>
+<span class="comment"># 重命名</span>
+mv redis-<span class="number">2.8</span>.<span class="number">13</span> redis
+<span class="built_in">cd</span> redis
+<span class="built_in">sudo</span> make
+<span class="comment"># 测试</span>
+<span class="built_in">sudo</span> make test
+<span class="built_in">sudo</span> make install
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/08/07/Mac下安装redis/" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2014-07-23T14:46:48.000Z"><a href="/2014/07/23/Mac终端乱码/">2014-07-23</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/07/23/Mac终端乱码/">Mac终端乱码</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Android的开发环境配置完毕后，回忆了下以前开发Android的流程</p>
+<ol>
+<li>新建Hello World项目</li>
+<li>使用Eclipse运行项目，自动启动模拟器，一切正常</li>
+</ol>
+<p>之后想把apk包导出到本地</p>
+<ol>
+<li>在终端创建keystore</li>
+<li>利用Android Tool导出apk</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/07/23/Mac终端乱码/" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
         <time datetime="2014-07-23T13:24:10.000Z"><a href="/2014/07/23/Mac安装Android开发环境/">2014-07-23</a></time>
       
       
@@ -516,117 +648,6 @@ Java HotSpot(TM) <span class="number">64</span><span class="attribute">-Bit</spa
 
 
   
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <time datetime="2014-07-08T07:46:29.000Z"><a href="/2014/07/08/浅谈W3C标准/">2014-07-08</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/07/08/浅谈W3C标准/">浅谈W3C标准</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>W3C标准涉及多个方面，官方标准点击<a href="http://www.w3.org/standards/" target="_blank" rel="external">这里</a>。从WEB技术应用角度看，可分为三个方面的标准：<strong>结构</strong>、<strong>表现</strong>、<strong>行为</strong>。</p>
-<ul>
-<li><code>结构</code>主要指HTML/XHTML标准，包括页面渲染、标签大小写、属性大小写、标签嵌套、闭合标签等等；</li>
-<li><code>表现</code>主要指CSS标准，包括页面布局、CSS选择器、盒子模型、盒子样式、盒子内容样式、媒体查询（CSS3）；</li>
-<li><code>行为</code>主要指Javascript标准，包括对DOM及BOM的操作；</li>
-</ul>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2014/07/08/浅谈W3C标准/" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <time datetime="2014-07-06T13:41:01.000Z"><a href="/2014/07/06/进程和线程/">2014-07-06</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/07/06/进程和线程/">进程和线程</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="进程">进程</h2>
-<p>并发执行的程序在执行过程中对资源（CPU、寄存器、IO、程序数据）分配和管理的基本单位；</p>
-<h3 id="进程状态">进程状态</h3>
-<ul>
-<li>初始态</li>
-<li>就绪态：就绪态的进程已经获得除CPU之外的其它资源，只要由调度获得处理机，便可立即执行；该状态可细分为内存就绪和外存就绪；</li>
-<li>运行态：运行态可细分为用户执行状态和系统执行状态；</li>
-<li>阻塞态：阻塞态可细分为内存阻塞、设备阻塞、文件阻塞、网络阻塞、数据阻塞等等；</li>
-<li>终止态</li>
-</ul>
-<p><strong> 注：</strong> 进程状态对就绪态、运行态、阻塞态进行了细分，其目的均是为了更好的控制程序，但这是以增加系统复杂性和系统开销为代价；</p>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2014/07/06/进程和线程/" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
 
   <ul class="page-direction" id="page-direction">
     <li><a class="page-prev icon-chevron-sign-left" href="javascript:;" title="上一页"></a></li>
@@ -659,13 +680,13 @@ Java HotSpot(TM) <span class="number">64</span><span class="attribute">-Bit</spa
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Android/">Android</a><small>1</small></li>
+    <li><a href="/categories/Android/">Android</a><small>3</small></li>
   
     <li><a href="/categories/Java/">Java</a><small>3</small></li>
   
-    <li><a href="/categories/Linux/Javascript/">Javascript</a><small>1</small></li>
-  
     <li><a href="/categories/Javascript/">Javascript</a><small>2</small></li>
+  
+    <li><a href="/categories/Linux/Javascript/">Javascript</a><small>1</small></li>
   
     <li><a href="/categories/Linux/">Linux</a><small>3</small></li>
   
@@ -752,6 +773,8 @@ Java HotSpot(TM) <span class="number">64</span><span class="attribute">-Bit</spa
   
     <li><a href="/tags/反编译/">反编译</a><small>1</small></li>
   
+    <li><a href="/tags/名词解释/">名词解释</a><small>1</small></li>
+  
     <li><a href="/tags/线程/">线程</a><small>1</small></li>
   
     <li><a href="/tags/进程/">进程</a><small>1</small></li>
@@ -764,6 +787,14 @@ Java HotSpot(TM) <span class="number">64</span><span class="attribute">-Bit</spa
 <div class="widget tag">
   <h3 class="title">最新文章</h3>
   <ul class="entry">
+    
+      <li>
+        <a href="/2014/12/31/Android学习-序/">Android学习-序</a>
+      </li>
+    
+      <li>
+        <a href="/2014/12/30/Android名词解释/">Android名词解释</a>
+      </li>
     
       <li>
         <a href="/2014/12/27/Mac下反编译Android安装包/">Mac下反编译Android安装包</a>
@@ -805,14 +836,6 @@ Java HotSpot(TM) <span class="number">64</span><span class="attribute">-Bit</spa
         <a href="/2014/09/30/Kafka实战一/">Kafka实战一</a>
       </li>
     
-      <li>
-        <a href="/2014/09/22/Maven常见问题/">Maven常见问题</a>
-      </li>
-    
-      <li>
-        <a href="/2014/09/21/阿里云CentOS搭建MEAN/">阿里云CentOS搭建MEAN</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -822,6 +845,7 @@ Java HotSpot(TM) <span class="number">64</span><span class="attribute">-Bit</spa
     <ul class="entry">
       <li><a href="http://www.ruanyifeng.com/blog" target="_blank" title="阮一峰的网络日志">阮一峰的网络日志</a></li>
       <li><a href="http://stormzhang.com" target="_blank" title="stormzhang">stormzhang</a></li>
+      <li><a href="http://www.trinea.cn/" target="_blank" title="stormzhang">Trinea</a></li>
       <li><a href="http://www.importnew.com/" target="_blank" title="ImportNew">ImportNew</a></li>
     </ul>
 </div>
