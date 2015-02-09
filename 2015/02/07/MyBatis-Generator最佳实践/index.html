@@ -205,9 +205,9 @@ target<span class="preprocessor">.project</span>=src/main/java
     <span class="comment">&lt;!--数据库驱动包路径 --&gt;</span>
     <span class="tag">&lt;<span class="title">classPathEntry</span> <span class="attribute">location</span>=<span class="value">"${drive.class.path}"</span>/&gt;</span>
 
-    <span class="tag">&lt;<span class="title">context</span> <span class="attribute">id</span>=<span class="value">"DB2Tables"</span> <span class="attribute">targetRuntime</span>=<span class="value">"MyBatis3"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">context</span> <span class="attribute">id</span>=<span class="value">"MySQLTables"</span> <span class="attribute">targetRuntime</span>=<span class="value">"MyBatis3"</span>&gt;</span>
         <span class="comment">&lt;!--关闭注释 --&gt;</span>
-        <span class="tag">&lt;<span class="title">commentGenerator</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">commentGenerator</span>&gt;</span>	
             <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"suppressDate"</span> <span class="attribute">value</span>=<span class="value">"true"</span>/&gt;</span>
         <span class="tag">&lt;/<span class="title">commentGenerator</span>&gt;</span>
 
@@ -309,7 +309,7 @@ target<span class="preprocessor">.project</span>=src/main/java
 </pre></td></tr></table></figure>
 
 <p>如果不想修改源码, 可以下载<a href="https://github.com/arccode/mybatisn_generator_cn" target="_blank" rel="external">mybatis生成中文注释</a>项目, maven本地安装后在pom中配置version即可.</p>
-<p>使用git克隆github项目</p>
+<p>使用git克隆github项目(mybatis-generator源项目)</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
