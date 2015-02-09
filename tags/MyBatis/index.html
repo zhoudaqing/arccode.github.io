@@ -82,11 +82,11 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2015-02-07T02:21:53.000Z"><a href="/2015/02/07/MyBatis-Generator使用/">2015-02-07</a></time>
+        <time datetime="2015-02-07T02:21:53.000Z"><a href="/2015/02/07/MyBatis-Generator最佳实践/">2015-02-07</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/02/07/MyBatis-Generator使用/">MyBatis-Generator使用</a></h1>
+    <h1 class="title"><a href="/2015/02/07/MyBatis-Generator最佳实践/">MyBatis-Generator最佳实践</a></h1>
   
 
     </header>
@@ -99,269 +99,15 @@
 <li>由于该插件生成的TeacherMapper.java, TeacherMapper.xml会带有example, 不希望生成example</li>
 <li>数据库中的字段写有注释, 希望注释能自动生成在Teacher.java中</li>
 </ol>
-<h2 id="实现">实现</h2>
-<h3 id="实现需求一">实现需求一</h3>
-<p>1&gt; 建表-teacher</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`test`</span>.<span class="string">`teacher`</span> (
-	<span class="string">`id`</span> bigint <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span> COMMENT <span class="string">'主键id'</span>,
-	<span class="string">`name`</span> <span class="keyword">varchar</span>(<span class="number">40</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> COMMENT <span class="string">'名称'</span>,
-	<span class="string">`age`</span> <span class="keyword">smallint</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span> COMMENT <span class="string">'年龄'</span>,
-	<span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="string">`id`</span>)
-) COMMENT=<span class="string">'教师表'</span>;</span>
-</pre></td></tr></table></figure>
-
-<p>2&gt; 配置properties常量</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="code"><pre><span class="preprocessor"># 数据库驱动jar 路径</span>
-drive<span class="preprocessor">.class</span><span class="preprocessor">.path</span>=/Users/arccode/repo/mysql/mysql-connector-java/<span class="number">5.1</span><span class="number">.30</span>/mysql-connector-java-<span class="number">5.1</span><span class="number">.30</span><span class="preprocessor">.jar</span>
-
-<span class="preprocessor"># 数据库连接参数</span>
-jdbc<span class="preprocessor">.driver</span>=<span class="keyword">com</span><span class="preprocessor">.mysql</span><span class="preprocessor">.jdbc</span><span class="preprocessor">.Driver</span>
-jdbc<span class="preprocessor">.url</span>=jdbc:mysql://localhost:<span class="number">3306</span>/test?useUnicode=true&characterEncoding=utf-<span class="number">8</span>
-jdbc<span class="preprocessor">.username</span>=mysql
-jdbc<span class="preprocessor">.password</span>=mysqlpwd
-
-<span class="preprocessor"># 包路径配置</span>
-model<span class="preprocessor">.package</span>=<span class="keyword">com</span><span class="preprocessor">.arccode</span><span class="preprocessor">.web</span><span class="preprocessor">.model</span>
-dao<span class="preprocessor">.package</span>=<span class="keyword">com</span><span class="preprocessor">.arccode</span><span class="preprocessor">.web</span><span class="preprocessor">.dao</span>
-xml<span class="preprocessor">.mapper</span><span class="preprocessor">.package</span>=<span class="keyword">com</span><span class="preprocessor">.arccode</span><span class="preprocessor">.web</span><span class="preprocessor">.dao</span>
-
-target<span class="preprocessor">.project</span>=src/main/java
-</pre></td></tr></table></figure>
-
-<p>3&gt; 配置文件-generatorConfig.xml</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-</pre></td><td class="code"><pre><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-<span class="doctype">&lt;!DOCTYPE generatorConfiguration
-        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
-        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd"&gt;</span>
-
-<span class="tag">&lt;<span class="title">generatorConfiguration</span>&gt;</span>
-    <span class="comment">&lt;!-- 配置文件路径 --&gt;</span>
-    <span class="tag">&lt;<span class="title">properties</span> <span class="attribute">url</span>=<span class="value">"${mybatis.generator.generatorConfig.properties}"</span>/&gt;</span>
-
-    <span class="comment">&lt;!--数据库驱动包路径 --&gt;</span>
-    <span class="tag">&lt;<span class="title">classPathEntry</span> <span class="attribute">location</span>=<span class="value">"${drive.class.path}"</span>/&gt;</span>
-
-    <span class="tag">&lt;<span class="title">context</span> <span class="attribute">id</span>=<span class="value">"DB2Tables"</span> <span class="attribute">targetRuntime</span>=<span class="value">"MyBatis3"</span>&gt;</span>
-        <span class="comment">&lt;!--关闭注释 --&gt;</span>
-        <span class="tag">&lt;<span class="title">commentGenerator</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"suppressDate"</span> <span class="attribute">value</span>=<span class="value">"true"</span>/&gt;</span>
-        <span class="tag">&lt;/<span class="title">commentGenerator</span>&gt;</span>
-
-        <span class="comment">&lt;!--数据库连接信息 --&gt;</span>
-        <span class="tag">&lt;<span class="title">jdbcConnection</span> <span class="attribute">driverClass</span>=<span class="value">"${jdbc.driver}"</span> <span class="attribute">connectionURL</span>=<span class="value">"${jdbc.url}"</span> <span class="attribute">userId</span>=<span class="value">"${jdbc.username}"</span>
-                        <span class="attribute">password</span>=<span class="value">"${jdbc.password}"</span>&gt;</span>
-        <span class="tag">&lt;/<span class="title">jdbcConnection</span>&gt;</span>
-
-        <span class="comment">&lt;!--生成的model 包路径 --&gt;</span>
-        <span class="tag">&lt;<span class="title">javaModelGenerator</span> <span class="attribute">targetPackage</span>=<span class="value">"${model.package}"</span> <span class="attribute">targetProject</span>=<span class="value">"${target.project}"</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"enableSubPackages"</span> <span class="attribute">value</span>=<span class="value">"ture"</span>/&gt;</span>
-            <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"trimStrings"</span> <span class="attribute">value</span>=<span class="value">"true"</span>/&gt;</span>
-        <span class="tag">&lt;/<span class="title">javaModelGenerator</span>&gt;</span>
-
-        <span class="comment">&lt;!--生成xml mapper文件 路径 --&gt;</span>
-        <span class="tag">&lt;<span class="title">sqlMapGenerator</span> <span class="attribute">targetPackage</span>=<span class="value">"${xml.mapper.package}"</span> <span class="attribute">targetProject</span>=<span class="value">"${target.project}"</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"enableSubPackages"</span> <span class="attribute">value</span>=<span class="value">"ture"</span>/&gt;</span>
-        <span class="tag">&lt;/<span class="title">sqlMapGenerator</span>&gt;</span>
-
-        <span class="comment">&lt;!-- 生成的Dao接口 的包路径 --&gt;</span>
-        <span class="tag">&lt;<span class="title">javaClientGenerator</span> <span class="attribute">type</span>=<span class="value">"XMLMAPPER"</span> <span class="attribute">targetPackage</span>=<span class="value">"${dao.package}"</span> <span class="attribute">targetProject</span>=<span class="value">"${target.project}"</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"enableSubPackages"</span> <span class="attribute">value</span>=<span class="value">"ture"</span>/&gt;</span>
-        <span class="tag">&lt;/<span class="title">javaClientGenerator</span>&gt;</span>
-
-        <span class="comment">&lt;!--对应数据库表名 --&gt;</span>
-        <span class="tag">&lt;<span class="title">table</span> <span class="attribute">tableName</span>=<span class="value">"teacher"</span>&gt;</span>
-
-        <span class="tag">&lt;/<span class="title">table</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">context</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">generatorConfiguration</span>&gt;</span>
-</pre></td></tr></table></figure>
-
-<p>4&gt; 运行maven - Run As Maven build</p>
-<p>Goals 参数 : mybatis-generator:generate -Dmybatis.generator.overwrite=true</p>
-<h3 id="实现需求二">实现需求二</h3>
-<p>修改配置文件-generatorConfig.xml, 将table标签修改如下</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>	&lt;table tableName=<span class="string">"teacher"</span> enableCountByExample=<span class="string">"false"</span> 
-		enableUpdateByExample=<span class="string">"false"</span> enableDeleteByExample=<span class="string">"false"</span> 
-		enableSelectByExample=<span class="string">"false"</span> selectByExampleQueryId=<span class="string">"false"</span>&gt;
-	&lt;/table&gt;
-</pre></td></tr></table></figure>
-
-<h3 id="实现需求三">实现需求三</h3>
-<p>修改mybatis-generator源码</p>
-<p>位置: <code>mybatis-generator-core/src/main/java/org/mybatis/generator/internal/DefaultCommentGenerator.java</code></p>
-<p>修改该类的方法: addFieldComment</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-</pre></td><td class="code"><pre>public void addFieldComment(Field field,
-            IntrospectedTable introspectedTable,
-            IntrospectedColumn introspectedColumn) {
-        if (suppressAllComments) {
-            return<span class="comment">;</span>
-        }
-
-        StringBuilder sb = new StringBuilder()<span class="comment">;</span>
-
-        field<span class="preprocessor">.addJavaDocLine</span>(<span class="string">"/**"</span>)<span class="comment">; //$NON-NLS-1$</span>
-//        field<span class="preprocessor">.addJavaDocLine</span>(<span class="string">" * This field was generated by MyBatis Generator."</span>)<span class="comment">; //$NON-NLS-1$</span>
-
-        sb<span class="preprocessor">.append</span>(<span class="string">" *  "</span>)<span class="comment">; //$NON-NLS-1$</span>
-        sb<span class="preprocessor">.append</span>(introspectedColumn<span class="preprocessor">.getRemarks</span>())<span class="comment">;</span>
-        sb<span class="preprocessor">.append</span>(<span class="string">",所属表字段为"</span>)<span class="comment">;</span>
-        sb<span class="preprocessor">.append</span>(introspectedTable<span class="preprocessor">.getFullyQualifiedTable</span>())<span class="comment">;</span>
-        sb<span class="preprocessor">.append</span>(<span class="string">'.'</span>)<span class="comment">;</span>
-        sb<span class="preprocessor">.append</span>(introspectedColumn<span class="preprocessor">.getActualColumnName</span>())<span class="comment">;</span>
-        field<span class="preprocessor">.addJavaDocLine</span>(sb<span class="preprocessor">.toString</span>())<span class="comment">;</span>
-
-//        addJavadocTag(field, false)<span class="comment">;</span>
-
-        field<span class="preprocessor">.addJavaDocLine</span>(<span class="string">" */"</span>)<span class="comment">; //$NON-NLS-1$</span>
-    }
-</pre></td></tr></table></figure>
-
-<p>如果不想修改源码, 可以下载<a href="https://github.com/arccode/mybatisn_generator_cn" target="_blank" rel="external">mybatis生成中文注释</a>项目, maven本地安装后在pom中配置version即可.</p>
-<p>使用git克隆github项目</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre><span class="comment">// 克隆 parent</span>
-git clone https:<span class="comment">//github.com/mybatis/parent.git</span>
-<span class="comment">// 将该项目安装到本地maven库, mybatis-generator依赖于该项目</span>
-mvn clean install <span class="attribute">-Dmaven</span><span class="built_in">.</span>test<span class="built_in">.</span><span class="keyword">skip</span><span class="subst">=</span><span class="literal">true</span>
-<span class="comment">// 克隆 mybatis-generator</span>
-git clone https:<span class="comment">//github.com/mybatis/generator.git</span>
-<span class="comment">// 将该jar安装到本地, 之后项目中使用, 时间有点长, 可以喝杯咖啡</span>
-mvn clean install <span class="attribute">-Dmaven</span><span class="built_in">.</span>test<span class="built_in">.</span><span class="keyword">skip</span><span class="subst">=</span><span class="literal">true</span>
-</pre></td></tr></table></figure>
-
-<p>碰到的问题:</p>
-<ol>
-<li>Could not find artifact com.sun:tools:jar:0 at specified path…</li>
-</ol>
-<p>平台: Mac</p>
-<p>Jdk: 自带的jdk_1.6.0</p>
-<p>解决办法: 安装jdk1.7, 该版本带有tools.jar</p>
-<h2 id="最佳实践">最佳实践</h2>
-<p>在以上三点需求完成后, 还可做以下修改使得开发更快更敏捷</p>
-<ol>
-<li>配置文件中commentGenerator配置项最好不要设置为不生成注释，因为这样带来的问题是在自动生成的代码上不会存在@mbggenerated 这样的标记，这个标记是用来标注这些代码是代码生成器生成的，如果关闭了注释，我们在多次使用mybatis generator重新生成代码时会导致在已有生成的文件上追加生成重复的内容，导致代码错误，故我建议如果你只生成一次代码，以后再不用工具生成可以关闭注释，如果会重复生成就要把注释开关打开。以下配置参数是关闭时间注释：</li>
-</ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">commentGenerator</span>&gt;</span>
-	<span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"suppressDate"</span> <span class="attribute">value</span>=<span class="value">"false"</span>/&gt;</span>
-<span class="tag">&lt;/<span class="title">commentGenerator</span>&gt;</span>
-</pre></td></tr></table></figure>
-
-<h2 id="参考资料">参考资料</h2>
-<p><a href="http://leeon.me/a/mybatis-generator-note" target="_blank" rel="external">MyBatis Generator使用小记</a></p>
-<p><a href="http://blog.csdn.net/bluishglc/article/details/8721994" target="_blank" rel="external">为Maven指定tools.jar ，解决Missing artifact com.sun:tools:jar:1.5.0错误</a></p>
-<p><a href="http://maven.apache.org/general.html#tools-jar-dependency" target="_blank" rel="external">Maven Frequently Asked Technical Questions</a></p>
-<p><a href="http://my.oschina.net/huangyong/blog/195559" target="_blank" rel="external">使用 OSC Maven 第三方仓库</a></p>
-<p><a href="http://www.cnphp6.com/archives/68863" target="_blank" rel="external">MYBATIS GENEATOR 详解</a></p>
-<p><a href="https://github.com/sogyf/mybatisn_generator_cn" target="_blank" rel="external">mybatisn_generator_cn中文注释项目</a></p>
 
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2015/02/07/MyBatis-Generator最佳实践/" class="more-link">Read More</a>
+          </div>
         
         
       
@@ -518,7 +264,7 @@ mvn clean install <span class="attribute">-Dmaven</span><span class="built_in">.
   <ul class="entry">
     
       <li>
-        <a href="/2015/02/07/MyBatis-Generator使用/">MyBatis-Generator使用</a>
+        <a href="/2015/02/07/MyBatis-Generator最佳实践/">MyBatis-Generator最佳实践</a>
       </li>
     
       <li>
