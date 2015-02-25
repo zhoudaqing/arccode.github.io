@@ -1,524 +1,535 @@
-<!DOCTYPE HTML>
-<html>
+<!doctype html>
+<html class="theme-next use-motion">
 <head>
-  <meta charset="utf-8">
-  
-  <title>Mac下安装redis | Arccode</title>
-  <meta name="author" content="arccode">
-  
-  <meta name="description" content="Java Javascript bigdata 大数据 hadoop hive storm spark">
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  <meta property="og:title" content="Mac下安装redis"/>
-  <meta property="og:site_name" content="Arccode"/>
-
-  
-    <meta property="og:image" content="undefined"/>
   
 
-  <link href="/img/favicon.ico" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="Arccode" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="/js/jquery.min.js"></script>
-  
-<script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-52770645-1', 'arccode.net');
-  ga('send', 'pageview');
-
-</script>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.3.0rc1"/>
+
+
+    <meta name="description" content="狂奔中的全栈工程师" />
+
+
+
+    <link rel="alternate" href="/atom.xml" title="Arccode's blog" type="application/atom+xml" />
+
+
+
+    <link rel="shorticon icon" type="image/x-icon" href="/images/favicon.ico?v=0.3.0rc1" />
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?cc881a935ecd2c2a0fe30651210e7117";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <title> Mac下安装redis // Arccode's blog </title>
 </head>
 
-
 <body>
-  <!--[if lte IE 8]> <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'> <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0027_Simplified Chinese.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." style='margin-left:auto;margin-right:auto;display: block;'/></a></div> <![endif]-->
-  <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">Arccode</a></h1>
-  <h2><a href="/"></a></h2>
-</div>
-<nav id="main-nav" class="alignright">
-  <ul>
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+    <a href="/" class="brand">
+        <span class="logo">
+          <i class="icon-logo"></i>
+        </span>
+        <span class="site-title">Arccode's blog</span>
+    </a>
+</h1>
+
+
+  <ul id="menu" class="menu">
     
-      <li><a href="/">首页</a></li>
+      
+      <li class="menu-item menu-item-home">
+        <a href="/">
+          <i class="menu-item-icon icon-home"></i> <br />
+          首页
+        </a>
+      </li>
     
-      <li><a href="/archives">归档</a></li>
+      
+      <li class="menu-item menu-item-archives">
+        <a href="/archives">
+          <i class="menu-item-icon icon-archives"></i> <br />
+          归档
+        </a>
+      </li>
     
-      <li><a href="/about">关于</a></li>
+      
+      <li class="menu-item menu-item-tags">
+        <a href="/tags">
+          <i class="menu-item-icon icon-tags"></i> <br />
+          标签
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-about">
+        <a href="/about">
+          <i class="menu-item-icon icon-about"></i> <br />
+          关于
+        </a>
+      </li>
     
   </ul>
-  <div class="clearfix"></div>
-</nav>
-<div class="clearfix"></div></header>
-  <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <time datetime="2014-08-06T16:26:37.000Z"><a href="/2014/08/07/Mac下安装redis/">2014-08-07</a></time>
-      
-      
-  
-    <h1 class="title">Mac下安装redis</h1>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+            
+          
+
+          <div id="posts" class="posts-expand">
+            
   
 
-    </header>
-    <div class="entry">
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
       
-        <h2 id="下载Redis">下载Redis</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>cd ~/ProgramFiles
-curl -O http://download<span class="preprocessor">.redis</span><span class="preprocessor">.io</span>/releases/redis-<span class="number">2.8</span><span class="number">.13</span><span class="preprocessor">.tar</span><span class="preprocessor">.gz</span>
-</pre></td></tr></table></figure>
+      
+        <h1 class="post-title">
+          
+          
+            
+              Mac下安装redis
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+          <span class="post-time">
+            
+              发表于 2014-08-06
+            
+          </span>
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/08/07/Mac下安装redis/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/08/07/Mac下安装redis/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          <h2 id="下载Redis">下载Redis</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/ProgramFiles</div><div class="line">curl -O http:<span class="comment">//download.redis.io/releases/redis-2.8.13.tar.gz</span></div></pre></td></tr></table></figure>
 
 <h2 id="解压、编译">解压、编译</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre><span class="comment"># 解压</span>
-tar -xzf redis-<span class="number">2.8</span>.<span class="number">13</span>
-<span class="comment"># 重命名</span>
-mv redis-<span class="number">2.8</span>.<span class="number">13</span> redis
-<span class="built_in">cd</span> redis
-<span class="built_in">sudo</span> make
-<span class="comment"># 测试</span>
-<span class="built_in">sudo</span> make test
-<span class="built_in">sudo</span> make install
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 解压</span></div><div class="line">tar -xzf redis-<span class="number">2.8</span>.<span class="number">13</span></div><div class="line"><span class="comment"># 重命名</span></div><div class="line">mv redis-<span class="number">2.8</span>.<span class="number">13</span> redis</div><div class="line"><span class="built_in">cd</span> redis</div><div class="line"><span class="built_in">sudo</span> make</div><div class="line"><span class="comment"># 测试</span></div><div class="line"><span class="built_in">sudo</span> make test</div><div class="line"><span class="built_in">sudo</span> make install</div></pre></td></tr></table></figure>
 
 <a id="more"></a>
 
 <h2 id="自定义Redis配置">自定义Redis配置</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-</pre></td><td class="code"><pre>vim ~/ProgramFiles/redis/redis.conf
-<span class="comment"># 通过查找修改相应配置项</span>
-daemonize <span class="literal">yes</span>
-pidfile <span class="regexp">/Users/</span>用户名/ProgramFiles/redis/redis.pid
-port <span class="number">6379</span>
-timeout <span class="number">300</span>
-loglevel debug
-logfile <span class="regexp">/Users/</span>用户名/ProgramFiles/redis/log-redis.log
-databases <span class="number">8</span>
-save <span class="number">900</span> <span class="number">1</span>
-save <span class="number">300</span> <span class="number">10</span>
-save <span class="number">60</span> <span class="number">10000</span>
-rdbcompression <span class="literal">yes</span>
-dbfilename dump.rdb
-dir <span class="regexp">/opt/redis/</span>
-appendonly <span class="literal">no</span>
-appendfsync everysec
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">vim</span> ~/ProgramFiles/redis/redis.<span class="keyword">conf</span></div><div class="line"># 通过查找修改相应配置项</div><div class="line">daemonize yes</div><div class="line">pidfile /Users/用户名/ProgramFiles/redis/redis.pid</div><div class="line">port <span class="number">6379</span></div><div class="line">timeout <span class="number">300</span></div><div class="line">loglevel <span class="keyword">debug</span></div><div class="line">logfile /Users/用户名/ProgramFiles/redis/<span class="built_in">log</span>-redis.<span class="built_in">log</span></div><div class="line">databases <span class="number">8</span></div><div class="line">save <span class="number">900</span> <span class="number">1</span></div><div class="line">save <span class="number">300</span> <span class="number">10</span></div><div class="line">save <span class="number">60</span> <span class="number">10000</span></div><div class="line">rdbcompression yes</div><div class="line">dbfilename dump.rdb</div><div class="line">dir /<span class="keyword">opt</span>/redis/</div><div class="line">appendonly <span class="keyword">no</span></div><div class="line">appendfsync everysec</div></pre></td></tr></table></figure>
 
 <h2 id="改变Redis_Server、Client脚本位置">改变Redis Server、Client脚本位置</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="comment"># 服务器端</span>
-mv <span class="regexp">/Users/</span>用户名<span class="regexp">/ProgramFiles/redis/src/redis-server /Users/</span>用户名/ProgramFiles/redis/redis-server
-<span class="comment"># 客户端</span>
-mv <span class="regexp">/Users/</span>用户名<span class="regexp">/ProgramFiles/redis/src/redis-cli /Users/</span>用户名/ProgramFiles/redis/redis-cli
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 服务器端</span></div><div class="line">mv <span class="regexp">/Users/</span>用户名<span class="regexp">/ProgramFiles/redis/src/redis-server /Users/</span>用户名/ProgramFiles/redis/redis-server</div><div class="line"><span class="comment"># 客户端</span></div><div class="line">mv <span class="regexp">/Users/</span>用户名<span class="regexp">/ProgramFiles/redis/src/redis-cli /Users/</span>用户名/ProgramFiles/redis/redis-cli</div></pre></td></tr></table></figure>
 
 <h2 id="启动Redis">启动Redis</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>sudo /Users/用户名/ProgramFiles/redis/redis-server /Users/用户名/ProgramFiles/redis/redis.conf
-
-注：提示<span class="escape">`l</span>og-redis.log<span class="escape">`、</span><span class="escape">`r</span>edis.pid<span class="escape">`没</span>有找到，在redis目录下创建该文件可解决此问题
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo <span class="regexp">/Users/</span>用户名<span class="regexp">/ProgramFiles/</span>redis<span class="regexp">/redis-server /</span>Users<span class="regexp">/用户名/</span>ProgramFiles<span class="regexp">/redis/</span>redis.conf</div><div class="line"></div><div class="line">注：提示`log-redis.log`、`redis.pid`没有找到，在redis目录下创建该文件可解决此问题</div></pre></td></tr></table></figure>
 
 <h2 id="测试Redis">测试Redis</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre><span class="preprocessor"># 连接到Redis Server</span>
-<span class="preprocessor"># 方法一</span>
-/Users/用户名/ProgramFiles/redis/redis-cli 
-<span class="preprocessor"># 方法二</span>
-cd /Users/用户名/ProgramFiles/redis
-./redis-cli
-<span class="preprocessor"># 向Redis中添加数据</span>
-<span class="keyword">set</span> key HelloWorld
-<span class="keyword">get</span> key
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor"># 连接到Redis Server</span></div><div class="line"><span class="preprocessor"># 方法一</span></div><div class="line">/Users/用户名/ProgramFiles/redis/redis-cli </div><div class="line"><span class="preprocessor"># 方法二</span></div><div class="line">cd /Users/用户名/ProgramFiles/redis</div><div class="line">./redis-cli</div><div class="line"><span class="preprocessor"># 向Redis中添加数据</span></div><div class="line"><span class="keyword">set</span> key HelloWorld</div><div class="line"><span class="keyword">get</span> key</div></pre></td></tr></table></figure>
 
 <h2 id="停止Redis服务">停止Redis服务</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre><span class="preprocessor"># 查找进程id</span>
-<span class="preprocessor"># 方法一</span>
-ps -ef|grep redis
-<span class="preprocessor"># 方法二</span>
-cat /Users/用户名/ProgramFiles/redis/redis.pid
-<span class="preprocessor"># 结束进程</span>
-kill 进程id
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor"># 查找进程id</span></div><div class="line"><span class="preprocessor"># 方法一</span></div><div class="line">ps -ef|grep redis</div><div class="line"><span class="preprocessor"># 方法二</span></div><div class="line">cat /Users/用户名/ProgramFiles/redis/redis.pid</div><div class="line"><span class="preprocessor"># 结束进程</span></div><div class="line">kill 进程id</div></pre></td></tr></table></figure>
 
 <h2 id="查看日志">查看日志</h2>
 <p>可以在操作的过程中观察日志的输出</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>tail <span class="attribute">-f</span> /Users<span class="subst">/</span>用户名/ProgramFiles/redis/<span class="keyword">log</span><span class="attribute">-redis</span><span class="built_in">.</span><span class="keyword">log</span>
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tail -<span class="keyword">f</span> /Users/用户名/ProgramFiles/redis/<span class="built_in">log</span>-redis.<span class="built_in">log</span></div></pre></td></tr></table></figure>
+
+
+        
+
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Redis/">
+                #Redis
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+      </div>
+    
+  </div>
+
+
+
+  
+    
+      <div class="comments" id="comments">
+        <div class="ds-thread" data-thread-key="2014/08/07/Mac下安装redis/"
+             data-title="Mac下安装redis" data-url="http://arccode.net/2014/08/07/Mac下安装redis/">
+        </div>
+      </div>
+    
+  
+
+          </div>
+
+          
+        </div>
+
+        
+<div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+
+<div id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+    
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-overview" data-target="site-overview">
+          站点概览
+        </li>
+        <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc">
+          文章目录
+        </li>
+      </ul>
+    
+
+    <div class="site-overview">
+      <div class="site-author motion-element">
+        <img class="site-author-image" src="/images/avatar.jpg" alt="arccode" />
+        <p class="site-author-name">arccode</p>
+      </div>
+      <p class="site-description motion-element">狂奔中的全栈工程师</p>
+      <div class="site-state motion-element">
+        <div class="site-state-item site-state-posts">
+          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-name">日志</span>
+        </div>
+        <div class="site-state-item site-state-tags">
+            <span class="site-state-item-count">36</span>
+            <span class="site-state-item-name">标签</span>
+        </div>
+        <div class="site-state-item site-state-pages">
+            <span class="site-state-item-count">4</span>
+            <span class="site-state-item-name">页面</span>
+        </div>
+      </div>
+
       
+      <div class="feed-link motion-element">
+        <a href="/atom.xml">
+          <i class="menu-item-icon icon-feed"></i>
+          RSS
+        </a>
+      </div>
+      
+
+      <div class="social-info motion-element">
+        
+          
+            <span class="soclial-item">
+              <a href="http://arccode.net" target="_blank">BLOG</a>
+            </span>
+          
+            <span class="soclial-item">
+              <a href="https://github.com/arccode" target="_blank">GITHUB</a>
+            </span>
+          
+            <span class="soclial-item">
+              <a href="http://weibo.com/tianzhisoftware" target="_blank">WEIBO</a>
+            </span>
+          
+        
+      </div>
+
     </div>
-    <footer>
-      
 
-        
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="/2014/08/10/Mac下安装phpRedisAdmin/">Mac下安装phpRedisAdmin</a>
-          </div>
-        
-        
-          <div class="alignright post-nav">
-            <em>下一篇: </em><a href="/2014/07/23/Mac终端乱码/">Mac终端乱码</a>
-          </div>
-          <div class="clearfix"></div>
-        
+    
+      <div class="post-toc sidebar-panel-active">
+        <ol class="motion-element"><li class="motion-element-item motion-element-level-2"><a class="motion-element-link" href="#下载Redis"><span class="motion-element-number">1.</span> <span class="motion-element-text">下载Redis</span></a></li><li class="motion-element-item motion-element-level-2"><a class="motion-element-link" href="#解压、编译"><span class="motion-element-number">2.</span> <span class="motion-element-text">解压、编译</span></a></li><li class="motion-element-item motion-element-level-2"><a class="motion-element-link" href="#自定义Redis配置"><span class="motion-element-number">3.</span> <span class="motion-element-text">自定义Redis配置</span></a></li><li class="motion-element-item motion-element-level-2"><a class="motion-element-link" href="#改变Redis_Server、Client脚本位置"><span class="motion-element-number">4.</span> <span class="motion-element-text">改变Redis Server、Client脚本位置</span></a></li><li class="motion-element-item motion-element-level-2"><a class="motion-element-link" href="#启动Redis"><span class="motion-element-number">5.</span> <span class="motion-element-text">启动Redis</span></a></li><li class="motion-element-item motion-element-level-2"><a class="motion-element-link" href="#测试Redis"><span class="motion-element-number">6.</span> <span class="motion-element-text">测试Redis</span></a></li><li class="motion-element-item motion-element-level-2"><a class="motion-element-link" href="#停止Redis服务"><span class="motion-element-number">7.</span> <span class="motion-element-text">停止Redis服务</span></a></li><li class="motion-element-item motion-element-level-2"><a class="motion-element-link" href="#查看日志"><span class="motion-element-number">8.</span> <span class="motion-element-text">查看日志</span></a></li></ol>
+      </div>
+    
+  </div>
+</div>
 
-        
-          <div class="copyright">
-            
-            
-              <span class="from-link">
-                <em>本文链接地址:</em>
-                <a href="/2014/08/07/Mac下安装redis/">
-                  http://arccode.net/2014/08/07/Mac下安装redis/
-                </a>
-              </span>
-            
-          </div>
-        
-        
+
+      </div>
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
   
-  <div class="categories">
-    <a href="/categories/NoSQL(缓存)/">NoSQL(缓存)</a>
+  &copy; &nbsp;  2014 - 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">arccode</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 - <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT</a>
+</div>
+
+
+
+  <div class="cc-license">
+    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+      <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+    </a>
   </div>
 
-        
-  
-  <div class="tags">
-    <a href="/tags/Redis/">Redis</a>
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
   </div>
 
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
+  <script type="text/javascript" src="/vendors/jquery/dist/jquery.min.js?v=0.3.0rc1"></script>
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".fancybox").fancybox();
+    });
+  </script>
 
-
-<section class="comment">
-    <div class="ds-thread"></div>
-</section>
-
-</div></div>
-    <aside id="sidebar" class="alignright">
-  <div class="search">
-  <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="text" name="q" results="0" placeholder="搜一下">
-    <i class="icon-search"></i>
-    <input type="hidden" name="q" value="site:arccode.net">
-  </form>
-</div>
-
-  
-<div class="widget tag">
-  <h3 class="title">分类</h3>
-  <ul class="entry">
-  
-    <li><a href="/categories/Android/">Android</a><small>9</small></li>
-  
-    <li><a href="/categories/Java/">Java</a><small>4</small></li>
-  
-    <li><a href="/categories/Javascript/">Javascript</a><small>3</small></li>
-  
-    <li><a href="/categories/Linux/">Linux</a><small>2</small></li>
-  
-    <li><a href="/categories/NoSQL(缓存)/">NoSQL(缓存)</a><small>3</small></li>
-  
-    <li><a href="/categories/中间件/">中间件</a><small>2</small></li>
-  
-    <li><a href="/categories/云计算/">云计算</a><small>1</small></li>
-  
-    <li><a href="/categories/学习资料/">学习资料</a><small>2</small></li>
-  
-    <li><a href="/categories/工具/">工具</a><small>6</small></li>
-  
-    <li><a href="/categories/指令/">指令</a><small>2</small></li>
-  
-    <li><a href="/categories/操作系统/">操作系统</a><small>1</small></li>
-  
-    <li><a href="/categories/数据挖掘/">数据挖掘</a><small>3</small></li>
-  
-    <li><a href="/categories/链接/">链接</a><small>1</small></li>
-  
-    <li><a href="/categories/问题集锦/">问题集锦</a><small>1</small></li>
-  
-    <li><a href="/categories/队列/">队列</a><small>1</small></li>
-  
-    <li><a href="/categories/随笔/">随笔</a><small>1</small></li>
-  
-  </ul>
-</div>
 
 
   
-<div class="widget tag">
-  <h3 class="title">标签</h3>
-  <ul class="entry">
-  
-    <li><a href="/tags/Android/">Android</a><small>1</small></li>
-  
-    <li><a href="/tags/AngularJS/">AngularJS</a><small>1</small></li>
-  
-    <li><a href="/tags/CSS/">CSS</a><small>1</small></li>
-  
-    <li><a href="/tags/Eclipse/">Eclipse</a><small>1</small></li>
-  
-    <li><a href="/tags/ExpressJS/">ExpressJS</a><small>1</small></li>
-  
-    <li><a href="/tags/Gradle/">Gradle</a><small>1</small></li>
-  
-    <li><a href="/tags/HBase/">HBase</a><small>1</small></li>
-  
-    <li><a href="/tags/HTML/">HTML</a><small>1</small></li>
-  
-    <li><a href="/tags/Hadoop/">Hadoop</a><small>2</small></li>
-  
-    <li><a href="/tags/Kafka/">Kafka</a><small>1</small></li>
-  
-    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
-  
-    <li><a href="/tags/Linux类库/">Linux类库</a><small>1</small></li>
-  
-    <li><a href="/tags/Log/">Log</a><small>1</small></li>
-  
-    <li><a href="/tags/Log4j/">Log4j</a><small>1</small></li>
-  
-    <li><a href="/tags/Mac/">Mac</a><small>2</small></li>
-  
-    <li><a href="/tags/Maven/">Maven</a><small>2</small></li>
-  
-    <li><a href="/tags/Memcached/">Memcached</a><small>1</small></li>
-  
-    <li><a href="/tags/MongoDB/">MongoDB</a><small>2</small></li>
-  
-    <li><a href="/tags/MyBatis/">MyBatis</a><small>1</small></li>
-  
-    <li><a href="/tags/NodeJS/">NodeJS</a><small>2</small></li>
-  
-    <li><a href="/tags/Properties/">Properties</a><small>1</small></li>
-  
-    <li><a href="/tags/Redis/">Redis</a><small>3</small></li>
-  
-    <li><a href="/tags/Spark/">Spark</a><small>1</small></li>
-  
-    <li><a href="/tags/Storm/">Storm</a><small>1</small></li>
-  
-    <li><a href="/tags/Svn/">Svn</a><small>2</small></li>
-  
-    <li><a href="/tags/UI/">UI</a><small>6</small></li>
-  
-    <li><a href="/tags/VitualBox/">VitualBox</a><small>1</small></li>
-  
-    <li><a href="/tags/Web/">Web</a><small>1</small></li>
-  
-    <li><a href="/tags/Zookeeper/">Zookeeper</a><small>2</small></li>
-  
-    <li><a href="/tags/反编译/">反编译</a><small>1</small></li>
-  
-    <li><a href="/tags/名词解释/">名词解释</a><small>1</small></li>
-  
-    <li><a href="/tags/大数据/">大数据</a><small>1</small></li>
-  
-    <li><a href="/tags/线程/">线程</a><small>1</small></li>
-  
-    <li><a href="/tags/进程/">进程</a><small>1</small></li>
-  
-  </ul>
-</div>
 
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
 
   
-<div class="widget tag">
-  <h3 class="title">最新文章</h3>
-  <ul class="entry">
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      var body = $('body');
+      var isSidebarVisible = false;
+      var sidebarToggle = $('.sidebar-toggle');
+      var sidebarToggleLine1st = $('.sidebar-toggle-line-first')
+      var sidebarToggleLine2nd = $('.sidebar-toggle-line-middle');
+      var sidebarToggleLine3rd = $('.sidebar-toggle-line-last');
+      var sidebar = $('.sidebar');
+
+      var sidebarToogleLineStatusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
+
+      var sidebarToggleLine1stStatusInit = sidebarToogleLineStatusInit;
+      var sidebarToggleLine1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
+      var sidebarToogleLine1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
+
+      var sidebarToggleLine2ndStatusInit = sidebarToogleLineStatusInit;
+      var sidebarToggleLine2ndStatusArrow = {width: '90%'};
+      var sidebarToogleLine2ndStatusClose = {opacity: 0};
+
+      var sidebarToggleLine3rdStatusInit = sidebarToogleLineStatusInit;
+      var sidebarToggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
+      var sidebarToogleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
+
+      sidebatToggleMotion();
+      postsListMotion();
+      backToTopMotion();
+
+      function sidebarContentMotion () {
+        $('.sidebar .motion-element').velocity(
+          'transition.slideRightIn',
+          {stagger: 50, drag: true}
+        );
+      }
+
+
+      function backToTopMotion () {
+        var b2top = $('.back-to-top');
+        b2top.on('click', function () {
+          body.velocity('scroll');
+        });
+      }
+
+      function sidebarShowMotion () {
+        var sidebarDisplayDuration = 300;
+        var sidebarWidth = '320px';
+
+        sidebarToggleLine1st.velocity(sidebarToogleLine1stStatusClose);
+        sidebarToggleLine2nd.velocity(sidebarToogleLine2ndStatusClose);
+        sidebarToggleLine3rd.velocity(sidebarToogleLine3rdStatusClose);
+
+        sidebar.velocity({width: sidebarWidth}, sidebarDisplayDuration);
+        isDesktop() && body.velocity({paddingRight: sidebarWidth}, sidebarDisplayDuration);
+        sidebarContentMotion();
+      }
+
+      function sidebarHideMotion () {
+        isDesktop() && body.velocity({paddingRight: 0});
+        sidebar.velocity('reverse');
+
+        sidebarToggleLine1st.velocity(sidebarToggleLine1stStatusInit);
+        sidebarToggleLine2nd.velocity(sidebarToggleLine2ndStatusInit);
+        sidebarToggleLine3rd.velocity(sidebarToggleLine3rdStatusInit);
+      };
+
+      function postsListMotion () {
+        $('.post').velocity('transition.slideDownIn', {stagger: 300, drag: true});
+      }
+
+      function sidebatToggleMotion () {
+        sidebarToggle.on('click', function () {
+          isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
+          isSidebarVisible = !isSidebarVisible;
+        });
+        sidebarToggle.hover(function () {
+          if (isSidebarVisible) {return}
+          sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusArrow);
+          sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusArrow);
+          sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusArrow);
+        }, function () {
+          if (isSidebarVisible) {return}
+          sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusInit);
+          sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusInit);
+          sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusInit);
+        });
+      }
+
+      function isDesktop () {
+        return screen.width > 991;
+      }
+
+      function isTablet () {
+        return screen.width < 992 && screen.width > 767;
+      }
+
+      function isMobile () {
+        return screen.width < 767;
+      }
+    });
+  </script>
+
+  
+
+  
+  
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var html = $('html');
+
+        $('.sidebar-nav li').on('click', function () {
+          var item = $(this);
+          var activeTabClassName = 'sidebar-nav-active';
+          var activePanelClassName = 'sidebar-panel-active';
+          if (item.hasClass(activeTabClassName)) {
+            return;
+          }
+
+          var currentTarget = $('.' + activePanelClassName);
+          var target = $('.' + item.data('target'));
+
+          currentTarget.velocity('transition.slideUpOut', 200, function () {
+            target
+              .velocity('stop')
+              .velocity('transition.slideDownIn', 200)
+              .addClass(activePanelClassName);
+          });
+          
+          item.siblings().removeClass(activeTabClassName);
+          item.addClass(activeTabClassName);
+        });
+
+        $('.post-toc a').on('click', function (e) {
+          e.preventDefault();
+          var offset = $(this.getAttribute('href')).offset().top;
+          html.velocity('stop').velocity('scroll', {
+            offset: offset  + 'px',
+            mobileHA: false
+          });
+        });
+      });
+    </script>
+  
+
+
+
+  
+
+  
     
-      <li>
-        <a href="/2015/02/07/MyBatis-Generator最佳实践/">MyBatis-Generator最佳实践</a>
-      </li>
-    
-      <li>
-        <a href="/2015/02/04/UtilmateAndroid-demo效果图文档/">UtilmateAndroid-demo效果图文档</a>
-      </li>
-    
-      <li>
-        <a href="/2015/02/03/UtilmateAndroid-demo效果图文档-一/">UtilmateAndroid-demo效果图文档-一</a>
-      </li>
-    
-      <li>
-        <a href="/2015/02/03/UtilmateAndroid-demo效果图文档-二/">UtilmateAndroid-demo效果图文档-二</a>
-      </li>
-    
-      <li>
-        <a href="/2015/02/03/UtilmateAndroid-demo效果图文档-三/">UtilmateAndroid-demo效果图文档-三</a>
-      </li>
-    
-      <li>
-        <a href="/2015/02/03/UtilmateAndroid-demo效果图文档-四/">UtilmateAndroid-demo效果图文档-四</a>
-      </li>
-    
-      <li>
-        <a href="/2015/02/03/UtilmateAndroid-demo效果图文档-五/">UtilmateAndroid-demo效果图文档-五</a>
-      </li>
-    
-      <li>
-        <a href="/2015/01/07/大数据参考资料/">大数据参考资料</a>
-      </li>
-    
-      <li>
-        <a href="/2015/01/07/Web参考资料/">Web参考资料</a>
-      </li>
-    
-      <li>
-        <a href="/2014/12/31/Android学习-序/">Android学习-序</a>
-      </li>
-    
-      <li>
-        <a href="/2014/12/30/Android名词解释/">Android名词解释</a>
-      </li>
-    
-      <li>
-        <a href="/2014/12/27/Mac下反编译Android安装包/">Mac下反编译Android安装包</a>
-      </li>
-    
-  </ul>
-</div>
-
-
-  <div class="widget tag">
-  <h3 class="title">友情链接</h3>
-    <ul class="entry">
-      <li><a href="http://www.ruanyifeng.com/blog" target="_blank" title="阮一峰的网络日志">阮一峰的网络日志</a></li>
-      <li><a href="http://stormzhang.com" target="_blank" title="stormzhang">stormzhang</a></li>
-      <li><a href="http://www.trinea.cn/" target="_blank" title="stormzhang">Trinea</a></li>
-      <li><a href="http://www.importnew.com/" target="_blank" title="ImportNew">ImportNew</a></li>
-    </ul>
-</div>
-</aside>
-    <div class="clearfix"></div>
-  </div>
-  <div id="go-pg-top"><i class="icon-arrow-up"></i></div>
-  <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2015 arccode
-  
-</div>
-<div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
 
-
-
-
-<script type="text/javascript">
+  <script type="text/javascript">
     var duoshuoQuery = {short_name:"arccode"};
     (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0]
-                || document.getElementsByTagName('body')[0]).appendChild(ds);
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
-</script>
+  </script>
 
-
-
-<script type="text/javascript">
-    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fcc881a935ecd2c2a0fe30651210e7117' type='text/javascript'%3E%3C/script%3E"));
-</script>
-
-
-<script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-52770645-1', 'arccode.net');
-  ga('send', 'pageview');
-
-</script>
-
-
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript" charset="utf-8" src="/js/page.js"></script>
+  
+  
+  <script type="text/javascript">
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-52770645-1');ga('send','pageview');
+  </script>
 
 </body>
-
 </html>
