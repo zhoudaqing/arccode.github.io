@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://arccode.net/"/>
-  <updated>2015-02-25T12:11:56.593Z</updated>
+  <updated>2015-02-25T15:52:14.135Z</updated>
   <id>http://arccode.net/</id>
   
   <author>
@@ -237,7 +237,7 @@
     <link href="http://arccode.net/2015/02/07/MyBatis-Generator%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
     <id>http://arccode.net/2015/02/07/MyBatis-Generator最佳实践/</id>
     <published>2015-02-07T02:21:53.000Z</published>
-    <updated>2015-02-09T01:40:41.000Z</updated>
+    <updated>2015-02-25T15:47:55.000Z</updated>
     <content type="html"><![CDATA[<p>最近使用MyBatis开发项目,为了快速开发,发现了一个可快速生成mapper类和mapper配置文件及Model的插件-<code>MyBatis-Generator</code>,总结下该插件的使用及最佳实践.</p>
 <h2 id="需求">需求</h2>
 <ol>
@@ -312,6 +312,8 @@
     
     </summary>
     
+      <category term="Java" scheme="http://arccode.net/tags/Java/"/>
+    
       <category term="MyBatis" scheme="http://arccode.net/tags/MyBatis/"/>
     
       <category term="Java" scheme="http://arccode.net/categories/Java/"/>
@@ -319,22 +321,22 @@
   </entry>
   
   <entry>
-    <title><![CDATA[UtilmateAndroid-demo效果图文档]]></title>
-    <link href="http://arccode.net/2015/02/04/UtilmateAndroid-demo%E6%95%88%E6%9E%9C%E5%9B%BE%E6%96%87%E6%A1%A3/"/>
-    <id>http://arccode.net/2015/02/04/UtilmateAndroid-demo效果图文档/</id>
+    <title><![CDATA[UltimateAndroid-demo效果图文档]]></title>
+    <link href="http://arccode.net/2015/02/04/UltimateAndroid-demo%E6%95%88%E6%9E%9C%E5%9B%BE%E6%96%87%E6%A1%A3/"/>
+    <id>http://arccode.net/2015/02/04/UltimateAndroid-demo效果图文档/</id>
     <published>2015-02-04T03:51:32.000Z</published>
-    <updated>2015-02-05T06:17:38.000Z</updated>
+    <updated>2015-02-25T15:27:03.000Z</updated>
     <content type="html"><![CDATA[<h1 id="打开该文章前请注意,该文章包含220张图片,合计在10M左右,主要目的为快速查看Demo效果">打开该文章前请注意,该文章包含220张图片,合计在10M左右,主要目的为快速查看Demo效果</h1>
-<p>感谢MarshalChen开源了UtilmateAndroid这个快速开发框架, 在此我把各个demo的效果图进行展示, 刚开始学习Android, 不对的解释请留言纠正, 欢迎各位极客加入到这个框架的开发中来.</p>
+<p>感谢MarshalChen开源了UltimateAndroid这个快速开发框架, 在此我把各个demo的效果图进行展示, 刚开始学习Android, 不对的解释请留言纠正, 欢迎各位极客加入到这个框架的开发中来.</p>
 <p><a href="https://github.com/cymcsg/UltimateAndroid" target="_blank" rel="external">项目地址</a></p>
 <p><a href="http://study.163.com/course/introduction.htm?courseId=990020" target="_blank" rel="external">Android快速开发教程第一季-视频</a></p>
 <p><a href="http://blog.marshalchen.com/ultimateandroiddoc/index.html" target="_blank" rel="external">API</a></p>
 <p>由于图片太多, 所有把文档分为五部分: </p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-一" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-一</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-二" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-二</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-三" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-三</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-四" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-四</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-五" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-五</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-一" target="_blank" rel="external">UltimateAndroid-demo效果图文档-一</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-二" target="_blank" rel="external">UltimateAndroid-demo效果图文档-二</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-三" target="_blank" rel="external">UltimateAndroid-demo效果图文档-三</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-四" target="_blank" rel="external">UltimateAndroid-demo效果图文档-四</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-五" target="_blank" rel="external">UltimateAndroid-demo效果图文档-五</a></p>
 <p>在测试过程中有三个Demo在<code>小米3</code>机型上出现程序崩溃的情况:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="title">HomeActivity</span></div><div class="line">QuickReturnListViewActivity</div><div class="line">PasscodePreferencesActivity</div></pre></td></tr></table></figure>
 
@@ -812,16 +814,16 @@
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="打开该文章前请注意,该文章包含220张图片,合计在10M左右,主要目的为快速查看Demo效果">打开该文章前请注意,该文章包含220张图片,合计在10M左右,主要目的为快速查看Demo效果</h1>
-<p>感谢MarshalChen开源了UtilmateAndroid这个快速开发框架, 在此我把各个demo的效果图进行展示, 刚开始学习Android, 不对的解释请留言纠正, 欢迎各位极客加入到这个框架的开发中来.</p>
+<p>感谢MarshalChen开源了UltimateAndroid这个快速开发框架, 在此我把各个demo的效果图进行展示, 刚开始学习Android, 不对的解释请留言纠正, 欢迎各位极客加入到这个框架的开发中来.</p>
 <p><a href="https://github.com/cymcsg/UltimateAndroid" target="_blank" rel="external">项目地址</a></p>
 <p><a href="http://study.163.com/course/introduction.htm?courseId=990020" target="_blank" rel="external">Android快速开发教程第一季-视频</a></p>
 <p><a href="http://blog.marshalchen.com/ultimateandroiddoc/index.html" target="_blank" rel="external">API</a></p>
 <p>由于图片太多, 所有把文档分为五部分: </p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-一" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-一</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-二" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-二</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-三" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-三</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-四" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-四</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-五" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-五</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-一" target="_blank" rel="external">UltimateAndroid-demo效果图文档-一</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-二" target="_blank" rel="external">UltimateAndroid-demo效果图文档-二</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-三" target="_blank" rel="external">UltimateAndroid-demo效果图文档-三</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-四" target="_blank" rel="external">UltimateAndroid-demo效果图文档-四</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-五" target="_blank" rel="external">UltimateAndroid-demo效果图文档-五</a></p>
 <p>在测试过程中有三个Demo在<code>小米3</code>机型上出现程序崩溃的情况:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="title">HomeActivity</span></div><div class="line">QuickReturnListViewActivity</div><div class="line">PasscodePreferencesActivity</div></pre></td></tr></table></figure>
 
@@ -831,26 +833,30 @@
     
       <category term="UI" scheme="http://arccode.net/tags/UI/"/>
     
+      <category term="Android" scheme="http://arccode.net/tags/Android/"/>
+    
+      <category term="UltimateAndroid" scheme="http://arccode.net/tags/UltimateAndroid/"/>
+    
       <category term="Android" scheme="http://arccode.net/categories/Android/"/>
     
   </entry>
   
   <entry>
-    <title><![CDATA[UtilmateAndroid-demo效果图文档-一]]></title>
-    <link href="http://arccode.net/2015/02/03/UtilmateAndroid-demo%E6%95%88%E6%9E%9C%E5%9B%BE%E6%96%87%E6%A1%A3-%E4%B8%80/"/>
-    <id>http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-一/</id>
+    <title><![CDATA[UltimateAndroid-demo效果图文档-一]]></title>
+    <link href="http://arccode.net/2015/02/03/UltimateAndroid-demo%E6%95%88%E6%9E%9C%E5%9B%BE%E6%96%87%E6%A1%A3-%E4%B8%80/"/>
+    <id>http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-一/</id>
     <published>2015-02-03T01:15:41.000Z</published>
-    <updated>2015-02-05T06:20:00.000Z</updated>
-    <content type="html"><![CDATA[<p>感谢MarshalChen开源了UtilmateAndroid这个快速开发框架, 在此我把各个demo的效果图进行展示, 刚开始学习Android, 不对的解释请留言纠正, 欢迎各位极客加入到这个框架的开发中来.</p>
+    <updated>2015-02-25T15:27:36.000Z</updated>
+    <content type="html"><![CDATA[<p>感谢MarshalChen开源了UltimateAndroid这个快速开发框架, 在此我把各个demo的效果图进行展示, 刚开始学习Android, 不对的解释请留言纠正, 欢迎各位极客加入到这个框架的开发中来.</p>
 <p><a href="https://github.com/cymcsg/UltimateAndroid" target="_blank" rel="external">项目地址</a></p>
 <p><a href="http://study.163.com/course/introduction.htm?courseId=990020" target="_blank" rel="external">Android快速开发教程第一季-视频</a></p>
 <p><a href="http://blog.marshalchen.com/ultimateandroiddoc/index.html" target="_blank" rel="external">API</a></p>
 <p>由于图片太多, 所有把文档分为五部分: </p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-一" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-一</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-二" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-二</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-三" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-三</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-四" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-四</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-五" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-五</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-一" target="_blank" rel="external">UltimateAndroid-demo效果图文档-一</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-二" target="_blank" rel="external">UltimateAndroid-demo效果图文档-二</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-三" target="_blank" rel="external">UltimateAndroid-demo效果图文档-三</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-四" target="_blank" rel="external">UltimateAndroid-demo效果图文档-四</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-五" target="_blank" rel="external">UltimateAndroid-demo效果图文档-五</a></p>
 <p>在测试过程中有三个Demo在<code>小米3</code>机型上出现程序崩溃的情况:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="title">HomeActivity</span></div><div class="line">QuickReturnListViewActivity</div><div class="line">PasscodePreferencesActivity</div></pre></td></tr></table></figure>
 
@@ -962,18 +968,24 @@
 <p>裁剪图片</p>
 <p><img src="/images/android/cropper_sample_1_1.jpg" alt="1-1"></p>
 <p><img src="/images/android/cropper_sample_1_2.jpg" alt="1-2"></p>
+<h2 id="相关内容">相关内容</h2>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-一" target="_blank" rel="external">UltimateAndroid-demo效果图文档-一</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-二" target="_blank" rel="external">UltimateAndroid-demo效果图文档-二</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-三" target="_blank" rel="external">UltimateAndroid-demo效果图文档-三</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-四" target="_blank" rel="external">UltimateAndroid-demo效果图文档-四</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-五" target="_blank" rel="external">UltimateAndroid-demo效果图文档-五</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>感谢MarshalChen开源了UtilmateAndroid这个快速开发框架, 在此我把各个demo的效果图进行展示, 刚开始学习Android, 不对的解释请留言纠正, 欢迎各位极客加入到这个框架的开发中来.</p>
+    <![CDATA[<p>感谢MarshalChen开源了UltimateAndroid这个快速开发框架, 在此我把各个demo的效果图进行展示, 刚开始学习Android, 不对的解释请留言纠正, 欢迎各位极客加入到这个框架的开发中来.</p>
 <p><a href="https://github.com/cymcsg/UltimateAndroid" target="_blank" rel="external">项目地址</a></p>
 <p><a href="http://study.163.com/course/introduction.htm?courseId=990020" target="_blank" rel="external">Android快速开发教程第一季-视频</a></p>
 <p><a href="http://blog.marshalchen.com/ultimateandroiddoc/index.html" target="_blank" rel="external">API</a></p>
 <p>由于图片太多, 所有把文档分为五部分: </p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-一" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-一</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-二" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-二</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-三" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-三</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-四" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-四</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-五" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-五</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-一" target="_blank" rel="external">UltimateAndroid-demo效果图文档-一</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-二" target="_blank" rel="external">UltimateAndroid-demo效果图文档-二</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-三" target="_blank" rel="external">UltimateAndroid-demo效果图文档-三</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-四" target="_blank" rel="external">UltimateAndroid-demo效果图文档-四</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-五" target="_blank" rel="external">UltimateAndroid-demo效果图文档-五</a></p>
 <p>在测试过程中有三个Demo在<code>小米3</code>机型上出现程序崩溃的情况:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="title">HomeActivity</span></div><div class="line">QuickReturnListViewActivity</div><div class="line">PasscodePreferencesActivity</div></pre></td></tr></table></figure>
 
@@ -987,17 +999,21 @@
     
       <category term="UI" scheme="http://arccode.net/tags/UI/"/>
     
+      <category term="Android" scheme="http://arccode.net/tags/Android/"/>
+    
+      <category term="UltimateAndroid" scheme="http://arccode.net/tags/UltimateAndroid/"/>
+    
       <category term="Android" scheme="http://arccode.net/categories/Android/"/>
     
   </entry>
   
   <entry>
-    <title><![CDATA[UtilmateAndroid-demo效果图文档-二]]></title>
-    <link href="http://arccode.net/2015/02/03/UtilmateAndroid-demo%E6%95%88%E6%9E%9C%E5%9B%BE%E6%96%87%E6%A1%A3-%E4%BA%8C/"/>
-    <id>http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-二/</id>
+    <title><![CDATA[UltimateAndroid-demo效果图文档-二]]></title>
+    <link href="http://arccode.net/2015/02/03/UltimateAndroid-demo%E6%95%88%E6%9E%9C%E5%9B%BE%E6%96%87%E6%A1%A3-%E4%BA%8C/"/>
+    <id>http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-二/</id>
     <published>2015-02-03T01:14:01.000Z</published>
-    <updated>2015-02-03T01:42:28.000Z</updated>
-    <content type="html"><![CDATA[<p>该项目详细介绍见<a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-一" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-一</a></p>
+    <updated>2015-02-25T15:26:24.000Z</updated>
+    <content type="html"><![CDATA[<p>该项目详细介绍见<a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-一" target="_blank" rel="external">UltimateAndroid-demo效果图文档-一</a></p>
 <h2 id="CustomPullToRefreshActivity">CustomPullToRefreshActivity</h2>
 <p>下拉刷新</p>
 <p><img src="/images/android/custom_pull_to_refresh_1_1.jpg" alt="1-1"></p>
@@ -1113,14 +1129,14 @@
 <p>字体跳动效果</p>
 <p><img src="/images/android/jumping_beans_1_1.jpg" alt="1-1"></p>
 <h2 id="相关内容">相关内容</h2>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-一" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-一</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-二" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-二</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-三" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-三</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-四" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-四</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-五" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-五</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-一" target="_blank" rel="external">UltimateAndroid-demo效果图文档-一</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-二" target="_blank" rel="external">UltimateAndroid-demo效果图文档-二</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-三" target="_blank" rel="external">UltimateAndroid-demo效果图文档-三</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-四" target="_blank" rel="external">UltimateAndroid-demo效果图文档-四</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-五" target="_blank" rel="external">UltimateAndroid-demo效果图文档-五</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>该项目详细介绍见<a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-一" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-一</a></p>
+    <![CDATA[<p>该项目详细介绍见<a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-一" target="_blank" rel="external">UltimateAndroid-demo效果图文档-一</a></p>
 <h2 id="CustomPullToRefreshActivity">CustomPullToRefreshActivity</h2>
 <p>下拉刷新</p>
 <p><img src="/images/android/custom_pull_to_refresh_1_1.jpg" alt="1-1"></p>
@@ -1133,17 +1149,21 @@
     
       <category term="UI" scheme="http://arccode.net/tags/UI/"/>
     
+      <category term="Android" scheme="http://arccode.net/tags/Android/"/>
+    
+      <category term="UltimateAndroid" scheme="http://arccode.net/tags/UltimateAndroid/"/>
+    
       <category term="Android" scheme="http://arccode.net/categories/Android/"/>
     
   </entry>
   
   <entry>
-    <title><![CDATA[UtilmateAndroid-demo效果图文档-三]]></title>
-    <link href="http://arccode.net/2015/02/03/UtilmateAndroid-demo%E6%95%88%E6%9E%9C%E5%9B%BE%E6%96%87%E6%A1%A3-%E4%B8%89/"/>
-    <id>http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-三/</id>
+    <title><![CDATA[UltimateAndroid-demo效果图文档-三]]></title>
+    <link href="http://arccode.net/2015/02/03/UltimateAndroid-demo%E6%95%88%E6%9E%9C%E5%9B%BE%E6%96%87%E6%A1%A3-%E4%B8%89/"/>
+    <id>http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-三/</id>
     <published>2015-02-03T01:13:05.000Z</published>
-    <updated>2015-02-03T01:42:38.000Z</updated>
-    <content type="html"><![CDATA[<p>该项目详细介绍见<a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-一" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-一</a></p>
+    <updated>2015-02-25T15:26:29.000Z</updated>
+    <content type="html"><![CDATA[<p>该项目详细介绍见<a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-一" target="_blank" rel="external">UltimateAndroid-demo效果图文档-一</a></p>
 <h2 id="ListAnimationActivity">ListAnimationActivity</h2>
 <p>卡片加载, 网格图片, listview文本加载效果, viewItem点击效果</p>
 <p><img src="/images/android/list_animation_1_1.jpg" alt="1-1"></p>
@@ -1248,14 +1268,14 @@
 <p>回弹图片效果Demo</p>
 <p><img src="/images/android/rebound_activity_sample_1_1.jpg" alt="1-1"></p>
 <h2 id="相关内容">相关内容</h2>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-一" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-一</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-二" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-二</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-三" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-三</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-四" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-四</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-五" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-五</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-一" target="_blank" rel="external">UltimateAndroid-demo效果图文档-一</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-二" target="_blank" rel="external">UltimateAndroid-demo效果图文档-二</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-三" target="_blank" rel="external">UltimateAndroid-demo效果图文档-三</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-四" target="_blank" rel="external">UltimateAndroid-demo效果图文档-四</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-五" target="_blank" rel="external">UltimateAndroid-demo效果图文档-五</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>该项目详细介绍见<a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-一" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-一</a></p>
+    <![CDATA[<p>该项目详细介绍见<a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-一" target="_blank" rel="external">UltimateAndroid-demo效果图文档-一</a></p>
 <h2 id="ListAnimationActivity">ListAnimationActivity</h2>
 <p>卡片加载, 网格图片, listview文本加载效果, viewItem点击效果</p>
 <p><img src="/images/android/list_animation_1_1.jpg" alt="1-1"></p>
@@ -1266,17 +1286,21 @@
     
       <category term="UI" scheme="http://arccode.net/tags/UI/"/>
     
+      <category term="Android" scheme="http://arccode.net/tags/Android/"/>
+    
+      <category term="UltimateAndroid" scheme="http://arccode.net/tags/UltimateAndroid/"/>
+    
       <category term="Android" scheme="http://arccode.net/categories/Android/"/>
     
   </entry>
   
   <entry>
-    <title><![CDATA[UtilmateAndroid-demo效果图文档-四]]></title>
-    <link href="http://arccode.net/2015/02/03/UtilmateAndroid-demo%E6%95%88%E6%9E%9C%E5%9B%BE%E6%96%87%E6%A1%A3-%E5%9B%9B/"/>
-    <id>http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-四/</id>
+    <title><![CDATA[UltimateAndroid-demo效果图文档-四]]></title>
+    <link href="http://arccode.net/2015/02/03/UltimateAndroid-demo%E6%95%88%E6%9E%9C%E5%9B%BE%E6%96%87%E6%A1%A3-%E5%9B%9B/"/>
+    <id>http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-四/</id>
     <published>2015-02-03T01:12:08.000Z</published>
-    <updated>2015-02-03T01:42:49.000Z</updated>
-    <content type="html"><![CDATA[<p>该项目详细介绍见<a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-一" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-一</a></p>
+    <updated>2015-02-25T15:26:35.000Z</updated>
+    <content type="html"><![CDATA[<p>该项目详细介绍见<a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-一" target="_blank" rel="external">UltimateAndroid-demo效果图文档-一</a></p>
 <h2 id="RecyclerViewItemAnimatorActivity">RecyclerViewItemAnimatorActivity</h2>
 <p>动态增加item效果, 可从不同方向滑入</p>
 <p><img src="/images/android/recycler_view_item_animator_1_1.jpg" alt="1-1"></p>
@@ -1350,14 +1374,14 @@
 <p><img src="/images/android/super_list_view_1_2.jpg" alt="1-2"></p>
 <p><img src="/images/android/super_list_view_1_3.jpg" alt="1-3"></p>
 <h2 id="相关内容">相关内容</h2>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-一" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-一</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-二" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-二</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-三" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-三</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-四" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-四</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-五" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-五</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-一" target="_blank" rel="external">UltimateAndroid-demo效果图文档-一</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-二" target="_blank" rel="external">UltimateAndroid-demo效果图文档-二</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-三" target="_blank" rel="external">UltimateAndroid-demo效果图文档-三</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-四" target="_blank" rel="external">UltimateAndroid-demo效果图文档-四</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-五" target="_blank" rel="external">UltimateAndroid-demo效果图文档-五</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>该项目详细介绍见<a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-一" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-一</a></p>
+    <![CDATA[<p>该项目详细介绍见<a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-一" target="_blank" rel="external">UltimateAndroid-demo效果图文档-一</a></p>
 <h2 id="RecyclerViewItemAnimatorActivity">RecyclerViewItemAnimatorActivity</h2>
 <p>动态增加item效果, 可从不同方向滑入</p>
 <p><img src="/images/android/recycler_view_item_animator_1_1.jpg" alt="1-1"></p>
@@ -1370,17 +1394,21 @@
     
       <category term="UI" scheme="http://arccode.net/tags/UI/"/>
     
+      <category term="Android" scheme="http://arccode.net/tags/Android/"/>
+    
+      <category term="UltimateAndroid" scheme="http://arccode.net/tags/UltimateAndroid/"/>
+    
       <category term="Android" scheme="http://arccode.net/categories/Android/"/>
     
   </entry>
   
   <entry>
-    <title><![CDATA[UtilmateAndroid-demo效果图文档-五]]></title>
-    <link href="http://arccode.net/2015/02/03/UtilmateAndroid-demo%E6%95%88%E6%9E%9C%E5%9B%BE%E6%96%87%E6%A1%A3-%E4%BA%94/"/>
-    <id>http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-五/</id>
+    <title><![CDATA[UltimateAndroid-demo效果图文档-五]]></title>
+    <link href="http://arccode.net/2015/02/03/UltimateAndroid-demo%E6%95%88%E6%9E%9C%E5%9B%BE%E6%96%87%E6%A1%A3-%E4%BA%94/"/>
+    <id>http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-五/</id>
     <published>2015-02-03T01:11:13.000Z</published>
-    <updated>2015-02-03T01:43:04.000Z</updated>
-    <content type="html"><![CDATA[<p>该项目详细介绍见<a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-一" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-一</a></p>
+    <updated>2015-02-25T15:26:40.000Z</updated>
+    <content type="html"><![CDATA[<p>该项目详细介绍见<a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-一" target="_blank" rel="external">UltimateAndroid-demo效果图文档-一</a></p>
 <h2 id="SwipeCardActivity">SwipeCardActivity</h2>
 <p>左滑右滑浏览图片</p>
 <p><img src="/images/android/swipe_card_1_1.jpg" alt="1-1"></p>
@@ -1464,14 +1492,14 @@
 <p>柱状图, 直角坐标图</p>
 <p><img src="/images/android/wire_frame_1_1.jpg" alt="1-1"></p>
 <h2 id="相关内容">相关内容</h2>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-一" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-一</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-二" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-二</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-三" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-三</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-四" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-四</a></p>
-<p><a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-五" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-五</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-一" target="_blank" rel="external">UltimateAndroid-demo效果图文档-一</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-二" target="_blank" rel="external">UltimateAndroid-demo效果图文档-二</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-三" target="_blank" rel="external">UltimateAndroid-demo效果图文档-三</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-四" target="_blank" rel="external">UltimateAndroid-demo效果图文档-四</a></p>
+<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-五" target="_blank" rel="external">UltimateAndroid-demo效果图文档-五</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>该项目详细介绍见<a href="http://arccode.net/2015/02/03/UtilmateAndroid-demo效果图文档-一" target="_blank" rel="external">UtilmateAndroid-demo效果图文档-一</a></p>
+    <![CDATA[<p>该项目详细介绍见<a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-一" target="_blank" rel="external">UltimateAndroid-demo效果图文档-一</a></p>
 <h2 id="SwipeCardActivity">SwipeCardActivity</h2>
 <p>左滑右滑浏览图片</p>
 <p><img src="/images/android/swipe_card_1_1.jpg" alt="1-1"></p>
@@ -1482,6 +1510,10 @@
     
       <category term="UI" scheme="http://arccode.net/tags/UI/"/>
     
+      <category term="Android" scheme="http://arccode.net/tags/Android/"/>
+    
+      <category term="UltimateAndroid" scheme="http://arccode.net/tags/UltimateAndroid/"/>
+    
       <category term="Android" scheme="http://arccode.net/categories/Android/"/>
     
   </entry>
@@ -1491,7 +1523,7 @@
     <link href="http://arccode.net/2015/01/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/"/>
     <id>http://arccode.net/2015/01/07/大数据参考资料/</id>
     <published>2015-01-07T08:29:05.000Z</published>
-    <updated>2015-01-08T05:57:03.000Z</updated>
+    <updated>2015-02-25T15:43:27.000Z</updated>
     <content type="html"><![CDATA[<p>大数据相关资料汇聚于此</p>
 <p><a href="http://blog.csdn.net/xpmars/article/details/42435441" target="_blank" rel="external">大数据架构</a></p>
 <p><a href="http://blog.csdn.net/hguisu/article/details/9174459" target="_blank" rel="external">Redis 代理服务Twemproxy</a></p>
@@ -1502,7 +1534,7 @@
 <p><a href]]>
     </summary>
     
-      <category term="大数据" scheme="http://arccode.net/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+      <category term="学习资料" scheme="http://arccode.net/tags/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/"/>
     
       <category term="学习资料" scheme="http://arccode.net/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/"/>
     
@@ -1513,7 +1545,7 @@
     <link href="http://arccode.net/2015/01/07/Web%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/"/>
     <id>http://arccode.net/2015/01/07/Web参考资料/</id>
     <published>2015-01-07T06:01:53.000Z</published>
-    <updated>2015-02-06T07:30:58.000Z</updated>
+    <updated>2015-02-25T15:28:37.000Z</updated>
     <content type="html"><![CDATA[<p>Web相关资料汇聚于此</p>
 <p><a href="https://github.com/thomasdavis/backbonetutorials" target="_blank" rel="external">Backbone Tutorials</a></p>
 <p><a href="https://github.com/dypsilon/frontend-dev-bookmarks" target="_blank" rel="external">前端开发参考</a></p>
@@ -1529,6 +1561,8 @@
     
       <category term="Web" scheme="http://arccode.net/tags/Web/"/>
     
+      <category term="学习资料" scheme="http://arccode.net/tags/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/"/>
+    
       <category term="学习资料" scheme="http://arccode.net/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/"/>
     
   </entry>
@@ -1538,7 +1572,7 @@
     <link href="http://arccode.net/2014/12/31/Android%E5%AD%A6%E4%B9%A0-%E5%BA%8F/"/>
     <id>http://arccode.net/2014/12/31/Android学习-序/</id>
     <published>2014-12-31T15:03:50.000Z</published>
-    <updated>2015-02-09T03:06:01.000Z</updated>
+    <updated>2015-02-25T15:41:56.000Z</updated>
     <content type="html"><![CDATA[<h2 id="背景">背景</h2>
 <p>准备开发一个小型APP, 经过调研发现组合一些开源库即可实现, 尝试组合了一些开源库, 调用API没问题, 但为了满足需求做扩展就有点困难, 为此准备系统学习Android, 参考的资料, 碰到的问题,使用的开源库, 开发的Demo均在该博客中进行记录.</p>
 <a id="more"></a>
@@ -1569,6 +1603,10 @@
     
     </summary>
     
+      <category term="Android" scheme="http://arccode.net/tags/Android/"/>
+    
+      <category term="学习资料" scheme="http://arccode.net/tags/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/"/>
+    
       <category term="Android" scheme="http://arccode.net/categories/Android/"/>
     
   </entry>
@@ -1578,7 +1616,7 @@
     <link href="http://arccode.net/2014/12/30/Android%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/"/>
     <id>http://arccode.net/2014/12/30/Android名词解释/</id>
     <published>2014-12-30T03:30:12.000Z</published>
-    <updated>2014-12-30T03:33:41.000Z</updated>
+    <updated>2015-02-25T15:32:23.000Z</updated>
     <content type="html"><![CDATA[<h2 id="android:id=”@id”与android:id=”@+id/“的区别">android:id=”@id”与android:id=”@+id/“的区别</h2>
 <p>Android中的组件需要用一个int类型的值来表示，这个值也就是组件标签中的id属性值;id属性只能接受资源类型的值，也就是必须以@开头的值，例如，@id/abc、@+id/xyz等。<br><a id="more"></a><br>如果在@后面使用“+”，表示当修改完某个布局文件并保存后，系统会自动在R.java文件中生成相应的int类型变量。变量名就是“/”后面的值，例如，@+id/xyz会在R.java文件中生成int xyz = value，其中value是一个十六进制的数。如果xyz在R.java中已经存在同名的变量，就不再生成新的变量，而该组件会使用这个已存在的变量的值。 </p>
 <p>也就是说，如果使用@+id/name形式，当R.java中存在名为name变量时，则该组件会使用该变量的值作为标识。如果不存在该变量，则添加一个新的变量，并为该变量赋相应的值（不会重复）。 </p>
@@ -1599,6 +1637,8 @@
     
       <category term="名词解释" scheme="http://arccode.net/tags/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/"/>
     
+      <category term="Android" scheme="http://arccode.net/tags/Android/"/>
+    
       <category term="Android" scheme="http://arccode.net/categories/Android/"/>
     
   </entry>
@@ -1608,7 +1648,7 @@
     <link href="http://arccode.net/2014/12/27/Mac%E4%B8%8B%E5%8F%8D%E7%BC%96%E8%AF%91Android%E5%AE%89%E8%A3%85%E5%8C%85/"/>
     <id>http://arccode.net/2014/12/27/Mac下反编译Android安装包/</id>
     <published>2014-12-27T06:14:43.000Z</published>
-    <updated>2014-12-27T06:57:40.000Z</updated>
+    <updated>2015-02-25T15:47:19.000Z</updated>
     <content type="html"><![CDATA[<h2 id="准备工作">准备工作</h2>
 <ol>
 <li>下载<code>apkTool</code>: <code>https://android-apktool.googlecode.com/files/apktool1.5.2.tar.bz2</code>;</li>
@@ -1639,6 +1679,10 @@
     
     </summary>
     
+      <category term="Java" scheme="http://arccode.net/tags/Java/"/>
+    
+      <category term="Mac" scheme="http://arccode.net/tags/Mac/"/>
+    
       <category term="反编译" scheme="http://arccode.net/tags/%E5%8F%8D%E7%BC%96%E8%AF%91/"/>
     
       <category term="Android" scheme="http://arccode.net/categories/Android/"/>
@@ -1650,7 +1694,7 @@
     <link href="http://arccode.net/2014/12/26/%E5%88%9D%E8%AF%86Gradle%E7%B3%BB%E5%88%97%E4%B8%80/"/>
     <id>http://arccode.net/2014/12/26/初识Gradle系列一/</id>
     <published>2014-12-26T15:56:41.000Z</published>
-    <updated>2014-12-27T06:59:24.000Z</updated>
+    <updated>2015-02-25T15:28:54.000Z</updated>
     <content type="html"><![CDATA[<h2 id="背景">背景</h2>
 <p>以前听说过Gradle,也查阅过相关资料,自定义生命周期等等,比Maven牛X, 但Maven在项目中已经够用, 所以一直未做构建迁移.</p>
 <p>今天业余搞点Android小应用, 经过对比, 最终选择了Android Studio(1.0.3), 该软件默认使用Gradle构建, 在此记录下使用历程及碰到的问题.</p>
@@ -1703,7 +1747,7 @@
     <link href="http://arccode.net/2014/11/14/Zookeeper%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/"/>
     <id>http://arccode.net/2014/11/14/Zookeeper搭建集群/</id>
     <published>2014-11-14T13:59:59.000Z</published>
-    <updated>2014-12-26T10:18:25.000Z</updated>
+    <updated>2015-02-25T15:47:45.000Z</updated>
     <content type="html"><![CDATA[<h2 id="简介">简介</h2>
 <p>ZooKeeper是一个为分布式应用所设计的分布的、开源的协调服务，它主要是用来解决分布式应用中经常遇到的一些数据管理问题，简化分布式应用协调及其管理的难度，提供高性能的分布式服务。ZooKeeper本身可以以Standalone模式安装运行，不过它的长处在于通过分布式ZooKeeper集群（一个Leader，多个Follower），基于一定的策略来保证ZooKeeper集群的稳定性和可用性，从而实现分布式应用的可靠性。</p>
 <p>ZooKeeper是作为分布式协调服务，是不需要依赖于Hadoop的环境，也可以为其他的分布式环境提供服务。</p>
@@ -1771,6 +1815,8 @@
     
     </summary>
     
+      <category term="Java" scheme="http://arccode.net/tags/Java/"/>
+    
       <category term="Zookeeper" scheme="http://arccode.net/tags/Zookeeper/"/>
     
       <category term="中间件" scheme="http://arccode.net/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
@@ -1782,7 +1828,7 @@
     <link href="http://arccode.net/2014/11/07/mongoose%E5%85%A5%E9%97%A8/"/>
     <id>http://arccode.net/2014/11/07/mongoose入门/</id>
     <published>2014-11-07T03:53:14.000Z</published>
-    <updated>2014-12-26T10:33:38.000Z</updated>
+    <updated>2015-02-25T15:36:32.000Z</updated>
     <content type="html"><![CDATA[<h2 id="简介">简介</h2>
 <p>Mongoose是一个针对MongoDB的ODM框架(技术名词, 类似ORM的思想).</p>
 <h2 id="名称解释">名称解释</h2>
@@ -1837,7 +1883,7 @@
     <link href="http://arccode.net/2014/11/07/node%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95/"/>
     <id>http://arccode.net/2014/11/07/node日志记录/</id>
     <published>2014-11-07T02:59:01.000Z</published>
-    <updated>2014-12-26T10:33:30.000Z</updated>
+    <updated>2015-02-25T15:36:55.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Java与Nodejs中控制台输出及日志记录对比">Java与Nodejs中控制台输出及日志记录对比</h2>
 <p>该博客框架解析Markdown的table不是太好, 以下采用列举方式进行对比</p>
 <h3 id="Java">Java</h3>
@@ -1890,6 +1936,8 @@
     
       <category term="Log" scheme="http://arccode.net/tags/Log/"/>
     
+      <category term="Log4j" scheme="http://arccode.net/tags/Log4j/"/>
+    
       <category term="Javascript" scheme="http://arccode.net/categories/Javascript/"/>
     
   </entry>
@@ -1899,7 +1947,7 @@
     <link href="http://arccode.net/2014/10/30/Properties%E9%85%8D%E7%BD%AE%E5%88%86%E7%A6%BB/"/>
     <id>http://arccode.net/2014/10/30/Properties配置分离/</id>
     <published>2014-10-30T03:02:34.000Z</published>
-    <updated>2014-12-26T10:32:28.000Z</updated>
+    <updated>2015-02-25T15:47:35.000Z</updated>
     <content type="html"><![CDATA[<h2 id="背景">背景</h2>
 <p>目前公司从开发到发布一个版本的流程是本地开发环境(自测)-&gt;测试环境(测试人员)-&gt;灰度发布环境(测试人员+开发人员)-&gt;上线, 不同的环境配置的属性不同(例如: 数据库连接url, 用户名, 密码), 以下为我经历的阶段.</p>
 <h3 id="阶段一:_将所有环境的配置信息写在一个文件中,_如db-properties">阶段一: 将所有环境的配置信息写在一个文件中, 如db.properties</h3>
@@ -1946,6 +1994,8 @@
     
     </summary>
     
+      <category term="Java" scheme="http://arccode.net/tags/Java/"/>
+    
       <category term="Properties" scheme="http://arccode.net/tags/Properties/"/>
     
       <category term="Java" scheme="http://arccode.net/categories/Java/"/>
@@ -1957,7 +2007,7 @@
     <link href="http://arccode.net/2014/10/30/Log4j%E9%85%8D%E7%BD%AE/"/>
     <id>http://arccode.net/2014/10/30/Log4j配置/</id>
     <published>2014-10-30T02:37:35.000Z</published>
-    <updated>2014-12-26T10:37:25.000Z</updated>
+    <updated>2015-02-25T15:46:48.000Z</updated>
     <content type="html"><![CDATA[<h2 id="在Java_Web项目中配置Log4j">在Java Web项目中配置Log4j</h2>
 <h3 id="示例文件">示例文件</h3>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></div><div class="line"><span class="doctype">&lt;!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" &gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">log4j:configuration</span> <span class="attribute">xmlns:log4j</span>=<span class="value">"http://jakarta.apache.org/log4j/"</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- Appenders --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">appender</span> <span class="attribute">name</span>=<span class="value">"console"</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.ConsoleAppender"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"Target"</span> <span class="attribute">value</span>=<span class="value">"System.out"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">layout</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.PatternLayout"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ConversionPattern"</span> <span class="attribute">value</span>=<span class="value">"[%p] %d{yyyy-MM-dd HH:mm:ss:SSS} [%l] %m%n"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="title">layout</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">appender</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="title">appender</span> <span class="attribute">name</span>=<span class="value">"FILE-INFO"</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.DailyRollingFileAppender"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"File"</span> <span class="attribute">value</span>=<span class="value">"/home/ad/logs/ad-quartz-info-db.log"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"Append"</span> <span class="attribute">value</span>=<span class="value">"true"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ImmediateFlush"</span> <span class="attribute">value</span>=<span class="value">"true"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"DatePattern"</span> <span class="attribute">value</span>=<span class="value">".yyyy-MM-dd"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"BufferSize"</span> <span class="attribute">value</span>=<span class="value">"500"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">layout</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.PatternLayout"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ConversionPattern"</span> <span class="attribute">value</span>=<span class="value">"[%p] %d{yyyy-MM-dd HH:mm:ss:SSS} [%l] %m%n"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="title">layout</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">filter</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.varia.LevelRangeFilter"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"LevelMin"</span> <span class="attribute">value</span>=<span class="value">"DEBUG"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"LevelMax"</span> <span class="attribute">value</span>=<span class="value">"INFO"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"acceptOnMatch"</span> <span class="attribute">value</span>=<span class="value">"false"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="title">filter</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">appender</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="title">appender</span> <span class="attribute">name</span>=<span class="value">"FILE-WARN"</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.DailyRollingFileAppender"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"File"</span> <span class="attribute">value</span>=<span class="value">"/home/ad/logs/ad-quartz-warn-db.log"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"Append"</span> <span class="attribute">value</span>=<span class="value">"true"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ImmediateFlush"</span> <span class="attribute">value</span>=<span class="value">"true"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"DatePattern"</span> <span class="attribute">value</span>=<span class="value">".yyyy-MM-dd"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"BufferSize"</span> <span class="attribute">value</span>=<span class="value">"500"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">layout</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.PatternLayout"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ConversionPattern"</span> <span class="attribute">value</span>=<span class="value">"[%p] %d{yyyy-MM-dd HH:mm:ss:SSS} [%l] %m%n"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="title">layout</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">filter</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.varia.LevelRangeFilter"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"LevelMin"</span> <span class="attribute">value</span>=<span class="value">"WARN"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"LevelMax"</span> <span class="attribute">value</span>=<span class="value">"FATAL"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"acceptOnMatch"</span> <span class="attribute">value</span>=<span class="value">"false"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="title">filter</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">appender</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- Root Logger --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">root</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">priority</span> <span class="attribute">value</span>=<span class="value">"debug"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"console"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"FILE-INFO"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"FILE-WARN"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">root</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="title">log4j:configuration</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -1983,6 +2033,10 @@
     
     </summary>
     
+      <category term="Java" scheme="http://arccode.net/tags/Java/"/>
+    
+      <category term="Log" scheme="http://arccode.net/tags/Log/"/>
+    
       <category term="Log4j" scheme="http://arccode.net/tags/Log4j/"/>
     
       <category term="Java" scheme="http://arccode.net/categories/Java/"/>
@@ -1994,7 +2048,7 @@
     <link href="http://arccode.net/2014/10/23/Mac%E4%B8%8B%E5%AE%89%E8%A3%85SVN%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     <id>http://arccode.net/2014/10/23/Mac下安装SVN服务器/</id>
     <published>2014-10-23T09:40:32.000Z</published>
-    <updated>2014-12-26T10:36:40.000Z</updated>
+    <updated>2015-02-25T15:35:10.000Z</updated>
     <content type="html"><![CDATA[<h2 id="安装svnserver">安装svnserver</h2>
 <p>Mac自带svnserver, 输入svnserve —version</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">svnserve, <span class="built_in">version</span> <span class="number">1.7</span><span class="number">.10</span> (r1485443)</div><div class="line">   compiled Jan <span class="number">15</span> <span class="number">2014</span>, <span class="number">11</span>:<span class="number">22</span>:<span class="number">16</span></div><div class="line"></div><div class="line">Copyright (C) <span class="number">2013</span> The Apache Software Foundation.</div><div class="line">This software consists <span class="operator">of</span> contributions made <span class="keyword">by</span> many people; see <span class="operator">the</span> NOTICE</div><div class="line"><span class="built_in">file</span> <span class="keyword">for</span> more information.</div><div class="line">Subversion is <span class="built_in">open</span> source software, see <span class="keyword">http</span>://subversion.apache.org/</div><div class="line"></div><div class="line">The following repository back-<span class="function"><span class="keyword">end</span> (<span class="title">FS</span>) <span class="title">modules</span> <span class="title">are</span> <span class="title">available</span>:</span></div><div class="line"></div><div class="line">* fs_fs : Module <span class="keyword">for</span> working <span class="operator">with</span> <span class="operator">a</span> plain <span class="built_in">file</span> (FSFS) repository.</div></pre></td></tr></table></figure>
@@ -2069,7 +2123,7 @@
     <link href="http://arccode.net/2014/09/30/Zookeeper%E5%AE%9E%E6%88%98%E4%B8%80/"/>
     <id>http://arccode.net/2014/09/30/Zookeeper实战一/</id>
     <published>2014-09-30T09:05:26.000Z</published>
-    <updated>2014-12-26T10:29:20.000Z</updated>
+    <updated>2015-02-25T15:47:50.000Z</updated>
     <content type="html"><![CDATA[<h1 id="Zookeeper集群搭建">Zookeeper集群搭建</h1>
 <p>文中提到<code>切换用户</code>: 表明未切换的状态下是root用户</p>
 <h2 id="创建用户组_用户_Zookeeper数据目录">创建用户组 用户 Zookeeper数据目录</h2>
@@ -2091,6 +2145,8 @@
     
     </summary>
     
+      <category term="Java" scheme="http://arccode.net/tags/Java/"/>
+    
       <category term="Zookeeper" scheme="http://arccode.net/tags/Zookeeper/"/>
     
       <category term="中间件" scheme="http://arccode.net/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
@@ -2102,7 +2158,7 @@
     <link href="http://arccode.net/2014/09/30/Kafka%E5%AE%9E%E6%88%98%E4%B8%80/"/>
     <id>http://arccode.net/2014/09/30/Kafka实战一/</id>
     <published>2014-09-30T04:43:33.000Z</published>
-    <updated>2014-12-26T10:37:48.000Z</updated>
+    <updated>2015-02-25T15:48:06.000Z</updated>
     <content type="html"><![CDATA[<h1 id="Kafka实战一">Kafka实战一</h1>
 <h2 id="搭建环境">搭建环境</h2>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor"># 下载安装包</span></div><div class="line">http:<span class="comment">//mirror.nus.edu.sg/apache/kafka/0.8.1.1/kafka_2.10-0.8.1.1.tgz</span></div><div class="line"></div><div class="line"><span class="preprocessor"># 上传到Linux /home</span></div><div class="line"></div><div class="line"><span class="preprocessor"># 解压</span></div><div class="line">tar xzf kafka_2<span class="number">.10</span>-<span class="number">0.8</span><span class="number">.1</span><span class="number">.1</span>.tgz -C /usr/local</div><div class="line">cd /usr/local</div><div class="line">mv kafka_2<span class="number">.10</span>-<span class="number">0.8</span><span class="number">.1</span><span class="number">.1</span> kafka</div><div class="line"></div><div class="line"><span class="preprocessor"># 启动 Zookeeper</span></div><div class="line">cd kafka</div><div class="line">./zookeeper-server-start.sh config/zookeeper.properties</div><div class="line"></div><div class="line"><span class="preprocessor"># 启动 Kafka</span></div><div class="line">./kafka-server-start.sh config/server.properties</div></pre></td></tr></table></figure>
@@ -2162,6 +2218,8 @@
     
     </summary>
     
+      <category term="Java" scheme="http://arccode.net/tags/Java/"/>
+    
       <category term="Kafka" scheme="http://arccode.net/tags/Kafka/"/>
     
       <category term="队列" scheme="http://arccode.net/categories/%E9%98%9F%E5%88%97/"/>
@@ -2173,7 +2231,7 @@
     <link href="http://arccode.net/2014/09/22/Maven%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
     <id>http://arccode.net/2014/09/22/Maven常见问题/</id>
     <published>2014-09-22T03:28:01.000Z</published>
-    <updated>2014-12-26T10:34:57.000Z</updated>
+    <updated>2015-02-25T15:36:21.000Z</updated>
     <content type="html"><![CDATA[<ol>
 <li>命令行执行<code>mvn clean package</code>—&gt; 编码 EUC_CN 的不可映射字符,在Myeclipse下执行命令无此问题<ul>
 <li>原因: 命令行编码使用<code>GBK</code>,而代码文件使用<code>UTF-8</code>编码</li>
@@ -2226,7 +2284,7 @@
     <link href="http://arccode.net/2014/09/21/%E9%98%BF%E9%87%8C%E4%BA%91CentOS%E6%90%AD%E5%BB%BAMEAN/"/>
     <id>http://arccode.net/2014/09/21/阿里云CentOS搭建MEAN/</id>
     <published>2014-09-21T08:51:05.000Z</published>
-    <updated>2015-02-25T08:21:38.000Z</updated>
+    <updated>2015-02-25T15:14:49.000Z</updated>
     <content type="html"><![CDATA[<h2 id="购买主机">购买主机</h2>
 <p>看个人爱好，本人购买阿里云主机，最低配置55元/月</p>
 <h2 id="安装相关模块">安装相关模块</h2>
@@ -2365,6 +2423,8 @@
     
       <category term="ExpressJS" scheme="http://arccode.net/tags/ExpressJS/"/>
     
+      <category term="架构" scheme="http://arccode.net/categories/%E6%9E%B6%E6%9E%84/"/>
+    
   </entry>
   
   <entry>
@@ -2372,7 +2432,7 @@
     <link href="http://arccode.net/2014/09/21/Linux%E6%8C%87%E4%BB%A4/"/>
     <id>http://arccode.net/2014/09/21/Linux指令/</id>
     <published>2014-09-21T08:47:22.000Z</published>
-    <updated>2014-12-26T10:37:32.000Z</updated>
+    <updated>2015-02-25T15:34:18.000Z</updated>
     <content type="html"><![CDATA[<ul>
 <li>修改日期: <code>date -s &quot;2014-01-01 00:00:00&quot;</code></li>
 <li>同步指定服务器日期: <code>ntpdate 3.cn.pool.ntp.org</code></li>
@@ -2392,6 +2452,8 @@
 ]]>
     
     </summary>
+    
+      <category term="Linux" scheme="http://arccode.net/tags/Linux/"/>
     
       <category term="Linux" scheme="http://arccode.net/categories/Linux/"/>
     
@@ -2435,7 +2497,7 @@
     <link href="http://arccode.net/2014/09/21/Maven%E6%8C%87%E4%BB%A4/"/>
     <id>http://arccode.net/2014/09/21/Maven指令/</id>
     <published>2014-09-21T08:31:57.000Z</published>
-    <updated>2014-12-26T10:33:47.000Z</updated>
+    <updated>2015-02-25T15:36:27.000Z</updated>
     <content type="html"><![CDATA[<ul>
 <li>清空： <code>mvn clean</code></li>
 <li>编译： <code>mvn compile</code></li>
@@ -2471,7 +2533,7 @@
     <link href="http://arccode.net/2014/09/01/Linux%E7%B1%BB%E5%BA%93%E9%93%BE%E6%8E%A5/"/>
     <id>http://arccode.net/2014/09/01/Linux类库链接/</id>
     <published>2014-09-01T02:21:38.000Z</published>
-    <updated>2014-12-26T10:37:37.000Z</updated>
+    <updated>2015-02-25T15:34:26.000Z</updated>
     <content type="html"><![CDATA[<h2 id="tcl">tcl</h2>
 <p><a href="http://downloads.sourceforge.net/tcl/tcl8.6.1-src.tar.gz" target="_blank" rel="external">http://downloads.sourceforge.net/tcl/tcl8.6.1-src.tar.gz</a></p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wget http://downloads.sourceforge.net/tcl/tcl8.<span class="number">6.1</span>-src.tar.gz </div><div class="line"><span class="built_in">sudo</span> tar xzvf tcl8.<span class="number">6.1</span>-src.tar.gz  -C /usr/local/</div><div class="line"><span class="built_in">cd</span>  /usr/local/tcl8.<span class="number">6.1</span>/unix/</div><div class="line"><span class="built_in">sudo</span> ./configure</div><div class="line"><span class="built_in">sudo</span> make</div><div class="line"><span class="built_in">sudo</span> make install</div></pre></td></tr></table></figure>
@@ -2486,7 +2548,7 @@
     
     </summary>
     
-      <category term="Linux类库" scheme="http://arccode.net/tags/Linux%E7%B1%BB%E5%BA%93/"/>
+      <category term="Linux" scheme="http://arccode.net/tags/Linux/"/>
     
       <category term="链接" scheme="http://arccode.net/categories/%E9%93%BE%E6%8E%A5/"/>
     
@@ -2497,7 +2559,7 @@
     <link href="http://arccode.net/2014/08/10/Mac%E4%B8%8B%E5%AE%89%E8%A3%85memcached/"/>
     <id>http://arccode.net/2014/08/10/Mac下安装memcached/</id>
     <published>2014-08-10T15:51:56.000Z</published>
-    <updated>2014-12-26T10:36:55.000Z</updated>
+    <updated>2015-02-25T15:35:22.000Z</updated>
     <content type="html"><![CDATA[<h2 id="安装libevent(memcached的依赖库)">安装libevent(memcached的依赖库)</h2>
 <ul>
 <li><a href="https://github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz" target="_blank" rel="external">下载</a>libevent源码</li>
@@ -2568,6 +2630,8 @@
     
     </summary>
     
+      <category term="Mac" scheme="http://arccode.net/tags/Mac/"/>
+    
       <category term="Memcached" scheme="http://arccode.net/tags/Memcached/"/>
     
       <category term="NoSQL(缓存)" scheme="http://arccode.net/categories/NoSQL-%E7%BC%93%E5%AD%98/"/>
@@ -2579,7 +2643,7 @@
     <link href="http://arccode.net/2014/08/10/Mac%E4%B8%8B%E5%AE%89%E8%A3%85phpRedisAdmin/"/>
     <id>http://arccode.net/2014/08/10/Mac下安装phpRedisAdmin/</id>
     <published>2014-08-10T15:32:46.000Z</published>
-    <updated>2014-12-26T10:36:50.000Z</updated>
+    <updated>2015-02-25T15:35:28.000Z</updated>
     <content type="html"><![CDATA[<p>phpRedisAdmin是Redis的一个Web控制台，安装流程如下：</p>
 <h2 id="安装phpRedis模块">安装phpRedis模块</h2>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:nicolasff/phpredis.git</div><div class="line"><span class="built_in">cd</span> phpredis</div><div class="line">phpize</div><div class="line">./configure</div><div class="line"><span class="built_in">sudo</span> make</div><div class="line"><span class="built_in">sudo</span> make install</div></pre></td></tr></table></figure>
@@ -2621,6 +2685,8 @@
     
     </summary>
     
+      <category term="Mac" scheme="http://arccode.net/tags/Mac/"/>
+    
       <category term="Redis" scheme="http://arccode.net/tags/Redis/"/>
     
       <category term="工具" scheme="http://arccode.net/categories/%E5%B7%A5%E5%85%B7/"/>
@@ -2632,7 +2698,7 @@
     <link href="http://arccode.net/2014/08/07/Mac%E4%B8%8B%E5%AE%89%E8%A3%85redis/"/>
     <id>http://arccode.net/2014/08/07/Mac下安装redis/</id>
     <published>2014-08-06T16:26:37.000Z</published>
-    <updated>2014-12-26T10:36:45.000Z</updated>
+    <updated>2015-02-25T15:35:38.000Z</updated>
     <content type="html"><![CDATA[<h2 id="下载Redis">下载Redis</h2>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/ProgramFiles</div><div class="line">curl -O http:<span class="comment">//download.redis.io/releases/redis-2.8.13.tar.gz</span></div></pre></td></tr></table></figure>
 
@@ -2672,6 +2738,8 @@
     
     </summary>
     
+      <category term="Mac" scheme="http://arccode.net/tags/Mac/"/>
+    
       <category term="Redis" scheme="http://arccode.net/tags/Redis/"/>
     
       <category term="NoSQL(缓存)" scheme="http://arccode.net/categories/NoSQL-%E7%BC%93%E5%AD%98/"/>
@@ -2683,7 +2751,7 @@
     <link href="http://arccode.net/2014/07/23/Mac%E7%BB%88%E7%AB%AF%E4%B9%B1%E7%A0%81/"/>
     <id>http://arccode.net/2014/07/23/Mac终端乱码/</id>
     <published>2014-07-23T14:46:48.000Z</published>
-    <updated>2014-12-26T10:35:25.000Z</updated>
+    <updated>2015-02-25T15:36:15.000Z</updated>
     <content type="html"><![CDATA[<p>Android的开发环境配置完毕后，回忆了下以前开发Android的流程</p>
 <ol>
 <li>新建Hello World项目</li>
@@ -2719,6 +2787,8 @@
     
       <category term="Mac" scheme="http://arccode.net/tags/Mac/"/>
     
+      <category term="Terminal" scheme="http://arccode.net/tags/Terminal/"/>
+    
       <category term="工具" scheme="http://arccode.net/categories/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
@@ -2728,7 +2798,7 @@
     <link href="http://arccode.net/2014/07/23/Mac%E5%AE%89%E8%A3%85Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
     <id>http://arccode.net/2014/07/23/Mac安装Android开发环境/</id>
     <published>2014-07-23T13:24:10.000Z</published>
-    <updated>2014-12-26T10:37:05.000Z</updated>
+    <updated>2015-02-25T15:49:38.000Z</updated>
     <content type="html"><![CDATA[<h2 id="准备">准备</h2>
 <ol>
 <li>安装JDK</li>
@@ -2761,6 +2831,8 @@
 ]]>
     
     </summary>
+    
+      <category term="Java" scheme="http://arccode.net/tags/Java/"/>
     
       <category term="Android" scheme="http://arccode.net/tags/Android/"/>
     
@@ -2851,7 +2923,7 @@
     <link href="http://arccode.net/2014/07/13/Mac%E4%B8%8B%E6%90%AD%E5%BB%BAHadoop%E7%8E%AF%E5%A2%83/"/>
     <id>http://arccode.net/2014/07/13/Mac下搭建Hadoop环境/</id>
     <published>2014-07-13T15:47:59.000Z</published>
-    <updated>2014-12-26T10:36:34.000Z</updated>
+    <updated>2015-02-25T15:47:05.000Z</updated>
     <content type="html"><![CDATA[<h2 id="安装JDK">安装JDK</h2>
 <p>安装JDK，安装成功后在终端中输入<code>java -version</code>，显示如下</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">java <span class="keyword">version</span> <span class="string">"1.7.0_51"</span></div><div class="line">Java(TM) SE Runtime Environment (build <span class="number">1.7</span>.<span class="number">0</span>_51-b13)</div><div class="line">Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class="number">24.51</span>-b03, mixed <span class="built_in">mode</span>)</div></pre></td></tr></table></figure>
@@ -2894,6 +2966,10 @@
     
     </summary>
     
+      <category term="Java" scheme="http://arccode.net/tags/Java/"/>
+    
+      <category term="Mac" scheme="http://arccode.net/tags/Mac/"/>
+    
       <category term="Hadoop" scheme="http://arccode.net/tags/Hadoop/"/>
     
       <category term="数据挖掘" scheme="http://arccode.net/categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
@@ -2905,7 +2981,7 @@
     <link href="http://arccode.net/2014/07/13/HBase%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D/"/>
     <id>http://arccode.net/2014/07/13/HBase技术介绍/</id>
     <published>2014-07-13T02:53:05.000Z</published>
-    <updated>2014-12-26T10:37:55.000Z</updated>
+    <updated>2015-02-25T15:33:51.000Z</updated>
     <content type="html"><![CDATA[<h2 id="HBase简介">HBase简介</h2>
 <p>HBase – Hadoop Database，是一个高可靠性、高性能、面向列、可伸缩的分布式存储系统，利用HBase技术可在廉价PC Server上搭建起大规模结构化存储集群。</p>
 <p>HBase是Google Bigtable的开源实现，类似Google Bigtable利用GFS作为其文件存储系统，HBase利用Hadoop HDFS作为其文件存储系统；Google运行MapReduce来处理Bigtable中的海量数据，HBase同样利用Hadoop MapReduce来处理HBase中的海量数据；Google Bigtable利用 Chubby作为<br>协同服务，HBase利用Zookeeper作为对应。</p>
@@ -3023,7 +3099,7 @@
     <link href="http://arccode.net/2014/07/13/%E4%BA%91%E8%AE%A1%E7%AE%97%E7%9A%84%E5%88%AB%E6%A0%B7%E8%A7%A3%E9%87%8A/"/>
     <id>http://arccode.net/2014/07/13/云计算的别样解释/</id>
     <published>2014-07-13T02:11:45.000Z</published>
-    <updated>2014-12-26T10:38:07.000Z</updated>
+    <updated>2015-02-25T15:33:46.000Z</updated>
     <content type="html"><![CDATA[<p><img src="/images/云计算的别样解释.jpeg" alt=""></p>
 <p>技术人员怎么也讲不清楚的云计算，咱们的高级总监曾经就是这样和政府领导普及云计算和智慧城市知识的，却都听懂了：</p>
 <p>你娶了一个老婆，这叫传统IT架构。</p>
@@ -3063,6 +3139,8 @@
     
     </summary>
     
+      <category term="名词解释" scheme="http://arccode.net/tags/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/"/>
+    
       <category term="云计算" scheme="http://arccode.net/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
     
   </entry>
@@ -3072,7 +3150,7 @@
     <link href="http://arccode.net/2014/07/13/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
     <id>http://arccode.net/2014/07/13/大数据/</id>
     <published>2014-07-13T01:36:36.000Z</published>
-    <updated>2014-12-26T10:38:34.000Z</updated>
+    <updated>2015-02-25T15:33:39.000Z</updated>
     <content type="html"><![CDATA[<p><img src="/images/bigdata.jpg" alt=""></p>
 <h2 id="大数据（Big_Data）">大数据（Big Data）</h2>
 <p>大数据，官方定义是指那些数据量特别大、数据类别特别复杂的数据集，这种数据集无法用传统的数据库进行存储，管理和处理。大数据的主要特点为数据量大（Volume），数据类别复杂（Variety），数据处理速度快（Velocity）和数据真实性高（Veracity），合起来被称为4V。</p>
@@ -3134,7 +3212,7 @@
     <link href="http://arccode.net/2014/07/12/tar%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/"/>
     <id>http://arccode.net/2014/07/12/tar命令详解/</id>
     <published>2014-07-12T14:54:11.000Z</published>
-    <updated>2014-12-26T10:29:35.000Z</updated>
+    <updated>2015-02-25T15:37:27.000Z</updated>
     <content type="html"><![CDATA[<h2 id="语法">语法</h2>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">tar {-c | -r | -t | -x | -f} {fileName} [fileList]</div><div class="line">  </div><div class="line">  -<span class="ruby"><span class="symbol">c:</span> 创建一个.tar文件</span></div><div class="line">  -<span class="ruby"><span class="symbol">r:</span> 在.tar中添加额外的文件</span></div><div class="line">  -<span class="ruby"><span class="symbol">t:</span> 显示.tar中的文件列表</span></div><div class="line">  -<span class="ruby"><span class="symbol">x:</span> 提取.tar中的文件到当前目录</span></div><div class="line">  -<span class="ruby"><span class="symbol">f:</span> 指定文件路径</span></div><div class="line">  -<span class="ruby"><span class="symbol">z:</span> 以gzip方式解压当前文件</span></div></pre></td></tr></table></figure>
 
@@ -3174,6 +3252,8 @@
     
     </summary>
     
+      <category term="Linux" scheme="http://arccode.net/tags/Linux/"/>
+    
       <category term="Linux" scheme="http://arccode.net/categories/Linux/"/>
     
   </entry>
@@ -3183,7 +3263,7 @@
     <link href="http://arccode.net/2014/07/08/Mac%E4%B8%8B%E4%BD%BF%E7%94%A8IE/"/>
     <id>http://arccode.net/2014/07/08/Mac下使用IE/</id>
     <published>2014-07-08T09:33:42.000Z</published>
-    <updated>2014-12-26T10:35:53.000Z</updated>
+    <updated>2015-02-25T15:35:59.000Z</updated>
     <content type="html"><![CDATA[<p>如何在Mac上使用IE？</p>
 <ol>
 <li>点击<a href="https://www.modern.ie/en-us/virtualization-tools#downloads" target="_blank" rel="external">modern.IE</a>，选择要下载的版本，点击<code>Grab them all with cURL</code>获取下载的URL，例如<br><img src="/images/modern_IE_page.png" alt=""></li>
@@ -3237,7 +3317,7 @@
     <link href="http://arccode.net/2014/07/08/%E6%B5%85%E8%B0%88W3C%E6%A0%87%E5%87%86/"/>
     <id>http://arccode.net/2014/07/08/浅谈W3C标准/</id>
     <published>2014-07-08T07:46:29.000Z</published>
-    <updated>2014-12-26T10:38:22.000Z</updated>
+    <updated>2015-02-25T15:30:36.000Z</updated>
     <content type="html"><![CDATA[<p>W3C标准涉及多个方面，官方标准点击<a href="http://www.w3.org/standards/" target="_blank" rel="external">这里</a>。从WEB技术应用角度看，可分为三个方面的标准：<strong>结构</strong>、<strong>表现</strong>、<strong>行为</strong>。</p>
 <ul>
 <li><code>结构</code>主要指HTML/XHTML标准，包括页面渲染、标签大小写、属性大小写、标签嵌套、闭合标签等等；</li>
@@ -3270,7 +3350,9 @@
     
       <category term="CSS" scheme="http://arccode.net/tags/CSS/"/>
     
-      <category term="Javascript" scheme="http://arccode.net/categories/Javascript/"/>
+      <category term="Javascript" scheme="http://arccode.net/tags/Javascript/"/>
+    
+      <category term="Web" scheme="http://arccode.net/categories/Web/"/>
     
   </entry>
   
@@ -3279,7 +3361,7 @@
     <link href="http://arccode.net/2014/07/06/%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/"/>
     <id>http://arccode.net/2014/07/06/进程和线程/</id>
     <published>2014-07-06T13:41:01.000Z</published>
-    <updated>2014-12-26T10:38:29.000Z</updated>
+    <updated>2015-02-25T15:29:57.000Z</updated>
     <content type="html"><![CDATA[<h2 id="进程">进程</h2>
 <p>并发执行的程序在执行过程中对资源（CPU、寄存器、IO、程序数据）分配和管理的基本单位；</p>
 <h3 id="进程状态">进程状态</h3>
@@ -3331,7 +3413,7 @@
     <link href="http://arccode.net/2014/07/01/%E5%BA%8F/"/>
     <id>http://arccode.net/2014/07/01/序/</id>
     <published>2014-07-01T14:57:07.000Z</published>
-    <updated>2014-12-26T10:38:14.000Z</updated>
+    <updated>2015-02-25T15:31:05.000Z</updated>
     <content type="html"><![CDATA[<h2 id="个人博客">个人博客</h2>
 <p>问：为什么要搭建博客？</p>
 <p>答：记录自己在IT这个行业中的点滴，同时把自己的一些东西分享给各位朋友。</p>
@@ -3340,7 +3422,7 @@
 <p>问：……？</p>
 <p>答：…………。</p>
 <p>问： 你的声音太小，我没听清楚呀。</p>
-<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#97;&#114;&#99;&#99;&#111;&#100;&#101;&#x40;&#49;&#x36;&#x33;&#46;&#99;&#111;&#x6d;">&#97;&#114;&#99;&#99;&#111;&#100;&#101;&#x40;&#49;&#x36;&#x33;&#46;&#99;&#111;&#x6d;</a>。</p>
+<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#109;&#x61;&#105;&#108;&#x74;&#111;&#58;&#x61;&#114;&#x63;&#x63;&#111;&#x64;&#x65;&#x40;&#49;&#x36;&#x33;&#x2e;&#x63;&#x6f;&#109;">&#x61;&#114;&#x63;&#x63;&#111;&#x64;&#x65;&#x40;&#49;&#x36;&#x33;&#x2e;&#x63;&#x6f;&#109;</a>。</p>
 <a id="more"></a>
 
 
@@ -3355,10 +3437,12 @@
 <p>问：……？</p>
 <p>答：…………。</p>
 <p>问： 你的声音太小，我没听清楚呀。</p>
-<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#97;&#114;&#99;&#99;&#111;&#100;&#101;&#x40;&#49;&#x36;&#x33;&#46;&#99;&#111;&#x6d;">&#97;&#114;&#99;&#99;&#111;&#100;&#101;&#x40;&#49;&#x36;&#x33;&#46;&#99;&#111;&#x6d;</a>。</p>
+<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#109;&#x61;&#105;&#108;&#x74;&#111;&#58;&#x61;&#114;&#x63;&#x63;&#111;&#x64;&#x65;&#x40;&#49;&#x36;&#x33;&#x2e;&#x63;&#x6f;&#109;">&#x61;&#114;&#x63;&#x63;&#111;&#x64;&#x65;&#x40;&#49;&#x36;&#x33;&#x2e;&#x63;&#x6f;&#109;</a>。</p>
 ]]>
     
     </summary>
+    
+      <category term="随笔" scheme="http://arccode.net/tags/%E9%9A%8F%E7%AC%94/"/>
     
       <category term="随笔" scheme="http://arccode.net/categories/%E9%9A%8F%E7%AC%94/"/>
     
