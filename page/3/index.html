@@ -120,6 +120,89 @@
           
           
             
+              <a class="post-title-link" href="/2014/10/23/Mac下安装SVN服务器/">
+                Mac下安装SVN服务器
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+          <span class="post-time">
+            
+              发表于 2014-10-23
+            
+          </span>
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/10/23/Mac下安装SVN服务器/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/23/Mac下安装SVN服务器/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          <h2 id="安装svnserver">安装svnserver</h2>
+<p>Mac自带svnserver, 输入svnserve —version</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">svnserve, <span class="built_in">version</span> <span class="number">1.7</span><span class="number">.10</span> (r1485443)</div><div class="line">   compiled Jan <span class="number">15</span> <span class="number">2014</span>, <span class="number">11</span>:<span class="number">22</span>:<span class="number">16</span></div><div class="line"></div><div class="line">Copyright (C) <span class="number">2013</span> The Apache Software Foundation.</div><div class="line">This software consists <span class="operator">of</span> contributions made <span class="keyword">by</span> many people; see <span class="operator">the</span> NOTICE</div><div class="line"><span class="built_in">file</span> <span class="keyword">for</span> more information.</div><div class="line">Subversion is <span class="built_in">open</span> source software, see <span class="keyword">http</span>://subversion.apache.org/</div><div class="line"></div><div class="line">The following repository back-<span class="function"><span class="keyword">end</span> (<span class="title">FS</span>) <span class="title">modules</span> <span class="title">are</span> <span class="title">available</span>:</span></div><div class="line"></div><div class="line">* fs_fs : Module <span class="keyword">for</span> working <span class="operator">with</span> <span class="operator">a</span> plain <span class="built_in">file</span> (FSFS) repository.</div></pre></td></tr></table></figure>
+
+
+          <div class="post-more-link center">
+            <a class="btn" href="/2014/10/23/Mac下安装SVN服务器/#more">
+              继续阅读 &raquo;
+            </a>
+          </div>
+        
+
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Svn/">
+                #Svn
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+          <div class="post-eof the-shape"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2014/09/30/Zookeeper实战一/">
                 Zookeeper实战一
               </a>
@@ -920,98 +1003,6 @@
         
 
         
-          <div class="post-eof the-shape"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/08/10/Mac下安装phpRedisAdmin/">
-                Mac下安装phpRedisAdmin
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-          <span class="post-time">
-            
-              发表于 2014-08-10
-            
-          </span>
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/08/10/Mac下安装phpRedisAdmin/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/08/10/Mac下安装phpRedisAdmin/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          <p>phpRedisAdmin是Redis的一个Web控制台，安装流程如下：</p>
-<h2 id="安装phpRedis模块">安装phpRedis模块</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:nicolasff/phpredis.git</div><div class="line"><span class="built_in">cd</span> phpredis</div><div class="line">phpize</div><div class="line">./configure</div><div class="line"><span class="built_in">sudo</span> make</div><div class="line"><span class="built_in">sudo</span> make install</div></pre></td></tr></table></figure>
-
-<h2 id="配置apache，启用php模块">配置apache，启用php模块</h2>
-<ul>
-<li><code>vim /etc/apache2/httpd.conf</code></li>
-<li>找到<code>#LoadModule php5_module libexec/apache2/libphp5.so</code>,将<code>#</code>删除</li>
-</ul>
-
-          <div class="post-more-link center">
-            <a class="btn" href="/2014/08/10/Mac下安装phpRedisAdmin/#more">
-              继续阅读 &raquo;
-            </a>
-          </div>
-        
-
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/Mac/">
-                #Mac
-              </a>
-            
-              <a href="/tags/Redis/">
-                #Redis
-              </a>
-            
-          </div>
-        
-
-        
-
-        
       </div>
     
   </div>
@@ -1050,7 +1041,7 @@
       <p class="site-description motion-element">狂奔中的全栈工程师</p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">

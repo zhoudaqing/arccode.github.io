@@ -120,6 +120,98 @@
           
           
             
+              <a class="post-title-link" href="/2014/08/10/Mac下安装phpRedisAdmin/">
+                Mac下安装phpRedisAdmin
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+          <span class="post-time">
+            
+              发表于 2014-08-10
+            
+          </span>
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/08/10/Mac下安装phpRedisAdmin/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/08/10/Mac下安装phpRedisAdmin/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          <p>phpRedisAdmin是Redis的一个Web控制台，安装流程如下：</p>
+<h2 id="安装phpRedis模块">安装phpRedis模块</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:nicolasff/phpredis.git</div><div class="line"><span class="built_in">cd</span> phpredis</div><div class="line">phpize</div><div class="line">./configure</div><div class="line"><span class="built_in">sudo</span> make</div><div class="line"><span class="built_in">sudo</span> make install</div></pre></td></tr></table></figure>
+
+<h2 id="配置apache，启用php模块">配置apache，启用php模块</h2>
+<ul>
+<li><code>vim /etc/apache2/httpd.conf</code></li>
+<li>找到<code>#LoadModule php5_module libexec/apache2/libphp5.so</code>,将<code>#</code>删除</li>
+</ul>
+
+          <div class="post-more-link center">
+            <a class="btn" href="/2014/08/10/Mac下安装phpRedisAdmin/#more">
+              继续阅读 &raquo;
+            </a>
+          </div>
+        
+
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Mac/">
+                #Mac
+              </a>
+            
+              <a href="/tags/Redis/">
+                #Redis
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+          <div class="post-eof the-shape"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2014/08/07/Mac下安装redis/">
                 Mac下安装redis
               </a>
@@ -906,98 +998,6 @@
         
 
         
-          <div class="post-eof the-shape"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/07/08/Mac下使用IE/">
-                Mac下使用IE
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-          <span class="post-time">
-            
-              发表于 2014-07-08
-            
-          </span>
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/07/08/Mac下使用IE/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/07/08/Mac下使用IE/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          <p>如何在Mac上使用IE？</p>
-<ol>
-<li>点击<a href="https://www.modern.ie/en-us/virtualization-tools#downloads" target="_blank" rel="external">modern.IE</a>，选择要下载的版本，点击<code>Grab them all with cURL</code>获取下载的URL，例如<br><img src="/images/modern_IE_page.png" alt=""></li>
-</ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -<span class="keyword">O</span> -L <span class="string">"https://www.modern.ie/vmdownload?platform=mac&virtPlatform=virtualbox&browserOS=IE10-Win8.1&parts=5&filename=VMBuild_20131127/VirtualBox/IE10_Win8/Mac/IE10.Win8.For.MacVirtualBox.part{1.sfx,2.rar,3.rar,4.rar,5.rar}"</span></div></pre></td></tr></table></figure>
-
-<ol>
-<li><code>$ cd ~/Downloads/VisualBox_IE</code>，切换到保存文件的目录；</li>
-</ol>
-
-          <div class="post-more-link center">
-            <a class="btn" href="/2014/07/08/Mac下使用IE/#more">
-              继续阅读 &raquo;
-            </a>
-          </div>
-        
-
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/Mac/">
-                #Mac
-              </a>
-            
-              <a href="/tags/VitualBox/">
-                #VitualBox
-              </a>
-            
-          </div>
-        
-
-        
-
-        
       </div>
     
   </div>
@@ -1036,7 +1036,7 @@
       <p class="site-description motion-element">狂奔中的全栈工程师</p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">
