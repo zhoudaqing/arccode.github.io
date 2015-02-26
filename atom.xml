@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://arccode.net/"/>
-  <updated>2015-02-26T03:35:28.406Z</updated>
+  <updated>2015-02-26T03:37:26.910Z</updated>
   <id>http://arccode.net/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://arccode.net/2015/02/26/RESTful%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
     <id>http://arccode.net/2015/02/26/RESTful最佳实践/</id>
     <published>2015-02-26T02:50:23.000Z</published>
-    <updated>2015-02-26T03:31:07.000Z</updated>
+    <updated>2015-02-26T03:36:35.000Z</updated>
     <content type="html"><![CDATA[<h1 id="背景">背景</h1>
 <p>此文为实践总结，是自己在实践过程中积累的经验和”哲学”。部分内容参考相关资料，参考内容请看尾页。建议对RESTful有一定了解者阅读!</p>
 <h1 id="哲学">哲学</h1>
@@ -36,6 +36,8 @@
 <h3 id="URI可以隐式指向唯一的集合列表">URI可以隐式指向唯一的集合列表</h3>
 <p><strong>示例:</strong> 隐式地指向trades list 集合</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="constant">GET</span> <span class="symbol">http:</span>/<span class="regexp">/~/</span><span class="variable">$version</span>/trades/(list)</div><div class="line">等同于</div><div class="line"><span class="constant">GET</span> <span class="symbol">http:</span>/<span class="regexp">/~/</span><span class="variable">$version</span>/trades</div></pre></td></tr></table></figure>
+
+<a id="more"></a>
 
 <h3 id="聚合资源必须通过父级资源操作">聚合资源必须通过父级资源操作</h3>
 <p><strong>示例:</strong> <code>Profile</code>是<code>User</code>的聚合资源，<code>User</code>有一个唯一且私有的<code>Profile</code>资源，只能通过<code>User</code>操作<code>Profile</code>。</p>
@@ -546,7 +548,21 @@
 <p>此文为实践总结，是自己在实践过程中积累的经验和”哲学”。部分内容参考相关资料，参考内容请看尾页。建议对RESTful有一定了解者阅读!</p>
 <h1 id="哲学">哲学</h1>
 <ul>
-<li>不要为了RESTful而REST]]>
+<li>不要为了RESTful而RESTful</li>
+<li>在能表达清楚的情况下，简单就是美</li>
+</ul>
+<h1 id="接口路径设计">接口路径设计</h1>
+<h2 id="接口设计原则">接口设计原则</h2>
+<h3 id="URI指向的是唯一的资源对象">URI指向的是唯一的资源对象</h3>
+<p><strong>示例:</strong> 指向ID为<code>yanbo.ai</code>的<code>Account</code>对象</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="constant">GET</span> <span class="symbol">http:</span>/<span class="regexp">/~/</span><span class="variable">$version</span>/accounts/yanbo.ai</div></pre></td></tr></table></figure>
+
+<h3 id="URI可以隐式指向唯一的集合列表">URI可以隐式指向唯一的集合列表</h3>
+<p><strong>示例:</strong> 隐式地指向trades list 集合</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="constant">GET</span> <span class="symbol">http:</span>/<span class="regexp">/~/</span><span class="variable">$version</span>/trades/(list)</div><div class="line">等同于</div><div class="line"><span class="constant">GET</span> <span class="symbol">http:</span>/<span class="regexp">/~/</span><span class="variable">$version</span>/trades</div></pre></td></tr></table></figure>
+
+]]>
+    
     </summary>
     
       <category term="Http" scheme="http://arccode.net/tags/Http/"/>
@@ -3965,7 +3981,7 @@
 <p>问：……？</p>
 <p>答：…………。</p>
 <p>问： 你的声音太小，我没听清楚呀。</p>
-<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#109;&#97;&#x69;&#108;&#116;&#111;&#x3a;&#97;&#x72;&#x63;&#99;&#111;&#x64;&#x65;&#x40;&#49;&#x36;&#51;&#x2e;&#x63;&#111;&#x6d;">&#97;&#x72;&#x63;&#99;&#111;&#x64;&#x65;&#x40;&#49;&#x36;&#51;&#x2e;&#x63;&#111;&#x6d;</a>。</p>
+<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#97;&#114;&#99;&#x63;&#111;&#x64;&#x65;&#x40;&#49;&#x36;&#x33;&#46;&#x63;&#111;&#109;">&#97;&#114;&#99;&#x63;&#111;&#x64;&#x65;&#x40;&#49;&#x36;&#x33;&#46;&#x63;&#111;&#109;</a>。</p>
 <a id="more"></a>
 
 
@@ -3980,7 +3996,7 @@
 <p>问：……？</p>
 <p>答：…………。</p>
 <p>问： 你的声音太小，我没听清楚呀。</p>
-<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#109;&#97;&#x69;&#108;&#116;&#111;&#x3a;&#97;&#x72;&#x63;&#99;&#111;&#x64;&#x65;&#x40;&#49;&#x36;&#51;&#x2e;&#x63;&#111;&#x6d;">&#97;&#x72;&#x63;&#99;&#111;&#x64;&#x65;&#x40;&#49;&#x36;&#51;&#x2e;&#x63;&#111;&#x6d;</a>。</p>
+<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#97;&#114;&#99;&#x63;&#111;&#x64;&#x65;&#x40;&#49;&#x36;&#x33;&#46;&#x63;&#111;&#109;">&#97;&#114;&#99;&#x63;&#111;&#x64;&#x65;&#x40;&#49;&#x36;&#x33;&#46;&#x63;&#111;&#109;</a>。</p>
 ]]>
     
     </summary>
