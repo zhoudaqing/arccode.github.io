@@ -13,7 +13,7 @@
   <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.3.0rc1"/>
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.3.0rc2"/>
 
 
     <meta name="description" content="狂奔中的全栈工程师" />
@@ -24,7 +24,7 @@
 
 
 
-    <link rel="shorticon icon" type="image/x-icon" href="/images/favicon.ico?v=0.3.0rc1" />
+    <link rel="shorticon icon" type="image/x-icon" href="/images/favicon.ico?v=0.3.0rc2" />
 
 
 
@@ -157,7 +157,7 @@
 <p>问：……？</p>
 <p>答：…………。</p>
 <p>问： 你的声音太小，我没听清楚呀。</p>
-<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#109;&#x61;&#105;&#x6c;&#116;&#111;&#x3a;&#97;&#114;&#x63;&#99;&#x6f;&#x64;&#101;&#64;&#x31;&#54;&#x33;&#46;&#x63;&#x6f;&#x6d;">&#97;&#114;&#x63;&#99;&#x6f;&#x64;&#101;&#64;&#x31;&#54;&#x33;&#46;&#x63;&#x6f;&#x6d;</a>。</p>
+<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#109;&#97;&#105;&#x6c;&#x74;&#111;&#58;&#x61;&#114;&#x63;&#x63;&#x6f;&#x64;&#x65;&#64;&#49;&#x36;&#51;&#x2e;&#x63;&#x6f;&#109;">&#x61;&#114;&#x63;&#x63;&#x6f;&#x64;&#x65;&#64;&#49;&#x36;&#51;&#x2e;&#x63;&#x6f;&#109;</a>。</p>
 <a id="more"></a>
 
 
@@ -190,13 +190,14 @@
 
 
   
-    
-      <div class="comments" id="comments">
+    <div class="comments" id="comments">
+      
         <div class="ds-thread" data-thread-key="2014/07/01/序/"
              data-title="序" data-url="http://arccode.net/2014/07/01/序/">
         </div>
-      </div>
-    
+
+      
+    </div>
   
 
           </div>
@@ -243,33 +244,33 @@
             <span class="site-state-item-name">标签</span>
         </div>
         <div class="site-state-item site-state-pages">
-            <span class="site-state-item-count">4</span>
+            <span class="site-state-item-count">3</span>
             <span class="site-state-item-name">页面</span>
         </div>
       </div>
 
       
-      <div class="feed-link motion-element">
-        <a href="/atom.xml">
-          <i class="menu-item-icon icon-feed"></i>
-          RSS
-        </a>
-      </div>
+        <div class="feed-link motion-element">
+          <a href="/atom.xml">
+            <i class="menu-item-icon icon-feed"></i>
+            RSS
+          </a>
+        </div>
       
 
       <div class="social-info motion-element">
         
           
             <span class="soclial-item">
-              <a href="http://arccode.net" target="_blank">BLOG</a>
+              <a href="http://arccode.net">BLOG</a>
             </span>
           
             <span class="soclial-item">
-              <a href="https://github.com/arccode" target="_blank">GITHUB</a>
+              <a href="https://github.com/arccode">GITHUB</a>
             </span>
           
             <span class="soclial-item">
-              <a href="http://weibo.com/tianzhisoftware" target="_blank">WEIBO</a>
+              <a href="http://weibo.com/tianzhisoftware">WEIBO</a>
             </span>
           
         
@@ -325,7 +326,7 @@
     <div class="back-to-top"></div>
   </div>
 
-  <script type="text/javascript" src="/vendors/jquery/dist/jquery.min.js?v=0.3.0rc1"></script>
+  <script type="text/javascript" src="/vendors/jquery/dist/jquery.min.js?v=0.3.0rc2"></script>
   
   <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
   <script type="text/javascript">
@@ -429,19 +430,19 @@
           sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusInit);
         });
       }
-
-      function isDesktop () {
-        return screen.width > 991;
-      }
-
-      function isTablet () {
-        return screen.width < 992 && screen.width > 767;
-      }
-
-      function isMobile () {
-        return screen.width < 767;
-      }
     });
+    
+    function isDesktop () {
+      return screen.width > 991;
+    }
+
+    function isTablet () {
+      return screen.width < 992 && screen.width > 767;
+    }
+
+    function isMobile () {
+      return screen.width < 767;
+    }
   </script>
 
   
@@ -469,7 +470,7 @@
               .velocity('transition.slideDownIn', 200)
               .addClass(activePanelClassName);
           });
-          
+
           item.siblings().removeClass(activeTabClassName);
           item.addClass(activeTabClassName);
         });
@@ -482,11 +483,17 @@
             mobileHA: false
           });
         });
+
+        // Expand sidebar on post detail page by default, when post has a toc.
+        if ($('.post-toc').html().trim().length > 0 && isDesktop()) {
+          $('.sidebar-toggle').trigger('click');
+        }
       });
     </script>
   
 
 
+  
 
   
 
