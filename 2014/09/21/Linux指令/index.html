@@ -149,11 +149,89 @@
         
 
         
-          <ul>
-<li>修改日期: <code>date -s &quot;2014-01-01 00:00:00&quot;</code></li>
-<li>同步指定服务器日期: <code>ntpdate 3.cn.pool.ntp.org</code></li>
-<li>查看文件编码: <code>set fileencoding</code></li>
-</ul>
+          <h2 id="常用">常用</h2>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>instruct</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>修改日期</td>
+<td>date -s “2014-01-01 00:00:00”</td>
+</tr>
+<tr>
+<td>同步指定服务器日期</td>
+<td>ntpdate 3.cn.pool.ntp.org</td>
+</tr>
+<tr>
+<td>查看文件编码</td>
+<td>set fileencoding</td>
+</tr>
+<tr>
+<td>查看端口占用情况</td>
+<td>netstat -an \</td>
+<td>grep 3306</td>
+<td>netstat命令</td>
+</tr>
+<tr>
+<td>查看文件使用情况</td>
+<td>lsof -i:80</td>
+<td>-i参数表示网络链接，:80指明端口号，该命令会同时列出PID，方便kill</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Vim">Vim</h2>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>instruct</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>复制一行</td>
+<td>yy</td>
+</tr>
+<tr>
+<td>粘贴</td>
+<td>p</td>
+</tr>
+<tr>
+<td>删除一行</td>
+<td>dd</td>
+</tr>
+<tr>
+<td>文章底部</td>
+<td>shift + g</td>
+</tr>
+<tr>
+<td>文章首部</td>
+<td>gg</td>
+</tr>
+<tr>
+<td>行首</td>
+<td>0</td>
+</tr>
+<tr>
+<td>行末</td>
+<td>shift + $</td>
+</tr>
+<tr>
+<td>下一页</td>
+<td>control + f</td>
+</tr>
+<tr>
+<td>上一页</td>
+<td>control + b</td>
+</tr>
+</tbody>
+</table>
 <a id="more"></a>
 
 <h2 id="参考资料">参考资料</h2>
@@ -231,11 +309,11 @@
       <p class="site-description motion-element">狂奔中的全栈工程师</p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">
-            <span class="site-state-item-count">40</span>
+            <span class="site-state-item-count">42</span>
             <span class="site-state-item-name">标签</span>
         </div>
         <div class="site-state-item site-state-pages">
@@ -275,7 +353,7 @@
 
     
       <div class="post-toc sidebar-panel-active">
-        <ol class="motion-element"><li class="motion-element-item motion-element-level-2"><a class="motion-element-link" href="#参考资料"><span class="motion-element-number">1.</span> <span class="motion-element-text">参考资料</span></a></li></ol>
+        <ol class="motion-element"><li class="motion-element-item motion-element-level-2"><a class="motion-element-link" href="#常用"><span class="motion-element-number">1.</span> <span class="motion-element-text">常用</span></a></li><li class="motion-element-item motion-element-level-2"><a class="motion-element-link" href="#Vim"><span class="motion-element-number">2.</span> <span class="motion-element-text">Vim</span></a></li><li class="motion-element-item motion-element-level-2"><a class="motion-element-link" href="#参考资料"><span class="motion-element-number">3.</span> <span class="motion-element-text">参考资料</span></a></li></ol>
       </div>
     
   </div>

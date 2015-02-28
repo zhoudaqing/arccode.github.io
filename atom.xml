@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://arccode.net/"/>
-  <updated>2015-02-26T03:37:26.910Z</updated>
+  <updated>2015-02-28T00:56:08.455Z</updated>
   <id>http://arccode.net/</id>
   
   <author>
@@ -15,11 +15,101 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[Nginx配置小记]]></title>
+    <link href="http://arccode.net/2015/02/27/Nginx%E9%85%8D%E7%BD%AE%E5%B0%8F%E8%AE%B0/"/>
+    <id>http://arccode.net/2015/02/27/Nginx配置小记/</id>
+    <published>2015-02-27T07:37:23.000Z</published>
+    <updated>2015-02-28T00:55:47.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="背景">背景</h2>
+<p>之前一直使用Apache做静态资源私服及反向代理, 配置稍显复杂, 今天使用nginx来替换Apache, 在此小记一下探索的过程及碰到的问题.</p>
+<h2 id="安装">安装</h2>
+<p>本人使用Mac系统, 偷懒的使用了homebrew, 一键完成了安装. 对于其它<code>OS</code>使用解压<code>zip</code>的方式.</p>
+<a id="more"></a>
+
+<p>下面从安装homebrew开始吧</p>
+<h3 id="安装Homebrew">安装Homebrew</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div><div class="line"></div><div class="line">brew cleanup</div><div class="line"></div><div class="line">brew doctor</div></pre></td></tr></table></figure>
+
+<h3 id="安装Nginx">安装Nginx</h3>
+<p>安装</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew <span class="operator"><span class="keyword">install</span> nginx</span></div></pre></td></tr></table></figure>
+
+<p>启动</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> nginx</div></pre></td></tr></table></figure>
+
+<p>停止</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> nginx <span class="operator">-s</span> stop</div></pre></td></tr></table></figure>
+
+<h2 id="配置">配置</h2>
+<h3 id="文件目录">文件目录</h3>
+<p>nginx安装文件目录</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">/usr/</span>local<span class="regexp">/Cellar/</span>nginx</div></pre></td></tr></table></figure>
+
+<p>nginx配置文件目录</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">/usr/</span>local<span class="regexp">/etc/</span>nginx</div></pre></td></tr></table></figure>
+
+<p>系统hosts位置</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/<span class="keyword">private</span>/etc/hosts</div></pre></td></tr></table></figure>
+
+<h3 id="配置nginx">配置nginx</h3>
+<p>使用多个配置来管理nginx下的多个websites</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">cd</span> /usr/local/etc/nginx</div><div class="line"></div><div class="line"><span class="built_in">mkdir</span> <span class="keyword">conf</span>.<span class="keyword">d</span></div><div class="line"></div><div class="line"><span class="keyword">vim</span> /usr/local/etc/nginx/nginx.<span class="keyword">conf</span></div></pre></td></tr></table></figure>
+
+<p>在nginx.conf中进行修改, 大致配置可如下, 详细配置见<a href="http://nginx.org/cn/docs/" target="_blank" rel="external">官方文档</a></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="title">user</span>  your_username staff;</div><div class="line"><span class="title">worker_processes</span>  <span class="number">1</span>;</div><div class="line"></div><div class="line"><span class="title">events</span> {</div><div class="line">    <span class="title">worker_connections</span>  <span class="number">1024</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="title">http</span> {</div><div class="line">    <span class="title">include</span>       mime.types;</div><div class="line">    <span class="title">default_type</span>  application/octet-stream;</div><div class="line">    <span class="title">sendfile</span>        <span class="built_in">on</span>;</div><div class="line">    <span class="title">keepalive_timeout</span>  <span class="number">65</span>;</div><div class="line">    <span class="title">include</span> conf.d/<span class="regexp">*.conf</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>注意修改该配置中的<code>your_username</code>为你的Mac用户名.</p>
+<p>到此父级配置已配置完成, 接下来配置用户希望的功能, 例如静态资源私服或反向代理.</p>
+<p>配置自己的静态资源服务器(username.conf), 如下</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="title">server</span> {</div><div class="line">        <span class="title">listen</span>       <span class="number">80</span>;</div><div class="line">        <span class="title">server_name</span>  resource.com;</div><div class="line">        <span class="title">charset</span> utf-<span class="number">8</span>,gbk; </div><div class="line">        <span class="title">location</span> / {</div><div class="line">            <span class="title">root</span>   /Users/username/resource;</div><div class="line">            <span class="comment">#index  index.html index.htm;</span></div><div class="line">            <span class="title">autoindex</span> <span class="built_in">on</span>;</div><div class="line">            <span class="title">autoindex_exact_size</span> <span class="built_in">on</span>;</div><div class="line">            <span class="title">autoindex_localtime</span> <span class="built_in">on</span>;</div><div class="line">        }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>配置反向代理(待续), 如下</p>
+<h3 id="配置hosts">配置hosts</h3>
+<p>针对静态资源私服的hosts</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /<span class="keyword">private</span>/etc/hosts</div></pre></td></tr></table></figure>
+
+<p>在末尾加入如下代码, 该域名是静态私服中指定的<code>server_name</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">127.0</span>.<span class="number">0.1</span> resource.<span class="keyword">com</span></div></pre></td></tr></table></figure>
+
+<p>到此静态资源私服配置完毕, 在浏览器中键入<code>http://resource.com/</code>可以对指定目录的文件进行浏览,下载.</p>
+<h2 id="问题">问题</h2>
+<p>1.键入<code>http://resource.com/</code>, 服务器返回<code>403</code>界面</p>
+<p>该问题是因为访问权限不够造成, 在<code>nginx.conf</code>首行配置即可,</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="literal">user</span>  your_username staff<span class="comment">;</span></div></pre></td></tr></table></figure>
+
+<p>2.目录未显示, 只显示index.html页面</p>
+<p>该问题是指定站点(website)未启用目录浏览功能, 在指定<code>server</code>的<code>location</code>节点启用目录浏览功能,如下,</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">autoindex <span class="command"><span class="keyword">on</span>;</span></div><div class="line">autoindex_exact_size </div><div class="line">autoindex_localtime <span class="command"><span class="keyword">on</span>;</span></div></pre></td></tr></table></figure>
+
+<h2 id="参考资料">参考资料</h2>
+<p><a href="https://gist.github.com/netpoetica/5879685" target="_blank" rel="external">Setting up Nginx on Your Local System</a></p>
+<p><a href="http://nginx.org/cn/docs/" target="_blank" rel="external">Nginx文档</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="背景">背景</h2>
+<p>之前一直使用Apache做静态资源私服及反向代理, 配置稍显复杂, 今天使用nginx来替换Apache, 在此小记一下探索的过程及碰到的问题.</p>
+<h2 id="安装">安装</h2>
+<p>本人使用Mac系统, 偷懒的使用了homebrew, 一键完成了安装. 对于其它<code>OS</code>使用解压<code>zip</code>的方式.</p>
+]]>
+    
+    </summary>
+    
+      <category term="Mac" scheme="http://arccode.net/tags/Mac/"/>
+    
+      <category term="Nginx" scheme="http://arccode.net/tags/Nginx/"/>
+    
+      <category term="负载均衡" scheme="http://arccode.net/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"/>
+    
+      <category term="服务器" scheme="http://arccode.net/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[RESTful最佳实践]]></title>
     <link href="http://arccode.net/2015/02/26/RESTful%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
     <id>http://arccode.net/2015/02/26/RESTful最佳实践/</id>
     <published>2015-02-26T02:50:23.000Z</published>
-    <updated>2015-02-26T03:36:35.000Z</updated>
+    <updated>2015-02-26T14:52:30.000Z</updated>
     <content type="html"><![CDATA[<h1 id="背景">背景</h1>
 <p>此文为实践总结，是自己在实践过程中积累的经验和”哲学”。部分内容参考相关资料，参考内容请看尾页。建议对RESTful有一定了解者阅读!</p>
 <h1 id="哲学">哲学</h1>
@@ -378,93 +468,111 @@
 <thead>
 <tr>
 <th>Code</th>
-<th>HTTP Operation    Body Contents</th>
+<th>HTTP Operation    Body</th>
+<th>Contents</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>200    GET,PUT</td>
+<td>200</td>
+<td>GET,PUT</td>
 <td>资源</td>
 <td>操作成功</td>
 </tr>
 <tr>
-<td>201    POST</td>
+<td>201</td>
+<td>POST</td>
 <td>资源,元数据</td>
 <td>对象创建成功</td>
 </tr>
 <tr>
-<td>202    POST,PUT,DELETE,PATCH</td>
+<td>202</td>
+<td>POST,PUT,DELETE,PATCH</td>
 <td>N/A</td>
 <td>请求已经被接受</td>
 </tr>
 <tr>
-<td>204    DELETE,PUT,PATCH</td>
+<td>204</td>
+<td>DELETE,PUT,PATCH</td>
 <td>N/A</td>
 <td>操作已经执行成功，但是没有返回数据</td>
 </tr>
 <tr>
-<td>301    GET</td>
+<td>301</td>
+<td>GET</td>
 <td>link</td>
 <td>资源已被移除</td>
 </tr>
 <tr>
-<td>303    GET</td>
+<td>303</td>
+<td>GET</td>
 <td>link</td>
 <td>重定向</td>
 </tr>
 <tr>
-<td>304    GET</td>
+<td>304</td>
+<td>GET</td>
 <td>N/A</td>
 <td>资源没有被修改</td>
 </tr>
 <tr>
-<td>400    GET,PSOT,PUT,DELETE,PATCH</td>
+<td>400</td>
+<td>GET,PSOT,PUT,DELETE,PATCH</td>
 <td>错误提示(消息)</td>
 <td>参数列表错误(缺少，格式不匹配)</td>
 </tr>
 <tr>
-<td>401    GET,PSOT,PUT,DELETE,PATCH</td>
+<td>401</td>
+<td>GET,PSOT,PUT,DELETE,PATCH</td>
 <td>错误提示(消息)</td>
 <td>未授权</td>
 </tr>
 <tr>
-<td>403    GET,PSOT,PUT,DELETE,PATCH</td>
+<td>403</td>
+<td>GET,PSOT,PUT,DELETE,PATCH</td>
 <td>错误提示(消息)</td>
 <td>访问受限，授权过期</td>
 </tr>
 <tr>
-<td>404    GET,PSOT,PUT,DELETE,PATCH</td>
+<td>404</td>
+<td>GET,PSOT,PUT,DELETE,PATCH</td>
 <td>错误提示(消息)</td>
 <td>资源，服务未找到</td>
 </tr>
 <tr>
-<td>405    GET,PSOT,PUT,DELETE,PATCH</td>
+<td>405</td>
+<td>GET,PSOT,PUT,DELETE,PATCH</td>
 <td>错误提示(消息)</td>
 <td>不允许的http方法</td>
 </tr>
 <tr>
-<td>409    GET,PSOT,PUT,DELETE,PATCH</td>
+<td>409</td>
+<td>GET,PSOT,PUT,DELETE,PATCH</td>
 <td>错误提示(消息)</td>
 <td>资源冲突，或者资源被锁定</td>
 </tr>
 <tr>
-<td>415    GET,PSOT,PUT,DELETE,PATCH</td>
+<td>415</td>
+<td>GET,PSOT,PUT,DELETE,PATCH</td>
 <td>错误提示(消息)</td>
 <td>不支持的数据(媒体)类型</td>
 </tr>
 <tr>
-<td>429    GET,PSOT,PUT,DELETE,PATCH</td>
+<td>429</td>
+<td>GET,PSOT,PUT,DELETE,PATCH</td>
 <td>错误提示(消息)</td>
 <td>请求过多被限制</td>
 </tr>
 <tr>
-<td>500    GET,PSOT,PUT,DELETE,PATCH</td>
+<td>500</td>
+<td>GET,PSOT,PUT,DELETE,PATCH</td>
 <td>错误提示(消息)</td>
 <td>系统内部错误</td>
 </tr>
 <tr>
-<td>501    GET,PSOT,PUT,DELETE,PATCH</td>
+<td>501</td>
+<td>GET,PSOT,PUT,DELETE,PATCH</td>
 <td>错误提示(消息)</td>
 <td>接口未实现</td>
 </tr>
@@ -2991,23 +3099,179 @@
     <link href="http://arccode.net/2014/09/21/Linux%E6%8C%87%E4%BB%A4/"/>
     <id>http://arccode.net/2014/09/21/Linux指令/</id>
     <published>2014-09-21T08:47:22.000Z</published>
-    <updated>2015-02-25T15:34:18.000Z</updated>
-    <content type="html"><![CDATA[<ul>
-<li>修改日期: <code>date -s &quot;2014-01-01 00:00:00&quot;</code></li>
-<li>同步指定服务器日期: <code>ntpdate 3.cn.pool.ntp.org</code></li>
-<li>查看文件编码: <code>set fileencoding</code></li>
-</ul>
+    <updated>2015-02-27T02:58:20.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="常用">常用</h2>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>instruct</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>修改日期</td>
+<td>date -s “2014-01-01 00:00:00”</td>
+</tr>
+<tr>
+<td>同步指定服务器日期</td>
+<td>ntpdate 3.cn.pool.ntp.org</td>
+</tr>
+<tr>
+<td>查看文件编码</td>
+<td>set fileencoding</td>
+</tr>
+<tr>
+<td>查看端口占用情况</td>
+<td>netstat -an \</td>
+<td>grep 3306</td>
+<td>netstat命令</td>
+</tr>
+<tr>
+<td>查看文件使用情况</td>
+<td>lsof -i:80</td>
+<td>-i参数表示网络链接，:80指明端口号，该命令会同时列出PID，方便kill</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Vim">Vim</h2>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>instruct</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>复制一行</td>
+<td>yy</td>
+</tr>
+<tr>
+<td>粘贴</td>
+<td>p</td>
+</tr>
+<tr>
+<td>删除一行</td>
+<td>dd</td>
+</tr>
+<tr>
+<td>文章底部</td>
+<td>shift + g</td>
+</tr>
+<tr>
+<td>文章首部</td>
+<td>gg</td>
+</tr>
+<tr>
+<td>行首</td>
+<td>0</td>
+</tr>
+<tr>
+<td>行末</td>
+<td>shift + $</td>
+</tr>
+<tr>
+<td>下一页</td>
+<td>control + f</td>
+</tr>
+<tr>
+<td>上一页</td>
+<td>control + b</td>
+</tr>
+</tbody>
+</table>
 <a id="more"></a>
 
 <h2 id="参考资料">参考资料</h2>
 <p><a href="http://navyaijm.blog.51cto.com/4647068/809455" target="_blank" rel="external">Centos 5.6下面架设NTP服务器</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<ul>
-<li>修改日期: <code>date -s &quot;2014-01-01 00:00:00&quot;</code></li>
-<li>同步指定服务器日期: <code>ntpdate 3.cn.pool.ntp.org</code></li>
-<li>查看文件编码: <code>set fileencoding</code></li>
-</ul>
+    <![CDATA[<h2 id="常用">常用</h2>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>instruct</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>修改日期</td>
+<td>date -s “2014-01-01 00:00:00”</td>
+</tr>
+<tr>
+<td>同步指定服务器日期</td>
+<td>ntpdate 3.cn.pool.ntp.org</td>
+</tr>
+<tr>
+<td>查看文件编码</td>
+<td>set fileencoding</td>
+</tr>
+<tr>
+<td>查看端口占用情况</td>
+<td>netstat -an \</td>
+<td>grep 3306</td>
+<td>netstat命令</td>
+</tr>
+<tr>
+<td>查看文件使用情况</td>
+<td>lsof -i:80</td>
+<td>-i参数表示网络链接，:80指明端口号，该命令会同时列出PID，方便kill</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Vim">Vim</h2>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>instruct</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>复制一行</td>
+<td>yy</td>
+</tr>
+<tr>
+<td>粘贴</td>
+<td>p</td>
+</tr>
+<tr>
+<td>删除一行</td>
+<td>dd</td>
+</tr>
+<tr>
+<td>文章底部</td>
+<td>shift + g</td>
+</tr>
+<tr>
+<td>文章首部</td>
+<td>gg</td>
+</tr>
+<tr>
+<td>行首</td>
+<td>0</td>
+</tr>
+<tr>
+<td>行末</td>
+<td>shift + $</td>
+</tr>
+<tr>
+<td>下一页</td>
+<td>control + f</td>
+</tr>
+<tr>
+<td>上一页</td>
+<td>control + b</td>
+</tr>
+</tbody>
+</table>
 ]]>
     
     </summary>
@@ -3981,7 +4245,7 @@
 <p>问：……？</p>
 <p>答：…………。</p>
 <p>问： 你的声音太小，我没听清楚呀。</p>
-<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#97;&#114;&#99;&#x63;&#111;&#x64;&#x65;&#x40;&#49;&#x36;&#x33;&#46;&#x63;&#111;&#109;">&#97;&#114;&#99;&#x63;&#111;&#x64;&#x65;&#x40;&#49;&#x36;&#x33;&#46;&#x63;&#111;&#109;</a>。</p>
+<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#x6d;&#97;&#x69;&#108;&#116;&#111;&#x3a;&#97;&#114;&#99;&#x63;&#x6f;&#x64;&#101;&#64;&#x31;&#x36;&#x33;&#46;&#99;&#111;&#x6d;">&#97;&#114;&#99;&#x63;&#x6f;&#x64;&#101;&#64;&#x31;&#x36;&#x33;&#46;&#99;&#111;&#x6d;</a>。</p>
 <a id="more"></a>
 
 
@@ -3996,7 +4260,7 @@
 <p>问：……？</p>
 <p>答：…………。</p>
 <p>问： 你的声音太小，我没听清楚呀。</p>
-<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#97;&#114;&#99;&#x63;&#111;&#x64;&#x65;&#x40;&#49;&#x36;&#x33;&#46;&#x63;&#111;&#109;">&#97;&#114;&#99;&#x63;&#111;&#x64;&#x65;&#x40;&#49;&#x36;&#x33;&#46;&#x63;&#111;&#109;</a>。</p>
+<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#x6d;&#97;&#x69;&#108;&#116;&#111;&#x3a;&#97;&#114;&#99;&#x63;&#x6f;&#x64;&#101;&#64;&#x31;&#x36;&#x33;&#46;&#99;&#111;&#x6d;">&#97;&#114;&#99;&#x63;&#x6f;&#x64;&#101;&#64;&#x31;&#x36;&#x33;&#46;&#99;&#111;&#x6d;</a>。</p>
 ]]>
     
     </summary>

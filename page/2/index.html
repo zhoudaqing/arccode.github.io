@@ -120,6 +120,83 @@
           
           
             
+              <a class="post-title-link" href="/2015/01/07/大数据参考资料/">
+                大数据参考资料
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+          <span class="post-time">
+            
+              发表于 2015-01-07
+            
+          </span>
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/01/07/大数据参考资料/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/07/大数据参考资料/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          <p>大数据相关资料汇聚于此</p>
+<p><a href="http://blog.csdn.net/xpmars/article/details/42435441" target="_blank" rel="external">大数据架构</a></p>
+<p><a href="http://blog.csdn.net/hguisu/article/details/9174459" target="_blank" rel="external">Redis 代理服务Twemproxy</a></p>
+
+        
+
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/学习资料/">
+                #学习资料
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+          <div class="post-eof the-shape"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/01/07/Web参考资料/">
                 Web参考资料
               </a>
@@ -888,97 +965,6 @@
         
 
         
-          <div class="post-eof the-shape"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/10/30/Log4j配置/">
-                Log4j配置
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-          <span class="post-time">
-            
-              发表于 2014-10-30
-            
-          </span>
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/10/30/Log4j配置/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/30/Log4j配置/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          <h2 id="在Java_Web项目中配置Log4j">在Java Web项目中配置Log4j</h2>
-<h3 id="示例文件">示例文件</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></div><div class="line"><span class="doctype">&lt;!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" &gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">log4j:configuration</span> <span class="attribute">xmlns:log4j</span>=<span class="value">"http://jakarta.apache.org/log4j/"</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- Appenders --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">appender</span> <span class="attribute">name</span>=<span class="value">"console"</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.ConsoleAppender"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"Target"</span> <span class="attribute">value</span>=<span class="value">"System.out"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">layout</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.PatternLayout"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ConversionPattern"</span> <span class="attribute">value</span>=<span class="value">"[%p] %d{yyyy-MM-dd HH:mm:ss:SSS} [%l] %m%n"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="title">layout</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">appender</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="title">appender</span> <span class="attribute">name</span>=<span class="value">"FILE-INFO"</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.DailyRollingFileAppender"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"File"</span> <span class="attribute">value</span>=<span class="value">"/home/ad/logs/ad-quartz-info-db.log"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"Append"</span> <span class="attribute">value</span>=<span class="value">"true"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ImmediateFlush"</span> <span class="attribute">value</span>=<span class="value">"true"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"DatePattern"</span> <span class="attribute">value</span>=<span class="value">".yyyy-MM-dd"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"BufferSize"</span> <span class="attribute">value</span>=<span class="value">"500"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">layout</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.PatternLayout"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ConversionPattern"</span> <span class="attribute">value</span>=<span class="value">"[%p] %d{yyyy-MM-dd HH:mm:ss:SSS} [%l] %m%n"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="title">layout</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">filter</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.varia.LevelRangeFilter"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"LevelMin"</span> <span class="attribute">value</span>=<span class="value">"DEBUG"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"LevelMax"</span> <span class="attribute">value</span>=<span class="value">"INFO"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"acceptOnMatch"</span> <span class="attribute">value</span>=<span class="value">"false"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="title">filter</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">appender</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="title">appender</span> <span class="attribute">name</span>=<span class="value">"FILE-WARN"</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.DailyRollingFileAppender"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"File"</span> <span class="attribute">value</span>=<span class="value">"/home/ad/logs/ad-quartz-warn-db.log"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"Append"</span> <span class="attribute">value</span>=<span class="value">"true"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ImmediateFlush"</span> <span class="attribute">value</span>=<span class="value">"true"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"DatePattern"</span> <span class="attribute">value</span>=<span class="value">".yyyy-MM-dd"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"BufferSize"</span> <span class="attribute">value</span>=<span class="value">"500"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">layout</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.PatternLayout"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ConversionPattern"</span> <span class="attribute">value</span>=<span class="value">"[%p] %d{yyyy-MM-dd HH:mm:ss:SSS} [%l] %m%n"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="title">layout</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">filter</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.varia.LevelRangeFilter"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"LevelMin"</span> <span class="attribute">value</span>=<span class="value">"WARN"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"LevelMax"</span> <span class="attribute">value</span>=<span class="value">"FATAL"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"acceptOnMatch"</span> <span class="attribute">value</span>=<span class="value">"false"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="title">filter</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">appender</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- Root Logger --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">root</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">priority</span> <span class="attribute">value</span>=<span class="value">"debug"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"console"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"FILE-INFO"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"FILE-WARN"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">root</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="title">log4j:configuration</span>&gt;</span></div></pre></td></tr></table></figure>
-
-
-          <div class="post-more-link center">
-            <a class="btn" href="/2014/10/30/Log4j配置/#more">
-              继续阅读 &raquo;
-            </a>
-          </div>
-        
-
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/Java/">
-                #Java
-              </a>
-            
-              <a href="/tags/Log/">
-                #Log
-              </a>
-            
-              <a href="/tags/Log4j/">
-                #Log4j
-              </a>
-            
-          </div>
-        
-
-        
-
-        
       </div>
     
   </div>
@@ -1017,11 +1003,11 @@
       <p class="site-description motion-element">狂奔中的全栈工程师</p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">
-            <span class="site-state-item-count">40</span>
+            <span class="site-state-item-count">42</span>
             <span class="site-state-item-name">标签</span>
         </div>
         <div class="site-state-item site-state-pages">

@@ -120,6 +120,107 @@
           
           
             
+              <a class="post-title-link" href="/2014/08/10/Mac下安装memcached/">
+                Mac下安装memcached
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+          <span class="post-time">
+            
+              发表于 2014-08-10
+            
+          </span>
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/08/10/Mac下安装memcached/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/08/10/Mac下安装memcached/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          <h2 id="安装libevent(memcached的依赖库)">安装libevent(memcached的依赖库)</h2>
+<ul>
+<li><a href="https://github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz" target="_blank" rel="external">下载</a>libevent源码</li>
+<li>解压<code>tar -xzf libevent-2.0.21-stable.tar.gz</code></li>
+<li><code>cd libevent-2.0.21-stable</code></li>
+<li><code>sudo ./configure --prefix=/usr</code></li>
+<li><code>sudo make</code></li>
+<li><code>sudo make install</code></li>
+</ul>
+<h2 id="安装memcached">安装memcached</h2>
+<ul>
+<li><a href="http://www.memcached.org/files/memcached-1.4.20.tar.gz" target="_blank" rel="external">下载</a>memcached源码</li>
+<li>解压<code>memcached-1.4.20</code></li>
+<li><code>cd memcached-1.4.20</code></li>
+<li><code>sudo ./configure --prefix=/usr</code></li>
+<li><code>sudo make</code></li>
+<li><code>sudo make install</code></li>
+</ul>
+
+          <div class="post-more-link center">
+            <a class="btn" href="/2014/08/10/Mac下安装memcached/#more">
+              继续阅读 &raquo;
+            </a>
+          </div>
+        
+
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Mac/">
+                #Mac
+              </a>
+            
+              <a href="/tags/Memcached/">
+                #Memcached
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+          <div class="post-eof the-shape"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2014/08/10/Mac下安装phpRedisAdmin/">
                 Mac下安装phpRedisAdmin
               </a>
@@ -916,88 +1017,6 @@
         
 
         
-          <div class="post-eof the-shape"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/07/12/tar命令详解/">
-                tar命令详解
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-          <span class="post-time">
-            
-              发表于 2014-07-12
-            
-          </span>
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/07/12/tar命令详解/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/07/12/tar命令详解/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          <h2 id="语法">语法</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">tar {-c | -r | -t | -x | -f} {fileName} [fileList]</div><div class="line">  </div><div class="line">  -<span class="ruby"><span class="symbol">c:</span> 创建一个.tar文件</span></div><div class="line">  -<span class="ruby"><span class="symbol">r:</span> 在.tar中添加额外的文件</span></div><div class="line">  -<span class="ruby"><span class="symbol">t:</span> 显示.tar中的文件列表</span></div><div class="line">  -<span class="ruby"><span class="symbol">x:</span> 提取.tar中的文件到当前目录</span></div><div class="line">  -<span class="ruby"><span class="symbol">f:</span> 指定文件路径</span></div><div class="line">  -<span class="ruby"><span class="symbol">z:</span> 以gzip方式解压当前文件</span></div></pre></td></tr></table></figure>
-
-
-          <div class="post-more-link center">
-            <a class="btn" href="/2014/07/12/tar命令详解/#more">
-              继续阅读 &raquo;
-            </a>
-          </div>
-        
-
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/Linux/">
-                #Linux
-              </a>
-            
-          </div>
-        
-
-        
-
-        
       </div>
     
   </div>
@@ -1036,11 +1055,11 @@
       <p class="site-description motion-element">狂奔中的全栈工程师</p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">
-            <span class="site-state-item-count">40</span>
+            <span class="site-state-item-count">42</span>
             <span class="site-state-item-name">标签</span>
         </div>
         <div class="site-state-item site-state-pages">
