@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://arccode.net/"/>
-  <updated>2015-02-28T06:35:28.866Z</updated>
+  <updated>2015-02-28T09:06:06.421Z</updated>
   <id>http://arccode.net/</id>
   
   <author>
@@ -166,12 +166,12 @@
     <link href="http://arccode.net/2015/02/27/Nginx%E9%85%8D%E7%BD%AE%E5%B0%8F%E8%AE%B0/"/>
     <id>http://arccode.net/2015/02/27/Nginx配置小记/</id>
     <published>2015-02-27T07:37:23.000Z</published>
-    <updated>2015-02-28T04:40:56.000Z</updated>
+    <updated>2015-02-28T09:05:39.000Z</updated>
     <content type="html"><![CDATA[<h2 id="背景">背景</h2>
 <p>之前一直使用Apache做静态资源私服及反向代理, 配置稍显复杂, 今天使用nginx来替换Apache, 在此小记一下探索的过程及碰到的问题.</p>
 <h2 id="安装">安装</h2>
 <p>本人使用Mac系统, 偷懒的使用了homebrew, 一键完成了安装. 对于其它<code>OS</code>使用解压<code>zip</code>的方式.</p>
-<p>下面从安装—&gt;配置(静态资源私服 php)—&gt;问题展开吧</p>
+<p>下面从安装—&gt;配置(静态资源私服 php 反向代理)—&gt;问题展开吧</p>
 <a id="more"></a>
 
 <h3 id="安装Homebrew">安装Homebrew</h3>
@@ -210,7 +210,9 @@
 <p>配置自己的静态资源服务器(username.conf), 如下</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="title">server</span> {</div><div class="line">        <span class="title">listen</span>       <span class="number">80</span>;</div><div class="line">        <span class="title">server_name</span>  resource.com;</div><div class="line">        <span class="title">charset</span> utf-<span class="number">8</span>,gbk; </div><div class="line">        <span class="title">location</span> / {</div><div class="line">            <span class="title">root</span>   /Users/username/resource;</div><div class="line">            <span class="comment">#index  index.html index.htm;</span></div><div class="line">            <span class="title">autoindex</span> <span class="built_in">on</span>;</div><div class="line">            <span class="title">autoindex_exact_size</span> <span class="built_in">on</span>;</div><div class="line">            <span class="title">autoindex_localtime</span> <span class="built_in">on</span>;</div><div class="line">        }</div><div class="line">}</div></pre></td></tr></table></figure>
 
-<p>配置反向代理(待续), 如下</p>
+<p>配置反向代理, 如下</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="title">server</span> {</div><div class="line">    <span class="title">listen</span>       <span class="number">80</span>;</div><div class="line">    <span class="title">server_name</span>  app.com;</div><div class="line">	</div><div class="line">	<span class="comment"># oauth2的资源服务器</span></div><div class="line">	<span class="title">location</span> / {</div><div class="line">		<span class="title">proxy_set_header</span>        Host <span class="variable">$http_host</span>;</div><div class="line">	    <span class="title">proxy_pass</span> <span class="url">http://localhost:8080/resource-app/</span>;</div><div class="line">	}</div><div class="line"></div><div class="line">	<span class="title">location</span> /resource-app/ {</div><div class="line">		<span class="title">proxy_set_header</span>        Host <span class="variable">$http_host</span>;</div><div class="line">	    <span class="title">proxy_pass</span> <span class="url">http://localhost:8080/resource-app/</span>;</div><div class="line">	}</div><div class="line">	</div><div class="line">	<span class="comment"># oauth2的授权服务器	</span></div><div class="line">	<span class="title">location</span> /actor-app/ {</div><div class="line">		<span class="title">proxy_set_header</span>        Host <span class="variable">$http_host</span>;</div><div class="line">	    <span class="title">proxy_pass</span> <span class="url">http://localhost:8082/actor-app/</span>;</div><div class="line">	}</div><div class="line"></div><div class="line">}</div></pre></td></tr></table></figure>
+
 <h3 id="配置Php">配置Php</h3>
 <p>安装php-fpm</p>
 <p>Mac OSX 10.9的系统自带了PHP、php-fpm，省去了安装php-fpm的麻烦。 这里需要简单地修改下php-fpm的配置，否则运行php-fpm会报错。</p>
@@ -218,13 +220,12 @@
 
 <p>修改php-fpm.conf文件中的error_log项，默认该项被注释掉，这里需要去注释并且修改为error_log = /usr/local/var/log/php-fpm.log。如果不修改该值，运行php-fpm的时候会提示log文件输出路径不存在的错误。</p>
 <h3 id="配置hosts">配置hosts</h3>
-<p>针对静态资源私服的hosts</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /<span class="keyword">private</span>/etc/hosts</div></pre></td></tr></table></figure>
 
-<p>在末尾加入如下代码, 该域名是静态私服中指定的<code>server_name</code></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">127.0</span>.<span class="number">0.1</span> resource.<span class="keyword">com</span></div></pre></td></tr></table></figure>
+<p>在末尾加入如下代码, 该域名是<code>nginx</code>中<code>server</code>指定的<code>server_name</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor"># 针对静态资源私服</span></div><div class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> resource.com</div><div class="line"><span class="preprocessor"># 针对反向代理</span></div><div class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> app.com</div></pre></td></tr></table></figure>
 
-<p>到此静态资源私服配置完毕, 在浏览器中键入<code>http://resource.com/</code>可以对指定目录的文件进行浏览,下载.</p>
+<p>配置完毕, 在浏览器中键入<code>http://resource.com/</code>可以对指定目录的文件进行浏览,下载; 键入<code>http://app.com/resource-app</code>或<code>http://app.com/actor-app</code>可分别进入不同的应用.</p>
 <h2 id="测试">测试</h2>
 <p>在<code>root</code>根目录中创建文件index.php, 内容如下,</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="preprocessor">&lt;?php</span> phpinfo(); <span class="preprocessor">?&gt;</span></span></div></pre></td></tr></table></figure>
@@ -261,7 +262,7 @@
 <p>之前一直使用Apache做静态资源私服及反向代理, 配置稍显复杂, 今天使用nginx来替换Apache, 在此小记一下探索的过程及碰到的问题.</p>
 <h2 id="安装">安装</h2>
 <p>本人使用Mac系统, 偷懒的使用了homebrew, 一键完成了安装. 对于其它<code>OS</code>使用解压<code>zip</code>的方式.</p>
-<p>下面从安装—&gt;配置(静态资源私服 php)—&gt;问题展开吧</p>
+<p>下面从安装—&gt;配置(静态资源私服 php 反向代理)—&gt;问题展开吧</p>
 ]]>
     
     </summary>
@@ -4417,7 +4418,7 @@
 <p>问：……？</p>
 <p>答：…………。</p>
 <p>问： 你的声音太小，我没听清楚呀。</p>
-<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#x6d;&#x61;&#x69;&#108;&#116;&#111;&#58;&#97;&#114;&#99;&#x63;&#111;&#x64;&#x65;&#x40;&#49;&#x36;&#x33;&#x2e;&#x63;&#111;&#109;">&#97;&#114;&#99;&#x63;&#111;&#x64;&#x65;&#x40;&#49;&#x36;&#x33;&#x2e;&#x63;&#111;&#109;</a>。</p>
+<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#109;&#97;&#x69;&#108;&#x74;&#111;&#58;&#x61;&#x72;&#x63;&#99;&#111;&#x64;&#101;&#x40;&#49;&#54;&#x33;&#x2e;&#99;&#111;&#x6d;">&#x61;&#x72;&#x63;&#99;&#111;&#x64;&#101;&#x40;&#49;&#54;&#x33;&#x2e;&#99;&#111;&#x6d;</a>。</p>
 <a id="more"></a>
 
 
@@ -4432,7 +4433,7 @@
 <p>问：……？</p>
 <p>答：…………。</p>
 <p>问： 你的声音太小，我没听清楚呀。</p>
-<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#x6d;&#x61;&#x69;&#108;&#116;&#111;&#58;&#97;&#114;&#99;&#x63;&#111;&#x64;&#x65;&#x40;&#49;&#x36;&#x33;&#x2e;&#x63;&#111;&#109;">&#97;&#114;&#99;&#x63;&#111;&#x64;&#x65;&#x40;&#49;&#x36;&#x33;&#x2e;&#x63;&#111;&#109;</a>。</p>
+<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#109;&#97;&#x69;&#108;&#x74;&#111;&#58;&#x61;&#x72;&#x63;&#99;&#111;&#x64;&#101;&#x40;&#49;&#54;&#x33;&#x2e;&#99;&#111;&#x6d;">&#x61;&#x72;&#x63;&#99;&#111;&#x64;&#101;&#x40;&#49;&#54;&#x33;&#x2e;&#99;&#111;&#x6d;</a>。</p>
 ]]>
     
     </summary>
