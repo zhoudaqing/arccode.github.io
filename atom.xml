@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://arccode.net/"/>
-  <updated>2015-02-28T02:46:51.228Z</updated>
+  <updated>2015-02-28T04:46:19.689Z</updated>
   <id>http://arccode.net/</id>
   
   <author>
@@ -164,12 +164,12 @@
     <link href="http://arccode.net/2015/02/27/Nginx%E9%85%8D%E7%BD%AE%E5%B0%8F%E8%AE%B0/"/>
     <id>http://arccode.net/2015/02/27/Nginx配置小记/</id>
     <published>2015-02-27T07:37:23.000Z</published>
-    <updated>2015-02-28T01:00:36.000Z</updated>
+    <updated>2015-02-28T04:40:56.000Z</updated>
     <content type="html"><![CDATA[<h2 id="背景">背景</h2>
 <p>之前一直使用Apache做静态资源私服及反向代理, 配置稍显复杂, 今天使用nginx来替换Apache, 在此小记一下探索的过程及碰到的问题.</p>
 <h2 id="安装">安装</h2>
 <p>本人使用Mac系统, 偷懒的使用了homebrew, 一键完成了安装. 对于其它<code>OS</code>使用解压<code>zip</code>的方式.</p>
-<p>下面从安装—&gt;配置—&gt;问题展开吧</p>
+<p>下面从安装—&gt;配置(静态资源私服 php)—&gt;问题展开吧</p>
 <a id="more"></a>
 
 <h3 id="安装Homebrew">安装Homebrew</h3>
@@ -209,6 +209,12 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="title">server</span> {</div><div class="line">        <span class="title">listen</span>       <span class="number">80</span>;</div><div class="line">        <span class="title">server_name</span>  resource.com;</div><div class="line">        <span class="title">charset</span> utf-<span class="number">8</span>,gbk; </div><div class="line">        <span class="title">location</span> / {</div><div class="line">            <span class="title">root</span>   /Users/username/resource;</div><div class="line">            <span class="comment">#index  index.html index.htm;</span></div><div class="line">            <span class="title">autoindex</span> <span class="built_in">on</span>;</div><div class="line">            <span class="title">autoindex_exact_size</span> <span class="built_in">on</span>;</div><div class="line">            <span class="title">autoindex_localtime</span> <span class="built_in">on</span>;</div><div class="line">        }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>配置反向代理(待续), 如下</p>
+<h3 id="配置Php">配置Php</h3>
+<p>安装php-fpm</p>
+<p>Mac OSX 10.9的系统自带了PHP、php-fpm，省去了安装php-fpm的麻烦。 这里需要简单地修改下php-fpm的配置，否则运行php-fpm会报错。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo <span class="keyword">cp</span> /private/etc/php-fpm.<span class="keyword">conf</span>.default /private/etc/php-fpm.<span class="keyword">conf</span></div><div class="line"><span class="keyword">vim</span> /private/etc/php-fpm.<span class="keyword">conf</span></div></pre></td></tr></table></figure>
+
+<p>修改php-fpm.conf文件中的error_log项，默认该项被注释掉，这里需要去注释并且修改为error_log = /usr/local/var/log/php-fpm.log。如果不修改该值，运行php-fpm的时候会提示log文件输出路径不存在的错误。</p>
 <h3 id="配置hosts">配置hosts</h3>
 <p>针对静态资源私服的hosts</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /<span class="keyword">private</span>/etc/hosts</div></pre></td></tr></table></figure>
@@ -217,6 +223,23 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">127.0</span>.<span class="number">0.1</span> resource.<span class="keyword">com</span></div></pre></td></tr></table></figure>
 
 <p>到此静态资源私服配置完毕, 在浏览器中键入<code>http://resource.com/</code>可以对指定目录的文件进行浏览,下载.</p>
+<h2 id="测试">测试</h2>
+<p>在<code>root</code>根目录中创建文件index.php, 内容如下,</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="preprocessor">&lt;?php</span> phpinfo(); <span class="preprocessor">?&gt;</span></span></div></pre></td></tr></table></figure>
+
+<p>启动nginx</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> nginx</div></pre></td></tr></table></figure>
+
+<p>重启nginx</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> nginx <span class="operator">-s</span> reload</div></pre></td></tr></table></figure>
+
+<p>停止nginx</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> nginx <span class="operator">-s</span> stop</div></pre></td></tr></table></figure>
+
+<p>启动php</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> php-fpm</div></pre></td></tr></table></figure>
+
+<p>在浏览器中输入<code>http://resource.com/index.php</code>即可看到php的详细信息.</p>
 <h2 id="问题">问题</h2>
 <p>1.键入<code>http://resource.com/</code>, 服务器返回<code>403</code>界面</p>
 <p>该问题是因为访问权限不够造成, 在<code>nginx.conf</code>首行配置即可,</p>
@@ -229,13 +252,14 @@
 <h2 id="参考资料">参考资料</h2>
 <p><a href="https://gist.github.com/netpoetica/5879685" target="_blank" rel="external">Setting up Nginx on Your Local System</a></p>
 <p><a href="http://nginx.org/cn/docs/" target="_blank" rel="external">Nginx文档</a></p>
+<p><a href="http://my.oschina.net/chen0dgax/blog/190161" target="_blank" rel="external">Mac OSX 10.9搭建nginx+mysql+php-fpm环境</a></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h2 id="背景">背景</h2>
 <p>之前一直使用Apache做静态资源私服及反向代理, 配置稍显复杂, 今天使用nginx来替换Apache, 在此小记一下探索的过程及碰到的问题.</p>
 <h2 id="安装">安装</h2>
 <p>本人使用Mac系统, 偷懒的使用了homebrew, 一键完成了安装. 对于其它<code>OS</code>使用解压<code>zip</code>的方式.</p>
-<p>下面从安装—&gt;配置—&gt;问题展开吧</p>
+<p>下面从安装—&gt;配置(静态资源私服 php)—&gt;问题展开吧</p>
 ]]>
     
     </summary>
@@ -4391,7 +4415,7 @@
 <p>问：……？</p>
 <p>答：…………。</p>
 <p>问： 你的声音太小，我没听清楚呀。</p>
-<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#111;&#58;&#x61;&#x72;&#x63;&#99;&#x6f;&#100;&#101;&#x40;&#49;&#54;&#51;&#x2e;&#99;&#x6f;&#109;">&#x61;&#x72;&#x63;&#99;&#x6f;&#100;&#101;&#x40;&#49;&#54;&#51;&#x2e;&#99;&#x6f;&#109;</a>。</p>
+<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#109;&#x61;&#x69;&#108;&#116;&#111;&#x3a;&#x61;&#x72;&#x63;&#x63;&#x6f;&#100;&#x65;&#x40;&#x31;&#x36;&#x33;&#x2e;&#x63;&#x6f;&#x6d;">&#x61;&#x72;&#x63;&#x63;&#x6f;&#100;&#x65;&#x40;&#x31;&#x36;&#x33;&#x2e;&#x63;&#x6f;&#x6d;</a>。</p>
 <a id="more"></a>
 
 
@@ -4406,7 +4430,7 @@
 <p>问：……？</p>
 <p>答：…………。</p>
 <p>问： 你的声音太小，我没听清楚呀。</p>
-<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#111;&#58;&#x61;&#x72;&#x63;&#99;&#x6f;&#100;&#101;&#x40;&#49;&#54;&#51;&#x2e;&#99;&#x6f;&#109;">&#x61;&#x72;&#x63;&#99;&#x6f;&#100;&#101;&#x40;&#49;&#54;&#51;&#x2e;&#99;&#x6f;&#109;</a>。</p>
+<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#109;&#x61;&#x69;&#108;&#116;&#111;&#x3a;&#x61;&#x72;&#x63;&#x63;&#x6f;&#100;&#x65;&#x40;&#x31;&#x36;&#x33;&#x2e;&#x63;&#x6f;&#x6d;">&#x61;&#x72;&#x63;&#x63;&#x6f;&#100;&#x65;&#x40;&#x31;&#x36;&#x33;&#x2e;&#x63;&#x6f;&#x6d;</a>。</p>
 ]]>
     
     </summary>
