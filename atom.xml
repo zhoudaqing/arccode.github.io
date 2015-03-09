@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://arccode.net/"/>
-  <updated>2015-03-01T04:56:02.678Z</updated>
+  <updated>2015-03-09T01:22:06.421Z</updated>
   <id>http://arccode.net/</id>
   
   <author>
@@ -13,6 +13,66 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[冒泡型事件和捕获型事件]]></title>
+    <link href="http://arccode.net/2015/03/06/%E5%86%92%E6%B3%A1%E5%9E%8B%E4%BA%8B%E4%BB%B6%E5%92%8C%E6%8D%95%E8%8E%B7%E5%9E%8B%E4%BA%8B%E4%BB%B6/"/>
+    <id>http://arccode.net/2015/03/06/冒泡型事件和捕获型事件/</id>
+    <published>2015-03-06T01:18:47.000Z</published>
+    <updated>2015-03-06T01:37:28.000Z</updated>
+    <content type="html"><![CDATA[<p>冒泡型事件的基本思想是、事件按照从最特定的事件目标到最不特定的事件目标(document对象)的顺序触发。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span>   </div><div class="line">    <span class="tag">&lt;<span class="title">head</span>&gt;</span>   </div><div class="line">        <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span>   </div><div class="line">    <span class="tag">&lt;/<span class="title">head</span>&gt;</span>   </div><div class="line">    <span class="tag">&lt;<span class="title">body</span> <span class="attribute">onclick</span>=<span class="value">"theClick()"</span>&gt;</span>   </div><div class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">onclick</span>=<span class="value">"theClick()"</span>&gt;</span>点击<span class="tag">&lt;/<span class="title">div</span>&gt;</span>   </div><div class="line">    <span class="tag">&lt;/<span class="title">body</span>&gt;</span>   </div><div class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p>IE5.5冒泡顺序如下：</p>
+<p>(1)&lt;div&gt;</p>
+<p>(2)&lt;body&gt;</p>
+<p>(3)&lt;document&gt;</p>
+<p><img src="/images/javascript/javascript-capture-bubble-1.jpg" alt=""></p>
+<p>为什么称作冒泡、因为事件按照DOM的层次结构像水泡一样不断上升。让我想起了一首歌：”吹泡泡、吹泡泡、泡泡飞啊飞得高、飞到天空中、问声太阳好”。</p>
+<p>IE6呢、稍微修改了冒泡型事件、这样&lt;html&gt;元素也可以接收冒泡的事件、还是上面的代码。</p>
+<p>IE6的冒泡顺序如下：</p>
+<p>(1)&lt;div&gt;</p>
+<p>(2)&lt;body&gt;</p>
+<p>(3)&lt;html&gt;</p>
+<p>(4)&lt;document&gt;</p>
+<p><img src="/images/javascript/javascript-capture-bubble-2.jpg" alt=""></p>
+<p>Mozilla1.0及更高版本也支持冒泡事件但到达了另一层次。类似IE6.0，它也支持&lt;html&gt;元素级别的事件、不过，事件”起泡”一直上升到Windows窗口对象。继续前面的代码、点击&lt;div&gt;元素将造成下图所示的事件冒泡：</p>
+<p><img src="/images/javascript/javascript-capture-bubble-3.jpg" alt=""></p>
+<p>捕获型事件：</p>
+<p>IE使用冒泡型事件、相对的、Netscape使用了另一种称为捕获型事件(eventcapturing)的解决方案、事件的捕获和冒泡刚好相反的两种 过程——捕获型事件中、事件从最不精确的对象(document对象)开始触发、然后到最精确(也可以在窗口级别捕获事件，不过必寻由开发人员特别指 定)。Netscape不会将页面上的很多元素暴露给事件。继续使用前面的代码示例、事件按照下面的路径传播：</p>
+<p>(1)document</p>
+<p>(2)&lt;div&gt;</p>
+<p>有些人也称之为自顶向下的事件模型，因为它是从DOM层次的顶端开始向下延伸的：</p>
+<p><img src="/images/javascript/javascript-capture-bubble-4.jpg" alt=""></p>
+<p>DOM事件流：</p>
+<p>DOM(文档对象模型)结构是一个树型结构，当一个HTML元素产生一个事件时，该事件会在元素结点与根节点之间按特定的顺序传播，路径所经过的节点都会收到该事件，这个传播过程可称为DOM事件流。事件顺序有两种类型：事件捕捉和事件冒泡。</p>
+<p>DOM标准的事件模型</p>
+<p>我们已经对上面两个不同的事件模型进行了解释和对比。DOM标准同时支持两种事件模型，即捕获型事件与冒泡型事件，但是，捕获型事件先发生。两种事件流都 会触发DOM中的所有对象，从document对象开始，也在document对象结束（大部分兼容标准的浏览器会继续将事件是捕捉/冒泡延续到 window对象）。继续使用前面的例子、在与DOM兼容的浏览器中点击&lt;div&gt;元素时、事件流的进行如下图：</p>
+<p><img src="/images/javascript/javascript-capture-bubble-5.jpg" alt=""></p>
+<p>注意因为事件的目标(&lt;div&gt;元素)是最精确的元素(于是，在DOM树中最深)，实际上它会接收两次事件，一次在捕获过程中，另一次在冒泡 过程中。DOM事件模型的最独特的性质是，文本节点也触发事件(在IE不会)。所以如果点击示例中的&lt;div&gt;点 击&lt;/div&gt;、实际的事件流应该是：</p>
+<p><img src="/images/javascript/javascript-capture-bubble-6.jpg" alt=""></p>
+<p>参考资料</p>
+<ul>
+<li><a href="http://hzw2312.blog.51cto.com/2590340/780230" target="_blank" rel="external">好好学一遍JavaScript 笔记(八)——冒泡型事件、捕获型事件</a></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>冒泡型事件的基本思想是、事件按照从最特定的事件目标到最不特定的事件目标(document对象)的顺序触发。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span>   </div><div class="line">    <span class="tag">&lt;<span class="title">head</span>&gt;</span>   </div><div class="line">        <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span>   </div><div class="line">    <span class="tag">&lt;/<span class="title">head</span>&gt;</span>   </div><div class="line">    <span class="tag">&lt;<span class="title">body</span> <span class="attribute">onclick</span>=<span class="value">"theClick()"</span>&gt;</span>   </div><div class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">onclick</span>=<span class="value">"theClick()"</span>&gt;</span>点击<span class="tag">&lt;/<span class="title">div</span>&gt;</span>   </div><div class="line">    <span class="tag">&lt;/<span class="title">body</span>&gt;</span>   </div><div class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></div></pre></td></tr></table></figure>
+
+]]>
+    
+    </summary>
+    
+      <category term="Javascript" scheme="http://arccode.net/tags/Javascript/"/>
+    
+      <category term="Event" scheme="http://arccode.net/tags/Event/"/>
+    
+      <category term="Javascript" scheme="http://arccode.net/categories/Javascript/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[致我们即将逝去的高中]]></title>
@@ -3380,7 +3440,7 @@
     <link href="http://arccode.net/2014/09/21/Linux%E6%8C%87%E4%BB%A4/"/>
     <id>http://arccode.net/2014/09/21/Linux指令/</id>
     <published>2014-09-21T08:47:22.000Z</published>
-    <updated>2015-02-27T02:58:20.000Z</updated>
+    <updated>2015-03-01T14:45:00.000Z</updated>
     <content type="html"><![CDATA[<h2 id="常用">常用</h2>
 <table>
 <thead>
@@ -3394,19 +3454,21 @@
 <tr>
 <td>修改日期</td>
 <td>date -s “2014-01-01 00:00:00”</td>
+<td></td>
 </tr>
 <tr>
 <td>同步指定服务器日期</td>
 <td>ntpdate 3.cn.pool.ntp.org</td>
+<td></td>
 </tr>
 <tr>
 <td>查看文件编码</td>
 <td>set fileencoding</td>
+<td></td>
 </tr>
 <tr>
 <td>查看端口占用情况</td>
-<td>netstat -an \</td>
-<td>grep 3306</td>
+<td>netstat -an grep 3306</td>
 <td>netstat命令</td>
 </tr>
 <tr>
@@ -3483,19 +3545,21 @@
 <tr>
 <td>修改日期</td>
 <td>date -s “2014-01-01 00:00:00”</td>
+<td></td>
 </tr>
 <tr>
 <td>同步指定服务器日期</td>
 <td>ntpdate 3.cn.pool.ntp.org</td>
+<td></td>
 </tr>
 <tr>
 <td>查看文件编码</td>
 <td>set fileencoding</td>
+<td></td>
 </tr>
 <tr>
 <td>查看端口占用情况</td>
-<td>netstat -an \</td>
-<td>grep 3306</td>
+<td>netstat -an grep 3306</td>
 <td>netstat命令</td>
 </tr>
 <tr>
@@ -4526,7 +4590,7 @@
 <p>问：……？</p>
 <p>答：…………。</p>
 <p>问： 你的声音太小，我没听清楚呀。</p>
-<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#x6d;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#x61;&#x72;&#x63;&#x63;&#x6f;&#100;&#101;&#64;&#49;&#x36;&#51;&#46;&#x63;&#x6f;&#109;">&#x61;&#x72;&#x63;&#x63;&#x6f;&#100;&#101;&#64;&#49;&#x36;&#51;&#46;&#x63;&#x6f;&#109;</a>。</p>
+<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#97;&#114;&#99;&#99;&#x6f;&#100;&#101;&#x40;&#x31;&#x36;&#x33;&#x2e;&#x63;&#x6f;&#109;">&#97;&#114;&#99;&#99;&#x6f;&#100;&#101;&#x40;&#x31;&#x36;&#x33;&#x2e;&#x63;&#x6f;&#109;</a>。</p>
 <a id="more"></a>
 
 
@@ -4541,7 +4605,7 @@
 <p>问：……？</p>
 <p>答：…………。</p>
 <p>问： 你的声音太小，我没听清楚呀。</p>
-<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#x6d;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#x61;&#x72;&#x63;&#x63;&#x6f;&#100;&#101;&#64;&#49;&#x36;&#51;&#46;&#x63;&#x6f;&#109;">&#x61;&#x72;&#x63;&#x63;&#x6f;&#100;&#101;&#64;&#49;&#x36;&#51;&#46;&#x63;&#x6f;&#109;</a>。</p>
+<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#97;&#114;&#99;&#99;&#x6f;&#100;&#101;&#x40;&#x31;&#x36;&#x33;&#x2e;&#x63;&#x6f;&#109;">&#97;&#114;&#99;&#99;&#x6f;&#100;&#101;&#x40;&#x31;&#x36;&#x33;&#x2e;&#x63;&#x6f;&#109;</a>。</p>
 ]]>
     
     </summary>

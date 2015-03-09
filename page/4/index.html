@@ -13,7 +13,7 @@
   <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.3.0rc2"/>
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.3.0rc5"/>
 
 
     <meta name="description" content="狂奔中的全栈工程师" />
@@ -24,7 +24,7 @@
 
 
 
-    <link rel="shorticon icon" type="image/x-icon" href="/images/favicon.ico?v=0.3.0rc2" />
+    <link rel="shorticon icon" type="image/x-icon" href="/images/favicon.ico?v=0.3.0rc5" />
 
 
 
@@ -37,6 +37,7 @@
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
+
 
   <title> Arccode's blog </title>
 </head>
@@ -120,6 +121,171 @@
           
           
             
+              <a class="post-title-link" href="/2014/09/21/Linux指令/">
+                Linux指令
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+          <span class="post-time">
+            
+              发表于 2014-09-21
+            
+          </span>
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/09/21/Linux指令/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/09/21/Linux指令/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          <h2 id="常用">常用</h2>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>instruct</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>修改日期</td>
+<td>date -s “2014-01-01 00:00:00”</td>
+<td></td>
+</tr>
+<tr>
+<td>同步指定服务器日期</td>
+<td>ntpdate 3.cn.pool.ntp.org</td>
+<td></td>
+</tr>
+<tr>
+<td>查看文件编码</td>
+<td>set fileencoding</td>
+<td></td>
+</tr>
+<tr>
+<td>查看端口占用情况</td>
+<td>netstat -an grep 3306</td>
+<td>netstat命令</td>
+</tr>
+<tr>
+<td>查看文件使用情况</td>
+<td>lsof -i:80</td>
+<td>-i参数表示网络链接，:80指明端口号，该命令会同时列出PID，方便kill</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Vim">Vim</h2>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>instruct</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>复制一行</td>
+<td>yy</td>
+</tr>
+<tr>
+<td>粘贴</td>
+<td>p</td>
+</tr>
+<tr>
+<td>删除一行</td>
+<td>dd</td>
+</tr>
+<tr>
+<td>文章底部</td>
+<td>shift + g</td>
+</tr>
+<tr>
+<td>文章首部</td>
+<td>gg</td>
+</tr>
+<tr>
+<td>行首</td>
+<td>0</td>
+</tr>
+<tr>
+<td>行末</td>
+<td>shift + $</td>
+</tr>
+<tr>
+<td>下一页</td>
+<td>control + f</td>
+</tr>
+<tr>
+<td>上一页</td>
+<td>control + b</td>
+</tr>
+</tbody>
+</table>
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/09/21/Linux指令/#more">
+              继续阅读 &raquo;
+            </a>
+          </div>
+        
+
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Linux/">
+                #Linux
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2014/09/21/Redis指令/">
                 Redis指令
               </a>
@@ -160,7 +326,7 @@
 <li>删除所有数据库中的key: <code>flushall</code></li>
 </ul>
 
-          <div class="post-more-link center">
+          <div class="post-more-link text-center">
             <a class="btn" href="/2014/09/21/Redis指令/#more">
               继续阅读 &raquo;
             </a>
@@ -185,7 +351,8 @@
         
 
         
-          <div class="post-eof the-shape"></div>
+        
+          <div class="post-eof"></div>
         
       </div>
     
@@ -247,7 +414,7 @@
 <li>导出依赖包： <code>mvn dependency:copy-dependencies -DoutputDirectory=lib</code></li>
 </ul>
 
-          <div class="post-more-link center">
+          <div class="post-more-link text-center">
             <a class="btn" href="/2014/09/21/Maven指令/#more">
               继续阅读 &raquo;
             </a>
@@ -272,7 +439,8 @@
         
 
         
-          <div class="post-eof the-shape"></div>
+        
+          <div class="post-eof"></div>
         
       </div>
     
@@ -330,7 +498,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wget http://downloads.sourceforge.net/tcl/tcl8.<span class="number">6.1</span>-src.tar.gz </div><div class="line"><span class="built_in">sudo</span> tar xzvf tcl8.<span class="number">6.1</span>-src.tar.gz  -C /usr/local/</div><div class="line"><span class="built_in">cd</span>  /usr/local/tcl8.<span class="number">6.1</span>/unix/</div><div class="line"><span class="built_in">sudo</span> ./configure</div><div class="line"><span class="built_in">sudo</span> make</div><div class="line"><span class="built_in">sudo</span> make install</div></pre></td></tr></table></figure>
 
 
-          <div class="post-more-link center">
+          <div class="post-more-link text-center">
             <a class="btn" href="/2014/09/01/Linux类库链接/#more">
               继续阅读 &raquo;
             </a>
@@ -355,7 +523,8 @@
         
 
         
-          <div class="post-eof the-shape"></div>
+        
+          <div class="post-eof"></div>
         
       </div>
     
@@ -427,7 +596,7 @@
 <li><code>sudo make install</code></li>
 </ul>
 
-          <div class="post-more-link center">
+          <div class="post-more-link text-center">
             <a class="btn" href="/2014/08/10/Mac下安装memcached/#more">
               继续阅读 &raquo;
             </a>
@@ -456,7 +625,8 @@
         
 
         
-          <div class="post-eof the-shape"></div>
+        
+          <div class="post-eof"></div>
         
       </div>
     
@@ -519,7 +689,7 @@
 <li>找到<code>#LoadModule php5_module libexec/apache2/libphp5.so</code>,将<code>#</code>删除</li>
 </ul>
 
-          <div class="post-more-link center">
+          <div class="post-more-link text-center">
             <a class="btn" href="/2014/08/10/Mac下安装phpRedisAdmin/#more">
               继续阅读 &raquo;
             </a>
@@ -548,7 +718,8 @@
         
 
         
-          <div class="post-eof the-shape"></div>
+        
+          <div class="post-eof"></div>
         
       </div>
     
@@ -608,7 +779,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 解压</span></div><div class="line">tar -xzf redis-<span class="number">2.8</span>.<span class="number">13</span></div><div class="line"><span class="comment"># 重命名</span></div><div class="line">mv redis-<span class="number">2.8</span>.<span class="number">13</span> redis</div><div class="line"><span class="built_in">cd</span> redis</div><div class="line"><span class="built_in">sudo</span> make</div><div class="line"><span class="comment"># 测试</span></div><div class="line"><span class="built_in">sudo</span> make test</div><div class="line"><span class="built_in">sudo</span> make install</div></pre></td></tr></table></figure>
 
 
-          <div class="post-more-link center">
+          <div class="post-more-link text-center">
             <a class="btn" href="/2014/08/07/Mac下安装redis/#more">
               继续阅读 &raquo;
             </a>
@@ -637,7 +808,8 @@
         
 
         
-          <div class="post-eof the-shape"></div>
+        
+          <div class="post-eof"></div>
         
       </div>
     
@@ -701,7 +873,7 @@
 <li>利用Android Tool导出apk</li>
 </ol>
 
-          <div class="post-more-link center">
+          <div class="post-more-link text-center">
             <a class="btn" href="/2014/07/23/Mac终端乱码/#more">
               继续阅读 &raquo;
             </a>
@@ -730,7 +902,8 @@
         
 
         
-          <div class="post-eof the-shape"></div>
+        
+          <div class="post-eof"></div>
         
       </div>
     
@@ -790,7 +963,7 @@
 <li>下载<a href="https://developer.android.com/sdk/index.html" target="_blank" rel="external">Android SDK Tools</a>(<a href="http://dl.google.com/android/android-sdk_r23.0.2-macosx.zip" target="_blank" rel="external">直接下载</a>),将压缩包解压到文件目录<code>path/to/android-sdk-macosx</code></li>
 </ol>
 
-          <div class="post-more-link center">
+          <div class="post-more-link text-center">
             <a class="btn" href="/2014/07/23/Mac安装Android开发环境/#more">
               继续阅读 &raquo;
             </a>
@@ -823,7 +996,8 @@
         
 
         
-          <div class="post-eof the-shape"></div>
+        
+          <div class="post-eof"></div>
         
       </div>
     
@@ -888,7 +1062,7 @@
 <li>红色双向箭头:SVN上修改过,本地也修改过的文件 </li>
 </ul>
 
-          <div class="post-more-link center">
+          <div class="post-more-link text-center">
             <a class="btn" href="/2014/07/22/Svn基本使用/#more">
               继续阅读 &raquo;
             </a>
@@ -913,98 +1087,6 @@
         
 
         
-          <div class="post-eof the-shape"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/07/13/Mac下搭建Hadoop环境/">
-                Mac下搭建Hadoop环境
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-          <span class="post-time">
-            
-              发表于 2014-07-13
-            
-          </span>
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/07/13/Mac下搭建Hadoop环境/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/07/13/Mac下搭建Hadoop环境/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          <h2 id="安装JDK">安装JDK</h2>
-<p>安装JDK，安装成功后在终端中输入<code>java -version</code>，显示如下</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">java <span class="keyword">version</span> <span class="string">"1.7.0_51"</span></div><div class="line">Java(TM) SE Runtime Environment (build <span class="number">1.7</span>.<span class="number">0</span>_51-b13)</div><div class="line">Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class="number">24.51</span>-b03, mixed <span class="built_in">mode</span>)</div></pre></td></tr></table></figure>
-
-<h2 id="安装Hadoop">安装Hadoop</h2>
-<p>下载<a href="http://hadoop.apache.org/releases.html#Download" target="_blank" rel="external">Hadoop</a>,将该文件解压至<code>/usr/local</code>目录下</p>
-
-          <div class="post-more-link center">
-            <a class="btn" href="/2014/07/13/Mac下搭建Hadoop环境/#more">
-              继续阅读 &raquo;
-            </a>
-          </div>
-        
-
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/Java/">
-                #Java
-              </a>
-            
-              <a href="/tags/Mac/">
-                #Mac
-              </a>
-            
-              <a href="/tags/Hadoop/">
-                #Hadoop
-              </a>
-            
-          </div>
-        
-
-        
-
         
       </div>
     
@@ -1044,11 +1126,11 @@
       <p class="site-description motion-element">狂奔中的全栈工程师</p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">
-            <span class="site-state-item-count">45</span>
+            <span class="site-state-item-count">46</span>
             <span class="site-state-item-name">标签</span>
         </div>
         <div class="site-state-item site-state-pages">
@@ -1069,16 +1151,16 @@
       <div class="social-info motion-element">
         
           
-            <span class="soclial-item">
-              <a href="http://arccode.net">BLOG</a>
+            <span class="social-item">
+              <a href="http://arccode.net">blog</a>
             </span>
           
-            <span class="soclial-item">
-              <a href="https://github.com/arccode">GITHUB</a>
+            <span class="social-item">
+              <a href="https://github.com/arccode">github</a>
             </span>
           
-            <span class="soclial-item">
-              <a href="http://weibo.com/tianzhisoftware">WEIBO</a>
+            <span class="social-item">
+              <a href="http://weibo.com/tianzhisoftware">weibo</a>
             </span>
           
         
@@ -1130,7 +1212,8 @@
     <div class="back-to-top"></div>
   </div>
 
-  <script type="text/javascript" src="/vendors/jquery/dist/jquery.min.js?v=0.3.0rc2"></script>
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
   
   <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
   <script type="text/javascript">
@@ -1139,7 +1222,31 @@
     });
   </script>
 
+  <script type="text/javascript">
+  function hasMobileUA () {
+    var nav = window.navigator;
+    var ua = nav.userAgent;
+    var pa = /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g;
 
+    return pa.test(ua);
+  }
+
+  function isDesktop () {
+    return screen.width > 991 && !hasMobileUA();
+  }
+
+  function isTablet () {
+    return screen.width < 992 && screen.width > 767 && hasMobileUA();
+  }
+
+  function isMobile () {
+    return screen.width < 767 && hasMobileUA();
+  }
+
+  function escapeSelector (selector) {
+    return selector.replace(/[!"$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "\\$&")
+  }
+</script>
 
   
 
@@ -1147,7 +1254,7 @@
   <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
 
   
-  <script type="text/javascript">
+  <script type="text/javascript" id="motion.page.home">
     $(document).ready(function () {
       $.Velocity.RunSequence([
         { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
@@ -1157,110 +1264,122 @@
       $('.menu-item').velocity('transition.slideDownIn', {display: null});
     });
   </script>
-  
 
-  <script type="text/javascript">
-    $(document).ready(function () {
-      var body = $('body');
-      var isSidebarVisible = false;
-      var sidebarToggle = $('.sidebar-toggle');
-      var sidebarToggleLine1st = $('.sidebar-toggle-line-first')
-      var sidebarToggleLine2nd = $('.sidebar-toggle-line-middle');
-      var sidebarToggleLine3rd = $('.sidebar-toggle-line-last');
-      var sidebar = $('.sidebar');
 
-      var sidebarToogleLineStatusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
+  <script type="text/javascript" id="motion.global">
+  $(document).ready(function () {
+    var body = $('body');
+    var isSidebarVisible = false;
+    var sidebarToggle = $('.sidebar-toggle');
+    var sidebarToggleLine1st = $('.sidebar-toggle-line-first')
+    var sidebarToggleLine2nd = $('.sidebar-toggle-line-middle');
+    var sidebarToggleLine3rd = $('.sidebar-toggle-line-last');
+    var sidebar = $('.sidebar');
 
-      var sidebarToggleLine1stStatusInit = sidebarToogleLineStatusInit;
-      var sidebarToggleLine1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
-      var sidebarToogleLine1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
+    var SIDEBAR_WIDTH = '320px';
+    var SIDEBAR_DISPLAY_DURATION = 300;
 
-      var sidebarToggleLine2ndStatusInit = sidebarToogleLineStatusInit;
-      var sidebarToggleLine2ndStatusArrow = {width: '90%'};
-      var sidebarToogleLine2ndStatusClose = {opacity: 0};
+    var sidebarToogleLineStatusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
 
-      var sidebarToggleLine3rdStatusInit = sidebarToogleLineStatusInit;
-      var sidebarToggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
-      var sidebarToogleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
+    var sidebarToggleLine1stStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
+    var sidebarToogleLine1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
 
-      sidebatToggleMotion();
-      postsListMotion();
-      backToTopMotion();
+    var sidebarToggleLine2ndStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine2ndStatusArrow = {width: '90%'};
+    var sidebarToogleLine2ndStatusClose = {opacity: 0};
 
-      function sidebarContentMotion () {
-        $('.sidebar .motion-element').velocity(
-          'transition.slideRightIn',
-          {stagger: 50, drag: true}
+    var sidebarToggleLine3rdStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
+    var sidebarToogleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
+
+    sidebatToggleMotion();
+    postsListMotion();
+    backToTopMotion();
+
+
+    $(document)
+      .on('sidebar.isShowing', function () {
+        isDesktop() && body.velocity(
+          {paddingRight: SIDEBAR_WIDTH},
+          SIDEBAR_DISPLAY_DURATION
         );
-      }
-
-
-      function backToTopMotion () {
-        var b2top = $('.back-to-top');
-        b2top.on('click', function () {
-          body.velocity('scroll');
-        });
-      }
-
-      function sidebarShowMotion () {
-        var sidebarDisplayDuration = 300;
-        var sidebarWidth = '320px';
-
-        sidebarToggleLine1st.velocity(sidebarToogleLine1stStatusClose);
-        sidebarToggleLine2nd.velocity(sidebarToogleLine2ndStatusClose);
-        sidebarToggleLine3rd.velocity(sidebarToogleLine3rdStatusClose);
-
-        sidebar.velocity({width: sidebarWidth}, sidebarDisplayDuration);
-        isDesktop() && body.velocity({paddingRight: sidebarWidth}, sidebarDisplayDuration);
         sidebarContentMotion();
-      }
+      })
+      .on('sidebar.isHiding', function () {});
 
-      function sidebarHideMotion () {
-        isDesktop() && body.velocity({paddingRight: 0});
-        sidebar.velocity('reverse');
 
-        sidebarToggleLine1st.velocity(sidebarToggleLine1stStatusInit);
-        sidebarToggleLine2nd.velocity(sidebarToggleLine2ndStatusInit);
-        sidebarToggleLine3rd.velocity(sidebarToggleLine3rdStatusInit);
-      };
-
-      function postsListMotion () {
-        $('.post').velocity('transition.slideDownIn', {stagger: 300, drag: true});
-      }
-
-      function sidebatToggleMotion () {
-        sidebarToggle.on('click', function () {
-          isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
-          isSidebarVisible = !isSidebarVisible;
-        });
-        sidebarToggle.hover(function () {
-          if (isSidebarVisible) {return}
-          sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusArrow);
-          sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusArrow);
-          sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusArrow);
-        }, function () {
-          if (isSidebarVisible) {return}
-          sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusInit);
-          sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusInit);
-          sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusInit);
-        });
-      }
-    });
-    
-    function isDesktop () {
-      return screen.width > 991;
+    function backToTopMotion () {
+      var b2top = $('.back-to-top');
+      b2top.on('click', function () {
+        body.velocity('scroll');
+      });
     }
 
-    function isTablet () {
-      return screen.width < 992 && screen.width > 767;
+    function sidebarShowMotion () {
+
+      sidebarToggleLine1st.velocity(sidebarToogleLine1stStatusClose);
+      sidebarToggleLine2nd.velocity(sidebarToogleLine2ndStatusClose);
+      sidebarToggleLine3rd.velocity(sidebarToogleLine3rdStatusClose);
+
+      sidebar.velocity({width: SIDEBAR_WIDTH}, {
+        duration: SIDEBAR_DISPLAY_DURATION,
+        complete: function () {
+          sidebar.addClass('sidebar-active');
+          sidebar.trigger('sidebar.didShow');
+        }
+      });
+      sidebar.trigger('sidebar.isShowing');
     }
 
-    function isMobile () {
-      return screen.width < 767;
-    }
-  </script>
+    function sidebarHideMotion () {
+      isDesktop() && body.velocity({paddingRight: 0});
+      sidebar.velocity('reverse');
 
-  
+      sidebarToggleLine1st.velocity(sidebarToggleLine1stStatusInit);
+      sidebarToggleLine2nd.velocity(sidebarToggleLine2ndStatusInit);
+      sidebarToggleLine3rd.velocity(sidebarToggleLine3rdStatusInit);
+
+      sidebar.removeClass('sidebar-active');
+      sidebar.trigger('sidebar.isHiding');
+    };
+
+    function sidebarContentMotion () {
+      $('.sidebar .motion-element').velocity(
+        'transition.slideRightIn',
+        {stagger: 50, drag: true}
+      );
+    }
+
+    function postsListMotion () {
+      $('.post').velocity('transition.slideDownIn', {stagger: 300, drag: true});
+    }
+
+    function sidebatToggleMotion () {
+      sidebarToggle.on('click', function () {
+        isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
+        isSidebarVisible = !isSidebarVisible;
+      });
+
+      sidebarToggle.hover(function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusArrow);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusArrow);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusArrow);
+      }, function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusInit);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusInit);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusInit);
+      });
+    }
+  });
+
+</script>
+
+
+
+
 
   
 
