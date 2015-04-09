@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://arccode.net/"/>
-  <updated>2015-04-09T10:08:51.180Z</updated>
+  <updated>2015-04-09T16:25:34.688Z</updated>
   <id>http://arccode.net/</id>
   
   <author>
@@ -19,8 +19,10 @@
     <link href="http://arccode.net/2015/04/08/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AE%8C%E5%85%A8%E5%88%86%E7%A6%BB%E5%88%9D%E6%8E%A2/"/>
     <id>http://arccode.net/2015/04/08/前后端完全分离初探/</id>
     <published>2015-04-08T15:13:37.000Z</published>
-    <updated>2015-04-09T10:07:33.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="背景">背景</h2>
+    <updated>2015-04-09T16:24:27.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="核心思路">核心思路</h2>
+<p>后端负责业务逻辑处理, 前端负责展示逻辑的处理.</p>
+<h2 id="背景">背景</h2>
 <ul>
 <li><p>2013年3月,首次接触了<a href="http://underscorejs.org/" target="_blank" rel="external">underscore.js</a>这个区区45k大小的js库, 在使用其提供的简单模板完成表格异步分页后,从此我开始慢慢践行前后端完全分离的架构.</p>
 </li>
@@ -119,7 +121,9 @@
 <p>关于前端的组件化封装请看下文…..</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h2 id="背景">背景</h2>
+    <![CDATA[<h2 id="核心思路">核心思路</h2>
+<p>后端负责业务逻辑处理, 前端负责展示逻辑的处理.</p>
+<h2 id="背景">背景</h2>
 <ul>
 <li><p>2013年3月,首次接触了<a href="http://underscorejs.org/" target="_blank" rel="external">underscore.js</a>这个区区45k大小的js库, 在使用其提供的简单模板完成表格异步分页后,从此我开始慢慢践行前后端完全分离的架构.</p>
 </li>
