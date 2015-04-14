@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://arccode.net/"/>
-  <updated>2015-04-11T04:44:52.577Z</updated>
+  <updated>2015-04-14T15:41:26.262Z</updated>
   <id>http://arccode.net/</id>
   
   <author>
@@ -13,6 +13,75 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[SpringSecurity-AntPathMatcher-Rest-Match]]></title>
+    <link href="http://arccode.net/2015/04/14/SpringSecurity-AntPathMatcher-Rest-Match/"/>
+    <id>http://arccode.net/2015/04/14/SpringSecurity-AntPathMatcher-Rest-Match/</id>
+    <published>2015-04-14T15:05:45.000Z</published>
+    <updated>2015-04-14T15:40:57.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="简介">简介</h2>
+<p>使用Spring的AntPathMatch对RESTful的URL进行匹配.</p>
+<h2 id="匹配规则">匹配规则</h2>
+<p>ANT方式的通配符有三种：</p>
+<ul>
+<li><code>?   匹配任何单字符</code></li>
+<li><code>*   匹配0或者任意数量的字符</code></li>
+<li><code>**  匹配0或者更多的目录</code></li>
+</ul>
+<p>注: 所有的通配符均不包含路径分隔符<code>/</code>.</p>
+<h2 id="单元测试">单元测试</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> org.slf4j.Logger;</div><div class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</div><div class="line"><span class="keyword">import</span> org.springframework.util.AntPathMatcher;</div><div class="line"></div><div class="line"><span class="javadoc">/**</span></div><div class="line"> * AntPathMatchTest :</div><div class="line"> *</div><div class="line"> *<span class="javadoctag"> @author</span> http://arccode.net</div><div class="line"> *<span class="javadoctag"> @since</span> 2015-04-14 23:12</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AntPathMatchTest</span> </span>{</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(AntPathMatchTest.class);</div><div class="line"></div><div class="line">    <span class="annotation">@Test</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span>() {</div><div class="line"></div><div class="line">        AntPathMatcher matcher = <span class="keyword">new</span> AntPathMatcher();</div><div class="line">        String[] currUrls = {<span class="string">"/bop/wallpapers"</span>, <span class="string">"/bop/wallpapers1"</span>, <span class="string">"/bop/wallpapers/1"</span>, <span class="string">"/bop/wallpapers/1/labels/2"</span>};</div><div class="line">        String[] userAuths = {<span class="string">"/bop/wallpapers"</span>, <span class="string">"/bop/wallpapers?"</span>,<span class="string">"/bop/wallpapers/*"</span>, <span class="string">"/bop/wallpapers/**"</span>};</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (String currUrl: currUrls) {</div><div class="line">            <span class="keyword">for</span> (String userAuth: userAuths) {</div><div class="line">                logger.info(currUrl + <span class="string">"-----"</span> + userAuth + <span class="string">"-----"</span> + matcher.match(userAuth, currUrl) + <span class="string">""</span>);</div><div class="line">            }</div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="简介">简介</h2>
+<p>使用Spring的AntPathMatch对RESTful的URL进行匹配.</p>
+<h2 id="匹配规则">匹配规则</h2>
+<p>ANT方式的通配符有三种：</p>
+<ul>
+<li><code>?   匹配任何单字符</c]]>
+    </summary>
+    
+      <category term="Java" scheme="http://arccode.net/tags/Java/"/>
+    
+      <category term="Spring" scheme="http://arccode.net/tags/Spring/"/>
+    
+      <category term="路由" scheme="http://arccode.net/tags/%E8%B7%AF%E7%94%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[前后端完全分离之API设计]]></title>
+    <link href="http://arccode.net/2015/04/11/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AE%8C%E5%85%A8%E5%88%86%E7%A6%BB%E4%B9%8BAPI%E8%AE%BE%E8%AE%A1/"/>
+    <id>http://arccode.net/2015/04/11/前后端完全分离之API设计/</id>
+    <published>2015-04-11T09:46:48.000Z</published>
+    <updated>2015-04-11T10:17:56.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="背景">背景</h2>
+<p>上篇文章<a href="http://arccode.net/2015/04/08/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AE%8C%E5%85%A8%E5%88%86%E7%A6%BB%E5%88%9D%E6%8E%A2/" target="_blank" rel="external">前后端完全分离初探</a>只是讲了些宽泛的概念, 接下来的文章将直接上干货, 干货的源码会挂在<code>github</code>上.</p>
+<p>前后端完全分离后, 前端和后端如何交互? </p>
+<p>答: 通过双方协商好的API.</p>
+<p>接下来我分享我自己设计的API接口, 欢迎各位朋友指教.</p>
+<h2 id="API设计理念">API设计理念</h2>
+<ol>
+<li>将涉及的实体抽象成资源, 即按<code>id</code>访问资源, 在<code>url</code>上做文章, 以后再也不用为<code>url</code>起名字而苦恼了.</li>
+<li>使用<code>HTTP</code>动词对资源进行<code>CRUD</code>(增删改查); get-&gt;查, post-&gt;增, put-&gt;改, delete-&gt;删.</li>
+</ol>
+<p>目前我API的设计只涉及这两点, 至于第三点<code>HATEOAS</code>(Hypermedia As The Engine Of Application State)那就由读者自己去选择了.</p>
+<h2 id="项目实战">项目实战</h2>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="背景">背景</h2>
+<p>上篇文章<a href="http://arccode.net/2015/04/08/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AE%8C%E5%85%A8%E5%88%86%E7%A6%BB%E5%88%9D%E]]>
+    </summary>
+    
+      <category term="Java" scheme="http://arccode.net/tags/Java/"/>
+    
+      <category term="Javascript" scheme="http://arccode.net/tags/Javascript/"/>
+    
+      <category term="REST" scheme="http://arccode.net/tags/REST/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[前后端完全分离初探]]></title>

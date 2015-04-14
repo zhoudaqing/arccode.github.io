@@ -121,6 +121,197 @@
           
           
             
+              <a class="post-title-link" href="/2015/04/14/SpringSecurity-AntPathMatcher-Rest-Match/">
+                SpringSecurity-AntPathMatcher-Rest-Match
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+          <span class="post-time">
+            
+              发表于 2015-04-14
+            
+          </span>
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/04/14/SpringSecurity-AntPathMatcher-Rest-Match/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/14/SpringSecurity-AntPathMatcher-Rest-Match/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          <h2 id="简介">简介</h2>
+<p>使用Spring的AntPathMatch对RESTful的URL进行匹配.</p>
+<h2 id="匹配规则">匹配规则</h2>
+<p>ANT方式的通配符有三种：</p>
+<ul>
+<li><code>?   匹配任何单字符</code></li>
+<li><code>*   匹配0或者任意数量的字符</code></li>
+<li><code>**  匹配0或者更多的目录</code></li>
+</ul>
+<p>注: 所有的通配符均不包含路径分隔符<code>/</code>.</p>
+<h2 id="单元测试">单元测试</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> org.slf4j.Logger;</div><div class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</div><div class="line"><span class="keyword">import</span> org.springframework.util.AntPathMatcher;</div><div class="line"></div><div class="line"><span class="javadoc">/**</span></div><div class="line"> * AntPathMatchTest :</div><div class="line"> *</div><div class="line"> *<span class="javadoctag"> @author</span> http://arccode.net</div><div class="line"> *<span class="javadoctag"> @since</span> 2015-04-14 23:12</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AntPathMatchTest</span> </span>{</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(AntPathMatchTest.class);</div><div class="line"></div><div class="line">    <span class="annotation">@Test</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span>() {</div><div class="line"></div><div class="line">        AntPathMatcher matcher = <span class="keyword">new</span> AntPathMatcher();</div><div class="line">        String[] currUrls = {<span class="string">"/bop/wallpapers"</span>, <span class="string">"/bop/wallpapers1"</span>, <span class="string">"/bop/wallpapers/1"</span>, <span class="string">"/bop/wallpapers/1/labels/2"</span>};</div><div class="line">        String[] userAuths = {<span class="string">"/bop/wallpapers"</span>, <span class="string">"/bop/wallpapers?"</span>,<span class="string">"/bop/wallpapers/*"</span>, <span class="string">"/bop/wallpapers/**"</span>};</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (String currUrl: currUrls) {</div><div class="line">            <span class="keyword">for</span> (String userAuth: userAuths) {</div><div class="line">                logger.info(currUrl + <span class="string">"-----"</span> + userAuth + <span class="string">"-----"</span> + matcher.match(userAuth, currUrl) + <span class="string">""</span>);</div><div class="line">            }</div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+
+        
+
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Java/">
+                #Java
+              </a>
+            
+              <a href="/tags/Spring/">
+                #Spring
+              </a>
+            
+              <a href="/tags/路由/">
+                #路由
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/04/11/前后端完全分离之API设计/">
+                前后端完全分离之API设计
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+          <span class="post-time">
+            
+              发表于 2015-04-11
+            
+          </span>
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/04/11/前后端完全分离之API设计/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/11/前后端完全分离之API设计/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          <h2 id="背景">背景</h2>
+<p>上篇文章<a href="http://arccode.net/2015/04/08/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AE%8C%E5%85%A8%E5%88%86%E7%A6%BB%E5%88%9D%E6%8E%A2/" target="_blank" rel="external">前后端完全分离初探</a>只是讲了些宽泛的概念, 接下来的文章将直接上干货, 干货的源码会挂在<code>github</code>上.</p>
+<p>前后端完全分离后, 前端和后端如何交互? </p>
+<p>答: 通过双方协商好的API.</p>
+<p>接下来我分享我自己设计的API接口, 欢迎各位朋友指教.</p>
+<h2 id="API设计理念">API设计理念</h2>
+<ol>
+<li>将涉及的实体抽象成资源, 即按<code>id</code>访问资源, 在<code>url</code>上做文章, 以后再也不用为<code>url</code>起名字而苦恼了.</li>
+<li>使用<code>HTTP</code>动词对资源进行<code>CRUD</code>(增删改查); get-&gt;查, post-&gt;增, put-&gt;改, delete-&gt;删.</li>
+</ol>
+<p>目前我API的设计只涉及这两点, 至于第三点<code>HATEOAS</code>(Hypermedia As The Engine Of Application State)那就由读者自己去选择了.</p>
+<h2 id="项目实战">项目实战</h2>
+
+        
+
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Java/">
+                #Java
+              </a>
+            
+              <a href="/tags/Javascript/">
+                #Javascript
+              </a>
+            
+              <a href="/tags/REST/">
+                #REST
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/04/08/前后端完全分离初探/">
                 前后端完全分离初探
               </a>
@@ -841,199 +1032,6 @@
 
         
         
-          <div class="post-eof"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/02/07/MyBatis-Generator最佳实践/">
-                MyBatis-Generator最佳实践
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-          <span class="post-time">
-            
-              发表于 2015-02-07
-            
-          </span>
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/02/07/MyBatis-Generator最佳实践/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/07/MyBatis-Generator最佳实践/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          <p>最近使用MyBatis开发项目,为了快速开发,发现了一个可快速生成mapper类和mapper配置文件及Model的插件-<code>MyBatis-Generator</code>,总结下该插件的使用及最佳实践.</p>
-<h2 id="需求">需求</h2>
-<ol>
-<li>为数据库中的表teacher生成Teacher.java, TeacherMapper.java, TeacherMapper.xml</li>
-<li>由于该插件生成的TeacherMapper.java, TeacherMapper.xml会带有example, 不希望生成example</li>
-<li>数据库中的字段写有注释, 希望注释能自动生成在Teacher.java中</li>
-</ol>
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/02/07/MyBatis-Generator最佳实践/#more">
-              继续阅读 &raquo;
-            </a>
-          </div>
-        
-
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/Java/">
-                #Java
-              </a>
-            
-              <a href="/tags/MyBatis/">
-                #MyBatis
-              </a>
-            
-          </div>
-        
-
-        
-
-        
-        
-          <div class="post-eof"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/02/04/UltimateAndroid-demo效果图文档/">
-                UltimateAndroid-demo效果图文档
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-          <span class="post-time">
-            
-              发表于 2015-02-04
-            
-          </span>
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/02/04/UltimateAndroid-demo效果图文档/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/04/UltimateAndroid-demo效果图文档/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          <h1 id="打开该文章前请注意,该文章包含220张图片,合计在10M左右,主要目的为快速查看Demo效果">打开该文章前请注意,该文章包含220张图片,合计在10M左右,主要目的为快速查看Demo效果</h1>
-<p>感谢MarshalChen开源了UltimateAndroid这个快速开发框架, 在此我把各个demo的效果图进行展示, 刚开始学习Android, 不对的解释请留言纠正, 欢迎各位极客加入到这个框架的开发中来.</p>
-<p><a href="https://github.com/cymcsg/UltimateAndroid" target="_blank" rel="external">项目地址</a></p>
-<p><a href="http://study.163.com/course/introduction.htm?courseId=990020" target="_blank" rel="external">Android快速开发教程第一季-视频</a></p>
-<p><a href="http://blog.marshalchen.com/ultimateandroiddoc/index.html" target="_blank" rel="external">API</a></p>
-<p>由于图片太多, 所有把文档分为五部分: </p>
-<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-一" target="_blank" rel="external">UltimateAndroid-demo效果图文档-一</a></p>
-<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-二" target="_blank" rel="external">UltimateAndroid-demo效果图文档-二</a></p>
-<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-三" target="_blank" rel="external">UltimateAndroid-demo效果图文档-三</a></p>
-<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-四" target="_blank" rel="external">UltimateAndroid-demo效果图文档-四</a></p>
-<p><a href="http://arccode.net/2015/02/03/UltimateAndroid-demo效果图文档-五" target="_blank" rel="external">UltimateAndroid-demo效果图文档-五</a></p>
-<p>在测试过程中有三个Demo在<code>小米3</code>机型上出现程序崩溃的情况:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="title">HomeActivity</span></div><div class="line">QuickReturnListViewActivity</div><div class="line">PasscodePreferencesActivity</div></pre></td></tr></table></figure>
-
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/02/04/UltimateAndroid-demo效果图文档/#more">
-              继续阅读 &raquo;
-            </a>
-          </div>
-        
-
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/UI/">
-                #UI
-              </a>
-            
-              <a href="/tags/Android/">
-                #Android
-              </a>
-            
-              <a href="/tags/UltimateAndroid/">
-                #UltimateAndroid
-              </a>
-            
-          </div>
-        
-
-        
-
-        
-        
       </div>
     
   </div>
@@ -1045,7 +1043,7 @@
 
           
             <div class="pagination">
-              <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
+              <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
             </div>
           
         </div>
@@ -1072,11 +1070,11 @@
       <p class="site-description motion-element">积累技术, 努力工作, 坚持学习, 认真生活.</p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">
-            <span class="site-state-item-count">46</span>
+            <span class="site-state-item-count">48</span>
             <span class="site-state-item-name">标签</span>
         </div>
         <div class="site-state-item site-state-pages">
