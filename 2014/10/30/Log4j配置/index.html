@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="theme-next use-motion">
+<html class="theme-next use-motion ">
 <head>
   
 
@@ -13,18 +13,22 @@
   <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.3.0rc5"/>
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.2"/>
 
 
     <meta name="description" content="积累技术, 努力工作, 坚持学习, 认真生活." />
 
 
 
-    <link rel="alternate" href="/atom.xml" title="Arccode's blog" type="application/atom+xml" />
+  <meta name="keywords" content="Java,Log,Log4j," />
 
 
 
-    <link rel="shorticon icon" type="image/x-icon" href="/images/favicon.ico?v=0.3.0rc5" />
+  <link rel="alternate" href="/atom.xml" title="Arccode's blog" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/images/favicon.ico?v=0.4.2" />
 
 
 
@@ -49,22 +53,33 @@
     <div id="header" class="header">
       <div class="header-inner">
         <h1 class="site-meta">
-    <a href="/" class="brand">
-        <span class="logo">
-          <i class="icon-logo"></i>
-        </span>
-        <span class="site-title">Arccode's blog</span>
-    </a>
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">Arccode's blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
 </h1>
 
 
   <ul id="menu" class="menu">
+     
     
       
       <li class="menu-item menu-item-home">
         <a href="/">
           <i class="menu-item-icon icon-home"></i> <br />
           首页
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-categories">
+        <a href="/categories">
+          <i class="menu-item-icon icon-categories"></i> <br />
+          分类
         </a>
       </li>
     
@@ -102,12 +117,9 @@
       <div class="main-inner">
         <div id="content" class="content">
           
-            
-          
 
-          <div id="posts" class="posts-expand">
-            
-  
+  <div id="posts" class="posts-expand">
+    
 
   <div class="post post-type-normal ">
     <div class="post-header">
@@ -125,11 +137,23 @@
       
 
       <div class="post-meta">
-          <span class="post-time">
+        <span class="post-time">
+          发表于 2014-10-30
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
             
-              发表于 2014-10-30
+              <a href="/categories/Java/">Java</a>
+
+              
+              
+
             
           </span>
+        
+
         
           
             <span class="post-comments-count">
@@ -143,14 +167,13 @@
       </div>
     </div>
 
-    
-      <div class="post-body">
+    <div class="post-body fmt">
 
-        
-        
+      
+      
 
-        
-          <h2 id="在Java_Web项目中配置Log4j">在Java Web项目中配置Log4j</h2>
+      
+        <h2 id="在Java_Web项目中配置Log4j">在Java Web项目中配置Log4j</h2>
 <h3 id="示例文件">示例文件</h3>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></div><div class="line"><span class="doctype">&lt;!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" &gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">log4j:configuration</span> <span class="attribute">xmlns:log4j</span>=<span class="value">"http://jakarta.apache.org/log4j/"</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- Appenders --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">appender</span> <span class="attribute">name</span>=<span class="value">"console"</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.ConsoleAppender"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"Target"</span> <span class="attribute">value</span>=<span class="value">"System.out"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">layout</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.PatternLayout"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ConversionPattern"</span> <span class="attribute">value</span>=<span class="value">"[%p] %d{yyyy-MM-dd HH:mm:ss:SSS} [%l] %m%n"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="title">layout</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">appender</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="title">appender</span> <span class="attribute">name</span>=<span class="value">"FILE-INFO"</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.DailyRollingFileAppender"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"File"</span> <span class="attribute">value</span>=<span class="value">"/home/ad/logs/ad-quartz-info-db.log"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"Append"</span> <span class="attribute">value</span>=<span class="value">"true"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ImmediateFlush"</span> <span class="attribute">value</span>=<span class="value">"true"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"DatePattern"</span> <span class="attribute">value</span>=<span class="value">".yyyy-MM-dd"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"BufferSize"</span> <span class="attribute">value</span>=<span class="value">"500"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">layout</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.PatternLayout"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ConversionPattern"</span> <span class="attribute">value</span>=<span class="value">"[%p] %d{yyyy-MM-dd HH:mm:ss:SSS} [%l] %m%n"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="title">layout</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">filter</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.varia.LevelRangeFilter"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"LevelMin"</span> <span class="attribute">value</span>=<span class="value">"DEBUG"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"LevelMax"</span> <span class="attribute">value</span>=<span class="value">"INFO"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"acceptOnMatch"</span> <span class="attribute">value</span>=<span class="value">"false"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="title">filter</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">appender</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="title">appender</span> <span class="attribute">name</span>=<span class="value">"FILE-WARN"</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.DailyRollingFileAppender"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"File"</span> <span class="attribute">value</span>=<span class="value">"/home/ad/logs/ad-quartz-warn-db.log"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"Append"</span> <span class="attribute">value</span>=<span class="value">"true"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ImmediateFlush"</span> <span class="attribute">value</span>=<span class="value">"true"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"DatePattern"</span> <span class="attribute">value</span>=<span class="value">".yyyy-MM-dd"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"BufferSize"</span> <span class="attribute">value</span>=<span class="value">"500"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">layout</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.PatternLayout"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"ConversionPattern"</span> <span class="attribute">value</span>=<span class="value">"[%p] %d{yyyy-MM-dd HH:mm:ss:SSS} [%l] %m%n"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="title">layout</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">filter</span> <span class="attribute">class</span>=<span class="value">"org.apache.log4j.varia.LevelRangeFilter"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"LevelMin"</span> <span class="attribute">value</span>=<span class="value">"WARN"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"LevelMax"</span> <span class="attribute">value</span>=<span class="value">"FATAL"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param</span> <span class="attribute">name</span>=<span class="value">"acceptOnMatch"</span> <span class="attribute">value</span>=<span class="value">"false"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="title">filter</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">appender</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- Root Logger --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">root</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">priority</span> <span class="attribute">value</span>=<span class="value">"debug"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"console"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"FILE-INFO"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">appender-ref</span> <span class="attribute">ref</span>=<span class="value">"FILE-WARN"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">root</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="title">log4j:configuration</span>&gt;</span></div></pre></td></tr></table></figure>
 
@@ -166,154 +189,163 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># 格式说明layout中的参数都以%开始，后面不同的参数代表不同的格式化信息（参数按字母表顺序列出）：</div><div class="line"><span class="tag">%<span class="title">p</span></span> 输出优先级，即 FATAL ,ERROR 等</div><div class="line"><span class="tag">%<span class="title">d</span></span> 输出日志时间其格式为 %d{yyyy-MM-dd HH:mm:ss,SSS}，可指定格式 如 %d{HH:mm:ss}</div><div class="line"><span class="tag">%<span class="title">l</span></span> 输出日志事件发生位置，包括类目名、发生线程，在代码中的行数</div><div class="line"><span class="tag">%<span class="title">n</span></span> 换行符</div><div class="line"><span class="tag">%<span class="title">m</span></span> 输出代码指定信息，如info(“message”),输出message</div><div class="line"><span class="tag">%<span class="title">c</span></span> 输出所属类的全名，可在修改为 %c{Num} ,Num类名输出的维(如："org.apache.elathen.ClassName",%c{2}将输出elathen.ClassName)</div><div class="line"><span class="tag">%<span class="title">r</span></span> 输出从启动到显示该log信息所耗费的毫秒数</div><div class="line"><span class="tag">%<span class="title">t</span></span> 输出产生该日志事件的线程名</div></pre></td></tr></table></figure>
 
 
-        
-
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/Java/">
-                #Java
-              </a>
-            
-              <a href="/tags/Log/">
-                #Log
-              </a>
-            
-              <a href="/tags/Log4j/">
-                #Log4j
-              </a>
-            
-          </div>
-        
-
-        
-          <div class="post-nav">
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2014/10/30/Properties配置分离/">Properties配置分离</a>
-              
-            </div>
-
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/2014/10/23/Mac下安装SVN服务器/">Mac下安装SVN服务器</a>
-              
-            </div>
-          </div>
-        
-
-        
-        
-      </div>
-    
-  </div>
-
-
-
-  
-    <div class="comments" id="comments">
-      
-        <div class="ds-thread" data-thread-key="2014/10/30/Log4j配置/"
-             data-title="Log4j配置" data-url="http://arccode.net/2014/10/30/Log4j配置/">
-        </div>
-
       
     </div>
-  
 
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/"> #Java </a>
+          
+            <a href="/tags/Log/"> #Log </a>
+          
+            <a href="/tags/Log4j/"> #Log4j </a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/10/30/Properties配置分离/">Properties配置分离</a>
+            
           </div>
 
-          
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/10/23/Mac下安装SVN服务器/">Mac下安装SVN服务器</a>
+            
+          </div>
         </div>
+      
 
-        
-<div class="sidebar-toggle">
-  <div class="sidebar-toggle-line-wrap">
-    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+      
+      
+    </div>
   </div>
-</div>
 
-<div id="sidebar" class="sidebar">
-  <div class="sidebar-inner">
+
 
     
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview" data-target="site-overview">
-          站点概览
-        </li>
-      </ul>
-    
-
-    <div class="site-overview">
-      <div class="site-author motion-element">
-        <img class="site-author-image" src="/images/avatar.jpg" alt="arccode" />
-        <p class="site-author-name">arccode</p>
+      <div class="comments" id="comments">
+        
+          <div class="ds-thread" data-thread-key="2014/10/30/Log4j配置/"
+               data-title="Log4j配置" data-url="http://arccode.net/2014/10/30/Log4j配置/">
+          </div>
+        
       </div>
-      <p class="site-description motion-element">积累技术, 努力工作, 坚持学习, 认真生活.</p>
-      <div class="site-state motion-element">
-        <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">52</span>
-          <span class="site-state-item-name">日志</span>
-        </div>
-        <div class="site-state-item site-state-tags">
-            <span class="site-state-item-count">48</span>
-            <span class="site-state-item-name">标签</span>
-        </div>
-        <div class="site-state-item site-state-pages">
-            <span class="site-state-item-count">3</span>
-            <span class="site-state-item-name">页面</span>
+    
+  </div>
+
+
         </div>
       </div>
 
       
-        <div class="feed-link motion-element">
-          <a href="/atom.xml">
-            <i class="menu-item-icon icon-feed"></i>
-            RSS
-          </a>
-        </div>
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
       
 
-      <div class="social-info motion-element">
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="/images/avatar.jpg" alt="arccode" />
+          <p class="site-author-name">arccode</p>
+        </div>
+        <p class="site-description motion-element">积累技术, 努力工作, 坚持学习, 认真生活.</p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">48</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </div>
+
         
-          
-            <span class="social-item">
-              <a href="http://arccode.net">blog</a>
-            </span>
-          
-            <span class="social-item">
-              <a href="https://github.com/arccode">github</a>
-            </span>
-          
-            <span class="social-item">
-              <a href="http://weibo.com/tianzhisoftware">weibo</a>
-            </span>
-          
+          <div class="feed-link motion-element">
+            <a href="/atom.xml">
+              <i class="menu-item-icon icon-feed"></i>
+              RSS
+            </a>
+          </div>
         
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+              <a href="http://arccode.net" target="_blank">Blog</a>
+            </span>
+            
+              <span class="links-of-author-item">
+              <a href="https://github.com/arccode" target="_blank">GitHub</a>
+            </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://weibo.com/tianzhisoftware" target="_blank">Weibo</a>
+            </span>
+            
+          
+        </div>
+
+        
+        
+
       </div>
+
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#在Java_Web项目中配置Log4j"><span class="nav-number">1.</span> <span class="nav-text">在Java Web项目中配置Log4j</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例文件"><span class="nav-number">1.1.</span> <span class="nav-text">示例文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出方式"><span class="nav-number">1.2.</span> <span class="nav-text">输出方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日志优先级"><span class="nav-number">1.3.</span> <span class="nav-text">日志优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数配置"><span class="nav-number">1.4.</span> <span class="nav-text">参数配置</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
 
     </div>
-
-    
-      <div class="post-toc sidebar-panel-active">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#在Java_Web项目中配置Log4j"><span class="nav-number">1.</span> <span class="nav-text">在Java Web项目中配置Log4j</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例文件"><span class="nav-number">1.1.</span> <span class="nav-text">示例文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出方式"><span class="nav-number">1.2.</span> <span class="nav-text">输出方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日志优先级"><span class="nav-number">1.3.</span> <span class="nav-text">日志优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数配置"><span class="nav-number">1.4.</span> <span class="nav-text">参数配置</span></a></li></ol></li></ol>
-      </div>
-    
   </div>
-</div>
 
 
-      </div>
     </div>
 
     <div id="footer" class="footer">
@@ -330,8 +362,6 @@
 
 
 
-
-
       </div>
     </div>
 
@@ -341,12 +371,31 @@
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
+  
+
+  
   <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
-      $(".fancybox").fancybox();
+      $('.content img').each(function () {
+        var $image = $(this);
+        var $imageWrapLink = $image.parent('a');
+
+        if ($imageWrapLink.size() < 1) {
+          $imageWrapLink = $image.wrap('<a href="' + this.getAttribute('src') + '"></a>').parent('a');
+        }
+        $imageWrapLink.addClass('fancybox');
+      });
+    });
+    $('.fancybox').fancybox({
+      helpers: {
+        overlay: {
+          locked: false
+        }
+      }
     });
   </script>
+
 
   <script type="text/javascript">
   function hasMobileUA () {
@@ -379,8 +428,6 @@
   <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
   <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
 
-  
-
   <script type="text/javascript" id="motion.global">
   $(document).ready(function () {
     var body = $('body');
@@ -408,6 +455,7 @@
     var sidebarToggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
     var sidebarToogleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
 
+    LogoAndMenuMotion();
     sidebatToggleMotion();
     postsListMotion();
     backToTopMotion();
@@ -422,6 +470,16 @@
         sidebarContentMotion();
       })
       .on('sidebar.isHiding', function () {});
+
+    function LogoAndMenuMotion() {
+      $.Velocity.RunSequence([
+        { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
+        { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
+        
+        { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
+      ]);
+      $('.menu-item').velocity('transition.slideDownIn', {display: null});
+    }
 
 
     function backToTopMotion () {
@@ -438,6 +496,7 @@
       sidebarToggleLine3rd.velocity(sidebarToogleLine3rdStatusClose);
 
       sidebar.velocity({width: SIDEBAR_WIDTH}, {
+        display: 'block',
         duration: SIDEBAR_DISPLAY_DURATION,
         complete: function () {
           sidebar.addClass('sidebar-active');
@@ -467,7 +526,8 @@
     }
 
     function postsListMotion () {
-      $('.post').velocity('transition.slideDownIn', {stagger: 300, drag: true});
+      var postMotionOptions = window.postMotionOptions || {stagger: 300, drag: true};
+      $('.post').velocity('transition.slideDownIn', postMotionOptions);
     }
 
     function sidebatToggleMotion () {
@@ -709,24 +769,31 @@
     }
 
     function processTOC () {
-      $tocSelector.scrollPager({
-        max: getTOCMaxHeight()
-      });
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
     }
 
     function getTOCMaxHeight () {
-      // TODO: Make it beautiful
       var $sidebarInner = $('.sidebar-inner');
       var height = $('.sidebar').height() -
-        parseInt($sidebarInner.css('padding-top'), 10) -
-        parseInt($sidebarInner.css('padding-bottom'), 10) -
-        $('.sidebar-nav').height() -
-        parseInt($tocSelector.css('margin-top'), 10) -
-        parseInt($tocSelector.css('margin-bottom'), 10);
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
 
       $tocSelector.css('height', height);
 
       return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
     }
 
     $(document).on('sidebar.didShow', function () {
@@ -746,11 +813,21 @@
       element.on('mousewheel DOMMouseScroll', function (event) {
           var oe = event.originalEvent;
           var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
 
           this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
           event.preventDefault();
+
+          toggleTOCOverflowIndicators();
       });
     }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
   });
 </script>
 
@@ -791,7 +868,8 @@
       });
 
       // Expand sidebar on post detail page by default, when post has a toc.
-      if ($('.post-toc').html().trim().length > 0 && isDesktop()) {
+      var $tocContent = $('.post-toc-content');
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0 && isDesktop()) {
         setTimeout(function () {
           $('.sidebar-toggle').trigger('click');
         }, 800);
@@ -804,6 +882,7 @@
 
   
 
+  
   
 
   
@@ -823,6 +902,8 @@
   </script>
 
   
+
+
   
   <script type="text/javascript">
     (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

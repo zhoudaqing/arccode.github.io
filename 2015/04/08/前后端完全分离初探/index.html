@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="theme-next use-motion">
+<html class="theme-next use-motion ">
 <head>
   
 
@@ -13,18 +13,22 @@
   <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.3.0rc5"/>
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.2"/>
 
 
     <meta name="description" content="积累技术, 努力工作, 坚持学习, 认真生活." />
 
 
 
-    <link rel="alternate" href="/atom.xml" title="Arccode's blog" type="application/atom+xml" />
+  <meta name="keywords" content="Java,Javascript,REST," />
 
 
 
-    <link rel="shorticon icon" type="image/x-icon" href="/images/favicon.ico?v=0.3.0rc5" />
+  <link rel="alternate" href="/atom.xml" title="Arccode's blog" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/images/favicon.ico?v=0.4.2" />
 
 
 
@@ -49,22 +53,33 @@
     <div id="header" class="header">
       <div class="header-inner">
         <h1 class="site-meta">
-    <a href="/" class="brand">
-        <span class="logo">
-          <i class="icon-logo"></i>
-        </span>
-        <span class="site-title">Arccode's blog</span>
-    </a>
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">Arccode's blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
 </h1>
 
 
   <ul id="menu" class="menu">
+     
     
       
       <li class="menu-item menu-item-home">
         <a href="/">
           <i class="menu-item-icon icon-home"></i> <br />
           首页
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-categories">
+        <a href="/categories">
+          <i class="menu-item-icon icon-categories"></i> <br />
+          分类
         </a>
       </li>
     
@@ -102,12 +117,9 @@
       <div class="main-inner">
         <div id="content" class="content">
           
-            
-          
 
-          <div id="posts" class="posts-expand">
-            
-  
+  <div id="posts" class="posts-expand">
+    
 
   <div class="post post-type-normal ">
     <div class="post-header">
@@ -125,11 +137,23 @@
       
 
       <div class="post-meta">
-          <span class="post-time">
+        <span class="post-time">
+          发表于 2015-04-08
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
             
-              发表于 2015-04-08
+              <a href="/categories/架构/">架构</a>
+
+              
+              
+
             
           </span>
+        
+
         
           
             <span class="post-comments-count">
@@ -143,14 +167,13 @@
       </div>
     </div>
 
-    
-      <div class="post-body">
+    <div class="post-body fmt">
 
-        
-        
+      
+      
 
-        
-          <h2 id="核心思路">核心思路</h2>
+      
+        <h2 id="核心思路">核心思路</h2>
 <p>后端负责业务逻辑处理, 前端负责展示逻辑的处理.</p>
 <h2 id="背景">背景</h2>
 <ul>
@@ -185,7 +208,7 @@
 <p><a href="https://panic.com/transmit/" target="_blank" rel="external">Transmit</a></p>
 <p>一款强大的Linux SFTP客户端可视化工具.</p>
 <h2 id="代理">代理</h2>
-<p><a href="https://www.ytbit.com/" target="_blank" rel="external">云梯</a></p>
+<p><a href="https://www.cloudtizi.com/" target="_blank" rel="external">云梯</a></p>
 <p>强大的VPN, 连接稳定, 速度快, 价格实惠, 可做全局代理, 包括terminal.</p>
 <h2 id="项目">项目</h2>
 <h3 id="目的">目的</h3>
@@ -211,7 +234,12 @@
 <p>对架构进行分层, 目前分三层</p>
 <ul>
 <li>web接入层: 提供API接口,对前端传过来的数据进行校验, 校验未通过的话使用spring hateoas包装返回错误消息, 校验通过的话调用业务逻辑层</li>
-<li>业务逻辑层: 该层主要处理上层传进来的数据, 调用数据访问层进行数据持久化; 该层具有强大的扩展性, 对于高并发写<code>db</code>的操作, 可集成消息队列库(如<a href="http://activemq.apache.org/" target="_blank" rel="external">ActiveMQ</a>)将消息发送至队列, 采用队列依次消费减轻<code>db</code>写负担; 对于高并发频繁读<code>db</code>的操作, 可集成缓存库(如<a href="http://redis.io/" target="_blank" rel="external">redis</a>), 把读<code>db</code>的操作改为先读缓存, 未命中才去读<code>db</code>, 这样可大大减轻数据库读负担; 在该层上还可以使用<code>spring AOP</code>对业务进行事务控制及日志记录.</li>
+<li>业务逻辑层: 该层主要处理上层传进来的数据, 调用数据访问层进行数据持久化, 该层具有强大的扩展性;<ul>
+<li>对于高并发写<code>db</code>的操作, 可集成消息队列库(如<a href="http://activemq.apache.org/" target="_blank" rel="external">ActiveMQ</a>)将消息发送至队列, 采用队列依次消费减轻<code>db</code>写负担.</li>
+<li>对于高并发频繁读<code>db</code>的操作, 可集成缓存库(如<a href="http://redis.io/" target="_blank" rel="external">redis</a>), 把读<code>db</code>的操作改为先读缓存, 未命中才去读<code>db</code>, 这样可大大减轻数据库读负担.</li>
+<li>在该层上还可以使用<code>spring AOP</code>对业务进行事务控制及日志记录.</li>
+</ul>
+</li>
 <li>数据访问层: 该层只做一件事, 对数据库中的表记录进行增删改查, 不进行业务逻辑判断.</li>
 </ul>
 <p><a href="http://mybatis.github.io/mybatis-3/zh/" target="_blank" rel="external">mybatis</a></p>
@@ -248,156 +276,173 @@
 
 <p>熟练使用该模式, 开发一套业务逻辑的增删改查, 那速度是相当快.</p>
 <p>针对前段也做了一些组件式的封装, 表格采用<code>backgrid.js</code>完成展示及分页操作, 只需要在html文件指定位置写入两个带id的html元素(一个用于展示表格, 一个用于分页), 之后copy写好的js模板, 在js中修改属性便可快速完成表格异步分页.</p>
-<p>关于前端的组件化封装请看下文…..</p>
-
-        
-
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/Java/">
-                #Java
-              </a>
-            
-              <a href="/tags/Javascript/">
-                #Javascript
-              </a>
-            
-              <a href="/tags/REST/">
-                #REST
-              </a>
-            
-          </div>
-        
-
-        
-          <div class="post-nav">
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2015/04/11/前后端完全分离之API设计/">前后端完全分离之API设计</a>
-              
-            </div>
-
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/2015/03/06/冒泡型事件和捕获型事件/">冒泡型事件和捕获型事件</a>
-              
-            </div>
-          </div>
-        
-
-        
-        
-      </div>
-    
-  </div>
-
-
-
-  
-    <div class="comments" id="comments">
-      
-        <div class="ds-thread" data-thread-key="2015/04/08/前后端完全分离初探/"
-             data-title="前后端完全分离初探" data-url="http://arccode.net/2015/04/08/前后端完全分离初探/">
-        </div>
+<p>接下来将陆续发布实战干货, </p>
+<ul>
+<li><a href="">前后端完全分离之API设计</a></li>
+<li>前后端完全分离之安全认证与授权-上</li>
+<li>前后端完全分离之安全认证与授权-下</li>
+<li>前后端完全分离之前端模块化开发</li>
+<li>前后端完全分离之前端路由系统</li>
+<li>前后端完全分离之后端面向服务的模块化开发</li>
+</ul>
 
       
     </div>
-  
 
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/"> #Java </a>
+          
+            <a href="/tags/Javascript/"> #Javascript </a>
+          
+            <a href="/tags/REST/"> #REST </a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/04/14/SpringSecurity-AntPathMatcher-Rest-Match/">SpringSecurity-AntPathMatcher-Rest-Match</a>
+            
           </div>
 
-          
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/06/冒泡型事件和捕获型事件/">冒泡型事件和捕获型事件</a>
+            
+          </div>
         </div>
+      
 
-        
-<div class="sidebar-toggle">
-  <div class="sidebar-toggle-line-wrap">
-    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+      
+      
+    </div>
   </div>
-</div>
 
-<div id="sidebar" class="sidebar">
-  <div class="sidebar-inner">
+
 
     
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview" data-target="site-overview">
-          站点概览
-        </li>
-      </ul>
-    
-
-    <div class="site-overview">
-      <div class="site-author motion-element">
-        <img class="site-author-image" src="/images/avatar.jpg" alt="arccode" />
-        <p class="site-author-name">arccode</p>
+      <div class="comments" id="comments">
+        
+          <div class="ds-thread" data-thread-key="2015/04/08/前后端完全分离初探/"
+               data-title="前后端完全分离初探" data-url="http://arccode.net/2015/04/08/前后端完全分离初探/">
+          </div>
+        
       </div>
-      <p class="site-description motion-element">积累技术, 努力工作, 坚持学习, 认真生活.</p>
-      <div class="site-state motion-element">
-        <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">52</span>
-          <span class="site-state-item-name">日志</span>
-        </div>
-        <div class="site-state-item site-state-tags">
-            <span class="site-state-item-count">48</span>
-            <span class="site-state-item-name">标签</span>
-        </div>
-        <div class="site-state-item site-state-pages">
-            <span class="site-state-item-count">3</span>
-            <span class="site-state-item-name">页面</span>
+    
+  </div>
+
+
         </div>
       </div>
 
       
-        <div class="feed-link motion-element">
-          <a href="/atom.xml">
-            <i class="menu-item-icon icon-feed"></i>
-            RSS
-          </a>
-        </div>
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
       
 
-      <div class="social-info motion-element">
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="/images/avatar.jpg" alt="arccode" />
+          <p class="site-author-name">arccode</p>
+        </div>
+        <p class="site-description motion-element">积累技术, 努力工作, 坚持学习, 认真生活.</p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">48</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </div>
+
         
-          
-            <span class="social-item">
-              <a href="http://arccode.net">blog</a>
-            </span>
-          
-            <span class="social-item">
-              <a href="https://github.com/arccode">github</a>
-            </span>
-          
-            <span class="social-item">
-              <a href="http://weibo.com/tianzhisoftware">weibo</a>
-            </span>
-          
+          <div class="feed-link motion-element">
+            <a href="/atom.xml">
+              <i class="menu-item-icon icon-feed"></i>
+              RSS
+            </a>
+          </div>
         
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+              <a href="http://arccode.net" target="_blank">Blog</a>
+            </span>
+            
+              <span class="links-of-author-item">
+              <a href="https://github.com/arccode" target="_blank">GitHub</a>
+            </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://weibo.com/tianzhisoftware" target="_blank">Weibo</a>
+            </span>
+            
+          
+        </div>
+
+        
+        
+
       </div>
+
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#核心思路"><span class="nav-number">1.</span> <span class="nav-text">核心思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">2.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工具"><span class="nav-number">3.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代理"><span class="nav-number">4.</span> <span class="nav-text">代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目"><span class="nav-number">5.</span> <span class="nav-text">项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目的"><span class="nav-number">5.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端类库"><span class="nav-number">5.2.</span> <span class="nav-text">前端类库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后端类库"><span class="nav-number">5.3.</span> <span class="nav-text">后端类库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实战"><span class="nav-number">5.4.</span> <span class="nav-text">实战</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
 
     </div>
-
-    
-      <div class="post-toc sidebar-panel-active">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#核心思路"><span class="nav-number">1.</span> <span class="nav-text">核心思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">2.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工具"><span class="nav-number">3.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代理"><span class="nav-number">4.</span> <span class="nav-text">代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目"><span class="nav-number">5.</span> <span class="nav-text">项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目的"><span class="nav-number">5.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端类库"><span class="nav-number">5.2.</span> <span class="nav-text">前端类库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后端类库"><span class="nav-number">5.3.</span> <span class="nav-text">后端类库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实战"><span class="nav-number">5.4.</span> <span class="nav-text">实战</span></a></li></ol></li></ol>
-      </div>
-    
   </div>
-</div>
 
 
-      </div>
     </div>
 
     <div id="footer" class="footer">
@@ -414,8 +459,6 @@
 
 
 
-
-
       </div>
     </div>
 
@@ -425,12 +468,31 @@
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
+  
+
+  
   <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
-      $(".fancybox").fancybox();
+      $('.content img').each(function () {
+        var $image = $(this);
+        var $imageWrapLink = $image.parent('a');
+
+        if ($imageWrapLink.size() < 1) {
+          $imageWrapLink = $image.wrap('<a href="' + this.getAttribute('src') + '"></a>').parent('a');
+        }
+        $imageWrapLink.addClass('fancybox');
+      });
+    });
+    $('.fancybox').fancybox({
+      helpers: {
+        overlay: {
+          locked: false
+        }
+      }
     });
   </script>
+
 
   <script type="text/javascript">
   function hasMobileUA () {
@@ -463,8 +525,6 @@
   <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
   <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
 
-  
-
   <script type="text/javascript" id="motion.global">
   $(document).ready(function () {
     var body = $('body');
@@ -492,6 +552,7 @@
     var sidebarToggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
     var sidebarToogleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
 
+    LogoAndMenuMotion();
     sidebatToggleMotion();
     postsListMotion();
     backToTopMotion();
@@ -506,6 +567,16 @@
         sidebarContentMotion();
       })
       .on('sidebar.isHiding', function () {});
+
+    function LogoAndMenuMotion() {
+      $.Velocity.RunSequence([
+        { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
+        { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
+        
+        { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
+      ]);
+      $('.menu-item').velocity('transition.slideDownIn', {display: null});
+    }
 
 
     function backToTopMotion () {
@@ -522,6 +593,7 @@
       sidebarToggleLine3rd.velocity(sidebarToogleLine3rdStatusClose);
 
       sidebar.velocity({width: SIDEBAR_WIDTH}, {
+        display: 'block',
         duration: SIDEBAR_DISPLAY_DURATION,
         complete: function () {
           sidebar.addClass('sidebar-active');
@@ -551,7 +623,8 @@
     }
 
     function postsListMotion () {
-      $('.post').velocity('transition.slideDownIn', {stagger: 300, drag: true});
+      var postMotionOptions = window.postMotionOptions || {stagger: 300, drag: true};
+      $('.post').velocity('transition.slideDownIn', postMotionOptions);
     }
 
     function sidebatToggleMotion () {
@@ -793,24 +866,31 @@
     }
 
     function processTOC () {
-      $tocSelector.scrollPager({
-        max: getTOCMaxHeight()
-      });
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
     }
 
     function getTOCMaxHeight () {
-      // TODO: Make it beautiful
       var $sidebarInner = $('.sidebar-inner');
       var height = $('.sidebar').height() -
-        parseInt($sidebarInner.css('padding-top'), 10) -
-        parseInt($sidebarInner.css('padding-bottom'), 10) -
-        $('.sidebar-nav').height() -
-        parseInt($tocSelector.css('margin-top'), 10) -
-        parseInt($tocSelector.css('margin-bottom'), 10);
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
 
       $tocSelector.css('height', height);
 
       return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
     }
 
     $(document).on('sidebar.didShow', function () {
@@ -830,11 +910,21 @@
       element.on('mousewheel DOMMouseScroll', function (event) {
           var oe = event.originalEvent;
           var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
 
           this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
           event.preventDefault();
+
+          toggleTOCOverflowIndicators();
       });
     }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
   });
 </script>
 
@@ -875,7 +965,8 @@
       });
 
       // Expand sidebar on post detail page by default, when post has a toc.
-      if ($('.post-toc').html().trim().length > 0 && isDesktop()) {
+      var $tocContent = $('.post-toc-content');
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0 && isDesktop()) {
         setTimeout(function () {
           $('.sidebar-toggle').trigger('click');
         }, 800);
@@ -888,6 +979,7 @@
 
   
 
+  
   
 
   
@@ -907,6 +999,8 @@
   </script>
 
   
+
+
   
   <script type="text/javascript">
     (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
