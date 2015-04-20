@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://arccode.net/"/>
-  <updated>2015-04-20T01:13:44.070Z</updated>
+  <updated>2015-04-20T01:23:47.383Z</updated>
   <id>http://arccode.net/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://arccode.net/2015/04/18/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AE%8C%E5%85%A8%E5%88%86%E7%A6%BB%E4%B9%8BAPI%E8%AE%BE%E8%AE%A1/"/>
     <id>http://arccode.net/2015/04/18/前后端完全分离之API设计/</id>
     <published>2015-04-18T09:46:48.000Z</published>
-    <updated>2015-04-19T16:08:32.000Z</updated>
+    <updated>2015-04-20T01:21:27.000Z</updated>
     <content type="html"><![CDATA[<h2 id="背景">背景</h2>
 <p>API就是开发者使用的界面。我的目标不仅是能用，而且好用, 跨平台(PC, Android, IOS, etc…)使用; 本文将详细介绍API的设计及异常处理, 并将异常信息进行封装友好地反馈给前端.</p>
 <p>上篇文章<a href="http://segmentfault.com/a/1190000002662501" target="_blank" rel="external">前后端完全分离初探</a>只是讲了些宽泛的概念, 接下来的文章将直接上干货, 干货的源码会挂在<code>github</code>上.</p>
@@ -182,7 +182,7 @@
     
       <category term="Javascript" scheme="http://arccode.net/tags/Javascript/"/>
     
-      <category term="REST" scheme="http://arccode.net/tags/REST/"/>
+      <category term="Rest" scheme="http://arccode.net/tags/Rest/"/>
     
       <category term="架构" scheme="http://arccode.net/categories/%E6%9E%B6%E6%9E%84/"/>
     
@@ -240,7 +240,7 @@
     <link href="http://arccode.net/2015/04/08/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AE%8C%E5%85%A8%E5%88%86%E7%A6%BB%E5%88%9D%E6%8E%A2/"/>
     <id>http://arccode.net/2015/04/08/前后端完全分离初探/</id>
     <published>2015-04-08T15:13:37.000Z</published>
-    <updated>2015-04-19T16:08:18.000Z</updated>
+    <updated>2015-04-20T01:23:38.000Z</updated>
     <content type="html"><![CDATA[<h2 id="核心思路">核心思路</h2>
 <p>后端负责业务逻辑处理, 前端负责展示逻辑的处理.</p>
 <h2 id="背景">背景</h2>
@@ -344,11 +344,12 @@
 
 <p>熟练使用该模式, 开发一套业务逻辑的增删改查, 那速度是相当快.</p>
 <p>针对前段也做了一些组件式的封装, 表格采用<code>backgrid.js</code>完成展示及分页操作, 只需要在html文件指定位置写入两个带id的html元素(一个用于展示表格, 一个用于分页), 之后copy写好的js模板, 在js中修改属性便可快速完成表格异步分页.</p>
-<p>接下来将陆续发布实战干货, </p>
+<p>接下来将陆续发布实战干货.</p>
+<h2 id="本系列文章">本系列文章</h2>
 <ul>
-<li><a href="">前后端完全分离之API设计</a></li>
-<li>前后端完全分离之安全认证与授权-上</li>
-<li>前后端完全分离之安全认证与授权-下</li>
+<li><a href="http://arccode.net/2015/04/08/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AE%8C%E5%85%A8%E5%88%86%E7%A6%BB%E5%88%9D%E6%8E%A2/" target="_blank" rel="external">前后端完全分离初探</a></li>
+<li><a href="http://arccode.net/2015/04/18/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AE%8C%E5%85%A8%E5%88%86%E7%A6%BB%E4%B9%8BAPI%E8%AE%BE%E8%AE%A1/" target="_blank" rel="external">前后端完全分离之API设计</a></li>
+<li>前后端完全分离之安全认证与授权</li>
 <li>前后端完全分离之前端模块化开发</li>
 <li>前后端完全分离之前端路由系统</li>
 <li>前后端完全分离之后端面向服务的模块化开发</li>
@@ -376,7 +377,7 @@
     
       <category term="Javascript" scheme="http://arccode.net/tags/Javascript/"/>
     
-      <category term="REST" scheme="http://arccode.net/tags/REST/"/>
+      <category term="Rest" scheme="http://arccode.net/tags/Rest/"/>
     
       <category term="架构" scheme="http://arccode.net/categories/%E6%9E%B6%E6%9E%84/"/>
     
@@ -818,7 +819,7 @@
     <link href="http://arccode.net/2015/02/26/RESTful%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
     <id>http://arccode.net/2015/02/26/RESTful最佳实践/</id>
     <published>2015-02-26T02:50:23.000Z</published>
-    <updated>2015-02-26T14:52:30.000Z</updated>
+    <updated>2015-04-20T01:21:45.000Z</updated>
     <content type="html"><![CDATA[<h1 id="背景">背景</h1>
 <p>此文为实践总结，是自己在实践过程中积累的经验和”哲学”。部分内容参考相关资料，参考内容请看尾页。建议对RESTful有一定了解者阅读!</p>
 <h1 id="哲学">哲学</h1>
@@ -1384,7 +1385,7 @@
     
       <category term="Http" scheme="http://arccode.net/tags/Http/"/>
     
-      <category term="REST" scheme="http://arccode.net/tags/REST/"/>
+      <category term="Rest" scheme="http://arccode.net/tags/Rest/"/>
     
       <category term="架构" scheme="http://arccode.net/categories/%E6%9E%B6%E6%9E%84/"/>
     
@@ -1395,7 +1396,7 @@
     <link href="http://arccode.net/2015/02/25/%E7%90%86%E8%A7%A3%E6%9C%AC%E7%9C%9F%E7%9A%84REST%E6%9E%B6%E6%9E%84%E9%A3%8E%E6%A0%BC/"/>
     <id>http://arccode.net/2015/02/25/理解本真的REST架构风格/</id>
     <published>2015-02-25T12:00:13.000Z</published>
-    <updated>2015-02-26T02:51:30.000Z</updated>
+    <updated>2015-04-20T01:22:17.000Z</updated>
     <content type="html"><![CDATA[<p>本文是<a href="http://www.infoq.com/cn/rest-deep-dive" target="_blank" rel="external">“深入探索REST”专栏</a>系列深度内容中的第二篇，它将带您领略REST架构的起源、与Web的关系、REST架构的本质及特性，以及REST架构与其他架构风格之间的比较。</p>
 <h2 id="引子">引子</h2>
 <p>在移动互联网、云计算迅猛发展的今天，作为一名Web开发者，如果您还没听说过“REST”这个buzzword，显然已经落伍了。夸张点说，甚至“出了门都不好意思跟别人打招呼”。尽管如此，对于REST这个泊来品的理解，大多数人（包括一些资深的架构师）仍然停留在“盲人摸象”的阶段。常常听到各种各样关于REST的说法，例如：有人说：“我们这套新的API决定不用Web Service（SOAP+WSDL），而是直接使用HTTP+JSON，也就是用RESTful的方式来开发。” 不用SOAP，甚至也不用XML，就自动变成了RESTful了。还有人认为：REST与传统的 Service其实没有本质区别，只是对于URI的构造方式提出了更多要求，而这些要求Web Service完全都可以实现。潜台词是：既生瑜，何生亮。Web Service已经足够好了，干嘛还要再折腾什么REST。这些对于REST的不同说法，果真如此吗？REST究竟是什么？是一种新的技术、一种新的架构、还是一种新的规范？</p>
@@ -1602,7 +1603,7 @@
     
       <category term="Http" scheme="http://arccode.net/tags/Http/"/>
     
-      <category term="REST" scheme="http://arccode.net/tags/REST/"/>
+      <category term="Rest" scheme="http://arccode.net/tags/Rest/"/>
     
       <category term="架构" scheme="http://arccode.net/categories/%E6%9E%B6%E6%9E%84/"/>
     
@@ -4968,7 +4969,7 @@
 <p>问：……？</p>
 <p>答：…………。</p>
 <p>问： 你的声音太小，我没听清楚呀。</p>
-<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#x6d;&#x61;&#105;&#108;&#x74;&#111;&#58;&#x61;&#x72;&#99;&#99;&#111;&#100;&#x65;&#x40;&#49;&#54;&#x33;&#x2e;&#99;&#111;&#x6d;">&#x61;&#x72;&#99;&#99;&#111;&#100;&#x65;&#x40;&#49;&#54;&#x33;&#x2e;&#99;&#111;&#x6d;</a>。</p>
+<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#58;&#97;&#x72;&#x63;&#99;&#111;&#100;&#x65;&#64;&#x31;&#54;&#51;&#46;&#99;&#111;&#109;">&#97;&#x72;&#x63;&#99;&#111;&#100;&#x65;&#64;&#x31;&#54;&#51;&#46;&#99;&#111;&#109;</a>。</p>
 <a id="more"></a>
 
 
@@ -4983,7 +4984,7 @@
 <p>问：……？</p>
 <p>答：…………。</p>
 <p>问： 你的声音太小，我没听清楚呀。</p>
-<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#x6d;&#x61;&#105;&#108;&#x74;&#111;&#58;&#x61;&#x72;&#99;&#99;&#111;&#100;&#x65;&#x40;&#49;&#54;&#x33;&#x2e;&#99;&#111;&#x6d;">&#x61;&#x72;&#99;&#99;&#111;&#100;&#x65;&#x40;&#49;&#54;&#x33;&#x2e;&#99;&#111;&#x6d;</a>。</p>
+<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#58;&#97;&#x72;&#x63;&#99;&#111;&#100;&#x65;&#64;&#x31;&#54;&#51;&#46;&#99;&#111;&#109;">&#97;&#x72;&#x63;&#99;&#111;&#100;&#x65;&#64;&#x31;&#54;&#51;&#46;&#99;&#111;&#109;</a>。</p>
 ]]>
     
     </summary>
