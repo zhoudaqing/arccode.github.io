@@ -133,6 +133,97 @@
           
           
             
+              <a class="post-title-link" href="/2014/12/31/Android学习-序/">
+                Android学习-序
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2014-12-31
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/Android/">Android</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/12/31/Android学习-序/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/31/Android学习-序/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body fmt">
+
+      
+      
+
+      
+        
+          <h2 id="背景">背景</h2>
+<p>准备开发一个小型APP, 经过调研发现组合一些开源库即可实现, 尝试组合了一些开源库, 调用API没问题, 但为了满足需求做扩展就有点困难, 为此准备系统学习Android, 参考的资料, 碰到的问题,使用的开源库, 开发的Demo均在该博客中进行记录.</p>
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/12/31/Android学习-序/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/"> #Android </a>
+          
+            <a href="/tags/学习资料/"> #学习资料 </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2014/12/30/Android名词解释/">
                 Android名词解释
               </a>
@@ -961,100 +1052,6 @@
 
       
       
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/09/30/Zookeeper实战一/">
-                Zookeeper实战一
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2014-09-30
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/中间件/">中间件</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/09/30/Zookeeper实战一/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/09/30/Zookeeper实战一/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body fmt">
-
-      
-      
-
-      
-        
-          <h1 id="Zookeeper集群搭建">Zookeeper集群搭建</h1>
-<p>文中提到<code>切换用户</code>: 表明未切换的状态下是root用户</p>
-<h2 id="创建用户组_用户_Zookeeper数据目录">创建用户组 用户 Zookeeper数据目录</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor"># 添加组</span></div><div class="line"><span class="title">groupadd</span> zk</div><div class="line"></div><div class="line"><span class="preprocessor"># 在组zk中添加用户</span></div><div class="line"><span class="title">useradd</span> -g zk zk</div><div class="line"></div><div class="line"><span class="preprocessor"># 修改密码</span></div><div class="line"><span class="title">passwd</span> zk</div><div class="line"></div><div class="line"><span class="preprocessor"># 创建数据目录</span></div><div class="line"><span class="title">mkdir</span> -p /<span class="typedef"><span class="keyword">data</span>/zookeeper</span></div><div class="line"></div><div class="line"><span class="preprocessor"># 修改权限</span></div><div class="line"><span class="title">chown</span> -<span class="type">R</span> zk:zk /<span class="typedef"><span class="keyword">data</span>/zookeeper</span></div><div class="line"></div><div class="line"><span class="preprocessor"># 切换用户</span></div><div class="line"><span class="title">su</span> zk</div><div class="line"></div><div class="line"><span class="preprocessor"># 创建data dir 及 log dir</span></div><div class="line"><span class="title">mkdir</span> /<span class="typedef"><span class="keyword">data</span>/zookeeper/<span class="keyword">data</span></span></div><div class="line"><span class="title">mkdir</span> /<span class="typedef"><span class="keyword">data</span>/zookeeper/log</span></div></pre></td></tr></table></figure>
-
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/30/Zookeeper实战一/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Java/"> #Java </a>
-          
-            <a href="/tags/Zookeeper/"> #Zookeeper </a>
-          
-        </div>
-      
-
-      
-
-      
-      
     </div>
   </div>
 
@@ -1095,21 +1092,21 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-count">53</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">48</span>
+              <span class="site-state-item-count">52</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
