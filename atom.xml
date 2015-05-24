@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://arccode.net/"/>
-  <updated>2015-05-23T14:31:56.294Z</updated>
+  <updated>2015-05-24T02:37:11.501Z</updated>
   <id>http://arccode.net/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://arccode.net/2015/05/23/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6-Dubbo%E9%97%AE%E4%B8%8E%E7%AD%94/"/>
     <id>http://arccode.net/2015/05/23/阿里巴巴分布式服务框架-Dubbo问与答/</id>
     <published>2015-05-23T14:07:16.000Z</published>
-    <updated>2015-05-23T14:31:42.000Z</updated>
+    <updated>2015-05-24T02:36:43.000Z</updated>
     <content type="html"><![CDATA[<h2 id="背景">背景</h2>
 <p>Dubbo是阿里巴巴内部的SOA服务化治理方案的核心框架，每天为2000+ 个服务提供3,000,000,000+ 次访问量支持，并被广泛应用于阿里巴巴集团的各成员站点。Dubbo自2011年开源后，已被许多非阿里系公司使用。</p>
 <p>项目主页：<a href="http://dubbo.io/Home-zh.htm" target="_blank" rel="external">http://dubbo.io/Home-zh.htm</a></p>
@@ -31,6 +31,8 @@
 <p>可参见：<a href="http://alibaba.github.io/dubbo-doc-static/Home-zh.htm" target="_blank" rel="external">http://alibaba.github.io/dubbo-doc-static/Home-zh.htm</a></p>
 <h2 id="Dubbo适用于哪些场景？">Dubbo适用于哪些场景？</h2>
 <p>当网站变大后，不可避免的需要拆分应用进行服务化，以提高开发效率，调优性能，节省关键竞争资源等。</p>
+<a id="more"></a>
+
 <p>当服务越来越多时，服务的URL地址信息就会爆炸式增长，配置管理变得非常困难，F5硬件负载均衡器的单点压力也越来越大。</p>
 <p>当进一步发展，服务间依赖关系变得错踪复杂，甚至分不清哪个应用要在哪个应用之前启动，架构师都不能完整的描述应用的架构关系。</p>
 <p>接着，服务的调用量越来越大，服务的容量问题就暴露出来，这个服务需要多少机器支撑？什么时候该加机器？等等……</p>
@@ -98,7 +100,18 @@
 ]]></content>
     <summary type="html">
     <![CDATA[<h2 id="背景">背景</h2>
-<p>Dubbo是阿里巴巴内部的SOA服务化治理方案的核心框架，每天为2000+ 个服务提供3,000,000,000+ 次访问量支持，并被广泛应用于阿里巴巴集团的各成员站点。Dubbo自2011年开源后，已被许多非阿里系公司使用。</p>]]>
+<p>Dubbo是阿里巴巴内部的SOA服务化治理方案的核心框架，每天为2000+ 个服务提供3,000,000,000+ 次访问量支持，并被广泛应用于阿里巴巴集团的各成员站点。Dubbo自2011年开源后，已被许多非阿里系公司使用。</p>
+<p>项目主页：<a href="http://dubbo.io/Home-zh.htm" target="_blank" rel="external">http://dubbo.io/Home-zh.htm</a></p>
+<h2 id="先来个自我介绍吧！">先来个自我介绍吧！</h2>
+<p>我叫梁飞，花名虚极，之前负责Dubbo服务框架，现已调到天猫。</p>
+<p>我的博客：<a href="http://javatar.iteye.com" target="_blank" rel="external">http://javatar.iteye.com</a></p>
+<h2 id="Dubbo是什么？能做什么？">Dubbo是什么？能做什么？</h2>
+<p>Dubbo是一个分布式服务框架，以及SOA治理方案。其功能主要包括：高性能NIO通讯及多协议集成，服务动态寻址与路由，软负载均衡与容错，依赖分析与降级等。</p>
+<p>可参见：<a href="http://alibaba.github.io/dubbo-doc-static/Home-zh.htm" target="_blank" rel="external">http://alibaba.github.io/dubbo-doc-static/Home-zh.htm</a></p>
+<h2 id="Dubbo适用于哪些场景？">Dubbo适用于哪些场景？</h2>
+<p>当网站变大后，不可避免的需要拆分应用进行服务化，以提高开发效率，调优性能，节省关键竞争资源等。</p>
+]]>
+    
     </summary>
     
       <category term="多线程" scheme="http://arccode.net/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
