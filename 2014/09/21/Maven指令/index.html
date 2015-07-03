@@ -174,16 +174,27 @@
       
 
       
-        <ul>
+        <h2 id="指令">指令</h2>
+<ul>
 <li>清空： <code>mvn clean</code></li>
 <li>编译： <code>mvn compile</code></li>
 <li>打包： <code>mvn package</code></li>
 <li>安装jar包到maven仓库： <code>mvn install</code></li>
 <li>跳过测试： <code>mvn clean -Dmaven.test.skip=true</code></li>
 <li>导出依赖包： <code>mvn dependency:copy-dependencies -DoutputDirectory=lib</code></li>
+<li>依赖检查: <code>mvn dependency:tree</code></li>
 </ul>
 <a id="more"></a>
 
+<h2 id="POM配置">POM配置</h2>
+<h3 id="dependency中scope解释">dependency中scope解释</h3>
+<ul>
+<li>compile,缺省值,适用于所有阶段,会随着项目一起发布. </li>
+<li>provided,类似compile,期望JDK、容器或使用者会提供这个依赖.如servlet.jar. </li>
+<li>runtime,只在运行时使用,如JDBC驱动,适用运行和测试阶段. </li>
+<li>test,只在测试时使用,用于编译和运行测试代码.不会随项目发布. </li>
+<li>system,类似provided,需要显式提供包含依赖的jar,Maven不会在Repository中查找它. </li>
+</ul>
 
       
     </div>
@@ -268,21 +279,21 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">53</span>
+              <span class="site-state-item-count">57</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-count">54</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -335,7 +346,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#指令"><span class="nav-number">1.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POM配置"><span class="nav-number">2.</span> <span class="nav-text">POM配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dependency中scope解释"><span class="nav-number">2.1.</span> <span class="nav-text">dependency中scope解释</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

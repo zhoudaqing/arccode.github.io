@@ -133,6 +133,384 @@
           
           
             
+              <a class="post-title-link" href="/2015/07/03/SOA服务总线设计/">
+                SOA服务总线设计
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-07-03
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/架构/">架构</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/03/SOA服务总线设计/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/03/SOA服务总线设计/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body fmt">
+
+      
+      
+
+      
+        
+          <h2 id="背景">背景</h2>
+<p>基于总线的设计,借鉴了计算机内部硬件组成的设计思想（通过总线传输数据）.在分布式系统中,不同子系统之间需要实现相互通信和远程调用,比较直接的方式就是“点对点”的通信方式,但是这样会暴露出一些很明显的问题：系统之间紧密耦合、配置和引用混乱、服务调用关系错综复杂、难以统一管理、异构系统之间存在不兼容等.而基于总线的设计,正是为了解决上述问题.总线则作为中枢系统,提供统一的服务入口,并实现了服务统一管理、服务路由、协议转换、数据格式转换等功能.这样能够将不同系统有效地连接起来,并大大降低了连接数（每个子系统只需要和总线建立连接）和系统间连接拓扑的复杂度.<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/03/SOA服务总线设计/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SOA/"> #SOA </a>
+          
+            <a href="/tags/分布式/"> #分布式 </a>
+          
+            <a href="/tags/Java/"> #Java </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/07/03/CAP原理和最终一致性/">
+                CAP原理和最终一致性
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-07-03
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/架构/">架构</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/03/CAP原理和最终一致性/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/03/CAP原理和最终一致性/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body fmt">
+
+      
+      
+
+      
+        
+          <h2 id="背景">背景</h2>
+<p>在足球比赛里,一个球员在一场比赛中进三个球,称之为帽子戏法(Hat-trick).在分布式数据系统中,也有一个帽子原理(CAP Theorem),不过此帽子非彼帽子.CAP原理中,有三个要素：</p>
+<ul>
+<li>一致性(Consistency)</li>
+<li>可用性(Availability)</li>
+<li>分区容忍性(Partition tolerance)</li>
+</ul>
+<p>CAP原理指的是,这三个要素最多只能同时实现两点,不可能三者兼顾.因此在进行分布式架构设计时,必须做出取舍.而对于分布式数据系统,分区容忍性是基本要求,否则就失去了价值.因此设计分布式数据系统,就是在一致性和可用性之间取一个平衡.对于大多数web应用,其实并不需要强一致性,因此牺牲一致性而换取高可用性,是目前多数分布式数据库产品的方向.</p>
+<p>当然,牺牲一致性,并不是完全不管数据的一致性,否则数据是混乱的,那么系统可用性再高分布式再好也没有了价值.牺牲一致性,只是不再要求关系型数据库中的强一致性,而是只要系统能达到最终一致性即可,考虑到客户体验,这个最终一致的时间窗口,要尽可能的对用户透明,也就是需要保障“用户感知到的一致性”.通常是通过数据的多份异步复制来实现系统的高可用和数据的最终一致性的,“用户感知到的一致性”的时间窗口则取决于数据复制到一致状态的时间.</p>
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/03/CAP原理和最终一致性/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SOA/"> #SOA </a>
+          
+            <a href="/tags/分布式/"> #分布式 </a>
+          
+            <a href="/tags/Java/"> #Java </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/07/03/SOA初探/">
+                SOA初探
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-07-03
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/架构/">架构</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/03/SOA初探/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/03/SOA初探/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body fmt">
+
+      
+      
+
+      
+        
+          <h2 id="背景">背景</h2>
+<p>曾今SOA的概念犹如今日“云计算、大数据”一样,被炒得火热,不少企业便纷纷响应,并宣称会拥抱和实施SOA.而事实上,业界出现了两种极端：一种是由于各类文章和书籍关于SOA的描述往往太过抽象,再加上各大厂商的呼吁,使得SOA往往显得“高大上”,令不少企业和架构师们望而却步.第二种恰好相反,有部分人却认为SOA无非是“新瓶装旧酒”.</p>
+<p>个人理解,SOA在宏观上确实太复杂,因为它涉及到的不仅仅是技术和架构本身.而从技术的视角来看,并非难以落地.</p>
+<p>SOA全称“面向服务架构”,它提供的是一种架构风格和理念,而并非是一种技术或者产品.并不是说项目中用了WebService、WCF、Hessian、RMI之类的就是SOA了.</p>
+<p>通俗点来讲,SOA提倡将不同应用程序的业务功能封装成“服务”并宿主起来,通常以接口和契约的形式暴露并提供给外界应用访问（通过交换消息）,达到不同系统可重用的目的.</p>
+<p>流行的WebService等可以看作是实现SOA基础设施的技术方法.当然,实践SOA不仅需要解决服务调用的问题,还包括服务编排、服务治理、服务路由、服务监控等一系列的问题.在大型分布式系统中,SOA被广泛实践,但是在不同的应用场景中,设计方法也大不相同.</p>
+<p>SOA是一个组件模型,它能将不同的服务通过定义良好的接口和契约联系起来.服务是SOA的基石,在开始服务设计和SOA实践之前,有必要先了解服务的概念以及服务的常见特性.</p>
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/03/SOA初探/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SOA/"> #SOA </a>
+          
+            <a href="/tags/分布式/"> #分布式 </a>
+          
+            <a href="/tags/Java/"> #Java </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/06/02/理解RMI中的Stub/">
+                理解RMI中的Stub
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-06-02
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/设计模式/">设计模式</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/06/02/理解RMI中的Stub/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/02/理解RMI中的Stub/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body fmt">
+
+      
+      
+
+      
+        
+          <h2 id="背景">背景</h2>
+<p>以前编程时也碰到过<code>Stub</code>这个名词, 但没关注, 今天研究<code>Paypal Rest API</code>又碰到到这个词, 决定探查个究竟.</p>
+<h2 id="通俗解释">通俗解释</h2>
+<p>Stub 跟 Proxy 是一对,俗称<code>代理-桩</code>,一般用在远程方法调用.</p>
+<p>Proxy 相当于是拿在手里的遥控器,而 Stub 相当于长在电视机里的遥控接收器,它们有着一一对应的接口方法.</p>
+<p>Proxy 的接口供客户端程序调用,然后它内部会把信息包装好,以某种方式(比如 RMI)传递给 Stub,而后者通过对应的接口作用于服务端系统,从而完成了<code>远程调用</code>.</p>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/名词解释/"> #名词解释 </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/05/23/阿里巴巴分布式服务框架-Dubbo问与答/">
                 阿里巴巴分布式服务框架-Dubbo问与答
               </a>
@@ -725,399 +1103,6 @@
 
       
       
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/02/28/图集/">
-                图集
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-02-28
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/图集/">图集</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/02/28/图集/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/28/图集/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body fmt">
-
-      
-      
-
-      
-        
-          <p><strong>今天看了些图片, 觉得很唯美, 特制作该图集, 用于收集唯美之图</strong></p>
-<h6 id="妈妈(这个世界上最美的女人)">妈妈(这个世界上最美的女人)</h6>
-<p><img src="/images/pics/pic_1.jpg" alt=""></p>
-<h6 id="人生最可悲的事情，莫过于胸怀大志，却又虚度光阴。">人生最可悲的事情，莫过于胸怀大志，却又虚度光阴。</h6>
-<p><img src="/images/pics/pic_2.jpg" alt=""></p>
-<h6 id="用叶子来诠释生命的循环，从诞生到死亡，直至腐烂，人生如是。">用叶子来诠释生命的循环，从诞生到死亡，直至腐烂，人生如是。</h6>
-<p><img src="/images/pics/pic_3.jpg" alt=""></p>
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/02/28/图集/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/图集/"> #图集 </a>
-          
-            <a href="/tags/随笔/"> #随笔 </a>
-          
-        </div>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/02/28/Git-简明指南/">
-                Git-简明指南
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-02-28
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/版本控制/">版本控制</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/02/28/Git-简明指南/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/28/Git-简明指南/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body fmt">
-
-      
-      
-
-      
-        
-          <p>助你入门 git 的简明指南，木有高深内容 ;)</p>
-<h2 id="安装">安装</h2>
-<p><a href="http://code.google.com/p/git-osx-installer/downloads/list?can=3" target="_blank" rel="external">下载 git OSX 版</a></p>
-<p><a href="http://msysgit.github.io/" target="_blank" rel="external">下载 git Windows 版</a></p>
-<p><a href="http://book.git-scm.com/2_installing_git.html" target="_blank" rel="external">下载 git Linux 版</a></p>
-<h2 id="工作流程图">工作流程图</h2>
-<h3 id="概要">概要</h3>
-<p><img src="/images/git_operate_pic_1.png" alt=""></p>
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/02/28/Git-简明指南/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Git/"> #Git </a>
-          
-        </div>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/02/27/Nginx配置小记/">
-                Nginx配置小记
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-02-27
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/服务器/">服务器</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/02/27/Nginx配置小记/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/27/Nginx配置小记/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body fmt">
-
-      
-      
-
-      
-        
-          <h2 id="背景">背景</h2>
-<p>之前一直使用Apache做静态资源私服及反向代理, 配置稍显复杂, 今天使用nginx来替换Apache, 在此小记一下探索的过程及碰到的问题.</p>
-<h2 id="安装">安装</h2>
-<p>本人使用Mac系统, 偷懒的使用了homebrew, 一键完成了安装. 对于其它<code>OS</code>使用解压<code>zip</code>的方式.</p>
-<p>下面从安装—&gt;配置(静态资源私服 php 反向代理)—&gt;问题展开吧</p>
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/02/27/Nginx配置小记/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Mac/"> #Mac </a>
-          
-            <a href="/tags/Nginx/"> #Nginx </a>
-          
-            <a href="/tags/负载均衡/"> #负载均衡 </a>
-          
-        </div>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/02/26/RESTful最佳实践/">
-                RESTful最佳实践
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-02-26
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/架构/">架构</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/02/26/RESTful最佳实践/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/26/RESTful最佳实践/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body fmt">
-
-      
-      
-
-      
-        
-          <h1 id="背景">背景</h1>
-<p>此文为实践总结，是自己在实践过程中积累的经验和”哲学”。部分内容参考相关资料，参考内容请看尾页。建议对RESTful有一定了解者阅读!</p>
-<h1 id="哲学">哲学</h1>
-<ul>
-<li>不要为了RESTful而RESTful</li>
-<li>在能表达清楚的情况下，简单就是美</li>
-</ul>
-<h1 id="接口路径设计">接口路径设计</h1>
-<h2 id="接口设计原则">接口设计原则</h2>
-<h3 id="URI指向的是唯一的资源对象">URI指向的是唯一的资源对象</h3>
-<p><strong>示例:</strong> 指向ID为<code>yanbo.ai</code>的<code>Account</code>对象</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="constant">GET</span> <span class="symbol">http:</span>/<span class="regexp">/~/</span><span class="variable">$version</span>/accounts/yanbo.ai</div></pre></td></tr></table></figure>
-
-<h3 id="URI可以隐式指向唯一的集合列表">URI可以隐式指向唯一的集合列表</h3>
-<p><strong>示例:</strong> 隐式地指向trades list 集合</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="constant">GET</span> <span class="symbol">http:</span>/<span class="regexp">/~/</span><span class="variable">$version</span>/trades/(list)</div><div class="line">等同于</div><div class="line"><span class="constant">GET</span> <span class="symbol">http:</span>/<span class="regexp">/~/</span><span class="variable">$version</span>/trades</div></pre></td></tr></table></figure>
-
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/02/26/RESTful最佳实践/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Http/"> #Http </a>
-          
-            <a href="/tags/Rest/"> #Rest </a>
-          
-        </div>
-      
-
-      
-
-      
-      
     </div>
   </div>
 
@@ -1158,21 +1143,21 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">53</span>
+              <span class="site-state-item-count">57</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-count">54</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
