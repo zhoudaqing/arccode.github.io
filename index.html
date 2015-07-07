@@ -133,6 +133,104 @@
           
           
             
+              <a class="post-title-link" href="/2015/07/07/Linux下MySQL-5-5的修改字符集编码为UTF8/">
+                Linux下MySQL_5.5的修改字符集编码为UTF8
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-07-07
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/DB/">DB</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/07/Linux下MySQL-5-5的修改字符集编码为UTF8/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/07/Linux下MySQL-5-5的修改字符集编码为UTF8/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body fmt">
+
+      
+      
+
+      
+        
+          <h2 id="背景">背景</h2>
+<p>mysql安装后, 插入的数据位乱码, 经检查为默认字符集是<code>latin1</code>, 而程序使用<code>UTF-8</code>.</p>
+<h2 id="检查字符集">检查字符集</h2>
+<p>1.使用ssh终端连接mysql</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">mysql</span> -h <span class="number">127.0.0.1</span> -u root -p</div></pre></td></tr></table></figure>
+
+<p>2.查看字符集</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'character%'</span>;</span></div></pre></td></tr></table></figure>
+
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/07/Linux下MySQL-5-5的修改字符集编码为UTF8/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySQL/"> #MySQL </a>
+          
+            <a href="/tags/乱码/"> #乱码 </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/07/05/ngrok暴露本地Web应用映射到外网/">
                 ngrok暴露本地Web应用映射到外网
               </a>
@@ -1007,98 +1105,6 @@
 
       
       
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/03/06/冒泡型事件和捕获型事件/">
-                冒泡型事件和捕获型事件
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-03-06
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/Javascript/">Javascript</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/03/06/冒泡型事件和捕获型事件/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/06/冒泡型事件和捕获型事件/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body fmt">
-
-      
-      
-
-      
-        
-          <p>冒泡型事件的基本思想是、事件按照从最特定的事件目标到最不特定的事件目标(document对象)的顺序触发。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span>   </div><div class="line">    <span class="tag">&lt;<span class="title">head</span>&gt;</span>   </div><div class="line">        <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span>   </div><div class="line">    <span class="tag">&lt;/<span class="title">head</span>&gt;</span>   </div><div class="line">    <span class="tag">&lt;<span class="title">body</span> <span class="attribute">onclick</span>=<span class="value">"theClick()"</span>&gt;</span>   </div><div class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">onclick</span>=<span class="value">"theClick()"</span>&gt;</span>点击<span class="tag">&lt;/<span class="title">div</span>&gt;</span>   </div><div class="line">    <span class="tag">&lt;/<span class="title">body</span>&gt;</span>   </div><div class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></div></pre></td></tr></table></figure>
-
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/03/06/冒泡型事件和捕获型事件/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Javascript/"> #Javascript </a>
-          
-            <a href="/tags/Event/"> #Event </a>
-          
-        </div>
-      
-
-      
-
-      
-      
     </div>
   </div>
 
@@ -1139,21 +1145,21 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">58</span>
+              <span class="site-state-item-count">59</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">24</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">56</span>
+              <span class="site-state-item-count">58</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

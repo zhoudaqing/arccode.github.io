@@ -133,6 +133,98 @@
           
           
             
+              <a class="post-title-link" href="/2014/11/14/Zookeeper搭建集群/">
+                Zookeeper搭建集群
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2014-11-14
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/中间件/">中间件</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/11/14/Zookeeper搭建集群/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/14/Zookeeper搭建集群/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body fmt">
+
+      
+      
+
+      
+        
+          <h2 id="简介">简介</h2>
+<p>ZooKeeper是一个为分布式应用所设计的分布的、开源的协调服务，它主要是用来解决分布式应用中经常遇到的一些数据管理问题，简化分布式应用协调及其管理的难度，提供高性能的分布式服务。ZooKeeper本身可以以Standalone模式安装运行，不过它的长处在于通过分布式ZooKeeper集群（一个Leader，多个Follower），基于一定的策略来保证ZooKeeper集群的稳定性和可用性，从而实现分布式应用的可靠性。</p>
+<p>ZooKeeper是作为分布式协调服务，是不需要依赖于Hadoop的环境，也可以为其他的分布式环境提供服务。</p>
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/11/14/Zookeeper搭建集群/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/"> #Java </a>
+          
+            <a href="/tags/Zookeeper/"> #Zookeeper </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2014/11/07/mongoose入门/">
                 mongoose入门
               </a>
@@ -992,183 +1084,6 @@
 
       
       
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/09/21/Linux指令/">
-                Linux指令
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2014-09-21
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/Linux/">Linux</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/09/21/Linux指令/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/09/21/Linux指令/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body fmt">
-
-      
-      
-
-      
-        
-          <h2 id="常用">常用</h2>
-<table>
-<thead>
-<tr>
-<th>Description</th>
-<th>instruct</th>
-<th>Note</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>修改日期</td>
-<td>date -s “2014-01-01 00:00:00”</td>
-<td></td>
-</tr>
-<tr>
-<td>同步指定服务器日期</td>
-<td>ntpdate 3.cn.pool.ntp.org</td>
-<td></td>
-</tr>
-<tr>
-<td>查看文件编码</td>
-<td>set fileencoding</td>
-<td></td>
-</tr>
-<tr>
-<td>查看端口占用情况</td>
-<td>netstat -an grep 3306</td>
-<td>netstat命令</td>
-</tr>
-<tr>
-<td>查看文件使用情况</td>
-<td>lsof -i:80</td>
-<td>-i参数表示网络链接，:80指明端口号，该命令会同时列出PID，方便kill</td>
-</tr>
-<tr>
-<td>查看端口使用</td>
-<td>lsof -w -n -i tcp:8080</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="Vim">Vim</h2>
-<table>
-<thead>
-<tr>
-<th>Description</th>
-<th>instruct</th>
-<th>Note</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>复制一行</td>
-<td>yy</td>
-</tr>
-<tr>
-<td>粘贴</td>
-<td>p</td>
-</tr>
-<tr>
-<td>删除一行</td>
-<td>dd</td>
-</tr>
-<tr>
-<td>文章底部</td>
-<td>shift + g</td>
-</tr>
-<tr>
-<td>文章首部</td>
-<td>gg</td>
-</tr>
-<tr>
-<td>行首</td>
-<td>0</td>
-</tr>
-<tr>
-<td>行末</td>
-<td>shift + $</td>
-</tr>
-<tr>
-<td>下一页</td>
-<td>control + f</td>
-</tr>
-<tr>
-<td>上一页</td>
-<td>control + b</td>
-</tr>
-</tbody>
-</table>
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/21/Linux指令/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Linux/"> #Linux </a>
-          
-        </div>
-      
-
-      
-
-      
-      
     </div>
   </div>
 
@@ -1209,21 +1124,21 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">58</span>
+              <span class="site-state-item-count">59</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">24</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">56</span>
+              <span class="site-state-item-count">58</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
