@@ -190,7 +190,7 @@
 
 <p>character_set_database和character_set_server的默认字符集还是latin1.</p>
 <h2 id="解决方案">解决方案</h2>
-<p>修改mysql的<code>my.cnf</code>文件中的字符集键值.</p>
+<p>修改mysql的<code>my.cnf</code>文件中的字符集键值, <code>my.cnf</code>一般位于<code>/etc</code>目录下, 没找到的话可以使用<code>find / -name my.cnf</code>查找.</p>
 <p>1.在[client]字段里加入default-character-set=utf8</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="title">[client]</span></div><div class="line"><span class="setting">port = <span class="value"><span class="number">3306</span></span></span></div><div class="line"><span class="setting">socket = <span class="value">/var/lib/mysql/mysql.sock</span></span></div><div class="line"><span class="setting">default-character-set=<span class="value">utf8</span></span></div></pre></td></tr></table></figure>
 
