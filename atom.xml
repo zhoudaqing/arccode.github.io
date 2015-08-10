@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://arccode.net/"/>
-  <updated>2015-08-10T15:12:54.522Z</updated>
+  <updated>2015-08-10T15:15:08.885Z</updated>
   <id>http://arccode.net/</id>
   
   <author>
@@ -88,7 +88,7 @@
     <link href="http://arccode.net/2015/07/05/ngrok%E6%9A%B4%E9%9C%B2%E6%9C%AC%E5%9C%B0Web%E5%BA%94%E7%94%A8%E6%98%A0%E5%B0%84%E5%88%B0%E5%A4%96%E7%BD%91/"/>
     <id>http://arccode.net/2015/07/05/ngrok暴露本地Web应用映射到外网/</id>
     <published>2015-07-05T04:55:41.000Z</published>
-    <updated>2015-08-10T15:12:43.000Z</updated>
+    <updated>2015-08-10T15:15:00.000Z</updated>
     <content type="html"><![CDATA[<h2 id="背景">背景</h2>
 <p>开发第三方支付, 需要接收第三方回调(即在外网上暴露api), 发现<a href="https://ngrok.com/" target="_blank" rel="external">ngrok</a>可以完成该业务, 下面具体介绍其使用.</p>
 <a id="more"></a>
@@ -122,7 +122,7 @@
 <h3 id="国内有位工程师搭了个服务,_开箱即用">国内有位工程师搭了个服务, 开箱即用</h3>
 <p> 详见<a href="http://www.tunnel.mobi/" target="_blank" rel="external">http://www.tunnel.mobi/</a></p>
 <p> 使用步骤:</p>
-<ol>
+<ul>
 <li><p><a href="https://ngrok.com/download" target="_blank" rel="external">下载官方1.x客户端，请注意，官方目前并不准备开放2.0客户端的第三方服务器支持</a></p>
 </li>
 <li><p>1.7版客户端分流：<a href="https://ngrokd.b0.upaiyun.com/clients/ngrok_for_linux.zip" target="_blank" rel="external">Linux版本</a>，<a href="https://ngrokd.b0.upaiyun.com/clients/ngrok_for_macosx.zip" target="_blank" rel="external">Mac OSX版本</a>，<a href="https://ngrokd.b0.upaiyun.com/clients/ngrok_for_win.zip" target="_blank" rel="external">32Bit Win版本</a>，<a href="https://ngrokd.b0.upaiyun.com/clients/ngrok_for_win_64bit.zip" target="_blank" rel="external">64Bit Win版本</a></p>
@@ -130,13 +130,13 @@
 <li><p><a href="https://ngrokd.b0.upaiyun.com/ngrok.cfg" target="_blank" rel="external">下载配置文件ngrok.cfg</a></p>
 </li>
 <li><p>运行客户端时，请添加-config以载入配置文件。</p>
-<pre><code> 例如 ngrok -config ngrok.cfg -subdomain example 8080
- 意为将本地的8080端口链接到example.tunnel.mobi上
-</code></pre></li>
-</ol>
-<ol>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">例如 ngrok -config ngrok.cfg -subdomain example 8080</div><div class="line"></div><div class="line">意为将本地的8080端口链接到example.tunnel.mobi上</div></pre></td></tr></table></figure>
+
+<ul>
 <li>更多使用技巧，可见<a href="https://ngrok.com/docs/1" target="_blank" rel="external">文档</a>。</li>
-</ol>
+</ul>
 ]]></content>
     <summary type="html">
     <![CDATA[<h2 id="背景">背景</h2>
@@ -5467,7 +5467,7 @@
 <p>问：……？</p>
 <p>答：…………。</p>
 <p>问： 你的声音太小，我没听清楚呀。</p>
-<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#109;&#x61;&#105;&#108;&#116;&#111;&#x3a;&#97;&#x72;&#99;&#x63;&#x6f;&#x64;&#x65;&#x40;&#49;&#54;&#x33;&#x2e;&#x63;&#111;&#109;">&#97;&#x72;&#99;&#x63;&#x6f;&#x64;&#x65;&#x40;&#49;&#54;&#x33;&#x2e;&#x63;&#111;&#109;</a>。</p>
+<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#109;&#97;&#x69;&#x6c;&#x74;&#111;&#58;&#x61;&#114;&#99;&#x63;&#x6f;&#100;&#101;&#x40;&#x31;&#54;&#51;&#x2e;&#x63;&#111;&#109;">&#x61;&#114;&#99;&#x63;&#x6f;&#100;&#101;&#x40;&#x31;&#54;&#51;&#x2e;&#x63;&#111;&#109;</a>。</p>
 <a id="more"></a>
 
 
@@ -5482,7 +5482,7 @@
 <p>问：……？</p>
 <p>答：…………。</p>
 <p>问： 你的声音太小，我没听清楚呀。</p>
-<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#109;&#x61;&#105;&#108;&#116;&#111;&#x3a;&#97;&#x72;&#99;&#x63;&#x6f;&#x64;&#x65;&#x40;&#49;&#54;&#x33;&#x2e;&#x63;&#111;&#109;">&#97;&#x72;&#99;&#x63;&#x6f;&#x64;&#x65;&#x40;&#49;&#54;&#x33;&#x2e;&#x63;&#111;&#109;</a>。</p>
+<p>答： 噢，我给你留言并发送邮件吧，我的Email：<a href="&#109;&#97;&#x69;&#x6c;&#x74;&#111;&#58;&#x61;&#114;&#99;&#x63;&#x6f;&#100;&#101;&#x40;&#x31;&#54;&#51;&#x2e;&#x63;&#111;&#109;">&#x61;&#114;&#99;&#x63;&#x6f;&#100;&#101;&#x40;&#x31;&#54;&#51;&#x2e;&#x63;&#111;&#109;</a>。</p>
 ]]>
     
     </summary>
